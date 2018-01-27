@@ -4,7 +4,7 @@
 package tests;
 
 /**
- * @author Hélène
+ * @author HÃ©lÃ¨ne
  *
  */
 public class gui {
@@ -14,7 +14,7 @@ public class gui {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+//blabla
 	}
 
 }
