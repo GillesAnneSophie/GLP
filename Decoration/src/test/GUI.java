@@ -5,7 +5,7 @@ package test;
 
 /**
  * @author H�l�ne
- * @author lauryanncoralie
+ * @author Laury Ann Coralie
  *
  */
 public class GUI {
