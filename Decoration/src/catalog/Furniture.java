@@ -1,75 +1,78 @@
-package test;
+package catalog;
 
 import java.util.ArrayList;
 
+import place.Dimension;
+
 /**
  * @author lauryanncoralie
- *
+ * @author GILLES Anne-Sophie
  */
-public abstract class Furniture {
+public abstract class Furniture 
+{
 	private String name;
 	private Dimension dimension;
 	private Style style;
 	private String color ;
 	private boolean stackable;
-	private ArrayList <Category> categories;
-	private int position [][];
+	private ArrayList<Category> categories;
+	private int[][] position;
 	
+	/*TODO CONSTRUCTEUR*/
 	
-	public String getName() {
+	/**
+	 * @return the name
+	 */
+	public String getName() 
+	{
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Dimension getDimension() {
+	
+	/**
+	 * @return the dimension
+	 */
+	public Dimension getDimension() 
+	{
 		return dimension;
 	}
-
-	public void setDimension(Dimension dimension) {
-		this.dimension = dimension;
-	}
-
-	public Style getStyle() {
+	
+	/**
+	 * @return the style
+	 */
+	public Style getStyle() 
+	{
 		return style;
 	}
-
-	public void setStyle(Style style) {
-		this.style = style;
-	}
-
-	public String getColor() {
+	
+	/**
+	 * @return the color
+	 */
+	public String getColor() 
+	{
 		return color;
 	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
-	public boolean isStackable() {
+	
+	/**
+	 * @return the stackable
+	 */
+	public boolean isStackable() 
+	{
 		return stackable;
 	}
-
-	public void setStackable(boolean stackable) {
-		this.stackable = stackable;
-	}
-
-	public ArrayList <Category> getCategories() {
+	
+	/**
+	 * @return the categories
+	 */
+	public ArrayList<Category> getCategories() 
+	{
 		return categories;
 	}
-
-	public void setCategories(ArrayList <Category> categories) {
-		this.categories = categories;
-	}
-
-	public int[][] getPosition() {
+	
+	/**
+	 * @return the position
+	 */
+	public int[][] getPosition() 
+	{
 		return position;
 	}
-
-	public void setPosition(int position[][]) {
-		this.position = position;
-	}
-	
 }

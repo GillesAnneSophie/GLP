@@ -1,13 +1,13 @@
 /**
  * 
  */
-package catalog;
+package styles;
 
 /**
  * @author GILLES Anne-Sophie
  *
  */
-public abstract class Style 
+public class Basic 
 {
 
 }

@@ -4,17 +4,19 @@
 package test;
 
 /**
- * @author H�l�ne
+ * @author GILLES Anne-Sophie
  * @author Laury Ann Coralie
  *
  */
-public class GUI {
+public class GUI 
+{
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) 
+	{
+		//TODO
 		
 	}
 

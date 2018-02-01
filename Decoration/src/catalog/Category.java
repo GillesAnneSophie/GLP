@@ -1,5 +1,13 @@
-package test;
+/**
+ * 
+ */
+package catalog;
 
-public class Category {
+/**
+ * @author GILLES Anne-Sophie
+ *
+ */
+public abstract class Category 
+{
 
 }

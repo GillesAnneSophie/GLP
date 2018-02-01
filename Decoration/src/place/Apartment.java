@@ -1,5 +1,6 @@
-package test;
+package place;
 
-public class Apartment {
+public class Apartment 
+{
 
 }

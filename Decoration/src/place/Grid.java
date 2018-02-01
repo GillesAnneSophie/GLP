@@ -1,28 +1,54 @@
-package test;
+package place;
 
 /**
  * @author lauryanncoralie
  *
  */
-public class Grid {
-
+public class Grid 
+{
 	private Apartment apartment;
 	private Dimension dimension;
 	
-	public Grid () {
-		
+	/**
+	 * @param apartment
+	 * @param dimension
+	 */
+	public Grid(Apartment apartment, Dimension dimension) 
+	{
+		this.apartment = apartment;
+		this.dimension = dimension;
 	}
+
 	
-	public Apartment getApartment() {
+	/**
+	 * @return the apartment
+	 */
+	public Apartment getApartment() 
+	{
 		return apartment;
 	}
-	public void setApartment(Apartment apartment) {
-		this.apartment = apartment;
-	}
-	public Dimension getDimension() {
+
+	/**
+	 * @return the dimension
+	 */
+	public Dimension getDimension() 
+	{
 		return dimension;
 	}
-	public void setDimension(Dimension dimension) {
+
+	/**
+	 * @param apartment the apartment to set
+	 */
+	public void setApartment(Apartment apartment) 
+	{
+		this.apartment = apartment;
+	}
+
+	/**
+	 * @param dimension the dimension to set
+	 */
+	public void setDimension(Dimension dimension) 
+	{
 		this.dimension = dimension;
 	}
 }
