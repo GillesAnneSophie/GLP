@@ -18,7 +18,27 @@ public abstract class Furniture
 	private ArrayList<Category> categories;
 	private int[][] position;
 	
-	/*TODO CONSTRUCTEUR*/
+	/**
+	 * @param name
+	 * @param dimension
+	 * @param style
+	 * @param color
+	 * @param stackable
+	 * @param categories
+	 * @param position
+	 */
+	public Furniture(String name, Dimension dimension, Style style, String color, boolean stackable,
+			ArrayList<Category> categories, int[][] position) {
+		super();
+		this.name = name;
+		this.dimension = dimension;
+		this.style = style;
+		this.color = color;
+		this.stackable = stackable;
+		this.categories = categories;
+		this.position = position;
+	}
+
 	
 	/**
 	 * @return the name

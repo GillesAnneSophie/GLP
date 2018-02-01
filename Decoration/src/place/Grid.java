@@ -18,6 +18,14 @@ public class Grid
 		this.apartment = apartment;
 		this.dimension = dimension;
 	}
+	
+	/**
+	 * @param dimension
+	 */
+	public Grid(Dimension dimension) 
+	{
+		this.dimension = dimension;
+	}
 
 	
 	/**

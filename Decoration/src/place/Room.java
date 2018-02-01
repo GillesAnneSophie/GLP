@@ -13,7 +13,7 @@ public class Room
 	private String name;
 	private HashMap<Integer, Furniture> furnituresOfTheRoom;
 	private Dimension dimension;
-	private int position;
+	private int[][] position;
 	
 	/**
 	 * @param name
@@ -21,7 +21,7 @@ public class Room
 	 * @param dimension
 	 * @param position
 	 */
-	public Room(String name, HashMap<Integer, Furniture> furnituresOfTheRoom, Dimension dimension, int position) 
+	public Room(String name, HashMap<Integer, Furniture> furnituresOfTheRoom, Dimension dimension, int[][] position) 
 	{
 		this.name = name;
 		this.furnituresOfTheRoom = furnituresOfTheRoom;
@@ -65,7 +65,7 @@ public class Room
 	/**
 	 * @return the position
 	 */
-	public int getPosition() 
+	public int[][] getPosition() 
 	{
 		return position;
 	}
@@ -97,7 +97,7 @@ public class Room
 	/**
 	 * @param position the position to set
 	 */
-	public void setPosition(int position) 
+	public void setPosition(int[][] position) 
 	{
 		this.position = position;
 	}
