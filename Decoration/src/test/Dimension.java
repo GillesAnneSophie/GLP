@@ -1,5 +1,9 @@
 package test;
 
+/**
+ * @author lauryanncoralie
+ *
+ */
 public class Dimension {
 	private int lenght;
 	private int width;
@@ -7,6 +11,11 @@ public class Dimension {
 	public Dimension (int lenght, int width){
 		this.lenght = lenght;
 		this.width = width;
+	}
+	
+	public Dimension () {
+		this.lenght = 0;
+		this.width = 0;
 	}
 	public int getLenght() {
 		return lenght;
