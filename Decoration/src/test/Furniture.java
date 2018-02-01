@@ -15,7 +15,7 @@ public abstract class Furniture {
 	private ArrayList <Category> categories;
 	private int position [][];
 	
-
+	
 	public String getName() {
 		return name;
 	}
