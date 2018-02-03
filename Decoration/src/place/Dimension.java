@@ -50,4 +50,11 @@ public class Dimension
 	{
 		this.width = width;
 	}
+
+
+	@Override
+	public String toString() 
+	{
+		return "Dimension [lenght=" + lenght + ", width=" + width + "]";
+	}
 }

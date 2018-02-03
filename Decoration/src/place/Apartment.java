@@ -1,8 +1,9 @@
 package place;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
-import catalog.Furniture;
+import catalog.Category;
 
 /**
  * @author GILLES Anne-Sophie
@@ -21,15 +22,22 @@ public class Apartment
 		counter = 0;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "Apartment [roomsList=" + roomsList + "]";
+	}
+
+
 	/** Add a room in the apartment
 	 * @param name
-	 * @param furnituresOfTheRoom
 	 * @param dimension
+	 * @param categories
 	 * @param position
 	 * */
-	public void addRoom(String name, HashMap<Integer, Furniture> furnituresOfTheRoom, Dimension dimension, int[][] position)
+	public void addRoom(String name, Dimension dimension, ArrayList<Category> categories, int[][] position)
 	{
-		Room room = new Room(name, furnituresOfTheRoom, dimension, position);
+		Room room = new Room(name, dimension, categories, position);
 		roomsList.put(counter, room);
 		counter++;
 	}
@@ -40,6 +48,5 @@ public class Apartment
 	public void deleteRoom(int roomKey)
 	{
 		roomsList.remove(roomKey);
-		counter--;
 	}
 }

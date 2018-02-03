@@ -1,19 +1,19 @@
 /**
  * 
  */
-package styles;
+package categories;
 
-import catalog.Style;
+import catalog.Category;
 
 /**
  * @author GILLES Anne-Sophie
  *
  */
-public class Basic extends Style
+public class Bathroom extends Category
 {
 	@Override
 	public String toString() 
 	{
-		return "Basic";
+		return "Bathroom";
 	}
 }

@@ -1,6 +1,7 @@
 package catalog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import place.Dimension;
 
@@ -8,7 +9,7 @@ import place.Dimension;
  * @author lauryanncoralie
  * @author GILLES Anne-Sophie
  */
-public abstract class Furniture 
+public class Furniture 
 {
 	private String name;
 	private Dimension dimension;
@@ -94,5 +95,14 @@ public abstract class Furniture
 	public int[][] getPosition() 
 	{
 		return position;
+	}
+
+
+	@Override
+	public String toString() 
+	{
+		return "Furniture [name=" + name + ", dimension=" + dimension + ", style=" + style + ", color=" + color
+				+ ", stackable=" + stackable + ", categories=" + categories + ", position=" + Arrays.toString(position)
+				+ "]";
 	}
 }

@@ -3,11 +3,13 @@
  */
 package styles;
 
+import catalog.Style;
+
 /**
  * @author GILLES Anne-Sophie
  *
  */
-public class Vintage 
+public class Vintage  extends Style
 {
 
 }
