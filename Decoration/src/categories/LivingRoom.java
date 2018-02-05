@@ -9,7 +9,7 @@ import catalog.Category;
  * @author Chabane
  *
  */
-public class LinvingRoom extends Category{
+public class LivingRoom extends Category{
 	
 	public String toString ()
 	
