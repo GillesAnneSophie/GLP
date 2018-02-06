@@ -20,7 +20,7 @@ public class Kitchen extends Category
 	@Override
 	public String toString()
 	{
-		return "Kitchen";
+		return "Kitchen [" + super.toString() + "]\n";
 	}
 }
 

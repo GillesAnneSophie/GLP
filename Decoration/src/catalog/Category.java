@@ -11,10 +11,14 @@ import place.Dimension;
  */
 public abstract class Category extends Furniture
 {
-
 	public Category(String name, Dimension dimension, boolean stackable) 
 	{
 		super(name, dimension, stackable);
 	}
+
 	
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 }

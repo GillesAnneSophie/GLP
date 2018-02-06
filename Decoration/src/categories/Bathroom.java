@@ -16,10 +16,9 @@ public class Bathroom extends Category
 	{
 		super(name, dimension, stackable);
 	}
-
+	
 	@Override
-	public String toString() 
-	{
-		return "Bathroom";
+	public String toString() {
+		return "Bathroom [" + super.toString() + "]\n";
 	}
 }

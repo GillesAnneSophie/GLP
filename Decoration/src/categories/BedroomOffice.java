@@ -20,6 +20,6 @@ public class BedroomOffice extends Category
 	@Override
 	public String toString() 
 	{
-		return "BedroomOffice";
+		return "BedroomOffice [" + super.toString() + "]\n";
 	}
 }

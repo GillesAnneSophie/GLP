@@ -4,61 +4,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import catalog.Category;
-import catalog.Furniture;
-import catalog.Style;
+import catalog.*;
 
 /**
  * @author lauryanncoralie
  * @author GILLES Anne-Sophie
  */
-public class Room 
+public class Room extends AbstractRoom
 {
-	private String name;
 	private HashMap<Integer, Furniture> furnituresOfTheRoom;
-	private int counter;
-	private Dimension dimension;
-	private ArrayList<Category> categories;
-	private Position position;
+
 	
 	/**
 	 * @param name
-	 * @param furnituresOfTheRoom
-	 * @param dimension
-	 * @param position
+	 * @param lenght
+	 * @param width
+	 * @param stackable
 	 */
-	public Room(String name, HashMap<Integer, Furniture> furnituresOfTheRoom, Dimension dimension, Position position) 
+	public Room (String name, int lenght, int width) 
 	{
-		this.name = name;
-		furnituresOfTheRoom = new HashMap<Integer, Furniture>();
-		counter = 0;
-		this.dimension = dimension;
-		this.position = position;
+		super(name, lenght, width, false);
 	}
 	
-	/**
-	 * @param name
-	 * @param dimension
-	 * @param categories
-	 * @param position
-	 */
-	public Room(String name, Dimension dimension, ArrayList<Category> categories, Position position) 
-	{
-		this.name = name;
-		counter = 0;
-		this.dimension = dimension;
-		this.categories = categories;
-		this.position = position;
-	}
-	
-	
-	/**
-	 * @return the name
-	 */
-	public String getName() 
-	{
-		return name;
-	}
 
 	/**
 	 * @return the furnituresOfTheRoom
@@ -68,53 +35,22 @@ public class Room
 		return furnituresOfTheRoom;
 	}
 
-	/**
-	 * @return the dimension
-	 */
-	public Dimension getDimension() 
-	{
-		return dimension;
-	}
 
-	/**
-	 * @return the categories
-	 */
-	public ArrayList<Category> getCategories() {
-		return categories;
-	}
-
-	/**
-	 * @return the position
-	 */
-	public Position getPosition() 
-	{
-		return position;
-	}
-	
-	
 	@Override
 	public String toString() {
-		return "Room [name=" + name + ", furnituresOfTheRoom=" + furnituresOfTheRoom + ", counter=" + counter
-				+ ", dimension=" + dimension + ", categories=" + categories + ", position=" + position + "]";
+		return "Room [furnituresOfTheRoom=" + furnituresOfTheRoom + super.toString() + "]";
 	}
 
+
+	
 	
 	/** Add a Furniture in the Room 
-	 * @param name
-	 * @param dimension
-	 * @param style
-	 * @param color
-	 * @param stackable
-	 * @param categories
-	 * @param position
+	 * @param furniture
 	 * */
-	public void addFurniture(String name, Dimension dimension, Style style, String color, boolean stackable,
-			ArrayList<Category> categories, Position position)
+	public void addFurniture(Furniture furniture)
 	{
-		Furniture furniture = new Furniture(name, dimension, style, color, stackable,
-				categories, position);
+		int counter = furnituresOfTheRoom.size();
 		furnituresOfTheRoom.put(counter, furniture);
-		counter++;
 	}
 	
 	/** Remove a Furniture from the Room

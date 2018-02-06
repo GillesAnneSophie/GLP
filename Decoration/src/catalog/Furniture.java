@@ -3,44 +3,17 @@ package catalog;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import place.Dimension;
-import place.Position;
+import place.*;
 
 /**
  * @author lauryanncoralie
  * @author GILLES Anne-Sophie
  */
-public abstract class Furniture 
+public abstract class Furniture extends AbstractRoom
 {
-	private String name;
-	private Dimension dimension;
 	private Style style;
-	private String color ;
-	private boolean stackable;
-	private ArrayList<Category> categories;
-	private Position position;
+	private String color;
 	
-	/**
-	 * @param name
-	 * @param dimension
-	 * @param style
-	 * @param color
-	 * @param stackable
-	 * @param categories
-	 * @param position
-	 */
-/*	public Furniture(String name, Dimension dimension, Style style, String color, boolean stackable,
-			ArrayList<Category> categories, Position position) {
-		super();
-		this.name = name;
-		this.dimension = dimension;
-		this.style = style;
-		this.color = color;
-		this.stackable = stackable;
-		this.categories = categories;
-		this.position = position;
-	}
-*/
 	
 	/**
 	 * @param name
@@ -49,26 +22,9 @@ public abstract class Furniture
 	 */
 	public Furniture(String name, Dimension dimension, boolean stackable) 
 	{
-		this.name = name;
-		this.dimension = dimension;
-		this.stackable = stackable;
+		super(name, dimension, stackable);
 	}
 
-	/**
-	 * @return the name
-	 */
-	public String getName() 
-	{
-		return name;
-	}
-	
-	/**
-	 * @return the dimension
-	 */
-	public Dimension getDimension() 
-	{
-		return dimension;
-	}
 	
 	/**
 	 * @return the style
@@ -85,35 +41,26 @@ public abstract class Furniture
 	{
 		return color;
 	}
-	
+
 	/**
-	 * @return the stackable
+	 * @param style the style to set
 	 */
-	public boolean getStackable() 
+	public void setStyle(Style style)
 	{
-		return stackable;
+		this.style = style;
 	}
-	
+
 	/**
-	 * @return the categories
+	 * @param color the color to set
 	 */
-	public ArrayList<Category> getCategories() 
+	public void setColor(String color) 
 	{
-		return categories;
-	}
-	
-	/**
-	 * @return the position
-	 */
-	public Position getPosition() 
-	{
-		return position;
+		this.color = color;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Furniture [name=" + name + ", dimension=" + dimension + ", style=" + style + ", color=" + color
-				+ ", stackable=" + stackable + ", categories=" + categories + ", position=" + position + "]";
+		return "Furniture [style=" + style + ", color=" + color + " " + super.toString() + "]";
 	}
 }

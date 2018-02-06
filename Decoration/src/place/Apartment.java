@@ -1,9 +1,6 @@
 package place;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import catalog.Category;
 
 /**
  * @author GILLES Anne-Sophie
@@ -13,13 +10,11 @@ import catalog.Category;
 public class Apartment 
 {
 	private HashMap<Integer, Room> roomsList;
-	private int counter;
 	
 	/** Create an apartment */
 	public Apartment()
 	{
 		roomsList = new HashMap<Integer, Room>();
-		counter = 0;
 	}
 	
 	
@@ -36,11 +31,10 @@ public class Apartment
 	 * @param categories
 	 * @param position
 	 * */
-	public void addRoom(String name, Dimension dimension, ArrayList<Category> categories, Position position)
+	public void addRoom(Room room)
 	{
-		Room room = new Room(name, dimension, categories, position);
+		int counter = roomsList.size();
 		roomsList.put(counter, room);
-		counter++;
 	}
 	
 	/** Remove a room from the apartment

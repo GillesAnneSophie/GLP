@@ -20,6 +20,6 @@ public class LivingRoom extends Category
 	@Override
 	public String toString ()
 	{	
-		return "LivingRoom" ;
+		return "LivingRoom [" + super.toString() + "]\n";
 	}
 }
