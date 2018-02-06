@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import place.Dimension;
+import place.Position;
 
 /**
  * @author lauryanncoralie
@@ -17,7 +18,7 @@ public class Furniture
 	private String color ;
 	private boolean stackable;
 	private ArrayList<Category> categories;
-	private int[][] position;
+	private Position position;
 	
 	/**
 	 * @param name
@@ -29,7 +30,7 @@ public class Furniture
 	 * @param position
 	 */
 	public Furniture(String name, Dimension dimension, Style style, String color, boolean stackable,
-			ArrayList<Category> categories, int[][] position) {
+			ArrayList<Category> categories, Position position) {
 		super();
 		this.name = name;
 		this.dimension = dimension;
@@ -92,7 +93,7 @@ public class Furniture
 	/**
 	 * @return the position
 	 */
-	public int[][] getPosition() 
+	public Position getPosition() 
 	{
 		return position;
 	}
