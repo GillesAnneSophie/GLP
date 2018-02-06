@@ -10,7 +10,7 @@ import place.Position;
  * @author lauryanncoralie
  * @author GILLES Anne-Sophie
  */
-public class Furniture 
+public abstract class Furniture 
 {
 	private String name;
 	private Dimension dimension;
@@ -29,7 +29,7 @@ public class Furniture
 	 * @param categories
 	 * @param position
 	 */
-	public Furniture(String name, Dimension dimension, Style style, String color, boolean stackable,
+/*	public Furniture(String name, Dimension dimension, Style style, String color, boolean stackable,
 			ArrayList<Category> categories, Position position) {
 		super();
 		this.name = name;
@@ -40,8 +40,20 @@ public class Furniture
 		this.categories = categories;
 		this.position = position;
 	}
-
+*/
 	
+	/**
+	 * @param name
+	 * @param dimension
+	 * @param stackable
+	 */
+	public Furniture(String name, Dimension dimension, boolean stackable) 
+	{
+		this.name = name;
+		this.dimension = dimension;
+		this.stackable = stackable;
+	}
+
 	/**
 	 * @return the name
 	 */

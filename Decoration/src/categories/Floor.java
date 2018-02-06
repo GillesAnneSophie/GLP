@@ -4,6 +4,7 @@
 package categories;
 
 import catalog.Category;
+import place.Dimension;
 
 /**
  * @author Chabane
