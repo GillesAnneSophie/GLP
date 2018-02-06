@@ -7,7 +7,7 @@ package catalog;
  * @author GILLES Anne-Sophie
  *
  */
-public abstract class Category 
+public abstract class Category
 {
-
+	
 }

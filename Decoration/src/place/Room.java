@@ -19,7 +19,7 @@ public class Room
 	private int counter;
 	private Dimension dimension;
 	private ArrayList<Category> categories;
-	private int[][] position;
+	private Position position;
 	
 	/**
 	 * @param name
@@ -27,7 +27,7 @@ public class Room
 	 * @param dimension
 	 * @param position
 	 */
-	public Room(String name, HashMap<Integer, Furniture> furnituresOfTheRoom, Dimension dimension, int[][] position) 
+	public Room(String name, HashMap<Integer, Furniture> furnituresOfTheRoom, Dimension dimension, Position position) 
 	{
 		this.name = name;
 		furnituresOfTheRoom = new HashMap<Integer, Furniture>();
@@ -42,7 +42,7 @@ public class Room
 	 * @param categories
 	 * @param position
 	 */
-	public Room(String name, Dimension dimension, ArrayList<Category> categories, int[][] position) 
+	public Room(String name, Dimension dimension, ArrayList<Category> categories, Position position) 
 	{
 		this.name = name;
 		counter = 0;
@@ -86,17 +86,16 @@ public class Room
 	/**
 	 * @return the position
 	 */
-	public int[][] getPosition() 
+	public Position getPosition() 
 	{
 		return position;
 	}
 	
 	
 	@Override
-	public String toString() 
-	{
-		return "Room [name=" + name + ", furnituresOfTheRoom=" + furnituresOfTheRoom
-				+ ", dimension=" + dimension + ", position=" + Arrays.toString(position) + "]";
+	public String toString() {
+		return "Room [name=" + name + ", furnituresOfTheRoom=" + furnituresOfTheRoom + ", counter=" + counter
+				+ ", dimension=" + dimension + ", categories=" + categories + ", position=" + position + "]";
 	}
 
 	
@@ -110,7 +109,7 @@ public class Room
 	 * @param position
 	 * */
 	public void addFurniture(String name, Dimension dimension, Style style, String color, boolean stackable,
-			ArrayList<Category> categories, int[][] position)
+			ArrayList<Category> categories, Position position)
 	{
 		Furniture furniture = new Furniture(name, dimension, style, color, stackable,
 				categories, position);

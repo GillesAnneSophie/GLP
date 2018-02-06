@@ -4,7 +4,8 @@ package place;
  * @author lauryanncoralie
  *
  */
-public class Position {
+public class Position 
+{
 	private int x;
 	private int y;
 
@@ -12,32 +13,54 @@ public class Position {
 	 * @param x
 	 * @param y
 	 */
-	public Position(int x, int y) {
+	public Position(int x, int y) 
+	{
 		this.x = x;
 		this.y = y;
 	}
 
-	public int getPositionX() {
-		return x; 
+
+	/**
+	 * @return the x
+	 */
+	public int getX() 
+	{
+		return x;
 	}
 
-	public int getPositionY() {
-		return y; 
+	/**
+	 * @return the y
+	 */
+	public int getY() 
+	{
+		return y;
 	}
 
-	public void moveUp() {
+
+	public void moveUp() 
+	{
 		y--;
 	}
 
-	public void moveDown() {
+	public void moveDown() 
+	{
 		y++;
 	}
 
-	public void moveLeft() {
+	public void moveLeft() 
+	{
 		x--;
 	}
 
-	public void moveRight() {
+	public void moveRight() 
+	{
 		x++;
+	}
+
+
+	@Override
+	public String toString() 
+	{
+		return "Position [x=" + x + ", y=" + y + "]";
 	}
 }

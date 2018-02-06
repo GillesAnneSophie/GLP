@@ -12,6 +12,7 @@ import categories.*;
 import styles.*;
 import place.Apartment;
 import place.Dimension;
+import place.Position;
 import place.Room;
 
 /**
@@ -47,7 +48,7 @@ public class tests
 		
 		/*Create a bed*/
 		Dimension dimBed1 = new Dimension(1, 3);
-		int[][] posBed1 = {{2},{2}};
+		Position posBed1 = new Position(2, 2);
 		Furniture bed1 = new Furniture("Bed", dimBed1, styleBasic, "Black", isNotStackable, catBedroom, posBed1);
 	
 		//TODO bug avec la position > ArrayList ?
@@ -56,7 +57,7 @@ public class tests
 		
 		/*Create Bedroom*/
 		Dimension dimBedroom1 = new Dimension(5, 5);
-		int[][] posBebroom1 = {{1},{1}};
+		Position posBebroom1 = new Position(1, 1);
 		Room bedroom1 = new Room("Bedroom", dimBedroom1, catBedroom, posBebroom1);
 		
 		System.out.println(bedroom1);
@@ -65,14 +66,14 @@ public class tests
 		/*Create an Apartment*/
 		Apartment apartment = new Apartment();
 		Dimension dimBathroom1 = new Dimension(3, 4);
-		int[][] posBathroom1 = {{7},{7}};
+		Position posBathroom1 = new Position(7, 7);
 		apartment.addRoom("Bathroom", dimBathroom1, catBathroom, posBathroom1);
 		
 		System.out.println(apartment);
 		
 		/*Create Bath*/
 		Dimension dimBath1 = new Dimension(1, 2);
-		int[][] posBath1 = {{8},{2}};
+		Position posBath1 = new Position(8, 2);
 		
 //TODO fonctionne pas NullPointerException (?)
 		bedroom1.addFurniture("Bath", dimBath1, styleBasic, "White", isNotStackable, catBathroom, posBath1);

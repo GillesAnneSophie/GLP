@@ -24,7 +24,8 @@ public class Apartment
 	
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Apartment [roomsList=" + roomsList + "]";
 	}
 
@@ -35,7 +36,7 @@ public class Apartment
 	 * @param categories
 	 * @param position
 	 * */
-	public void addRoom(String name, Dimension dimension, ArrayList<Category> categories, int[][] position)
+	public void addRoom(String name, Dimension dimension, ArrayList<Category> categories, Position position)
 	{
 		Room room = new Room(name, dimension, categories, position);
 		roomsList.put(counter, room);

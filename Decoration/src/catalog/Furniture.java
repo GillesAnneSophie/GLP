@@ -77,7 +77,7 @@ public class Furniture
 	/**
 	 * @return the stackable
 	 */
-	public boolean isStackable() 
+	public boolean getStackable() 
 	{
 		return stackable;
 	}
@@ -100,10 +100,8 @@ public class Furniture
 
 
 	@Override
-	public String toString() 
-	{
+	public String toString() {
 		return "Furniture [name=" + name + ", dimension=" + dimension + ", style=" + style + ", color=" + color
-				+ ", stackable=" + stackable + ", categories=" + categories + ", position=" + Arrays.toString(position)
-				+ "]";
+				+ ", stackable=" + stackable + ", categories=" + categories + ", position=" + position + "]";
 	}
 }

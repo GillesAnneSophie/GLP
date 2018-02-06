@@ -9,12 +9,11 @@ import catalog.Category;
  * @author Chabane
  *
  */
-public class DiningRoom extends Category {
-	
-	public String toString() {
-		
+public class DiningRoom extends Category 
+{
+	@Override
+	public String toString() 
+	{
 		return "DiningRoom";
 	}
-	
-
 }

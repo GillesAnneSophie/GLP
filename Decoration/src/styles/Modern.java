@@ -11,5 +11,9 @@ import catalog.Style;
  */
 public class Modern extends Style
 {
-
+	@Override
+	public String toString() 
+	{
+		return "Modern";
+	}
 }
