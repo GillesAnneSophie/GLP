@@ -9,7 +9,7 @@ import catalog.Category;
  * @author Gilles Anne-Sophie
  *
  */
-public class AbstractRoom 
+public abstract class AbstractRoom 
 {
 	private String name;
 	private Dimension dimension;
