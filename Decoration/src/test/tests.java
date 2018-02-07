@@ -3,17 +3,9 @@
  */
 package test;
 
-import java.util.ArrayList;
-
-import catalog.Category;
-import catalog.Furniture;
-import catalog.Catalog;
-import catalog.Style;
+import catalog.*;
 import categories.*;
-import styles.*;
 import place.Apartment;
-import place.Dimension;
-import place.Position;
 import place.Room;
 
 /**
@@ -28,17 +20,20 @@ public class tests
 	public static void main(String[] args) 
 	{
 		//Create all the furniture
-		Catalog allTheFurniture = new Catalog();
-		allTheFurniture.buildFurniture();
+		Catalog catalog = new Catalog();
+		catalog.buildFurniture();
 		
 		//Create an Apartment
 		Apartment apartment = new Apartment();
 		
 		
 		//Create rooms
-//TODO		Room bedroom = new BedroomOffice("bedroom", 4, 5);
+		Category bedroomCategory = new BedroomOffice();
+		Room bedroom = new Room("bedroom", 4, 5, bedroomCategory);
 	
 	
-System.out.println(allTheFurniture);
+//A FINIR		bedroom.addFurniture(catalog.findFurniture("toilet"));
+System.out.println(bedroom);
+		
 	}
 }

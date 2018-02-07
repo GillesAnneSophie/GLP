@@ -1,7 +1,5 @@
 package place;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import catalog.*;
@@ -21,9 +19,10 @@ public class Room extends AbstractRoom
 	 * @param width
 	 * @param stackable
 	 */
-	public Room (String name, int lenght, int width) 
+	public Room(String name, int lenght, int width, Category category) 
 	{
-		super(name, lenght, width, false);
+		super(name, lenght, width, false, category);
+		furnituresOfTheRoom = new HashMap<Integer, Furniture>();
 	}
 	
 
@@ -38,7 +37,7 @@ public class Room extends AbstractRoom
 
 	@Override
 	public String toString() {
-		return "Room [furnituresOfTheRoom=" + furnituresOfTheRoom + super.toString() + "]";
+		return "Room [furnituresOfTheRoom=" + furnituresOfTheRoom + " " + super.toString() + "]";
 	}
 
 

@@ -1,28 +1,30 @@
 package catalog;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import place.*;
 
 /**
  * @author lauryanncoralie
  * @author GILLES Anne-Sophie
  */
-public abstract class Furniture extends AbstractRoom
+public class Furniture extends AbstractRoom
 {
 	private Style style;
 	private String color;
 	
+	
+	public Furniture()
+	{
+		
+	}
 	
 	/**
 	 * @param name
 	 * @param dimension
 	 * @param stackable
 	 */
-	public Furniture(String name, Dimension dimension, boolean stackable) 
+	public Furniture(String name, Dimension dimension, boolean stackable, Category category) 
 	{
-		super(name, dimension, stackable);
+		super(name, dimension, stackable, category);
 	}
 
 	

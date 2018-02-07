@@ -4,7 +4,6 @@
 package categories;
 
 import catalog.Category;
-import place.Dimension;
 
 /**
  * @author GILLES Anne-Sophie
@@ -12,13 +11,8 @@ import place.Dimension;
  */
 public class Bathroom extends Category
 {
-	public Bathroom(String name, Dimension dimension, boolean stackable) 
-	{
-		super(name, dimension, stackable);
-	}
-	
 	@Override
 	public String toString() {
-		return "Bathroom [" + super.toString() + "]\n";
+		return "Bathroom";
 	}
 }
