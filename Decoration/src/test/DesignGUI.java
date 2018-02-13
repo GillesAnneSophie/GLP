@@ -1,6 +1,5 @@
 package test;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,13 +7,28 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
+import javax.swing.JMenu;
+import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenuBar;
+import javax.swing.JLabel;
+import javax.swing.JToolBar;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
+/**
+ * @author lauryanncoralie
+ *
+ */
 public class DesignGUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
@@ -38,58 +52,207 @@ public class DesignGUI extends JFrame {
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 688, 477);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnRooms = new JMenu("Rooms");
-		menuBar.add(mnRooms);
+		JMenu mnToolbar = new JMenu("Toolbar");
+		menuBar.add(mnToolbar);
 		
-		JMenu mnKitchen = new JMenu("Kitchen");
-		mnRooms.add(mnKitchen);
+		JMenuItem mntmAddARoom = new JMenuItem("Add a Room");
+		mntmAddARoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				AddRoomGUI.main(null);
+			}
+		});
+		mnToolbar.add(mntmAddARoom);
 		
-		JMenu mnBedroomoffice = new JMenu("BedroomOffice");
-		mnRooms.add(mnBedroomoffice);
+		JMenuItem mntmRemoveARoom = new JMenuItem("Remove a Room");
+		mntmRemoveARoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				RemoveGUI.main(null);
+			}
+		});
+		mnToolbar.add(mntmRemoveARoom);
 		
-		JMenu mnLivingroom = new JMenu("LivingRoom");
-		mnRooms.add(mnLivingroom);
+		JMenu menu = new JMenu("?");
+		menuBar.add(menu);
 		
-		JMenu mnWall = new JMenu("Wall");
-		mnRooms.add(mnWall);
+		JMenuItem mntmHelp = new JMenuItem("Help");
+		menu.add(mntmHelp);
 		
-		JMenu mnFloor = new JMenu("Floor");
-		mnRooms.add(mnFloor);
-		
-		JMenu mnBathroom = new JMenu("Bathroom");
-		mnRooms.add(mnBathroom);
-		
-		JMenu mnDiningroom = new JMenu("DiningRoom");
-		mnRooms.add(mnDiningroom);
+		JMenuItem mntmExit = new JMenuItem("Exit ");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				}
+			
+		});
+		menu.add(mntmExit);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
 		
 		JPopupMenu popupMenu = new JPopupMenu();
 		addPopup(contentPane, popupMenu);
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		popupMenu.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				if (arg0.isPopupTrigger()) {
+					popupMenu.show(popupMenu,arg0.getX(),arg0.getY());
+				}
+			}
+		});
+		
+		JMenu mnKitchen = new JMenu("Kitchen");
+		popupMenu.add(mnKitchen);
+		
+		JMenuItem mntmFridge = new JMenuItem("Fridge");
+		mnKitchen.add(mntmFridge);
+		
+		JMenuItem mntmGasCooker = new JMenuItem("Gas Cooker");
+		mnKitchen.add(mntmGasCooker);
+		
+		JMenuItem mntmSink = new JMenuItem("Sink");
+		mnKitchen.add(mntmSink);
+		
+		JMenuItem mntmCountertop = new JMenuItem("Countertop");
+		mnKitchen.add(mntmCountertop);
+		
+		JMenu mnDiningRoom = new JMenu("Dining Room");
+		popupMenu.add(mnDiningRoom);
+		
+		JMenuItem mntmSmallDiningTable = new JMenuItem("Small Dining Table");
+		mnDiningRoom.add(mntmSmallDiningTable);
+		
+		JMenuItem mntmBigDiningTable = new JMenuItem("Big Dining Table");
+		mnDiningRoom.add(mntmBigDiningTable);
+		
+		JMenuItem mntmChiar = new JMenuItem("Chair");
+		mnDiningRoom.add(mntmChiar);
+		
+		JMenuItem mntmSideboard = new JMenuItem("Sideboard");
+		mnDiningRoom.add(mntmSideboard);
+		
+		JMenu mnLivingRoom = new JMenu("Living Room");
+		popupMenu.add(mnLivingRoom);
+		
+		JMenuItem mntmCoffeeTable = new JMenuItem("Coffee Table");
+		mnLivingRoom.add(mntmCoffeeTable);
+		
+		JMenuItem mntmSmallSofa = new JMenuItem("Small Sofa");
+		mnLivingRoom.add(mntmSmallSofa);
+		
+		JMenuItem mntmBigSofa = new JMenuItem("Big Sofa");
+		mnLivingRoom.add(mntmBigSofa);
+		
+		JMenuItem mntmArmchair = new JMenuItem("Armchair");
+		mnLivingRoom.add(mntmArmchair);
+		
+		JMenu mnBedroomoffice = new JMenu("Bedroom/Office");
+		popupMenu.add(mnBedroomoffice);
+		
+		JMenuItem mntmSingleBed = new JMenuItem("Single Bed");
+		mnBedroomoffice.add(mntmSingleBed);
+		
+		JMenuItem mntmDoubleBed = new JMenuItem("Double Bed");
+		mnBedroomoffice.add(mntmDoubleBed);
+		
+		JMenuItem mntmNightstand = new JMenuItem("Nightstand");
+		mnBedroomoffice.add(mntmNightstand);
+		
+		JMenuItem mntmChestOfDrawers = new JMenuItem("Chest of Drawers");
+		mnBedroomoffice.add(mntmChestOfDrawers);
+		
+		JMenuItem mntmWardrobe = new JMenuItem("Wardrobe");
+		mnBedroomoffice.add(mntmWardrobe);
+		
+		JMenuItem mntmDesk = new JMenuItem("Desk");
+		mnBedroomoffice.add(mntmDesk);
+		
+		JMenu mnBathroom = new JMenu("Bathroom");
+		popupMenu.add(mnBathroom);
+		
+		JMenuItem mntmToilet = new JMenuItem("Toilet");
+		mnBathroom.add(mntmToilet);
+		
+		JMenuItem mntmShower = new JMenuItem("Shower");
+		mnBathroom.add(mntmShower);
+		
+		JMenuItem mntmBathtub = new JMenuItem("Bathtub");
+		mnBathroom.add(mntmBathtub);
+		
+		JMenuItem mntmSink_1 = new JMenuItem("Sink");
+		mnBathroom.add(mntmSink_1);
+		
+		JMenuItem mntmH = new JMenuItem("Contertop");
+		mnBathroom.add(mntmH);
+		
+		JMenu mnWall = new JMenu("Wall");
+		popupMenu.add(mnWall);
+		
+		JMenuItem mntmWallpaper = new JMenuItem("Wallpaper");
+		mnWall.add(mntmWallpaper);
+		
+		JMenuItem mntmPaint = new JMenuItem("Paint");
+		mnWall.add(mntmPaint);
+		
+		JMenuItem mntmPanelling = new JMenuItem("Panelling");
+		mnWall.add(mntmPanelling);
+		
+		JMenu mnDoors = new JMenu("Doors");
+		mnWall.add(mnDoors);
+		
+		JMenuItem mntmSmallDoor = new JMenuItem("Small Door");
+		mnDoors.add(mntmSmallDoor);
+		
+		JMenuItem mntmBigDoor = new JMenuItem("Big Door");
+		mnDoors.add(mntmBigDoor);
+		
+		JMenu mnWindows = new JMenu("Windows");
+		mnWall.add(mnWindows);
+		
+		JMenuItem mntmSmallWindow = new JMenuItem("Small Window");
+		mnWindows.add(mntmSmallWindow);
+		
+		JMenuItem mntmBigWindow = new JMenuItem("Big Window ");
+		mnWindows.add(mntmBigWindow);
+		
+		JMenu mnArt = new JMenu("Art");
+		mnWall.add(mnArt);
+		
+		JMenuItem mntmPicture = new JMenuItem("Picture");
+		mnArt.add(mntmPicture);
+		
+		JMenuItem mntmPainting = new JMenuItem("Painting");
+		mnArt.add(mntmPainting);
+		
+		JMenuItem mntmPoster = new JMenuItem("Poster");
+		mnArt.add(mntmPoster);
+		
+		JMenu mnFloor = new JMenu("Floor");
+		popupMenu.add(mnFloor);
+		
+		JMenuItem mntmCarpeting = new JMenuItem("Carpeting");
+		mnFloor.add(mntmCarpeting);
+		
+		JMenuItem mntmParquet = new JMenuItem("Parquet");
+		mnFloor.add(mntmParquet);
+		
+		JMenuItem mntmTiles = new JMenuItem("Tiles");
+		mnFloor.add(mntmTiles);
+		
+		JMenuItem mntmSmallRug = new JMenuItem("Small Rug");
+		mnFloor.add(mntmSmallRug);
+		
+		JMenuItem mntmBigRug = new JMenuItem("Big Rug");
+		mnFloor.add(mntmBigRug);
+		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	}
 
 	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
 	}
+	
 }

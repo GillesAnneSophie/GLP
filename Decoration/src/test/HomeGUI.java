@@ -1,5 +1,6 @@
 package test;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -7,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -17,7 +19,7 @@ import javax.swing.JLabel;
 
 /**
  * @author lauryanncoralie
- * A reflechir sur la conception de cette interface qui pourrait etre interessante
+ *
  */
 public class HomeGUI extends JFrame {
 
@@ -65,6 +67,12 @@ public class HomeGUI extends JFrame {
 		contentPane.add(lblWelcome, gbc_lblWelcome);
 		
 		JButton btnNew = new JButton("New file");
+		btnNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DesignGUI.main(null);
+				
+			}
+		});
 		GridBagConstraints gbc_btnNew = new GridBagConstraints();
 		gbc_btnNew.anchor = GridBagConstraints.WEST;
 		gbc_btnNew.insets = new Insets(0, 0, 5, 5);
@@ -75,6 +83,7 @@ public class HomeGUI extends JFrame {
 		JButton btnOpenAFile = new JButton("Open a file");
 		btnOpenAFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
 		GridBagConstraints gbc_btnOpenAFile = new GridBagConstraints();
