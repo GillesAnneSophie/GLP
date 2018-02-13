@@ -63,6 +63,6 @@ public class Furniture extends AbstractRoom
 
 	@Override
 	public String toString() {
-		return "Furniture [style=" + style + ", color=" + color + " " + super.toString() + "]";
+		return "Furniture [style=" + style + ", color=" + color + " " + super.toString() + "]\n";
 	}
 }

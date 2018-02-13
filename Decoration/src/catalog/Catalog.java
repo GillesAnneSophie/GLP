@@ -50,43 +50,43 @@ public class Catalog
 		AbstractRoom worktop = new Furniture("worktop", cube, isNotStackable, bathroom);
 		
 		/*Bedroom's Furniture*/
-		Furniture singleBed = new Furniture("single Bed", mediumRectangle, isNotStackable, bedroomOffice);
-		Furniture doubleBed = new Furniture("double Bed", largeRectangle, isNotStackable, bedroomOffice);
-		Furniture nightstand = new Furniture("nightstand", cube, isNotStackable, bedroomOffice);
-		Furniture dresser = new Furniture("dresser", smallRectangle, isNotStackable, bedroomOffice);
-		Furniture wardrobe = new Furniture("wardrobe", smallRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom singleBed = new Furniture("single Bed", mediumRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom doubleBed = new Furniture("double Bed", largeRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom nightstand = new Furniture("nightstand", cube, isNotStackable, bedroomOffice);
+		AbstractRoom dresser = new Furniture("dresser", smallRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom wardrobe = new Furniture("wardrobe", smallRectangle, isNotStackable, bedroomOffice);
 		
 		/*Office's Furniture*/
-		Furniture chair = new Furniture("chair", cube, isNotStackable, bedroomOffice);
-		Furniture desk = new Furniture("desk", smallRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom officeChair = new Furniture("office Chair", cube, isNotStackable, bedroomOffice);
+		AbstractRoom desk = new Furniture("desk", smallRectangle, isNotStackable, bedroomOffice);
 		
 		/*DiningRoom's Furniture*/
-		Furniture smallDiningTable = new Furniture("small Dining Table", smallRectangle, isNotStackable, diningRoom);
-		Furniture largeDiningTable = new Furniture("large Dining Table", mediumRectangle, isNotStackable, diningRoom);
-		Furniture buffet = new Furniture("buffet", mediumRectangle, isNotStackable, diningRoom);
-		Furniture chair1 = new Furniture("chair", cube, isNotStackable, diningRoom);
+		AbstractRoom smallDiningTable = new Furniture("small Dining Table", smallRectangle, isNotStackable, diningRoom);
+		AbstractRoom largeDiningTable = new Furniture("large Dining Table", mediumRectangle, isNotStackable, diningRoom);
+		AbstractRoom buffet = new Furniture("buffet", mediumRectangle, isNotStackable, diningRoom);
+		AbstractRoom chair = new Furniture("chair", cube, isNotStackable, diningRoom);
 		
 		/*Kitchen's Furniture*/
-		Furniture fridge = new Furniture("fridge", cube, isNotStackable, kitchen);
-		Furniture gasCooker = new Furniture("gas cooker", cube, isNotStackable, kitchen);
-		Furniture sink = new Furniture("sink", cube, isNotStackable, kitchen);
-		Furniture kitchenWorktop = new Furniture("worktop", cube, isNotStackable, kitchen);
+		AbstractRoom fridge = new Furniture("fridge", cube, isNotStackable, kitchen);
+		AbstractRoom gasCooker = new Furniture("gas cooker", cube, isNotStackable, kitchen);
+		AbstractRoom sink = new Furniture("sink", cube, isNotStackable, kitchen);
+		AbstractRoom kitchenWorktop = new Furniture("worktop", cube, isNotStackable, kitchen);
 		
 		/*LivingRoom's Furniture*/
-		Furniture armchair = new Furniture("armchair", cube, isNotStackable, livingRoom);
-		Furniture coffeeTable = new Furniture("coffee table", smallRectangle, isNotStackable, livingRoom);
-		Furniture smallSofa = new Furniture("small sofa", smallRectangle, isNotStackable, livingRoom);
-		Furniture largeSofa = new Furniture("large sofa", mediumRectangle, isNotStackable, livingRoom);
+		AbstractRoom armchair = new Furniture("armchair", cube, isNotStackable, livingRoom);
+		AbstractRoom coffeeTable = new Furniture("coffee table", smallRectangle, isNotStackable, livingRoom);
+		AbstractRoom smallSofa = new Furniture("small sofa", smallRectangle, isNotStackable, livingRoom);
+		AbstractRoom largeSofa = new Furniture("large sofa", mediumRectangle, isNotStackable, livingRoom);
 	
 		/*Floor's Furniture*/
-		Furniture carpet = new Furniture("carpet", smallRectangle, isStackable, floor);
+		AbstractRoom carpet = new Furniture("carpet", smallRectangle, isStackable, floor);
 	
 		/*Wall's Furniture*/
-		Furniture smallDoor = new Furniture("small door", cube, isNotStackable, wall);
-		Furniture largeDoor = new Furniture("large door", smallRectangle, isNotStackable, wall);
-		Furniture smallWindow = new Furniture("small Window", cube, isNotStackable, wall);
-		Furniture largeWindow = new Furniture("large Window", smallRectangle, isNotStackable, wall);
-		Furniture picture = new Furniture("picture", cube, isNotStackable, wall);
+		AbstractRoom smallDoor = new Furniture("small door", cube, isNotStackable, wall);
+		AbstractRoom largeDoor = new Furniture("large door", smallRectangle, isNotStackable, wall);
+		AbstractRoom smallWindow = new Furniture("small Window", cube, isNotStackable, wall);
+		AbstractRoom largeWindow = new Furniture("large Window", smallRectangle, isNotStackable, wall);
+		AbstractRoom picture = new Furniture("picture", cube, isNotStackable, wall);
 	
 		/*Add all the furniture in the ArrayList*/
 		inventory.add(toilet);
@@ -101,13 +101,13 @@ public class Catalog
 		inventory.add(dresser);
 		inventory.add(wardrobe);
 		
-		inventory.add(chair);
+		inventory.add(officeChair);
 		inventory.add(desk);
 		
 		inventory.add(smallDiningTable);
 		inventory.add(largeDiningTable);
 		inventory.add(buffet);
-		inventory.add(chair1);
+		inventory.add(chair);
 		
 		inventory.add(fridge);
 		inventory.add(gasCooker);
@@ -137,20 +137,19 @@ public class Catalog
 		return inventory;
 	}
 	
-//PAS FINI
-/*	public AbstractRoom findFurniture(String name)
+
+	public AbstractRoom getFurniture(String name)
 	{
 		for(int index=0 ; index<inventory.size() ; index++)
 		{
-			AbstractRoom furniture = new Furniture();
-			furniture = inventory.get(index);
-			if(furniture.getName() == name)
+			if(inventory.get(index).getName()==name)
 			{
 				return inventory.get(index);
 			}
 		}
+		return null;
 	}
-*/
+
 
 	@Override
 	public String toString() 

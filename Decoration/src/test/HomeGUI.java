@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 
 /**
  * @author lauryanncoralie
- * A reflechir sur la conception de cette interface qqui pourrait etre interessante
+ * A reflechir sur la conception de cette interface qui pourrait etre interessante
  */
 public class HomeGUI extends JFrame {
 

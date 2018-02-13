@@ -10,7 +10,7 @@ import catalog.*;
  */
 public class Room extends AbstractRoom
 {
-	private HashMap<Integer, Furniture> furnituresOfTheRoom;
+	private HashMap<Integer, AbstractRoom> furnituresOfTheRoom;
 
 	
 	/**
@@ -22,14 +22,14 @@ public class Room extends AbstractRoom
 	public Room(String name, int lenght, int width, Category category) 
 	{
 		super(name, lenght, width, false, category);
-		furnituresOfTheRoom = new HashMap<Integer, Furniture>();
+		furnituresOfTheRoom = new HashMap<Integer, AbstractRoom>();
 	}
 	
 
 	/**
 	 * @return the furnituresOfTheRoom
 	 */
-	public HashMap<Integer, Furniture> getFurnituresOfTheRoom() 
+	public HashMap<Integer, AbstractRoom> getFurnituresOfTheRoom() 
 	{
 		return furnituresOfTheRoom;
 	}
@@ -37,7 +37,7 @@ public class Room extends AbstractRoom
 
 	@Override
 	public String toString() {
-		return "Room [furnituresOfTheRoom=" + furnituresOfTheRoom + " " + super.toString() + "]";
+		return "Room [furnituresOfTheRoom=\n" + furnituresOfTheRoom + "\n" + super.toString() + "]";
 	}
 
 
@@ -46,17 +46,24 @@ public class Room extends AbstractRoom
 	/** Add a Furniture in the Room 
 	 * @param furniture
 	 * */
-	public void addFurniture(Furniture furniture)
+	public void addFurniture(AbstractRoom furniture)
 	{
 		int counter = furnituresOfTheRoom.size();
 		furnituresOfTheRoom.put(counter, furniture);
 	}
 	
 	/** Remove a Furniture from the Room
-	 * @param furnitureKey the HashMap Key to remove the selected Furniture
+	 * @param name of the Furniture
 	 * */
-	public void removeFurniture(int furnitureKey)
+	public void removeFurniture(String name)
 	{
-		furnituresOfTheRoom.remove(furnitureKey);
+		for(int index=0 ; index<furnituresOfTheRoom.size() ; index++)
+		{
+			if(furnituresOfTheRoom.get(index).getName()==name)
+			{
+				furnituresOfTheRoom.remove(index);
+			}
+		}
+		
 	}
 }

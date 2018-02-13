@@ -38,10 +38,16 @@ public class Apartment
 	}
 	
 	/** Remove a room from the apartment
-	 * @param roomKey the HashMap Key to delete the selected Room
+	 * @param name of the room
 	 * */
-	public void deleteRoom(int roomKey)
+	public void removeRoom(String name)
 	{
-		roomsList.remove(roomKey);
+		for(int index=0 ; index<roomsList.size() ; index++)
+		{
+			if(roomsList.get(index).getName()==name)
+			{
+				roomsList.remove(index);
+			}
+		}
 	}
 }

@@ -74,9 +74,9 @@ public abstract class AbstractRoom
 
 	@Override
 	public String toString() {
-		return "AbstractRoom [name=" + name + ", dimension=" + dimension
+		return "name=" + name + ", dimension=" + dimension
 				+ ", stackable=" + stackable + ", category=" + category
-				+ ", position=" + position + "]\n";
+				+ ", position=" + position;
 	}
 
 
