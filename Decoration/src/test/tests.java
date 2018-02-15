@@ -24,7 +24,7 @@ public class tests
 		
 		//Create an Apartment
 		Apartment apartment = new Apartment();
-		System.out.println("\n" + apartment);
+		//System.out.println("\n" + apartment);
 		
 		//Create room
 		Category bedroomCategory = new BedroomOffice();
@@ -32,25 +32,27 @@ public class tests
 	
 		//ADD
 		AbstractRoom furniture = catalog.getFurniture("bath");
-		System.out.println("\n" + furniture);
+		//System.out.println("\n" + furniture);
 		
 		bedroom.addFurniture(catalog.getFurniture("toilet"));
-		System.out.println("\n" + bedroom);
+		//System.out.println("\n" + bedroom);
 		
 		apartment.addRoom(bedroom);
 		bedroom.addFurniture(catalog.getFurniture("bath"));
-		System.out.println("\n" + apartment);
+		//System.out.println("\n" + apartment);
 		
 		//DELETE
 		bedroom.removeFurniture("bath");
-		System.out.println("\n" + bedroom);
+		//System.out.println("\n" + bedroom);
 		
 		apartment.removeRoom("bedroom");
-		System.out.println("\n" + apartment);
+		//System.out.println("\n" + apartment);
 		
 		//GRID
-		Grid gridTest = new Grid();
+		Dimension dimGrid = new Dimension(15, 15);
+		Grid gridTest = new Grid(dimGrid);
 		
-		System.out.println();
+		System.out.println("Grid :");
+		gridTest.showGrid();
 	}
 }
