@@ -8,6 +8,7 @@ public class Grid
 {
 	private Apartment apartment;
 	private Dimension dimension;
+	private String[][] grid;
 	
 	/**
 	 * @param apartment
@@ -25,6 +26,7 @@ public class Grid
 	public Grid(Dimension dimension) 
 	{
 		this.dimension = dimension;
+		grid = new String[dimension.getWidth()][dimension.getLenght()];
 	}
 
 	
@@ -45,6 +47,14 @@ public class Grid
 	}
 
 	/**
+	 * @return the grid
+	 */
+	public String[][] getGrid() 
+	{
+		return grid;
+	}
+
+	/**
 	 * @param apartment the apartment to set
 	 */
 	public void setApartment(Apartment apartment) 
@@ -59,4 +69,13 @@ public class Grid
 	{
 		this.dimension = dimension;
 	}
+
+	/**
+	 * @param grid the grid to set
+	 */
+	public void setGrid(String[][] grid) 
+	{
+		this.grid = grid;
+	}
+
 }

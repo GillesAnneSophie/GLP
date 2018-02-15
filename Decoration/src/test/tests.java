@@ -47,5 +47,10 @@ public class tests
 		
 		apartment.removeRoom("bedroom");
 		System.out.println("\n" + apartment);
+		
+		//GRID
+		Grid gridTest = new Grid();
+		
+		System.out.println();
 	}
 }
