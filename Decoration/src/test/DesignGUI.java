@@ -29,10 +29,6 @@ import java.awt.event.ActionEvent;
  * @author lauryanncoralie
  *
  */
-/**
- * @author Chabane
- *
- */
 public class DesignGUI extends JFrame {
 
 	/**
@@ -261,21 +257,9 @@ public class DesignGUI extends JFrame {
 		mnFloor.add(mntmBigRug);
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 	
+		JPanel cell [][] = contentGrille (contentPane);
 
-
-
-
-
-
-
-JPanel cell [][] = contentGrille (contentPane);
-
-
-
- 
-
-this.setVisible(true);
-
+		this.setVisible(true);
 }
 
 
