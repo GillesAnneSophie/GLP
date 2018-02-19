@@ -29,6 +29,10 @@ import java.awt.event.ActionEvent;
  * @author lauryanncoralie
  *
  */
+/**
+ * @author Chabane
+ *
+ */
 public class DesignGUI extends JFrame {
 
 	/**

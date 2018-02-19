@@ -21,6 +21,10 @@ import javax.swing.JLabel;
  * @author lauryanncoralie
  *
  */
+/**
+ * @author Chabane
+ *
+ */
 public class HomeGUI extends JFrame {
 
 	private JPanel contentPane;
