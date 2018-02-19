@@ -88,9 +88,9 @@ public class Grid
 		{
 			for(int j=0 ; j<grid.length ; j++)
 			{
-				System.out.print(grid[i][j] + " ");
+				System.out.print("|" + grid[i][j]);
 			}
-			System.out.print("\n");
+			System.out.print("|\n");
 		}
 	}
 }
