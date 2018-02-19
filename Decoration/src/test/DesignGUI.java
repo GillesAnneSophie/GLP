@@ -6,9 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JPopupMenu;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.JMenu;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
@@ -250,9 +256,80 @@ public class DesignGUI extends JFrame {
 		JMenuItem mntmBigRug = new JMenuItem("Big Rug");
 		mnFloor.add(mntmBigRug);
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-	}
-
-	private static void addPopup(Component component, final JPopupMenu popup) {
-	}
 	
+
+
+
+
+
+
+
+JPanel cell [][] = contentGrille (contentPane);
+
+
+
+ 
+
+this.setVisible(true);
+
+}
+
+
+public static JPanel[][] contentGrille (JPanel content){
+
+JPanel grid = new JPanel();
+
+grid.setLayout(new GridLayout (40,40));
+
+grid.setPreferredSize(new Dimension (700,700));
+
+JPanel cell [][] = creatGrid (grid);
+
+grid.setBackground(Color.white);
+
+content.add(grid,BorderLayout.CENTER);
+
+return cell;
+
+}
+
+
+private static void addPopup(Component component, final JPopupMenu popup) {
+
+}
+
+public static JPanel[][] creatGrid(JPanel grid){
+
+JPanel cell[][]= new JPanel[40][40];
+
+for(int i=0; i<cell.length; i++){
+
+    for(int j=0; j<cell.length; j++){
+
+        cell[i][j]= new JPanel();
+
+        cell[i][j].setSize(new Dimension(100, 100));
+
+        if ((i + j) % 2 == 0) {
+
+            cell[i][j].setBackground(Color.gray);
+
+        } else {
+
+            cell[i][j].setBackground(Color.white);
+
+        }
+
+        grid.add(cell[i][j]);
+
+       
+
+}
+
+}
+
+return cell;
+
+}
+
 }
