@@ -14,7 +14,7 @@ import javax.swing.JPopupMenu;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
+
 import java.awt.Dimension;
 
 import javax.swing.JMenu;
@@ -23,10 +23,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JMenuBar;
-import javax.swing.JLabel;
-import javax.swing.JToolBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBoxMenuItem;
@@ -42,7 +39,9 @@ public class DesignGUI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	
+	private JPanel cells[][];
+	Catalog catalog = new Catalog();
+	Apartment apartment = new Apartment();
 	/**
 	 * Launch the application.
 	 */
@@ -183,6 +182,11 @@ public class DesignGUI extends JFrame {
 		popupMenu.add(mnBathroom);
 
 		JMenuItem mntmToilet = new JMenuItem("Toilet");
+		mntmToilet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/*bathroom.addFurniture(catalog.getFurniture("toilet"));*/
+			}
+		});
 		mnBathroom.add(mntmToilet);
 
 		JMenuItem mntmShower = new JMenuItem("Shower");
@@ -264,7 +268,7 @@ public class DesignGUI extends JFrame {
 		            }                 
 		        });  
 
-		JPanel cell [][] = contentGrille (contentPane);
+		cells = contentGrille (contentPane);
 		this.setVisible(true);
 		
 	}

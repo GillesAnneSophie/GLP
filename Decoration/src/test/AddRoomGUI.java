@@ -5,16 +5,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import catalog.Catalog;
+import catalog.Category;
+import categories.*;
+import place.Room;
+
 import javax.swing.JButton;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
-import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
 
 /**
  * @author lauryanncoralie
@@ -22,10 +24,16 @@ import java.awt.FlowLayout;
  */
 public class AddRoomGUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_2;
-
+	private Catalog cat;
+	private int i;
+	private int j;
 	/**
 	 * Launch the application.
 	 */
@@ -66,6 +74,26 @@ public class AddRoomGUI extends JFrame {
 		contentPane.add(lblChooseTheRoom);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String sg = (String) comboBox.getSelectedItem();
+				switch (sg) {
+					case "Kitchen":
+						break;
+					case "Dining Room":
+						break;
+					case "Living Room":
+						/*Category livingRoomCategory = new LivingRoom();
+						Room livigRoom = new Room("livingRoom", i, j, livingRoomCategory);
+						*/
+						break;
+					case "Bedroom/Office":
+						break;
+					case "Bathroom":
+						break;
+				}
+			}
+		});
 		comboBox.setBounds(186, 21, 99, 20);
 		contentPane.add(comboBox);
 		comboBox.addItem("Kitchen");
@@ -83,6 +111,7 @@ public class AddRoomGUI extends JFrame {
 		textField.setBounds(260, 66, 53, 17);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		/*i = Integer.parseInt(textField.getText()) ;*/
 		
 		JLabel lblX = new JLabel("X");
 		lblX.setBounds(244, 69, 19, 14);
@@ -92,10 +121,6 @@ public class AddRoomGUI extends JFrame {
 		textField_2.setColumns(10);
 		textField_2.setBounds(186, 66, 53, 17);
 		contentPane.add(textField_2);
+		/*j = Integer.parseInt(textField_2.getText());*/
 	}
 }
-/*	class RoomListener implements ActionListener {
-		public void actionPerformed (ActionEvent e) {
-		}
-	}
-*/

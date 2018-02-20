@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSeparator;
 /**
  * @author lauryanncoralie
  *
@@ -42,7 +43,7 @@ public class ToolbarGUI extends JFrame {
 	 */
 	public ToolbarGUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 285, 77);
+		setBounds(100, 100, 314, 77);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -65,6 +66,9 @@ public class ToolbarGUI extends JFrame {
 				RemoveRoomGUI.main(null);
 			}
 		});
+		
+		JSeparator separator = new JSeparator();
+		toolBar.add(separator);
 		toolBar.add(btnRemoveARoom);
 		
 		JButton btnRemoveAFurn = new JButton("REMOVE A FURNITURE");
@@ -72,6 +76,9 @@ public class ToolbarGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
+		
+		JSeparator separator_1 = new JSeparator();
+		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurn);
 	}
 
