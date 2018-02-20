@@ -1,32 +1,13 @@
 package test;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import catalog.Catalog;
 import place.Apartment;
-
-import javax.swing.JPopupMenu;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-
-import java.awt.Dimension;
-
-import javax.swing.JMenu;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JMenuItem;
-import javax.swing.JMenuBar;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JCheckBoxMenuItem;
 
 /**
  * @author lauryanncoralie

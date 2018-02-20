@@ -1,17 +1,8 @@
 package test;
 
-import java.awt.BorderLayout;
+import javax.swing.*;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import javax.swing.JComboBox;
-import java.awt.Insets;
-import javax.swing.JButton;
 
 /**
  * @author lauryanncoralie

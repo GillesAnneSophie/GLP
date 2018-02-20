@@ -1,7 +1,5 @@
 package place;
 
-import java.util.Arrays;
-
 /**
  * @author lauryanncoralie
  *

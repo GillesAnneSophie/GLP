@@ -1,29 +1,13 @@
 package test;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import javax.swing.JTextPane;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.Insets;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
 
-/**
- * @author lauryanncoralie
- *
- */
 /**
  * @author Chabane
- *
+ * @author lauryanncoralie
  */
 public class HomeGUI extends JFrame {
 

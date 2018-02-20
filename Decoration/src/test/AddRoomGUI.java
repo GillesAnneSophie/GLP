@@ -1,22 +1,11 @@
 package test;
 
+import javax.swing.*;
+import java.awt.event.*;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import catalog.Catalog;
-import catalog.Category;
-import categories.*;
-import place.Room;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * @author lauryanncoralie
