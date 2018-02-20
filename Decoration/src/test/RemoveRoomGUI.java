@@ -17,7 +17,7 @@ import javax.swing.JButton;
  * @author lauryanncoralie
  *
  */
-public class RemoveGUI extends JFrame {
+public class RemoveRoomGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -28,7 +28,7 @@ public class RemoveGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RemoveGUI frame = new RemoveGUI();
+					RemoveRoomGUI frame = new RemoveRoomGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,8 +40,8 @@ public class RemoveGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RemoveGUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public RemoveRoomGUI() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

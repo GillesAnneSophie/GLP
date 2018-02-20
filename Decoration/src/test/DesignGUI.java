@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 import javax.swing.JToolBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBoxMenuItem;
 
 /**
  * @author lauryanncoralie
@@ -41,9 +42,7 @@ public class DesignGUI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private Catalog cat;
-	private Apartment apt;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -70,26 +69,6 @@ public class DesignGUI extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnToolbar = new JMenu("Toolbar");
-		menuBar.add(mnToolbar);
-		
-		JMenuItem mntmAddARoom = new JMenuItem("Add a Room");
-		mntmAddARoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				AddRoomGUI.main(null);
-			}
-		});
-		mnToolbar.add(mntmAddARoom);
-		
-		JMenuItem mntmRemoveARoom = new JMenuItem("Remove a Room");
-		mntmRemoveARoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				RemoveGUI.main(null);
-			}
-		});
-		mnToolbar.add(mntmRemoveARoom);
-		
 		JMenu menu = new JMenu("?");
 		menuBar.add(menu);
 		
@@ -99,11 +78,26 @@ public class DesignGUI extends JFrame {
 		JMenuItem mntmExit = new JMenuItem("Exit ");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				}
-			
+				System.exit(0);
+			}	
 		});
 		menu.add(mntmExit);
+		
+		JMenu mnView = new JMenu("View");
+		menuBar.add(mnView);
+		
+		JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
+		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (chckbxmntmShowToolbar.isSelected() == true) {
+					ToolbarGUI.main(null);
+				}
+				else {
+				
+				}
+			}
+		});
+		mnView.add(chckbxmntmShowToolbar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -271,8 +265,8 @@ public class DesignGUI extends JFrame {
 		        });  
 
 		JPanel cell [][] = contentGrille (contentPane);
-
 		this.setVisible(true);
+		
 	}
 	
 	public static JPanel[][] contentGrille (JPanel content){
