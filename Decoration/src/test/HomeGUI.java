@@ -22,6 +22,8 @@ public class HomeGUI extends JFrame {
 				try {
 					HomeGUI frame = new HomeGUI();
 					frame.setVisible(true);
+				    frame.setTitle(" Home ");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

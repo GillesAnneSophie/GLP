@@ -10,6 +10,10 @@ import java.awt.event.ActionEvent;
  * @author lauryanncoralie
  *
  */
+/**
+ * @author Chabane
+ *
+ */
 public class ToolbarGUI extends JFrame {
 
 	private JPanel contentPane;
@@ -23,6 +27,8 @@ public class ToolbarGUI extends JFrame {
 				try {
 					ToolbarGUI frame = new ToolbarGUI();
 					frame.setVisible(true);
+				    frame.setTitle(" Toolbar ");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

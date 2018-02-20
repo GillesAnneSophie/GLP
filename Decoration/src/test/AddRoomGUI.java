@@ -32,6 +32,8 @@ public class AddRoomGUI extends JFrame {
 				try {
 					AddRoomGUI frame = new AddRoomGUI();
 					frame.setVisible(true);
+				    frame.setTitle(" Add a Room");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

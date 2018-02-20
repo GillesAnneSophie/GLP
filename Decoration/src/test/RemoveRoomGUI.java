@@ -21,6 +21,8 @@ public class RemoveRoomGUI extends JFrame {
 				try {
 					RemoveRoomGUI frame = new RemoveRoomGUI();
 					frame.setVisible(true);
+				    frame.setTitle(" Remove a room");
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
