@@ -5,6 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+
+import catalog.Catalog;
+import place.Apartment;
+
 import javax.swing.JPopupMenu;
 
 import java.awt.BorderLayout;
@@ -36,6 +41,8 @@ public class DesignGUI extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private Catalog cat;
+	private Apartment apt;
 
 	/**
 	 * Launch the application.
@@ -266,64 +273,29 @@ public class DesignGUI extends JFrame {
 		JPanel cell [][] = contentGrille (contentPane);
 
 		this.setVisible(true);
-		}
-
-
-		public static JPanel[][] contentGrille (JPanel content){
-
-		JPanel grid = new JPanel();
-
+	}
+	
+	public static JPanel[][] contentGrille (JPanel content){
+		JPanel grid = new JPanel();		
 		grid.setLayout(new GridLayout (40,40));
-
-		grid.setPreferredSize(new Dimension (700,700));
-
+		grid.setPreferredSize(new Dimension (700,700));		
 		JPanel cell [][] = creatGrid (grid);
-
 		grid.setBackground(Color.white);
-
 		content.add(grid,BorderLayout.CENTER);
-
 		return cell;
+	}
 
-		}
-
-
-		private static void addPopup(Component component, final JPopupMenu popup) {
-
-		}
-
-		public static JPanel[][] creatGrid(JPanel grid){
-
+	public static JPanel[][] creatGrid(JPanel grid){
 		JPanel cell[][]= new JPanel[40][40];
-
 		for(int i=0; i<cell.length; i++){
-
-		    for(int j=0; j<cell.length; j++){
-
-		        cell[i][j]= new JPanel();
-
+			for(int j=0; j<cell.length; j++){
+				cell[i][j]= new JPanel();
 		        cell[i][j].setSize(new Dimension(100, 100));
-
-		        if ((i + j) % 2 == 0) {
-
-		            cell[i][j].setBackground(Color.gray);
-
-		        } else {
-
-		            cell[i][j].setBackground(Color.white);
-
-		        }
-
+		        cell[i][j].setBackground(Color.white);
+		        cell[i][j].setBorder(new MatteBorder(1,1,2,2,Color.BLACK));
 		        grid.add(cell[i][j]);
-
-		       
-
+		    }
 		}
-
-		}
-
 		return cell;
-
-		}
-		
+	}		
 }
