@@ -12,6 +12,7 @@ import java.awt.event.*;
 public class HomeGUI extends JFrame {
 
 	private JPanel contentPane;
+	private static HomeGUI frame = new HomeGUI();
 
 	/**
 	 * Launch the application.
@@ -20,7 +21,6 @@ public class HomeGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HomeGUI frame = new HomeGUI();
 					frame.setVisible(true);
 				    frame.setTitle(" Home ");
 
@@ -60,7 +60,7 @@ public class HomeGUI extends JFrame {
 		btnNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DesignGUI.main(null);
-				
+				frame.setVisible(false);
 			}
 		});
 		GridBagConstraints gbc_btnNew = new GridBagConstraints();
@@ -83,5 +83,4 @@ public class HomeGUI extends JFrame {
 		gbc_btnOpenAFile.gridy = 7;
 		contentPane.add(btnOpenAFile, gbc_btnOpenAFile);
 	}
-
 }

@@ -17,15 +17,14 @@ import java.awt.event.ActionEvent;
 public class ToolbarGUI extends JFrame {
 
 	private JPanel contentPane;
-
+	private static ToolbarGUI frame = new ToolbarGUI();
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					ToolbarGUI frame = new ToolbarGUI();
+				try {					
 					frame.setVisible(true);
 				    frame.setTitle(" Toolbar ");
 
@@ -41,11 +40,16 @@ public class ToolbarGUI extends JFrame {
 	 */
 	public ToolbarGUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 372, 348);
+		setBounds(100, 100, 440, 353);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.CENTER);
+		
+		Object [] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
 		
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);
@@ -53,7 +57,8 @@ public class ToolbarGUI extends JFrame {
 		JButton btnAddARoom = new JButton("ADD A ROOM");
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AddRoomGUI.main(null);
+				
+				frame.add(new AddRoomGUI());
 			}
 		});
 		toolBar.add(btnAddARoom);
@@ -75,15 +80,15 @@ public class ToolbarGUI extends JFrame {
 			}
 		});
 		
+		JSeparator separator_2 = new JSeparator();
+		toolBar.add(separator_2);
+		
+		JButton btnAddAFurniture = new JButton("ADD A FURNITURE");
+		toolBar.add(btnAddAFurniture);
+		
 		JSeparator separator_1 = new JSeparator();
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurn);
-		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
-		
-		JList list = new JList();
-		panel.add(list);
 	}
 
 }
