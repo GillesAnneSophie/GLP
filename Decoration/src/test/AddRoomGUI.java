@@ -13,9 +13,6 @@ import catalog.Catalog;
  */
 public class AddRoomGUI extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -23,8 +20,10 @@ public class AddRoomGUI extends JFrame {
 	private Catalog cat;
 	private int i;
 	private int j;
+	
+	
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -41,8 +40,9 @@ public class AddRoomGUI extends JFrame {
 		});
 	}
 
+	
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public AddRoomGUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

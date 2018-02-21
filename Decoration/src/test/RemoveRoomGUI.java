@@ -12,8 +12,9 @@ public class RemoveRoomGUI extends JFrame {
 
 	private JPanel contentPane;
 
+	
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -30,8 +31,9 @@ public class RemoveRoomGUI extends JFrame {
 		});
 	}
 
+	
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public RemoveRoomGUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -58,5 +60,4 @@ public class RemoveRoomGUI extends JFrame {
 		btnEnter.setBounds(337, 52, 86, 23);
 		contentPane.add(btnEnter);
 	}
-
 }

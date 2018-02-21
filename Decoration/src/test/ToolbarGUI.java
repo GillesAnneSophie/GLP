@@ -1,4 +1,4 @@
-package test;
+ package test;
 
 import java.awt.*;
 import javax.swing.*;
@@ -7,19 +7,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * @author lauryanncoralie
- *
- */
-/**
  * @author Chabane
- *
+ * @author lauryanncoralie
  */
 public class ToolbarGUI extends JFrame {
 
 	private JPanel contentPane;
 	private static ToolbarGUI frame = new ToolbarGUI();
+	
+	
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -35,8 +33,9 @@ public class ToolbarGUI extends JFrame {
 		});
 	}
 
+	
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public ToolbarGUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -49,7 +48,7 @@ public class ToolbarGUI extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		
-		Object [] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
+		Object[] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
 		
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);

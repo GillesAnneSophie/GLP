@@ -15,16 +15,15 @@ import place.Apartment;
  */
 public class DesignGUI extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel cells[][];
 	Catalog catalog = new Catalog();
 	Apartment apartment = new Apartment();
+	
+	
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -41,8 +40,9 @@ public class DesignGUI extends JFrame {
 		});
 	}
 
+	
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,12 +87,13 @@ public class DesignGUI extends JFrame {
 		JPopupMenu popupMenu = new JPopupMenu();
 		contentPane.add(popupMenu);
 		popupMenu.addMouseListener(new MouseAdapter() {
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-		if (arg0.isPopupTrigger()) {
-		popupMenu.show(popupMenu,arg0.getX(),arg0.getY());
-		}
-		}
+		
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				if (arg0.isPopupTrigger()) {
+						popupMenu.show(popupMenu,arg0.getX(),arg0.getY());
+				}
+			}
 		});
 
 		JMenu mnKitchen = new JMenu("Kitchen");

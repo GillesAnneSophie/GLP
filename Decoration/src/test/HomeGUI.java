@@ -1,9 +1,9 @@
 package test;
 
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.border.EmptyBorder;
 
 /**
  * @author Chabane
@@ -14,8 +14,9 @@ public class HomeGUI extends JFrame {
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
 
+	
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -31,8 +32,9 @@ public class HomeGUI extends JFrame {
 		});
 	}
 
+	
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public HomeGUI() {
 		setBackground(Color.WHITE);
