@@ -46,10 +46,11 @@ public class Room extends AbstractRoom
 	/** Add a Furniture in the Room 
 	 * @param furniture
 	 * */
-	public void addFurniture(AbstractRoom furniture)
+	public void addFurniture(AbstractRoom furniture, int x, int y)
 	{
 		int counter = furnituresOfTheRoom.size();
 		furnituresOfTheRoom.put(counter, furniture);
+		furniture.setPosition(x, y, "2");
 	}
 	
 	/** Remove a Furniture from the Room

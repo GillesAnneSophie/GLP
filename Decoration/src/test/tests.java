@@ -34,12 +34,12 @@ public class tests
 		AbstractRoom furniture = catalog.getFurniture("bath");
 		System.out.println("\n" + furniture);
 		
-		bedroom.addFurniture(catalog.getFurniture("toilet"));
-		System.out.println("\n" + bedroom);
+		//bedroom.addFurniture(catalog.getFurniture("toilet"));
+		//System.out.println("\n" + bedroom);
 		
 		apartment.addRoom(bedroom);
-		bedroom.addFurniture(catalog.getFurniture("bath"));
-		System.out.println("\n" + apartment);
+		//bedroom.addFurniture(catalog.getFurniture("bath"));
+		//System.out.println("\n" + apartment);
 		
 		//DELETE
 		bedroom.removeFurniture("bath");
@@ -48,11 +48,10 @@ public class tests
 		apartment.removeRoom("bedroom");
 		System.out.println("\n" + apartment);
 		
-		//GRID
-		Dimension dimGrid = new Dimension(15, 15);
-		Grid gridTest = new Grid(dimGrid);
+		//GRID - created in AbstractRoom
 		
-		//System.out.println("Grid :");
-		//gridTest.showGrid();
+		bedroom.setPosition(3, 5, "1");
+		AbstractRoom furniture1 = catalog.getFurniture("washbasin");
+		bedroom.addFurniture(furniture1, 5, 4);
 	}
 }

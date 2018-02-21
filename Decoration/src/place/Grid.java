@@ -74,9 +74,9 @@ public class Grid
 	/**
 	 * @param grid the grid to set
 	 */
-	public void setGrid(String[][] grid) 
+	public void setGrid(int x, int y, String car) 
 	{
-		this.grid = grid;
+		grid[x][y]=car;
 	}
 
 

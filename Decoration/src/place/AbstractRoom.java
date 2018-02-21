@@ -17,10 +17,13 @@ public abstract class AbstractRoom
 	private Category category;
 	private Position position;
 	
+	private Grid grid;
+	private Dimension dimGrid = new Dimension(15, 15);
+	
 	
 	public AbstractRoom()
 	{
-		
+		grid = new Grid(dimGrid);
 	}
 	
 	/**
@@ -30,6 +33,8 @@ public abstract class AbstractRoom
 	 * */
 	public AbstractRoom(String name, Dimension dimension, boolean stackable, Category category) 
 	{
+		
+		grid = new Grid(dimGrid);
 		this.name = name;
 		this.dimension = dimension;
 		this.stackable = stackable;
@@ -44,6 +49,7 @@ public abstract class AbstractRoom
 	 * */
 	public AbstractRoom(String name, int lenght, int width, boolean stackable, Category category) 
 	{
+		grid = new Grid(dimGrid);
 		this.name = name;
 		dimension = new Dimension(lenght, width);
 		this.stackable = stackable;
@@ -70,6 +76,22 @@ public abstract class AbstractRoom
 
 	public Position getPosition() {
 		return position;
+	}
+
+	
+	/**
+	 * @param position le position à définir
+	 */
+	public void setPosition(int x, int y, String car) {
+		this.position = new Position(x, y);System.out.println(position.getX() + " " + position.getY());
+		for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
+		{
+			for(int j=getPosition().getY() ; j<getPosition().getY()+getDimension().getWidth() ; j++)
+			{
+				grid.setGrid(i, j, car);
+			}
+		}
+		grid.showGrid();
 	}
 
 	@Override
