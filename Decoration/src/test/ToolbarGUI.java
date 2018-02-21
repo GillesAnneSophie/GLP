@@ -37,7 +37,22 @@ public class ToolbarGUI extends JFrame {
 	
 	private String [] catalog = {"Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom"};
 	private JList <String >list = new JList <String> (catalog);
-
+	private String [] kitchenFurniture = {"<< Return","Fridge","Gas Cooker","Sink","Countertop"};
+	private JList <String> kitchenList = new JList <String> (kitchenFurniture);
+	private String [] livingRoomFurniture = {"<< Return","Coffee Table" ,"Small sofa","Big sofa","Armchair"};
+	private JList <String> livingRoomList = new JList <String> (livingRoomFurniture);
+	private String [] diningRoomFurniture = {"<< Return","Small Dining Table", "Big Dining Table","Chair","Sideboard"};
+	private JList <String> diningRoomList = new JList <String> (diningRoomFurniture);
+	private String [] bedroomOfficeFurniture = {"<< Return","Single Bed","Double Bed","Nightstand","Chest of Drawers","Wardrobe","Desk","Chair"};
+	private JList <String> bedroomOfficeList = new JList <String> (bedroomOfficeFurniture);
+	private String [] bathroomFurniture = {"<< Return","Toilet","Shower","Bathtub","Sink","Contertop"};
+	private JList <String> bathroomList = new JList <String> (bathroomFurniture);
+	private String [] wallFurniture = {"<< Return","Wallpaper","Paint","Panelling","Doors","Windows","Arts"};
+	private JList <String> wallList = new JList <String> (wallFurniture);
+	private String [] floarFurniture = {"<< Return","Carpeting", "Parquet","Tiles","Rugs"};
+	private JList <String> floarList = new JList <String> (floarFurniture);
+	
+	
 	/**
 	 * Launch the application
 	 */
@@ -97,6 +112,174 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(btnRemoveAFurn);
 		
 		panel.add(list);
+		list.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (list.getSelectedValue()=="Kitchen") {
+					panel.add(kitchenList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Living Room") {
+					panel.add(livingRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Dining Room") {
+					panel.add(diningRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bedroom/Office") {
+					panel.add(bedroomOfficeList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bathroom") {
+					panel.add(bathroomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Wall") {
+					panel.add(wallList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Floar") {
+					panel.add(floarList);
+					list.setVisible(false);
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (list.getSelectedValue()=="Kitchen") {
+					panel.add(kitchenList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Living Room") {
+					panel.add(livingRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Dining Room") {
+					panel.add(diningRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bedroom/Office") {
+					panel.add(bedroomOfficeList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bathroom") {
+					panel.add(bathroomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Wall") {
+					panel.add(wallList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Floar") {
+					panel.add(floarList);
+					list.setVisible(false);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (list.getSelectedValue()=="Kitchen") {
+					panel.add(kitchenList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Living Room") {
+					panel.add(livingRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Dining Room") {
+					panel.add(diningRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bedroom/Office") {
+					panel.add(bedroomOfficeList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bathroom") {
+					panel.add(bathroomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Wall") {
+					panel.add(wallList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Floar") {
+					panel.add(floarList);
+					list.setVisible(false);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (list.getSelectedValue()=="Kitchen") {
+					panel.add(kitchenList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Living Room") {
+					panel.add(livingRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Dining Room") {
+					panel.add(diningRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bedroom/Office") {
+					panel.add(bedroomOfficeList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bathroom") {
+					panel.add(bathroomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Wall") {
+					panel.add(wallList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Floar") {
+					panel.add(floarList);
+					list.setVisible(false);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (list.getSelectedValue()=="Kitchen") {
+					panel.add(kitchenList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Living Room") {
+					panel.add(livingRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Dining Room") {
+					panel.add(diningRoomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bedroom/Office") {
+					panel.add(bedroomOfficeList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Bathroom") {
+					panel.add(bathroomList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Wall") {
+					panel.add(wallList);
+					list.setVisible(false);
+				}
+				if (list.getSelectedValue() == "Floar") {
+					panel.add(floarList);
+					list.setVisible(false);
+				}
+			}
+			
+		});
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
