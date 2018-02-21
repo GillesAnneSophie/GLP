@@ -4,6 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import catalog.Catalog;
+import place.AbstractRoom;
+
 import java.awt.event.*;
 
 /**
@@ -32,6 +35,8 @@ public class ToolbarGUI extends JFrame {
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
 	
+	private String [] catalog = {"Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom"};
+	private JList <String >list = new JList <String> (catalog);
 
 	/**
 	 * Launch the application
@@ -91,6 +96,8 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurn);
 		
+		panel.add(list);
+		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
 			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the toolbar?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
@@ -99,6 +106,5 @@ public class ToolbarGUI extends JFrame {
 			    }
 			  }
 			});
-	}
-
+		}
 }

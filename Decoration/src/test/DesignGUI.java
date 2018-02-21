@@ -6,9 +6,6 @@ import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
-import catalog.Catalog;
-import place.Apartment;
-
 /**
  * @author CORALIE Laury Ann
  *
@@ -235,6 +232,7 @@ public class DesignGUI extends JFrame {
 			    }
 			  }
 			});
+		
 	}
 	
 	public static JPanel[][] contentGrille (JPanel content){
