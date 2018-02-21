@@ -3,10 +3,8 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.ActionEvent;
+
+import java.awt.event.*;
 
 /**
  * @author ZOUHOUDI Chabani
@@ -14,10 +12,27 @@ import java.awt.event.ActionEvent;
  */
 public class ToolbarGUI extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3392452619174690772L;
+	
 	private JPanel contentPane;
+	private JPanel panel = new JPanel();
 	private static ToolbarGUI frame = new ToolbarGUI();
 	
+	private Object[] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
 	
+	private 	JToolBar toolBar = new JToolBar();
+	
+	private JButton btnAddARoom = new JButton("ADD A ROOM");
+	private JButton btnRemoveARoom = new JButton("REMOVE A ROOM");
+	private JButton btnRemoveAFurn = new JButton("REMOVE A FURNITURE");
+	
+	private JSeparator separator = new JSeparator();
+	private JSeparator separator_1 = new JSeparator();
+	
+
 	/**
 	 * Launch the application
 	 */
@@ -46,16 +61,11 @@ public class ToolbarGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		JPanel panel = new JPanel();
+			
 		contentPane.add(panel, BorderLayout.CENTER);
 		
-		Object[] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
-		
-		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);
 		
-		JButton btnAddARoom = new JButton("ADD A ROOM");
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -64,26 +74,20 @@ public class ToolbarGUI extends JFrame {
 		});
 		toolBar.add(btnAddARoom);
 		
-		JButton btnRemoveARoom = new JButton("REMOVE A ROOM");
 		btnRemoveARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				RemoveRoomGUI.main(null);
 			}
 		});
-		
-		JSeparator separator = new JSeparator();
+			
 		toolBar.add(separator);
 		toolBar.add(btnRemoveARoom);
 		
-		JButton btnRemoveAFurn = new JButton("REMOVE A FURNITURE");
 		btnRemoveAFurn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		
-
-		
-		JSeparator separator_1 = new JSeparator();
+	
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurn);
 		

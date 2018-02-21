@@ -16,10 +16,69 @@ import place.Apartment;
 public class DesignGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JPanel cells[][];
-	Catalog catalog = new Catalog();
-	Apartment apartment = new Apartment();
+
+	private JMenuBar menuBar = new JMenuBar();
+	private 	JMenu menu = new JMenu("?");
+	private JMenu mnView = new JMenu("View");
+	private JMenu mnKitchen = new JMenu("Kitchen");
+	private JMenu mnDiningRoom = new JMenu("Dining Room");
+	private 	JMenu mnLivingRoom = new JMenu("Living Room");
+	private 	JMenu mnBedroomoffice = new JMenu("Bedroom/Office");
+	private JMenu mnBathroom = new JMenu("Bathroom");
+	private JMenu mnWall = new JMenu("Wall");
+	private JMenu mnDoors = new JMenu("Doors");
+	private JMenu mnWindows = new JMenu("Windows");
+	private JMenu mnArt = new JMenu("Art");
+	private JMenu mnFloor = new JMenu("Floor");
+	
+	private JMenuItem mntmHelp = new JMenuItem("Help");
+	private JMenuItem mntmExit = new JMenuItem("Exit ");
+	private 	JMenuItem mntmFridge = new JMenuItem("Fridge");
+	private JMenuItem mntmGasCooker = new JMenuItem("Gas Cooker");
+	private 	JMenuItem mntmSink = new JMenuItem("Sink");
+	private JMenuItem mntmCountertop = new JMenuItem("Countertop");
+	private 	JMenuItem mntmSmallDiningTable = new JMenuItem("Small Dining Table");
+	private JMenuItem mntmBigDiningTable = new JMenuItem("Big Dining Table");
+	private 	JMenuItem mntmChiar = new JMenuItem("Chair");
+	private JMenuItem mntmSideboard = new JMenuItem("Sideboard");
+	private JMenuItem mntmCoffeeTable = new JMenuItem("Coffee Table");
+	private JMenuItem mntmSmallSofa = new JMenuItem("Small Sofa");
+	private JMenuItem mntmBigSofa = new JMenuItem("Big Sofa");
+	private 	JMenuItem mntmArmchair = new JMenuItem("Armchair");
+	private JMenuItem mntmSingleBed = new JMenuItem("Single Bed");
+	private JMenuItem mntmDoubleBed = new JMenuItem("Double Bed");
+	private JMenuItem mntmNightstand = new JMenuItem("Nightstand");
+	private JMenuItem mntmChestOfDrawers = new JMenuItem("Chest of Drawers");
+	private JMenuItem mntmWardrobe = new JMenuItem("Wardrobe");
+	private 	JMenuItem mntmDesk = new JMenuItem("Desk");
+	private JMenuItem mntmToilet = new JMenuItem("Toilet");
+	private JMenuItem mntmShower = new JMenuItem("Shower");
+	private JMenuItem mntmBathtub = new JMenuItem("Bathtub");
+	private JMenuItem mntmSink_1 = new JMenuItem("Sink");
+	private JMenuItem mntmH = new JMenuItem("Contertop");
+	private JMenuItem mntmWallpaper = new JMenuItem("Wallpaper");
+	private JMenuItem mntmPaint = new JMenuItem("Paint");
+	private JMenuItem mntmPanelling = new JMenuItem("Panelling");
+	private JMenuItem mntmSmallDoor = new JMenuItem("Small Door");
+	private JMenuItem mntmBigDoor = new JMenuItem("Big Door");
+	private JMenuItem mntmSmallWindow = new JMenuItem("Small Window");
+	private JMenuItem mntmBigWindow = new JMenuItem("Big Window ");
+	private JMenuItem mntmPicture = new JMenuItem("Picture");
+	private JMenuItem mntmPainting = new JMenuItem("Painting");
+	private JMenuItem mntmPoster = new JMenuItem("Poster");
+	private JMenuItem mntmCarpeting = new JMenuItem("Carpeting");
+	private JMenuItem mntmParquet = new JMenuItem("Parquet");
+	private JMenuItem mntmTiles = new JMenuItem("Tiles");
+	private JMenuItem mntmSmallRug = new JMenuItem("Small Rug");
+	private JMenuItem mntmBigRug = new JMenuItem("Big Rug");
+	 
+	
+	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
+	
+	private JPopupMenu popupMenu = new JPopupMenu();
 	
 	
 	/**
@@ -48,16 +107,13 @@ public class DesignGUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 688, 477);
 		
-		JMenuBar menuBar = new JMenuBar();
+		
 		setJMenuBar(menuBar);
 		
-		JMenu menu = new JMenu("?");
 		menuBar.add(menu);
 		
-		JMenuItem mntmHelp = new JMenuItem("Help");
 		menu.add(mntmHelp);
 		
-		JMenuItem mntmExit = new JMenuItem("Exit ");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
@@ -68,11 +124,10 @@ public class DesignGUI extends JFrame {
 		});
 		
 		menu.add(mntmExit);
-		
-		JMenu mnView = new JMenu("View");
+	
 		menuBar.add(mnView);
 		
-		JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
+		
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chckbxmntmShowToolbar.isSelected() == true) {
@@ -88,7 +143,6 @@ public class DesignGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JPopupMenu popupMenu = new JPopupMenu();
 		contentPane.add(popupMenu);
 		popupMenu.addMouseListener(new MouseAdapter() {
 		
@@ -98,156 +152,70 @@ public class DesignGUI extends JFrame {
 						popupMenu.show(popupMenu,arg0.getX(),arg0.getY());
 				}
 			}
-		});
+		}); 
 
-		JMenu mnKitchen = new JMenu("Kitchen");
 		popupMenu.add(mnKitchen);
 
-		JMenuItem mntmFridge = new JMenuItem("Fridge");
 		mnKitchen.add(mntmFridge);
-
-		JMenuItem mntmGasCooker = new JMenuItem("Gas Cooker");
 		mnKitchen.add(mntmGasCooker);
-
-		JMenuItem mntmSink = new JMenuItem("Sink");
 		mnKitchen.add(mntmSink);
-
-		JMenuItem mntmCountertop = new JMenuItem("Countertop");
 		mnKitchen.add(mntmCountertop);
-
-		JMenu mnDiningRoom = new JMenu("Dining Room");
+		
 		popupMenu.add(mnDiningRoom);
-
-		JMenuItem mntmSmallDiningTable = new JMenuItem("Small Dining Table");
+		
 		mnDiningRoom.add(mntmSmallDiningTable);
-
-		JMenuItem mntmBigDiningTable = new JMenuItem("Big Dining Table");
 		mnDiningRoom.add(mntmBigDiningTable);
-
-		JMenuItem mntmChiar = new JMenuItem("Chair");
 		mnDiningRoom.add(mntmChiar);
-
-		JMenuItem mntmSideboard = new JMenuItem("Sideboard");
 		mnDiningRoom.add(mntmSideboard);
 
-		JMenu mnLivingRoom = new JMenu("Living Room");
 		popupMenu.add(mnLivingRoom);
 
-		JMenuItem mntmCoffeeTable = new JMenuItem("Coffee Table");
-		mnLivingRoom.add(mntmCoffeeTable);
-
-		JMenuItem mntmSmallSofa = new JMenuItem("Small Sofa");
+		mnLivingRoom.add(mntmCoffeeTable);	
 		mnLivingRoom.add(mntmSmallSofa);
-
-		JMenuItem mntmBigSofa = new JMenuItem("Big Sofa");
 		mnLivingRoom.add(mntmBigSofa);
-
-		JMenuItem mntmArmchair = new JMenuItem("Armchair");
 		mnLivingRoom.add(mntmArmchair);
 
-		JMenu mnBedroomoffice = new JMenu("Bedroom/Office");
 		popupMenu.add(mnBedroomoffice);
 
-		JMenuItem mntmSingleBed = new JMenuItem("Single Bed");
 		mnBedroomoffice.add(mntmSingleBed);
-
-		JMenuItem mntmDoubleBed = new JMenuItem("Double Bed");
 		mnBedroomoffice.add(mntmDoubleBed);
-
-		JMenuItem mntmNightstand = new JMenuItem("Nightstand");
 		mnBedroomoffice.add(mntmNightstand);
-
-		JMenuItem mntmChestOfDrawers = new JMenuItem("Chest of Drawers");
 		mnBedroomoffice.add(mntmChestOfDrawers);
-
-		JMenuItem mntmWardrobe = new JMenuItem("Wardrobe");
 		mnBedroomoffice.add(mntmWardrobe);
-
-		JMenuItem mntmDesk = new JMenuItem("Desk");
 		mnBedroomoffice.add(mntmDesk);
 
-		JMenu mnBathroom = new JMenu("Bathroom");
 		popupMenu.add(mnBathroom);
 
-		JMenuItem mntmToilet = new JMenuItem("Toilet");
-		mntmToilet.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				/*bathroom.addFurniture(catalog.getFurniture("toilet"));*/
-			}
-		});
 		mnBathroom.add(mntmToilet);
-
-		JMenuItem mntmShower = new JMenuItem("Shower");
 		mnBathroom.add(mntmShower);
-
-		JMenuItem mntmBathtub = new JMenuItem("Bathtub");
 		mnBathroom.add(mntmBathtub);
-
-		JMenuItem mntmSink_1 = new JMenuItem("Sink");
 		mnBathroom.add(mntmSink_1);
-
-		JMenuItem mntmH = new JMenuItem("Contertop");
 		mnBathroom.add(mntmH);
-
-		JMenu mnWall = new JMenu("Wall");
+		
 		popupMenu.add(mnWall);
-
-		JMenuItem mntmWallpaper = new JMenuItem("Wallpaper");
+		
 		mnWall.add(mntmWallpaper);
-
-		JMenuItem mntmPaint = new JMenuItem("Paint");
 		mnWall.add(mntmPaint);
-
-		JMenuItem mntmPanelling = new JMenuItem("Panelling");
-		mnWall.add(mntmPanelling);
-
-		JMenu mnDoors = new JMenu("Doors");
-		mnWall.add(mnDoors);
-
-		JMenuItem mntmSmallDoor = new JMenuItem("Small Door");
+		mnWall.add(mntmPanelling);		
+		mnWall.add(mnDoors);		
 		mnDoors.add(mntmSmallDoor);
-
-		JMenuItem mntmBigDoor = new JMenuItem("Big Door");
 		mnDoors.add(mntmBigDoor);
-
-		JMenu mnWindows = new JMenu("Windows");
 		mnWall.add(mnWindows);
-
-		JMenuItem mntmSmallWindow = new JMenuItem("Small Window");
 		mnWindows.add(mntmSmallWindow);
-
-		JMenuItem mntmBigWindow = new JMenuItem("Big Window ");
 		mnWindows.add(mntmBigWindow);
-
-		JMenu mnArt = new JMenu("Art");
-		mnWall.add(mnArt);
-
-		JMenuItem mntmPicture = new JMenuItem("Picture");
+		mnWall.add(mnArt);	
 		mnArt.add(mntmPicture);
-
-		JMenuItem mntmPainting = new JMenuItem("Painting");
 		mnArt.add(mntmPainting);
-
-		JMenuItem mntmPoster = new JMenuItem("Poster");
 		mnArt.add(mntmPoster);
-
-		JMenu mnFloor = new JMenu("Floor");
+		
 		popupMenu.add(mnFloor);
-
-		JMenuItem mntmCarpeting = new JMenuItem("Carpeting");
+		
 		mnFloor.add(mntmCarpeting);
-
-		JMenuItem mntmParquet = new JMenuItem("Parquet");
 		mnFloor.add(mntmParquet);
-
-		JMenuItem mntmTiles = new JMenuItem("Tiles");
 		mnFloor.add(mntmTiles);
-
-		JMenuItem mntmSmallRug = new JMenuItem("Small Rug");
 		mnFloor.add(mntmSmallRug);
-
-		JMenuItem mntmBigRug = new JMenuItem("Big Rug");
 		mnFloor.add(mntmBigRug);
+		
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 		contentPane.addMouseListener(new MouseAdapter() {  
@@ -255,7 +223,7 @@ public class DesignGUI extends JFrame {
 		                popupMenu.show(contentPane , e.getX(), e.getY());  
 		            }                 
 		        });  
-
+	
 		cells = contentGrille (contentPane);
 		this.setVisible(true);
 		
@@ -271,7 +239,7 @@ public class DesignGUI extends JFrame {
 	
 	public static JPanel[][] contentGrille (JPanel content){
 		JPanel grid = new JPanel();		
-		grid.setLayout(new GridLayout (40,40));
+		grid.setLayout(new GridLayout (20,20));
 		grid.setPreferredSize(new Dimension (700,700));		
 		JPanel cell [][] = creatGrid (grid);
 		grid.setBackground(Color.white);
@@ -280,13 +248,13 @@ public class DesignGUI extends JFrame {
 	}
 
 	public static JPanel[][] creatGrid(JPanel grid){
-		JPanel cell[][]= new JPanel[40][40];
+		JPanel cell[][]= new JPanel[20][20];
 		for(int i=0; i<cell.length; i++){
 			for(int j=0; j<cell.length; j++){
 				cell[i][j]= new JPanel();
 		        cell[i][j].setSize(new Dimension(100, 100));
 		        cell[i][j].setBackground(Color.white);
-		        cell[i][j].setBorder(new MatteBorder(1,1,2,2,Color.BLACK));
+		        cell[i][j].setBorder(new MatteBorder(1,1,1,1,Color.BLACK));
 		        grid.add(cell[i][j]);
 		    }
 		}
