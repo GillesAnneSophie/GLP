@@ -48,10 +48,12 @@ public class tests
 		apartment.removeRoom("bedroom");
 		System.out.println("\n" + apartment);
 		
-		//GRID - created in AbstractRoom
+		//GRID
+		Dimension dimGrid = new Dimension(15, 15);
+		Grid grid = new Grid(dimGrid);;
 		
-		bedroom.setPosition(3, 5, "1");
+		bedroom.setPosition(3, 5, "1", grid);
 		AbstractRoom furniture1 = catalog.getFurniture("washbasin");
-		bedroom.addFurniture(furniture1, 5, 4);
+		bedroom.addFurniture(furniture1, 5, 7, grid);
 	}
 }
