@@ -63,13 +63,6 @@ public class RemoveRoomGUI extends JFrame {
 		btnEnter.setBounds(337, 52, 86, 23);
 		contentPane.add(btnEnter);
 		
-		addWindowListener(new WindowAdapter() {
-			  public void windowClosing(WindowEvent e) {
-			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit ?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
-			    if (confirmed == JOptionPane.YES_OPTION) {
-			    		dispose();
-			    }
-			  }
-			});
+
 	}
 }

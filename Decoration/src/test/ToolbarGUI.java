@@ -59,7 +59,7 @@ public class ToolbarGUI extends JFrame {
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				frame.add(new AddRoomGUI());
+				AddRoomGUI.main(null);
 			}
 		});
 		toolBar.add(btnAddARoom);
@@ -81,11 +81,7 @@ public class ToolbarGUI extends JFrame {
 			}
 		});
 		
-		JSeparator separator_2 = new JSeparator();
-		toolBar.add(separator_2);
-		
-		JButton btnAddAFurniture = new JButton("ADD A FURNITURE");
-		toolBar.add(btnAddAFurniture);
+
 		
 		JSeparator separator_1 = new JSeparator();
 		toolBar.add(separator_1);
