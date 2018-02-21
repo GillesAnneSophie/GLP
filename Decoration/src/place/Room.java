@@ -5,7 +5,7 @@ import java.util.HashMap;
 import catalog.*;
 
 /**
- * @author lauryanncoralie
+ * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
 public class Room extends AbstractRoom

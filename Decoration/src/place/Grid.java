@@ -1,7 +1,7 @@
 package place;
 
 /**
- * @author lauryanncoralie
+ * @author CORALIE Laury Ann
  *
  */
 public class Grid 

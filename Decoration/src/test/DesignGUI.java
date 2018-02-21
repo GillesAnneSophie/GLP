@@ -10,7 +10,7 @@ import catalog.Catalog;
 import place.Apartment;
 
 /**
- * @author lauryanncoralie
+ * @author CORALIE Laury Ann
  *
  */
 public class DesignGUI extends JFrame {

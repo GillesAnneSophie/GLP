@@ -3,7 +3,7 @@ package catalog;
 import place.*;
 
 /**
- * @author lauryanncoralie
+ * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
 public class Furniture extends AbstractRoom

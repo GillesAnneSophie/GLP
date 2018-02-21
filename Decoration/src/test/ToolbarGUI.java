@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * @author Chabane
- * @author lauryanncoralie
+ * @author ZOUHOUDI Chabani
+ * @author CORALIE Laury Ann
  */
 public class ToolbarGUI extends JFrame {
 

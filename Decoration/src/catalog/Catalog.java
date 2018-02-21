@@ -9,7 +9,7 @@ import categories.*;
 import place.*;
 
 /**
- * @author Gilles Anne-Sophie
+ * @author GILLES Anne-Sophie
  *
  */
 public class Catalog 

@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 import catalog.Catalog;
 
 /**
- * @author lauryanncoralie
+ * @author CORALIE Laury Ann
  *
  */
 public class AddRoomGUI extends JFrame {

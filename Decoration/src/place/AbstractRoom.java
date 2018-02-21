@@ -6,7 +6,7 @@ package place;
 import catalog.Category;
 
 /**
- * @author Gilles Anne-Sophie
+ * @author GILLES Anne-Sophie
  *
  */
 public abstract class AbstractRoom 

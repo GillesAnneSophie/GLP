@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.border.EmptyBorder;
 
 /**
- * @author lauryanncoralie
+ * @author CORALIE Laury Ann
  *
  */
 public class RemoveRoomGUI extends JFrame {

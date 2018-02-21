@@ -6,8 +6,8 @@ import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 
 /**
- * @author Chabane
- * @author lauryanncoralie
+ * @author ZOUHOUDI Chabani
+ * @author CORALIE Laury Ann
  */
 public class HomeGUI extends JFrame {
 
