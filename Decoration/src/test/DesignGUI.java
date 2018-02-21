@@ -60,9 +60,13 @@ public class DesignGUI extends JFrame {
 		JMenuItem mntmExit = new JMenuItem("Exit ");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
+				int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+				if (confirmed == JOptionPane.YES_OPTION) {
+					dispose();
+				}
 			}	
 		});
+		
 		menu.add(mntmExit);
 		
 		JMenu mnView = new JMenu("View");
@@ -255,6 +259,14 @@ public class DesignGUI extends JFrame {
 		cells = contentGrille (contentPane);
 		this.setVisible(true);
 		
+		addWindowListener(new WindowAdapter() {
+			  public void windowClosing(WindowEvent e) {
+			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+			    if (confirmed == JOptionPane.YES_OPTION) {
+			    		dispose();
+			    }
+			  }
+			});
 	}
 	
 	public static JPanel[][] contentGrille (JPanel content){

@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 /**
@@ -88,6 +90,15 @@ public class ToolbarGUI extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurn);
+		
+		addWindowListener(new WindowAdapter() {
+			  public void windowClosing(WindowEvent e) {
+			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+			    if (confirmed == JOptionPane.YES_OPTION) {
+			    		dispose();
+			    }
+			  }
+			});
 	}
 
 }

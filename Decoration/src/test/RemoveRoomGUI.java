@@ -2,6 +2,9 @@ package test;
 
 import javax.swing.*;
 import java.awt.EventQueue;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.border.EmptyBorder;
 
 /**
@@ -59,5 +62,14 @@ public class RemoveRoomGUI extends JFrame {
 		JButton btnEnter = new JButton("Enter");
 		btnEnter.setBounds(337, 52, 86, 23);
 		contentPane.add(btnEnter);
+		
+		addWindowListener(new WindowAdapter() {
+			  public void windowClosing(WindowEvent e) {
+			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+			    if (confirmed == JOptionPane.YES_OPTION) {
+			    		dispose();
+			    }
+			  }
+			});
 	}
 }

@@ -113,5 +113,13 @@ public class AddRoomGUI extends JFrame {
 		textField_2.setBounds(186, 66, 53, 17);
 		contentPane.add(textField_2);
 		/*j = Integer.parseInt(textField_2.getText());*/
+		addWindowListener(new WindowAdapter() {
+			  public void windowClosing(WindowEvent e) {
+			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+			    if (confirmed == JOptionPane.YES_OPTION) {
+			    		dispose();
+			    }
+			  }
+			});
 	}
 }

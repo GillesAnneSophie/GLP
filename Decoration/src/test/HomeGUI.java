@@ -36,6 +36,9 @@ public class HomeGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
+	/**
+	 * 
+	 */
 	public HomeGUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -84,5 +87,14 @@ public class HomeGUI extends JFrame {
 		gbc_btnOpenAFile.gridx = 8;
 		gbc_btnOpenAFile.gridy = 7;
 		contentPane.add(btnOpenAFile, gbc_btnOpenAFile);
+		
+		addWindowListener(new WindowAdapter() {
+			  public void windowClosing(WindowEvent e) {
+			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+			    if (confirmed == JOptionPane.YES_OPTION) {
+			    		dispose();
+			    }
+			  }
+			});
 	}
 }
