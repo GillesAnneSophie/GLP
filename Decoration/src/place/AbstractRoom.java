@@ -17,9 +17,6 @@ public abstract class AbstractRoom
 	private Category category;
 	private Position position;
 	
-	private Dimension dimGrid = new Dimension(15, 15);
-	private Grid grid = new Grid(dimGrid);;
-	
 	
 	public AbstractRoom()
 	{
@@ -97,7 +94,7 @@ public abstract class AbstractRoom
 	 * @param y
 	 * @param car
 	 */
-	public void setPosition(int x, int y, String car) {
+	public void setPosition(int x, int y, String car, Grid grid) {
 		this.position = new Position(x, y);System.out.println(position.getX() + " " + position.getY());
 		for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
 		{
