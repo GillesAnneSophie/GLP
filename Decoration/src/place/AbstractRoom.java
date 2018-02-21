@@ -17,24 +17,23 @@ public abstract class AbstractRoom
 	private Category category;
 	private Position position;
 	
-	private Grid grid;
 	private Dimension dimGrid = new Dimension(15, 15);
+	private Grid grid = new Grid(dimGrid);;
 	
 	
 	public AbstractRoom()
 	{
-		grid = new Grid(dimGrid);
+		
 	}
 	
 	/**
 	 * @param name
 	 * @param dimension
 	 * @param stackable
+	 * @param category
 	 * */
 	public AbstractRoom(String name, Dimension dimension, boolean stackable, Category category) 
 	{
-		
-		grid = new Grid(dimGrid);
 		this.name = name;
 		this.dimension = dimension;
 		this.stackable = stackable;
@@ -46,10 +45,10 @@ public abstract class AbstractRoom
 	 * @param lenght
 	 * @param width
 	 * @param stackable
+	 * @param category
 	 * */
 	public AbstractRoom(String name, int lenght, int width, boolean stackable, Category category) 
 	{
-		grid = new Grid(dimGrid);
 		this.name = name;
 		dimension = new Dimension(lenght, width);
 		this.stackable = stackable;
@@ -57,30 +56,46 @@ public abstract class AbstractRoom
 	}
 
 	
-	
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @return the dimension
+	 */
 	public Dimension getDimension() {
 		return dimension;
 	}
 
+	/**
+	 * @return stackable
+	 */
 	public boolean isStackable() {
 		return stackable;
 	}
 
+	/**
+	 * @return the category
+	 */
 	public Category getCategory() {
 		return category;
 	}
 
+	/**
+	 * @return the position
+	 */
 	public Position getPosition() {
 		return position;
 	}
 
 	
 	/**
-	 * @param position le position à définir
+	 * @param x
+	 * @param y
+	 * @param car
 	 */
 	public void setPosition(int x, int y, String car) {
 		this.position = new Position(x, y);System.out.println(position.getX() + " " + position.getY());

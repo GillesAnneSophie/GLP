@@ -10,6 +10,7 @@ public class Grid
 	private Dimension dimension;
 	private String[][] grid;
 	
+	
 	/**
 	 * @param apartment
 	 * @param dimension
@@ -55,6 +56,7 @@ public class Grid
 		return grid;
 	}
 
+	
 	/**
 	 * @param apartment the apartment to set
 	 */
@@ -76,10 +78,13 @@ public class Grid
 	 */
 	public void setGrid(int x, int y, String car) 
 	{
-		grid[x][y]=car;
+		this.grid[x][y]=car;
 	}
 
 
+	/**
+	 * Print the current grid
+	 */
 	public void showGrid() 
 	{
 		for(int i=0 ; i<grid.length ; i++)

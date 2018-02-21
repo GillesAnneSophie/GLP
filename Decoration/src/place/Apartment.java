@@ -6,12 +6,11 @@ import java.util.HashMap;
  * @author GILLES Anne-Sophie
  *
  */
-
 public class Apartment 
 {
 	private HashMap<Integer, Room> roomsList;
 	
-	/** Create an apartment */
+
 	public Apartment()
 	{
 		roomsList = new HashMap<Integer, Room>();
@@ -26,10 +25,7 @@ public class Apartment
 
 
 	/** Add a room in the apartment
-	 * @param name
-	 * @param dimension
-	 * @param categories
-	 * @param position
+	 * @param room
 	 * */
 	public void addRoom(Room room)
 	{

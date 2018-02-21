@@ -12,7 +12,8 @@ import catalog.Category;
 public class Bathroom extends Category
 {
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "Bathroom";
 	}
 }

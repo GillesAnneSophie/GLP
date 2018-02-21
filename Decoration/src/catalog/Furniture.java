@@ -21,6 +21,7 @@ public class Furniture extends AbstractRoom
 	 * @param name
 	 * @param dimension
 	 * @param stackable
+	 * @param category
 	 */
 	public Furniture(String name, Dimension dimension, boolean stackable, Category category) 
 	{

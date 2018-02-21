@@ -17,7 +17,7 @@ public class Room extends AbstractRoom
 	 * @param name
 	 * @param lenght
 	 * @param width
-	 * @param stackable
+	 * @param category
 	 */
 	public Room(String name, int lenght, int width, Category category) 
 	{
@@ -40,11 +40,11 @@ public class Room extends AbstractRoom
 		return "Room [furnituresOfTheRoom=\n" + furnituresOfTheRoom + "\n" + super.toString() + "]";
 	}
 
-
-	
 	
 	/** Add a Furniture in the Room 
 	 * @param furniture
+	 * @param x
+	 * @param y
 	 * */
 	public void addFurniture(AbstractRoom furniture, int x, int y)
 	{
@@ -54,7 +54,7 @@ public class Room extends AbstractRoom
 	}
 	
 	/** Remove a Furniture from the Room
-	 * @param name of the Furniture
+	 * @param name
 	 * */
 	public void removeFurniture(String name)
 	{
@@ -65,6 +65,5 @@ public class Room extends AbstractRoom
 				furnituresOfTheRoom.remove(index);
 			}
 		}
-		
 	}
 }

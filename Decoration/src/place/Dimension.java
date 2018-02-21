@@ -9,6 +9,7 @@ public class Dimension
 	private int lenght;
 	private int width;
 
+	
 	/**
 	 * @param lenght
 	 * @param width
@@ -35,6 +36,7 @@ public class Dimension
 		return width;
 	}
 
+	
 	/**
 	 * @param lenght the lenght to set
 	 */

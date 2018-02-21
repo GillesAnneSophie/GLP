@@ -25,11 +25,15 @@ public class Catalog
 	private static Dimension mediumRectangle = new Dimension(1, 3);
 	private static Dimension largeRectangle = new Dimension(2, 3);
 	
+	
 	public Catalog()
 	{
 		inventory = new ArrayList<AbstractRoom>();
 	}
 	
+	/**
+	 * Build 
+	 */
 	public void buildFurniture()
 	{
 		/*Create Categories*/
@@ -130,7 +134,7 @@ public class Catalog
 
 	
 	/**
-	 * @return the allTheFurniture
+	 * @return inventory
 	 */
 	public ArrayList<AbstractRoom> getAllTheFurniture() 
 	{
@@ -138,6 +142,10 @@ public class Catalog
 	}
 	
 
+	/**
+	 * @param name
+	 * @return the furniture or null
+	 */
 	public AbstractRoom getFurniture(String name)
 	{
 		for(int index=0 ; index<inventory.size() ; index++)
