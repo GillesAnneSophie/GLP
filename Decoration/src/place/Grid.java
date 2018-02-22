@@ -84,8 +84,9 @@ public class Grid
 	 * @param isStackable
 	 * @param x
 	 * @param y
+	 * @param type
 	 * */
-	public boolean canBePlace(boolean isStackable, int x, int y)
+	public boolean canBePlace(boolean isStackable, int x, int y, String type)
 	{
 		/* The object is not stackable
 		 * Can be place IN a room
@@ -93,7 +94,7 @@ public class Grid
 		 * */
 		if(!isStackable)
 		{
-			if(getGrid(x, y)=="1")
+			if(getGrid(x, y)=="1" || type=="room")
 			{
 				return true;
 			}
@@ -126,6 +127,7 @@ public class Grid
 	 */
 	public void showGrid() 
 	{
+		System.out.println("\nGrid :\n");
 		for(int i=0 ; i<grid.length ; i++)
 		{
 			for(int j=0 ; j<grid.length ; j++)

@@ -93,10 +93,12 @@ public abstract class AbstractRoom
 	 * @param x
 	 * @param y
 	 * @param car
+	 * @param grid
+	 * @param type
 	 */
-	public void setPosition(int x, int y, String car, Grid grid) 
+	public void setPosition(int x, int y, String car, Grid grid, String type) 
 	{
-		if(grid.canBePlace(isStackable(), x, y))
+		if(grid.canBePlace(isStackable(), x, y, type))
 		{
 			this.position = new Position(x, y);
 			for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
@@ -104,6 +106,21 @@ public abstract class AbstractRoom
 				for(int j=getPosition().getY() ; j<getPosition().getY()+getDimension().getWidth() ; j++)
 				{
 					grid.setGrid(i, j, car);
+				}
+			}
+			
+			if(type=="room")
+			{
+				for(int k=getPosition().getX()-1 ; k<getPosition().getX()+getDimension().getLenght()+1 ; k++)
+				{
+					for(int l=getPosition().getY()-1 ; l<getPosition().getY()+getDimension().getWidth()+1 ; l++)
+					{
+						if(k==getPosition().getX()-1 || l==getPosition().getY()-1 || l==getPosition().getY()+getDimension().getWidth() || k==getPosition().getX()+getDimension().getLenght())
+						{
+							/*9 = Wall / 1 = Room*/
+							grid.setGrid(k, l, "9");
+						}
+					}
 				}
 			}
 		}

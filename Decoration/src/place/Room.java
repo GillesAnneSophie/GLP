@@ -50,7 +50,20 @@ public class Room extends AbstractRoom
 	{
 		int counter = furnituresOfTheRoom.size();
 		furnituresOfTheRoom.put(counter, furniture);
-		furniture.setPosition(x, y, "2", grid);
+		
+		boolean stackable = furniture.isStackable();
+		char name = furniture.getName().charAt(0);
+		String nameInGrid;
+		if(stackable)
+		{
+			String stackableLetter = "s";
+			nameInGrid = name + "" + stackableLetter;
+		}
+		else
+		{
+			nameInGrid = name + "";
+		}
+		furniture.setPosition(x, y, nameInGrid, grid, "furniture");
 	}
 	
 	/** Remove a Furniture from the Room

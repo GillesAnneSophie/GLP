@@ -52,7 +52,7 @@ public class tests
 		Dimension dimGrid = new Dimension(15, 15);
 		Grid grid = new Grid(dimGrid);;
 		
-		bedroom.setPosition(3, 5, "1", grid);
+		bedroom.setPosition(3, 5, "1", grid, "room");
 		AbstractRoom furniture1 = catalog.getFurniture("washbasin");
 		bedroom.addFurniture(furniture1, 5, 7, grid);
 	}
