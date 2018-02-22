@@ -94,7 +94,7 @@ public class Grid
 		 * */
 		if(!isStackable)
 		{
-			if(getGrid(x, y)=="1" || type=="room")
+			if(getGrid(x, y)=="1" || (type=="room" && getGrid(x, y)=="0"))
 			{
 				return true;
 			}
