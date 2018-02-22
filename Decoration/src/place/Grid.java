@@ -49,9 +49,9 @@ public class Grid
 	/**
 	 * @return the grid
 	 */
-	public String[][] getGrid() 
+	public String getGrid(int x, int y) 
 	{
-		return grid;
+		return grid[x][y];
 	}
 
 	
@@ -80,6 +80,47 @@ public class Grid
 	}
 
 
+	/**
+	 * @param isStackable
+	 * @param x
+	 * @param y
+	 * */
+	public boolean canBePlace(boolean isStackable, int x, int y)
+	{
+		/* The object is not stackable
+		 * Can be place IN a room
+		 * Can't be place ON another Furniture
+		 * */
+		if(!isStackable)
+		{
+			if(getGrid(x, y)=="1")
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/* The object is stackable
+		 * Can be place IN a room
+		 * Can be place ON another objet which is stackable
+		 * */
+		else
+		{
+			/* TEMPORARY
+			 * STACKABLE will have a "s" with a number in the grid*/
+			if(getGrid(x, y).contains("s"))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+	
 	/**
 	 * Print the current grid
 	 */

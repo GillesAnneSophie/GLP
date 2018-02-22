@@ -94,13 +94,17 @@ public abstract class AbstractRoom
 	 * @param y
 	 * @param car
 	 */
-	public void setPosition(int x, int y, String car, Grid grid) {
-		this.position = new Position(x, y);System.out.println(position.getX() + " " + position.getY());
-		for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
+	public void setPosition(int x, int y, String car, Grid grid) 
+	{
+		if(grid.canBePlace(isStackable(), x, y))
 		{
-			for(int j=getPosition().getY() ; j<getPosition().getY()+getDimension().getWidth() ; j++)
+			this.position = new Position(x, y);
+			for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
 			{
-				grid.setGrid(i, j, car);
+				for(int j=getPosition().getY() ; j<getPosition().getY()+getDimension().getWidth() ; j++)
+				{
+					grid.setGrid(i, j, car);
+				}
 			}
 		}
 		grid.showGrid();
