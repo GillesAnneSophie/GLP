@@ -281,6 +281,308 @@ public class ToolbarGUI extends JFrame {
 			
 		});
 		
+		kitchenList.addMouseListener(new MouseListener (){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (kitchenList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(kitchenList);
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (kitchenList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(kitchenList);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (kitchenList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(kitchenList);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (kitchenList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(kitchenList);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (kitchenList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(kitchenList);
+				}
+			}
+			
+		});
+		
+		livingRoomList.addMouseListener(new MouseListener (){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (livingRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(kitchenList);
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (livingRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(livingRoomList);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (livingRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(livingRoomList);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (livingRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(livingRoomList);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (livingRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(livingRoomList);
+				}
+			}
+			
+		});
+		
+		diningRoomList.addMouseListener(new MouseListener (){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (diningRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(diningRoomList);
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (diningRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(diningRoomList);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (diningRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(diningRoomList);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (diningRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(diningRoomList);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (diningRoomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(diningRoomList);
+				}
+			}
+			
+		});
+		
+		bedroomOfficeList.addMouseListener(new MouseListener (){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bedroomOfficeList);
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bedroomOfficeList);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bedroomOfficeList);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bedroomOfficeList);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bedroomOfficeList);
+				}
+			}
+			
+		});
+		
+		bathroomList.addMouseListener(new MouseListener (){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bathroomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bathroomList);
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bathroomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bathroomList);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bathroomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bathroomList);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bathroomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bathroomList);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (bathroomList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(bathroomList);
+				}
+			}
+			
+		});
+		
+		wallList.addMouseListener(new MouseListener (){
+
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (wallList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(wallList);
+					
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (wallList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(wallList);
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (wallList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(wallList);
+				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (wallList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(wallList);
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				if (wallList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(wallList);
+				}
+			}
+			
+		});
+		
+		
+		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
 			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the toolbar?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
