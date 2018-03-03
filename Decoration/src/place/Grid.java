@@ -109,24 +109,36 @@ public class Grid
 						}
 						else
 						{
-							placable = false;
+							return false;
 						}
 					}
 				}
 			}
 			else if(type=="room")
 			{
-				for(int i=x ; i<x+dimension.getWidth() ; i++)
+				for(int i=x-1 ; i<x+dimension.getWidth()+1 ; i++)
 				{
-					for(int j=y ; j<y+dimension.getLenght() ; j++)
+					for(int j=y-1 ; j<y+dimension.getLenght()+1 ; j++)
 					{
-						if(getGrid(i, j)=="0")
+						if(i<0)
+						{
+							i++;
+						}
+						else if(j<0)
+						{
+							j++;
+						}
+						else if(i>14)
+						{
+							break;
+						}
+						else if(getGrid(i, j)=="0")
 						{
 							placable = true;
 						}
 						else
 						{
-							placable = false;
+							return false;
 						}
 					}
 				}
@@ -146,7 +158,7 @@ public class Grid
 					{
 						if(getGrid(i, j)=="9" || getGrid(i, j)=="0")
 						{
-							placable = false;
+							return false;
 						}
 						else
 						{
@@ -167,7 +179,7 @@ public class Grid
 						}
 						else
 						{
-							placable = false;
+							return false;
 						}
 					}
 				}

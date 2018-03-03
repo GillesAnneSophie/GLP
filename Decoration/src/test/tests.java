@@ -29,6 +29,9 @@ public class tests
 		//Create room
 		Category bedroomCategory = new BedroomOffice();
 		Room bedroom = new Room("bedroom", 4, 5, bedroomCategory);
+		
+		Category kitchenCategory = new Kitchen();
+		Room kitchen = new Room("kitchen", 1, 2, kitchenCategory);
 	
 		//ADD
 		//AbstractRoom furniture = catalog.getFurniture("bath");
@@ -38,22 +41,26 @@ public class tests
 		//System.out.println("\n" + bedroom);
 		
 		apartment.addRoom(bedroom);
+		apartment.addRoom(kitchen);
 		//bedroom.addFurniture(catalog.getFurniture("bath"));
 		//System.out.println("\n" + apartment);
 		
 		//DELETE
-		bedroom.removeFurniture("bath");
+		//bedroom.removeFurniture("bath");
 		//System.out.println("\n" + bedroom);
 		
-		apartment.removeRoom("bedroom");
+		//apartment.removeRoom("bedroom");
 		//System.out.println("\n" + apartment);
 		
 		//GRID
 		Dimension dimGrid = new Dimension(15, 15);
 		Grid grid = new Grid(dimGrid);;
 		
-		bedroom.setPosition(3, 5, "1", grid, "room");
-		AbstractRoom furniture1 = catalog.getFurniture("single Bed");
+		//OTHER
+		bedroom.setPosition(3, 4, "1", grid, "room");//3 4
+		kitchen.setPosition(5, 11, "2", grid, "room");// 5 11
+		
+/*		AbstractRoom furniture1 = catalog.getFurniture("single Bed");
 		bedroom.addFurniture(furniture1, 5, 7, grid);
 		
 		AbstractRoom furniture2 = catalog.getFurniture("carpet");
@@ -61,5 +68,6 @@ public class tests
 		
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		bedroom.addFurniture(furniture3, 4, 4, grid);
+*/
 	}
 }
