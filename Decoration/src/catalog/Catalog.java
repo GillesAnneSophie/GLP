@@ -29,6 +29,7 @@ public class Catalog
 	public Catalog()
 	{
 		inventory = new ArrayList<AbstractRoom>();
+		buildFurniture();
 	}
 	
 	/**
@@ -54,19 +55,19 @@ public class Catalog
 		AbstractRoom worktop = new Furniture("worktop", cube, isNotStackable, bathroom);
 		
 		/*Bedroom's Furniture*/
-		AbstractRoom singleBed = new Furniture("single Bed", mediumRectangle, isNotStackable, bedroomOffice);
-		AbstractRoom doubleBed = new Furniture("double Bed", largeRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom singleBed = new Furniture("single bed", mediumRectangle, isNotStackable, bedroomOffice);
+		AbstractRoom doubleBed = new Furniture("double bed", largeRectangle, isNotStackable, bedroomOffice);
 		AbstractRoom nightstand = new Furniture("nightstand", cube, isNotStackable, bedroomOffice);
 		AbstractRoom dresser = new Furniture("dresser", smallRectangle, isNotStackable, bedroomOffice);
 		AbstractRoom wardrobe = new Furniture("wardrobe", smallRectangle, isNotStackable, bedroomOffice);
 		
 		/*Office's Furniture*/
-		AbstractRoom officeChair = new Furniture("office Chair", cube, isNotStackable, bedroomOffice);
+		AbstractRoom officeChair = new Furniture("office chair", cube, isNotStackable, bedroomOffice);
 		AbstractRoom desk = new Furniture("desk", smallRectangle, isNotStackable, bedroomOffice);
 		
 		/*DiningRoom's Furniture*/
-		AbstractRoom smallDiningTable = new Furniture("small Dining Table", smallRectangle, isNotStackable, diningRoom);
-		AbstractRoom largeDiningTable = new Furniture("large Dining Table", mediumRectangle, isNotStackable, diningRoom);
+		AbstractRoom smallDiningTable = new Furniture("small dining table", smallRectangle, isNotStackable, diningRoom);
+		AbstractRoom largeDiningTable = new Furniture("large dining table", mediumRectangle, isNotStackable, diningRoom);
 		AbstractRoom buffet = new Furniture("buffet", mediumRectangle, isNotStackable, diningRoom);
 		AbstractRoom chair = new Furniture("chair", cube, isNotStackable, diningRoom);
 		
@@ -88,9 +89,9 @@ public class Catalog
 		/*Wall's Furniture*/
 		AbstractRoom smallDoor = new Furniture("small door", cube, isStackable, wall);
 		AbstractRoom largeDoor = new Furniture("large door", smallRectangle, isStackable, wall);
-		AbstractRoom smallWindow = new Furniture("small Window", cube, isStackable, wall);
-		AbstractRoom largeWindow = new Furniture("large Window", smallRectangle, isStackable, wall);
-		AbstractRoom picture = new Furniture("picture", cube, isStackable, wall);
+		AbstractRoom smallWindow = new Furniture("small window", cube, isStackable, wall);
+		AbstractRoom largeWindow = new Furniture("large window", smallRectangle, isStackable, wall);
+		AbstractRoom picture = new Furniture("pictures", cube, isStackable, wall);
 	
 		/*Add all the furniture in the ArrayList*/
 		inventory.add(toilet);
@@ -148,6 +149,7 @@ public class Catalog
 	 */
 	public AbstractRoom getFurniture(String name)
 	{
+		name=name.toLowerCase();
 		for(int index=0 ; index<inventory.size() ; index++)
 		{
 			if(inventory.get(index).getName()==name)

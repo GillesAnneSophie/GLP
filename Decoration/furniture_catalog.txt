@@ -1,0 +1,30 @@
+toilet:cube:isNotStackable:bathroom
+bath:smallRectangle:isNotStackable:bathroom
+shower:cube:isNotStackable:bathroom
+washbasin:cube:isNotStackable:bathroom
+worktop:cube:isNotStackable:bathroom
+single bed:mediumRectangle:isNotStackable:bedroomOffice
+double bed:largeRectangle:isNotStackable:bedroomOffice
+nightstand:cube:isNotStackable:bedroomOffice
+dresser:smallRectangle:isNotStackable:bedroomOffice
+wardrobe:smallRectangle:isNotStackable:bedroomOffice
+office chair:cube:isNotStackable:bedroomOffice
+desk:smallRectangle:isNotStackable:bedroomOffice
+small dining table:smallRectangle:isNotStackable:diningRoom
+large dining table:mediumRectangle:isNotStackable:diningRoom
+buffet:mediumRectangle:isNotStackable:diningRoom
+chair:cube:isNotStackable:diningRoom
+fridge:cube:isNotStackable:kitchen
+gas cooker:cube:isNotStackable:kitchen
+sink:cube:isNotStackable:kitchen
+kitchen worktop:cube:isNotStackable:kitchen
+armchair:cube:isNotStackable:livingRoom
+coffee table:smallRectangle:isNotStackable:livingRoom
+small sofa:smallRectangle:isNotStackable:livingRoom
+large sofa:mediumRectangle:isNotStackable:livingRoom
+carpet:smallRectangle:isStackable:floor
+small door:cube:isStackable:wall
+large door:smallRectangle:isStackable:wall
+small window:cube:isStackable:wall
+large window:smallRectangle:isStackable:wall
+pictures:cube:isStackable:wall
