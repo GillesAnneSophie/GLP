@@ -86,11 +86,11 @@ public class Catalog
 		AbstractRoom carpet = new Furniture("carpet", smallRectangle, isStackable, floor);
 	
 		/*Wall's Furniture*/
-		AbstractRoom smallDoor = new Furniture("small door", cube, isNotStackable, wall);
-		AbstractRoom largeDoor = new Furniture("large door", smallRectangle, isNotStackable, wall);
-		AbstractRoom smallWindow = new Furniture("small Window", cube, isNotStackable, wall);
-		AbstractRoom largeWindow = new Furniture("large Window", smallRectangle, isNotStackable, wall);
-		AbstractRoom picture = new Furniture("picture", cube, isNotStackable, wall);
+		AbstractRoom smallDoor = new Furniture("small door", cube, isStackable, wall);
+		AbstractRoom largeDoor = new Furniture("large door", smallRectangle, isStackable, wall);
+		AbstractRoom smallWindow = new Furniture("small Window", cube, isStackable, wall);
+		AbstractRoom largeWindow = new Furniture("large Window", smallRectangle, isStackable, wall);
+		AbstractRoom picture = new Furniture("picture", cube, isStackable, wall);
 	
 		/*Add all the furniture in the ArrayList*/
 		inventory.add(toilet);

@@ -77,8 +77,8 @@ public abstract class AbstractRoom
 	/**
 	 * @return the category
 	 */
-	public Category getCategory() {
-		return category;
+	public String getCategory() {
+		return category.toString();
 	}
 
 	/**
@@ -98,7 +98,7 @@ public abstract class AbstractRoom
 	 */
 	public void setPosition(int x, int y, String car, Grid grid, String type) 
 	{
-		if(grid.canBePlace(isStackable(), x, y, type))
+		if(grid.canBePlace(isStackable(), x, y, this.getDimension(), type))
 		{
 			this.position = new Position(x, y);
 			for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)

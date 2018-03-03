@@ -53,7 +53,13 @@ public class tests
 		Grid grid = new Grid(dimGrid);;
 		
 		bedroom.setPosition(3, 5, "1", grid, "room");
-		AbstractRoom furniture1 = catalog.getFurniture("washbasin");
+		AbstractRoom furniture1 = catalog.getFurniture("single Bed");
 		bedroom.addFurniture(furniture1, 5, 7, grid);
+		
+		AbstractRoom furniture2 = catalog.getFurniture("carpet");
+		bedroom.addFurniture(furniture2, 5, 6, grid);
+		
+		AbstractRoom furniture3 = catalog.getFurniture("small door");
+		bedroom.addFurniture(furniture3, 4, 4, grid);
 	}
 }

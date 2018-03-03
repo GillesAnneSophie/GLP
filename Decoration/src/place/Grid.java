@@ -84,23 +84,52 @@ public class Grid
 	 * @param isStackable
 	 * @param x
 	 * @param y
+	 * @param dimension
 	 * @param type
+	 * @return true or false
 	 * */
-	public boolean canBePlace(boolean isStackable, int x, int y, String type)
+	public boolean canBePlace(boolean isStackable, int x, int y, Dimension dimension, String type)
 	{
+		boolean placable=false;
 		/* The object is not stackable
 		 * Can be place IN a room
 		 * Can't be place ON another Furniture
 		 * */
 		if(!isStackable)
 		{
-			if(getGrid(x, y)=="1" || (type=="room" && getGrid(x, y)=="0"))
+			if(type=="furniture")
 			{
-				return true;
+				for(int i=x ; i<x+dimension.getLenght() ; i++)
+				{
+					for(int j=y ; j<y+dimension.getWidth() ; j++)
+					{
+						if(getGrid(i, j)=="1")
+						{
+							placable = true;
+						}
+						else
+						{
+							placable = false;
+						}
+					}
+				}
 			}
-			else
+			else if(type=="room")
 			{
-				return false;
+				for(int i=x ; i<x+dimension.getWidth() ; i++)
+				{
+					for(int j=y ; j<y+dimension.getLenght() ; j++)
+					{
+						if(getGrid(i, j)=="0")
+						{
+							placable = true;
+						}
+						else
+						{
+							placable = false;
+						}
+					}
+				}
 			}
 		}
 		/* The object is stackable
@@ -108,18 +137,43 @@ public class Grid
 		 * Can be place ON another objet which is stackable
 		 * */
 		else
-		{
-			/* TEMPORARY
-			 * STACKABLE will have a "s" with a number in the grid*/
-			if(getGrid(x, y).contains("s"))
+		{		
+			if(type=="floor")
 			{
-				return true;
+				for(int i=x ; i<x+dimension.getWidth() ; i++)
+				{
+					for(int j=y ; j<y+dimension.getLenght() ; j++)
+					{
+						if(getGrid(i, j)=="9" || getGrid(i, j)=="0")
+						{
+							placable = false;
+						}
+						else
+						{
+							placable = true;
+						}
+					}
+				}
 			}
-			else
+			else if(type=="wall")
 			{
-				return false;
+				for(int i=x ; i<x+dimension.getWidth() ; i++)
+				{
+					for(int j=y ; j<y+dimension.getLenght() ; j++)
+					{
+						if(getGrid(i, j)=="9")
+						{
+							placable = true;
+						}
+						else
+						{
+							placable = false;
+						}
+					}
+				}
 			}
-		}
+		}	
+		return placable;
 	}
 	
 	/**
