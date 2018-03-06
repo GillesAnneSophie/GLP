@@ -6,6 +6,14 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
+import catalog.Category;
+import categories.Bathroom;
+import categories.BedroomOffice;
+import categories.DiningRoom;
+import categories.Kitchen;
+import categories.LivingRoom;
+import place.Room;
+
 /**
  * @author CORALIE Laury Ann
  *
@@ -19,6 +27,9 @@ public class RemoveRoomGUI extends JFrame {
 	private JComboBox<String> comboBox = new JComboBox<String>();
 	
 	private JButton btnEnter = new JButton("Enter");
+	
+	private String sg;
+	
 	/**
 	 * Launch the application
 	 */
@@ -60,9 +71,33 @@ public class RemoveRoomGUI extends JFrame {
 		comboBox.addItem("Bedroom/Office");
 		comboBox.addItem("Bathroom");
 		
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String sg = (String) comboBox.getSelectedItem();				
+			}
+		});
+		
 		btnEnter.setBounds(337, 52, 86, 23);
 		contentPane.add(btnEnter);
-		
+		btnEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (sg == "Kitchen") {
+					
+				}
+				if (sg == "Dining Room") {
+				
+				}
+				if (sg == "Living Room") {
+					
+				}
+				if (sg == "Bedroom/Office") {
+					
+				}
+				if(sg == "Bathroom") {
+					
+				}
+			}
+		});	
 
 	}
 }

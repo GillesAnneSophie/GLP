@@ -8,7 +8,6 @@ import catalog.Catalog;
 import place.AbstractRoom;
 
 import java.awt.event.*;
-
 /**
  * @author ZOUHOUDI Chabani
  * @author CORALIE Laury Ann
