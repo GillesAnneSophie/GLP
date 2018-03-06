@@ -11,10 +11,10 @@ public class Dimension
 
 	
 	/**
-	 * @param lenght
 	 * @param width
+	 * @param lenght
 	 */
-	public Dimension(int lenght, int width) {
+	public Dimension(int width, int lenght) {
 		this.lenght = lenght;
 		this.width = width;
 	}

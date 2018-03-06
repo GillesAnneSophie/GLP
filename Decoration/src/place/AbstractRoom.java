@@ -41,11 +41,11 @@ public abstract class AbstractRoom
 	 * @param stackable
 	 * @param category
 	 * */
-	public AbstractRoom(String type, String name, int lenght, int width, boolean stackable, Category category) 
+	public AbstractRoom(String type, String name, int width, int lenght, boolean stackable, Category category) 
 	{
 		this.type = type;
 		this.name = name;
-		dimension = new Dimension(lenght, width);
+		dimension = new Dimension(width, lenght);
 		this.stackable = stackable;
 		this.category = category;
 	}
@@ -100,7 +100,7 @@ public abstract class AbstractRoom
 	 * @param car
 	 * @param grid
 	 */
-	public void setPosition(int x, int y, String car, Grid grid) 
+	public boolean setPosition(int x, int y, String car, Grid grid) 
 	{
 		if(grid.canBePlace(isStackable(), x, y, getDimension(), getType(), getCategory()))
 		{
@@ -127,8 +127,61 @@ public abstract class AbstractRoom
 					}
 				}
 			}
+			grid.showGrid();
+			return true;
 		}
-		grid.showGrid();
+		else
+		{
+			grid.showGrid();
+			return false;
+		}
+		
+	}
+	
+	/**
+	 * @param dimension
+	 * */
+	public void setDimension(Dimension dimension) 
+	{
+		this.dimension=dimension;
+	}
+	
+	//TODO + modif sens des images
+	/**North and South = default orientation
+	 * East and West = Change the orientation
+	 * */
+	public void furnitureOrientedNorth()
+	{
+		if(getType()=="Furniture")
+		{
+			
+		}
+	}
+	
+	public void furnitureOrientedSouth()
+	{
+		if(getType()=="Furniture")
+		{
+			
+		}
+	}
+	
+	public void furnitureOrientedEast()
+	{
+		if(getType()=="Furniture")
+		{
+			Dimension tmpDimension = new Dimension(getDimension().getLenght(), getDimension().getWidth());
+			setDimension(tmpDimension);
+		}
+	}
+	
+	public void furnitureOrientedWest()
+	{
+		if(getType()=="Furniture")
+		{
+			Dimension tmpDimension = new Dimension(getDimension().getLenght(), getDimension().getWidth());
+			setDimension(tmpDimension);
+		}
 	}
 
 	

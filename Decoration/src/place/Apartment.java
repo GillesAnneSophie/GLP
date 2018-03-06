@@ -36,14 +36,16 @@ public class Apartment
 	/** Remove a room from the apartment
 	 * @param name of the room
 	 * */
-	public void removeRoom(String name)
+	public void removeRoom(String name, Grid grid)
 	{
 		for(int index=0 ; index<roomsList.size() ; index++)
 		{
 			if(roomsList.get(index).getName()==name)
 			{
+				grid.removeRoom(roomsList.get(index));
 				roomsList.remove(index);
 			}
 		}
+		grid.showGrid();
 	}
 }

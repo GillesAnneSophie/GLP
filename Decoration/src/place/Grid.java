@@ -81,7 +81,7 @@ public class Grid
 	}
 
 
-	/**
+	/** Return true if the Furniture or Room can be place at the given position
 	 * @param isStackable
 	 * @param x
 	 * @param y
@@ -190,9 +190,35 @@ public class Grid
 		return placable;
 	}
 	
-	/**
-	 * Print the current grid
-	 */
+	/** Remove a Room from the Grid
+	 * @param room
+	 * */
+	public void removeRoom(Room room)
+	{
+		for(int i=room.getPosition().getX()-1 ; i<room.getPosition().getX()+room.getDimension().getLenght()+1 ; i++)
+		{
+			for(int j=room.getPosition().getY()-1 ; j<room.getPosition().getY()+room.getDimension().getWidth()+1 ; j++)
+			{
+				setGrid(i, j, "0");
+			}
+		}
+	}
+	
+	/** Remove a Furniture from the Grid
+	 * @param furniture
+	 * */
+	public void removeFurniture(AbstractRoom furniture)
+	{
+		for(int i=furniture.getPosition().getX() ; i<furniture.getPosition().getX()+furniture.getDimension().getLenght() ; i++)
+		{
+			for(int j=furniture.getPosition().getY() ; j<furniture.getPosition().getY()+furniture.getDimension().getWidth() ; j++)
+			{
+				setGrid(i, j, "1");
+			}
+		}
+	}
+	
+	/** Print the current grid */
 	public void showGrid() 
 	{
 		System.out.println("\nGrid :\n");

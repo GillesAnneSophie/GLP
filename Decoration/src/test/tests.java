@@ -41,24 +41,25 @@ public class tests
 		
 			//Add rooms to the Grid
 		bedroom.setPosition(3, 4, "1", grid);//3 4
-		kitchen.setPosition(5, 11, "2", grid);// 5 11
+		kitchen.setPosition(6, 10, "2", grid);// 5 11
 		
 			//Add furnitures to rooms
 		AbstractRoom furniture1 = catalog.getFurniture("single bed");
-		bedroom.addFurniture(furniture1, 5, 7, grid);
+		furniture1.furnitureOrientedWest();
+		bedroom.addFurniture(furniture1, 5, 5, grid);
 		
-		AbstractRoom furniture2 = catalog.getFurniture("carpet");
-		bedroom.addFurniture(furniture2, 5, 6, grid);
+		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
+		//bedroom.addFurniture(furniture2, 5, 6, grid);
 		
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
-		bedroom.addFurniture(furniture3, 4, 4, grid);
+		bedroom.addFurniture(furniture3, 4, 3, grid);
 
 
-			//Deletion
-		//bedroom.removeFurniture("bath");
+			//Delete
+		bedroom.removeFurniture("single bed", grid);
 		//System.out.println("\n" + bedroom);
 		
-		//apartment.removeRoom("bedroom");
+		//apartment.removeRoom("bedroom", grid);
 		//System.out.println("\n" + apartment);
 }
 }

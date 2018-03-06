@@ -19,9 +19,9 @@ public class Room extends AbstractRoom
 	 * @param width
 	 * @param category
 	 */
-	public Room(String name, int lenght, int width, Category category) 
+	public Room(String name, int width, int lenght, Category category) 
 	{
-		super("Room", name, lenght, width, false, category);
+		super("Room", name, width, lenght, false, category);
 		furnituresOfTheRoom = new HashMap<Integer, AbstractRoom>();
 	}
 	
@@ -110,29 +110,34 @@ public class Room extends AbstractRoom
 	{
 		if(roomAcceptFurniture(this, furniture))
 		{
-			int counter = furnituresOfTheRoom.size();
-			furnituresOfTheRoom.put(counter, furniture);
-			
 			String nameInGrid = furniture.getName().charAt(0) + "";
 			if(furniture.isStackable())
 			{
 				nameInGrid+= "S";
 			}
-			furniture.setPosition(x, y, nameInGrid, grid);
+			
+			if(furniture.setPosition(x, y, nameInGrid, grid))
+			{
+				int counter = furnituresOfTheRoom.size();
+				furnituresOfTheRoom.put(counter, furniture);
+			}
 		}
 	}
 	
 	/** Remove a Furniture from the Room
 	 * @param name
+	 * @param grid
 	 * */
-	public void removeFurniture(String name)
+	public void removeFurniture(String name, Grid grid)
 	{
 		for(int index=0 ; index<furnituresOfTheRoom.size() ; index++)
 		{
 			if(furnituresOfTheRoom.get(index).getName()==name)
 			{
+				grid.removeFurniture(furnituresOfTheRoom.get(index));
 				furnituresOfTheRoom.remove(index);
 			}
 		}
+		grid.showGrid();
 	}
 }
