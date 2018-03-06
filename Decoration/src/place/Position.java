@@ -35,28 +35,7 @@ public class Position
 	{
 		return y;
 	}
-
-
-	public void moveUp() 
-	{
-		y--;
-	}
-
-	public void moveDown() 
-	{
-		y++;
-	}
-
-	public void moveLeft() 
-	{
-		x--;
-	}
-
-	public void moveRight() 
-	{
-		x++;
-	}
-
+	
 
 	@Override
 	public String toString() 

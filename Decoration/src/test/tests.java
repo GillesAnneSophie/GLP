@@ -40,11 +40,11 @@ public class tests
 		apartment.addRoom(kitchen);
 		
 			//Add rooms to the Grid
-		bedroom.setPosition(3, 4, "1", grid, "room");//3 4
-		kitchen.setPosition(5, 11, "2", grid, "room");// 5 11
+		bedroom.setPosition(3, 4, "1", grid);//3 4
+		kitchen.setPosition(5, 11, "2", grid);// 5 11
 		
 			//Add furnitures to rooms
-		AbstractRoom furniture1 = catalog.getFurniture("single Bed");
+		AbstractRoom furniture1 = catalog.getFurniture("single bed");
 		bedroom.addFurniture(furniture1, 5, 7, grid);
 		
 		AbstractRoom furniture2 = catalog.getFurniture("carpet");
@@ -52,6 +52,7 @@ public class tests
 		
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		bedroom.addFurniture(furniture3, 4, 4, grid);
+
 
 			//Deletion
 		//bedroom.removeFurniture("bath");

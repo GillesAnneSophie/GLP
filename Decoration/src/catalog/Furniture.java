@@ -12,11 +12,6 @@ public class Furniture extends AbstractRoom
 	private String color;
 	
 	
-	public Furniture()
-	{
-		
-	}
-	
 	/**
 	 * @param name
 	 * @param dimension
@@ -25,7 +20,7 @@ public class Furniture extends AbstractRoom
 	 */
 	public Furniture(String name, Dimension dimension, boolean stackable, Category category) 
 	{
-		super(name, dimension, stackable, category);
+		super("Furniture", name, dimension, stackable, category);
 	}
 
 	

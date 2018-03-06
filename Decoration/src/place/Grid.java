@@ -1,5 +1,6 @@
 package place;
 
+
 /**
  * @author CORALIE Laury Ann
  *
@@ -86,9 +87,10 @@ public class Grid
 	 * @param y
 	 * @param dimension
 	 * @param type
+	 * @param category
 	 * @return true or false
 	 * */
-	public boolean canBePlace(boolean isStackable, int x, int y, Dimension dimension, String type)
+	public boolean canBePlace(boolean isStackable, int x, int y, Dimension dimension, String type, String category)
 	{
 		boolean placable=false;
 		/* The object is not stackable
@@ -97,7 +99,7 @@ public class Grid
 		 * */
 		if(!isStackable)
 		{
-			if(type=="furniture")
+			if(type=="Furniture")
 			{
 				for(int i=x ; i<x+dimension.getLenght() ; i++)
 				{
@@ -114,7 +116,7 @@ public class Grid
 					}
 				}
 			}
-			else if(type=="room")
+			else if(type=="Room")
 			{
 				for(int i=x-1 ; i<x+dimension.getWidth()+1 ; i++)
 				{
@@ -150,7 +152,7 @@ public class Grid
 		 * */
 		else
 		{		
-			if(type=="floor")
+			if(category=="Floor")
 			{
 				for(int i=x ; i<x+dimension.getWidth() ; i++)
 				{
@@ -167,7 +169,7 @@ public class Grid
 					}
 				}
 			}
-			else if(type=="wall")
+			else if(category=="Wall")
 			{
 				for(int i=x ; i<x+dimension.getWidth() ; i++)
 				{

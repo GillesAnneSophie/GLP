@@ -21,7 +21,7 @@ public class Room extends AbstractRoom
 	 */
 	public Room(String name, int lenght, int width, Category category) 
 	{
-		super(name, lenght, width, false, category);
+		super("Room", name, lenght, width, false, category);
 		furnituresOfTheRoom = new HashMap<Integer, AbstractRoom>();
 	}
 	
@@ -118,18 +118,7 @@ public class Room extends AbstractRoom
 			{
 				nameInGrid+= "S";
 			}
-			if(furniture.getCategory()=="Floor")
-			{
-				furniture.setPosition(x, y, nameInGrid, grid, "floor");
-			}
-			else if(furniture.getCategory()=="Wall")
-			{
-				furniture.setPosition(x, y, nameInGrid, grid, "wall");
-			}
-			else
-			{
-				furniture.setPosition(x, y, nameInGrid, grid, "furniture");
-			}
+			furniture.setPosition(x, y, nameInGrid, grid);
 		}
 	}
 	

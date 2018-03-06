@@ -11,26 +11,23 @@ import catalog.Category;
  */
 public abstract class AbstractRoom 
 {
+	private String type;
 	private String name;
 	private Dimension dimension;
 	private boolean stackable;
 	private Category category;
 	private Position position;
 	
-	
-	public AbstractRoom()
-	{
-		
-	}
-	
+
 	/**
 	 * @param name
 	 * @param dimension
 	 * @param stackable
 	 * @param category
 	 * */
-	public AbstractRoom(String name, Dimension dimension, boolean stackable, Category category) 
+	public AbstractRoom(String type, String name, Dimension dimension, boolean stackable, Category category) 
 	{
+		this.type = type;
 		this.name = name;
 		this.dimension = dimension;
 		this.stackable = stackable;
@@ -44,14 +41,22 @@ public abstract class AbstractRoom
 	 * @param stackable
 	 * @param category
 	 * */
-	public AbstractRoom(String name, int lenght, int width, boolean stackable, Category category) 
+	public AbstractRoom(String type, String name, int lenght, int width, boolean stackable, Category category) 
 	{
+		this.type = type;
 		this.name = name;
 		dimension = new Dimension(lenght, width);
 		this.stackable = stackable;
 		this.category = category;
 	}
 
+	
+	/**
+	 * @return the type
+	 * */
+	public String getType() {
+		return type;
+	}
 	
 	/**
 	 * @return the name
@@ -87,18 +92,17 @@ public abstract class AbstractRoom
 	public Position getPosition() {
 		return position;
 	}
-
+	
 	
 	/**
 	 * @param x
 	 * @param y
 	 * @param car
 	 * @param grid
-	 * @param type
 	 */
-	public void setPosition(int x, int y, String car, Grid grid, String type) 
+	public void setPosition(int x, int y, String car, Grid grid) 
 	{
-		if(grid.canBePlace(isStackable(), x, y, this.getDimension(), type))
+		if(grid.canBePlace(isStackable(), x, y, getDimension(), getType(), getCategory()))
 		{
 			this.position = new Position(x, y);
 			for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
@@ -109,7 +113,7 @@ public abstract class AbstractRoom
 				}
 			}
 			
-			if(type=="room")
+			if(type=="Room")
 			{
 				for(int k=getPosition().getX()-1 ; k<getPosition().getX()+getDimension().getLenght()+1 ; k++)
 				{
@@ -127,6 +131,7 @@ public abstract class AbstractRoom
 		grid.showGrid();
 	}
 
+	
 	@Override
 	public String toString() {
 		return "name=" + name + ", dimension=" + dimension
