@@ -6,13 +6,6 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
-import catalog.Category;
-import categories.Bathroom;
-import categories.BedroomOffice;
-import categories.DiningRoom;
-import categories.Kitchen;
-import categories.LivingRoom;
-import place.Room;
 
 /**
  * @author CORALIE Laury Ann

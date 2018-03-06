@@ -4,9 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import catalog.Catalog;
-import place.AbstractRoom;
-
 import java.awt.event.*;
 /**
  * @author ZOUHOUDI Chabani
@@ -115,7 +112,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
 					list.setVisible(false);
@@ -148,7 +144,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
 					list.setVisible(false);
@@ -181,7 +176,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
 					list.setVisible(false);
@@ -214,7 +208,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
 					list.setVisible(false);
@@ -247,7 +240,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
 					list.setVisible(false);
@@ -284,7 +276,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (kitchenList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(kitchenList);
@@ -294,7 +285,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (kitchenList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(kitchenList);
@@ -303,7 +293,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (kitchenList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(kitchenList);
@@ -312,7 +301,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (kitchenList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(kitchenList);
@@ -321,7 +309,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (kitchenList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(kitchenList);
@@ -334,7 +321,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(kitchenList);
@@ -344,7 +330,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(livingRoomList);
@@ -353,7 +338,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(livingRoomList);
@@ -362,7 +346,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(livingRoomList);
@@ -371,7 +354,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(livingRoomList);
@@ -384,7 +366,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
@@ -394,7 +375,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
@@ -403,7 +383,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
@@ -412,7 +391,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
@@ -421,7 +399,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
@@ -434,7 +411,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -444,7 +420,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -453,7 +428,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -462,7 +436,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -471,7 +444,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -484,7 +456,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
@@ -494,7 +465,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
@@ -503,7 +473,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
@@ -512,7 +481,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
@@ -521,7 +489,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
@@ -534,7 +501,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -544,7 +510,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -553,7 +518,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -562,7 +526,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -571,7 +534,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);

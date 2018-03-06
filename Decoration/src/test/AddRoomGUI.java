@@ -93,7 +93,6 @@ public class AddRoomGUI extends JFrame {
 		textField.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				i = Integer.parseInt(textField.getText()) ;
 			}			
 		});
@@ -104,7 +103,6 @@ public class AddRoomGUI extends JFrame {
 		textField.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				j = Integer.parseInt(textField_2.getText());
 			}			
 		});
