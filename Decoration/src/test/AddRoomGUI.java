@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import catalog.Catalog;
 import catalog.Category;
 import categories.*;
+import place.Apartment;
 import place.Room;
 
 /**
@@ -23,7 +24,8 @@ public class AddRoomGUI extends JFrame {
 	private JTextField textField = new JTextField();
 	private JTextField textField_2 = new JTextField ();
 	
-	private Catalog cat;
+	private Catalog cat = new Catalog();
+	private Apartment apt = new Apartment();
 	private int i;
 	private int j;
 	
@@ -113,22 +115,27 @@ public class AddRoomGUI extends JFrame {
 				if (sg == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
 					Room kitchen = new Room("kitchen", i, j, kitchenCategory);
+					apt.addRoom(kitchen);
 				}
 				if (sg == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
 					Room diningRoom = new Room("diningRoom", i, j, diningRoomCategory);
+					apt.addRoom(diningRoom);
 				}
 				if (sg == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
 					Room livingRoom = new Room("livingRoom", i, j, livingRoomCategory);
+					apt.addRoom(livingRoom);
 				}
 				if (sg == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
 					Room bedroomOffice = new Room("bedroomOffice", i, j, bedroomOfficeCategory);
+					apt.addRoom(bedroomOffice);
 				}
 				if(sg == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom", i, j, bathroomCategory);
+					apt.addRoom(bathroom);
 				}
 			}
 		});	
