@@ -6,12 +6,23 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
+import catalog.Catalog;
+import catalog.Category;
+import categories.Kitchen;
+import place.Apartment;
+import place.Room;
+
 
 /**
  * @author CORALIE Laury Ann
  *
  */
 public class RemoveRoomGUI extends JFrame {
+	
+	private Catalog cat = new Catalog();
+	private Apartment apt = new Apartment();
+	
+	
 
 	private JPanel contentPane;
 
@@ -74,8 +85,11 @@ public class RemoveRoomGUI extends JFrame {
 		contentPane.add(btnEnter);
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+
 				if (sg == "Kitchen") {
-					
+				
+		
 				}
 				if (sg == "Dining Room") {
 				

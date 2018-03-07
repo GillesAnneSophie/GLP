@@ -6,6 +6,9 @@ import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
+import catalog.Catalog;
+import place.Apartment;
+
 /**
  * @author CORALIE Laury Ann
  *
@@ -13,9 +16,11 @@ import javax.swing.border.MatteBorder;
 public class DesignGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+	private Catalog cat = new Catalog();
+	private Apartment apt = new Apartment();
 	private JPanel contentPane;
 	private JPanel cells[][];
+	
 
 	private JMenuBar menuBar = new JMenuBar();
 	private 	JMenu menu = new JMenu("?");
