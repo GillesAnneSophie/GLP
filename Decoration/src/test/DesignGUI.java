@@ -21,19 +21,19 @@ public class DesignGUI extends JFrame {
 
 	private Catalog catalog = new Catalog();
 	private Apartment apartment = new Apartment();
-	private JPanel contentPane;
-	private JPanel cells[][];
-	
 	private Dimension dimGrid = new Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
+	
+	private JPanel contentPane;
+	private JPanel cells[][];
 
 	private JMenuBar menuBar = new JMenuBar();
-	private 	JMenu menu = new JMenu("?");
+	private JMenu menu = new JMenu("?");
 	private JMenu mnView = new JMenu("View");
 	private JMenu mnKitchen = new JMenu("Kitchen");
 	private JMenu mnDiningRoom = new JMenu("Dining Room");
-	private 	JMenu mnLivingRoom = new JMenu("Living Room");
-	private 	JMenu mnBedroomoffice = new JMenu("Bedroom/Office");
+	private JMenu mnLivingRoom = new JMenu("Living Room");
+	private JMenu mnBedroomoffice = new JMenu("Bedroom/Office");
 	private JMenu mnBathroom = new JMenu("Bathroom");
 	private JMenu mnWall = new JMenu("Wall");
 	private JMenu mnDoors = new JMenu("Doors");
@@ -43,24 +43,24 @@ public class DesignGUI extends JFrame {
 	
 	private JMenuItem mntmHelp = new JMenuItem("Help");
 	private JMenuItem mntmExit = new JMenuItem("Exit ");
-	private 	JMenuItem mntmFridge = new JMenuItem("Fridge");
+	private JMenuItem mntmFridge = new JMenuItem("Fridge");
 	private JMenuItem mntmGasCooker = new JMenuItem("Gas Cooker");
-	private 	JMenuItem mntmSink = new JMenuItem("Sink");
+	private JMenuItem mntmSink = new JMenuItem("Sink");
 	private JMenuItem mntmCountertop = new JMenuItem("Countertop");
-	private 	JMenuItem mntmSmallDiningTable = new JMenuItem("Small Dining Table");
+	private JMenuItem mntmSmallDiningTable = new JMenuItem("Small Dining Table");
 	private JMenuItem mntmBigDiningTable = new JMenuItem("Big Dining Table");
-	private 	JMenuItem mntmChiar = new JMenuItem("Chair");
+	private JMenuItem mntmChiar = new JMenuItem("Chair");
 	private JMenuItem mntmSideboard = new JMenuItem("Sideboard");
 	private JMenuItem mntmCoffeeTable = new JMenuItem("Coffee Table");
 	private JMenuItem mntmSmallSofa = new JMenuItem("Small Sofa");
 	private JMenuItem mntmBigSofa = new JMenuItem("Big Sofa");
-	private 	JMenuItem mntmArmchair = new JMenuItem("Armchair");
+	private JMenuItem mntmArmchair = new JMenuItem("Armchair");
 	private JMenuItem mntmSingleBed = new JMenuItem("Single Bed");
 	private JMenuItem mntmDoubleBed = new JMenuItem("Double Bed");
 	private JMenuItem mntmNightstand = new JMenuItem("Nightstand");
 	private JMenuItem mntmChestOfDrawers = new JMenuItem("Chest of Drawers");
 	private JMenuItem mntmWardrobe = new JMenuItem("Wardrobe");
-	private 	JMenuItem mntmDesk = new JMenuItem("Desk");
+	private JMenuItem mntmDesk = new JMenuItem("Desk");
 	private JMenuItem mntmToilet = new JMenuItem("Toilet");
 	private JMenuItem mntmShower = new JMenuItem("Shower");
 	private JMenuItem mntmBathtub = new JMenuItem("Bathtub");
@@ -81,17 +81,16 @@ public class DesignGUI extends JFrame {
 	private JMenuItem mntmTiles = new JMenuItem("Tiles");
 	private JMenuItem mntmSmallRug = new JMenuItem("Small Rug");
 	private JMenuItem mntmBigRug = new JMenuItem("Big Rug");
-	 
 	
 	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
-	
+
 	private JPopupMenu popupMenu = new JPopupMenu();
 	
 	
 	/**
 	 * Launch the application
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -131,9 +130,8 @@ public class DesignGUI extends JFrame {
 		});
 		
 		menu.add(mntmExit);
-	
-		menuBar.add(mnView);
 		
+		menuBar.add(mnView);
 		
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -167,7 +165,7 @@ public class DesignGUI extends JFrame {
 		mnKitchen.add(mntmGasCooker);
 		mnKitchen.add(mntmSink);
 		mnKitchen.add(mntmCountertop);
-		
+	
 		popupMenu.add(mnDiningRoom);
 		
 		mnDiningRoom.add(mntmSmallDiningTable);

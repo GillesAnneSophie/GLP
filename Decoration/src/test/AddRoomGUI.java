@@ -31,11 +31,14 @@ public class AddRoomGUI extends JFrame {
 //TODO "sg" moi pas comprendre ?
 	private String sg;
 	
-	private JButton btnEnter = new JButton("Enter");
+	private JButton btnEnter = new JButton("Add");
 	
-	private JLabel lblChooseTheSize = new JLabel("Choose the size of the room :");
-	private JLabel lblChooseTheRoom = new JLabel("Choose the room to add :");
-	private 	JLabel lblX = new JLabel("X");
+	private JLabel lblChooseTheSize = new JLabel("Enter the size of the room:");
+	private JLabel lblChooseTheRoom = new JLabel("Choose the room to add:");
+	private JLabel lblX = new JLabel("x");
+//TODO ajouter "Width: [champ text] x Lenght: []"
+//TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
+	
 	/**
 	 * Launch the application
 	 */
@@ -45,7 +48,7 @@ public class AddRoomGUI extends JFrame {
 				try {
 					AddRoomGUI frame = new AddRoomGUI(apartment);
 					frame.setVisible(true);
-				    frame.setTitle(" Add a Room");
+				    frame.setTitle("Manag'Apart - Add a Room");
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -141,8 +144,5 @@ public class AddRoomGUI extends JFrame {
 		
 		lblX.setBounds(244, 69, 19, 14);
 		contentPane.add(lblX);
-		
-		
-
 	}
 }

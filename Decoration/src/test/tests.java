@@ -54,7 +54,6 @@ public class tests
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		bedroom.addFurniture(furniture3, 4, 3, grid);
 
-
 			//Delete
 		//bedroom.removeFurniture("single bed", grid);
 		//System.out.println("\n" + bedroom);

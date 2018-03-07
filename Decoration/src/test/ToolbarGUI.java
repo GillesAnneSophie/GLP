@@ -2,22 +2,19 @@
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 
 import catalog.Catalog;
-
 import place.AbstractRoom;
 import place.Apartment;
 import place.Grid;
 
-import java.awt.event.*;
 /**
  * @author ZOUHOUDI Chabani
  * @author CORALIE Laury Ann
  */
 public class ToolbarGUI extends JFrame {
-	
-	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
 
@@ -51,7 +48,7 @@ public class ToolbarGUI extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(Apartment apartment,Grid grid ,Catalog catalog) {
+	public static void main(Apartment apartment, Grid grid, Catalog catalog) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {			
@@ -92,7 +89,7 @@ public class ToolbarGUI extends JFrame {
 		
 		btnRemoveARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				RemoveRoomGUI.main(null);
+				RemoveRoomGUI.main(apartment, grid);
 			}
 		});
 			
@@ -268,7 +265,8 @@ public class ToolbarGUI extends JFrame {
 			
 		});
 		
-		kitchenList.addMouseListener(new MouseListener (){ // TODO changer addfunirture par AddFUrnitureGUI + mettre furniture en param
+		kitchenList.addMouseListener(new MouseListener (){ 
+// TODO changer addfunirture par AddFurnitureGUI + mettre furniture/grid en param
 
 			public void mouseClicked(MouseEvent arg0) {
 				if (kitchenList.getSelectedValue() == "<< Return") {
@@ -1119,7 +1117,7 @@ public class ToolbarGUI extends JFrame {
 			}
 		});
 		
-		floorList.addMouseListener (new MouseListener()){
+		floorList.addMouseListener (new MouseListener(){
 			public void mouseCLicked (MouseEvent arg0){
 				if (floorList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);

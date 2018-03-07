@@ -18,6 +18,8 @@ public class HomeGUI extends JFrame {
 	private GridBagLayout gbl_contentPane = new GridBagLayout();
 	
 	private JLabel lblWelcome = new JLabel("Manag'Apart");
+//TODO ajouter un texte centré en dessous du nom du programme : "Welcome! Here you can manage your apartment by clicking on "New management" or continue a previous magament with "Open a existing management""
+//TODO + "By GILLES Anne-Sophie & CORALIE Laury Ann & ZOUHOUDI Chabani
 	
 	private GridBagConstraints gbc_lblWelcome = new GridBagConstraints();
 	private GridBagConstraints gbc_btnNew = new GridBagConstraints();
@@ -27,6 +29,7 @@ public class HomeGUI extends JFrame {
 	private JButton btnOpenAFile = new JButton("Open a existing management");
 //TODO Changer la taille de la fenêtre :c ça entre pas avec les nouveaux noms	
 //TODO Gerer un fichier déjà existant (Je pense pas qu'on va avoir le temps !)
+
 	/**
 	 * Launch the application
 	 */
@@ -47,9 +50,6 @@ public class HomeGUI extends JFrame {
 	
 	/**
 	 * Create the frame
-	 */
-	/**
-	 * 
 	 */
 	public HomeGUI() {
 		setBackground(Color.WHITE);

@@ -6,6 +6,9 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
+import place.Apartment;
+import place.Grid;
+
 /**
  * @author CORALIE Laury Ann
  *
@@ -18,15 +21,16 @@ public class RemoveRoomGUI extends JFrame {
 	private JComboBox<String> comboBox = new JComboBox<String>();
 	private JButton btnEnter = new JButton("Remove");
 	private String sg;
+//TODO "sg" je sais toujours pas ce que c'est
 	
 	/**
 	 * Launch the application
 	 */
-	public static void main(String[] args) {
+	public static void main(Apartment apartment, Grid grid){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RemoveRoomGUI frame = new RemoveRoomGUI();
+					RemoveRoomGUI frame = new RemoveRoomGUI(apartment, grid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Remove a room");
 
@@ -41,7 +45,7 @@ public class RemoveRoomGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public RemoveRoomGUI() {
+	public RemoveRoomGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 449, 198);
 		contentPane = new JPanel();
