@@ -16,16 +16,12 @@ import java.awt.event.*;
  * @author CORALIE Laury Ann
  */
 public class ToolbarGUI extends JFrame {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3392452619174690772L;
 	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
 
-	private 	JToolBar toolBar = new JToolBar();
+	private JToolBar toolBar = new JToolBar();
 	
 	private JButton btnAddARoom = new JButton("ADD A ROOM");
 	private JButton btnRemoveARoom = new JButton("REMOVE A ROOM");
@@ -59,7 +55,7 @@ public class ToolbarGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {			
-					ToolbarGUI frame = new ToolbarGUI (apartment,grid,catalog);
+					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog);
 					frame.setVisible(true);
 				    frame.setTitle(" Toolbar ");
 
@@ -89,7 +85,7 @@ public class ToolbarGUI extends JFrame {
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				AddRoomGUI.main(null);
+				AddRoomGUI.main(apartment);
 			}
 		});
 		toolBar.add(btnAddARoom);
@@ -281,7 +277,7 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (kitchenList.getSelectedValue() == "Fridge") {
 					AbstractRoom fridge = catalog.getFurniture("fridge");
-					kitchen.addFurniture(frigde, 5, 5, grid);
+					kitchen.addFurniture(fridge, 5, 5, grid);
 				}
 				if (kitchenList.getSelectedValue() == "Gas Cooker"){
 					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
@@ -1028,7 +1024,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -1062,7 +1057,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -1096,7 +1090,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
@@ -1152,7 +1145,6 @@ public class ToolbarGUI extends JFrame {
 				
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (floorList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(floorList);
@@ -1174,7 +1166,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (floorList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(floorList);
@@ -1196,7 +1187,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (floorList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(floorList);
@@ -1218,7 +1208,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (floorList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(floorList);
@@ -1240,7 +1229,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (floorList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(floorList);

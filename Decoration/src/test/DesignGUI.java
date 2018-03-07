@@ -97,7 +97,7 @@ public class DesignGUI extends JFrame {
 				try {
 					DesignGUI frame = new DesignGUI();
 					frame.setVisible(true);
-				    frame.setTitle(" Décoration");
+				    frame.setTitle("Manag'Apart");
 
 				} catch (Exception e) {
 					e.printStackTrace();

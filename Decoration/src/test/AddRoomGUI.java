@@ -39,11 +39,11 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(String[] args) {
+	public static void main(Apartment apartment) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddRoomGUI frame = new AddRoomGUI();
+					AddRoomGUI frame = new AddRoomGUI(apartment);
 					frame.setVisible(true);
 				    frame.setTitle(" Add a Room");
 
@@ -58,7 +58,7 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public AddRoomGUI() {
+	public AddRoomGUI(Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 189);
 		contentPane = new JPanel();

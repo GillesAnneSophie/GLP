@@ -27,7 +27,7 @@ public class tests
 		
 			//Grid
 		Dimension dimGrid = new Dimension(15, 15);
-		Grid grid = new Grid(dimGrid);;
+		Grid grid = new Grid(dimGrid);
 		
 			//Create Rooms
 		Category bedroomCategory = new BedroomOffice();
@@ -56,7 +56,7 @@ public class tests
 
 
 			//Delete
-		bedroom.removeFurniture("single bed", grid);
+		//bedroom.removeFurniture("single bed", grid);
 		//System.out.println("\n" + bedroom);
 		
 		//apartment.removeRoom("bedroom", grid);

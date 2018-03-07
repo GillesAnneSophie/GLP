@@ -18,20 +18,10 @@ import place.Room;
  *
  */
 public class RemoveRoomGUI extends JFrame {
-	
-	private Catalog cat = new Catalog();
-	private Apartment apt = new Apartment();
-	
-	
-
 	private JPanel contentPane;
-
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove :");
-	
 	private JComboBox<String> comboBox = new JComboBox<String>();
-	
 	private JButton btnEnter = new JButton("Enter");
-	
 	private String sg;
 	
 	/**
@@ -43,7 +33,7 @@ public class RemoveRoomGUI extends JFrame {
 				try {
 					RemoveRoomGUI frame = new RemoveRoomGUI();
 					frame.setVisible(true);
-				    frame.setTitle(" Remove a room");
+				    frame.setTitle("Remove a room");
 
 				} catch (Exception e) {
 					e.printStackTrace();
