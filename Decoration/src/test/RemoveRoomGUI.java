@@ -89,7 +89,8 @@ public class RemoveRoomGUI extends JFrame {
 
 				if (sg == "Kitchen") {
 				
-		
+
+					
 				}
 				if (sg == "Dining Room") {
 				

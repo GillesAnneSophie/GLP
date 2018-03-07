@@ -4,6 +4,12 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import catalog.Catalog;
+
+import place.AbstractRoom;
+import place.Apartment;
+import place.Grid;
+
 import java.awt.event.*;
 /**
  * @author ZOUHOUDI Chabani
@@ -18,10 +24,7 @@ public class ToolbarGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
-	private static ToolbarGUI frame = new ToolbarGUI();
-	
-	private Object[] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
-	
+
 	private 	JToolBar toolBar = new JToolBar();
 	
 	private JButton btnAddARoom = new JButton("ADD A ROOM");
@@ -31,31 +34,32 @@ public class ToolbarGUI extends JFrame {
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
 	
-	private String [] catalog = {"Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom"};
-	private JList <String >list = new JList <String> (catalog);
-	private String [] kitchenFurniture = {"<< Return","Fridge","Gas Cooker","Sink","Countertop"};
+	private String[] room = {"Kitchen","Living Room", "Dining Room", "Bedroom/Office","Bathroom","Wall","Floor"};
+	private JList <String >list = new JList <String> (room);
+	private String [] kitchenFurniture = {"<< Return","Fridge","Gas Cooker","Sink","Worktop"};
 	private JList <String> kitchenList = new JList <String> (kitchenFurniture);
-	private String [] livingRoomFurniture = {"<< Return","Coffee Table" ,"Small sofa","Big sofa","Armchair"};
+	private String [] livingRoomFurniture = {"<< Return","Coffee Table" ,"Small Sofa","Large Sofa","Armchair"};
 	private JList <String> livingRoomList = new JList <String> (livingRoomFurniture);
-	private String [] diningRoomFurniture = {"<< Return","Small Dining Table", "Big Dining Table","Chair","Sideboard"};
+	private String [] diningRoomFurniture = {"<< Return","Small Dining Table", "Large Dining Table","Chair","Buffet"};
 	private JList <String> diningRoomList = new JList <String> (diningRoomFurniture);
-	private String [] bedroomOfficeFurniture = {"<< Return","Single Bed","Double Bed","Nightstand","Chest of Drawers","Wardrobe","Desk","Chair"};
+	private String [] bedroomOfficeFurniture = {"<< Return","Single Bed","Double Bed","Nightstand","Dresser","Wardrobe","Desk","Office Chair"};
 	private JList <String> bedroomOfficeList = new JList <String> (bedroomOfficeFurniture);
-	private String [] bathroomFurniture = {"<< Return","Toilet","Shower","Bathtub","Sink","Contertop"};
+	private String [] bathroomFurniture = {"<< Return","Toilet","Shower","Bath","Washbasin","Worktop"};
 	private JList <String> bathroomList = new JList <String> (bathroomFurniture);
-	private String [] wallFurniture = {"<< Return","Wallpaper","Paint","Panelling","Doors","Windows","Arts"};
+	private String [] wallFurniture = {"<< Return",/*"Wallpaper","Paint","Panelling",*/"Small Door","Large Door","Small Window","Large Window","Pictures"}; //TODO a changer / a voir
 	private JList <String> wallList = new JList <String> (wallFurniture);
-	private String [] floarFurniture = {"<< Return","Carpeting", "Parquet","Tiles","Rugs"};
-	private JList <String> floarList = new JList <String> (floarFurniture);
+	private String [] floorFurniture = {"<< Return",/*"Carpeting", "Parquet","Tiles",*/"Carpet"};//TODO a changer / a voir
+	private JList <String> floorList = new JList <String> (floorFurniture);
 	
 	
 	/**
 	 * Launch the application
 	 */
-	public static void main(String[] args) {
+	public static void main(Apartment apartment,Grid grid ,Catalog catalog) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {					
+				try {			
+					ToolbarGUI frame = new ToolbarGUI (apartment,grid,catalog);
 					frame.setVisible(true);
 				    frame.setTitle(" Toolbar ");
 
@@ -70,7 +74,7 @@ public class ToolbarGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public ToolbarGUI() {
+	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 440, 353);
 		contentPane = new JPanel();
@@ -110,7 +114,6 @@ public class ToolbarGUI extends JFrame {
 		panel.add(list);
 		list.addMouseListener(new MouseListener() {
 
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
@@ -137,12 +140,11 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(false);
 				}
 				if (list.getSelectedValue() == "Floar") {
-					panel.add(floarList);
+					panel.add(floorList);
 					list.setVisible(false);
 				}
 			}
 
-			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
@@ -169,12 +171,11 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(false);
 				}
 				if (list.getSelectedValue() == "Floar") {
-					panel.add(floarList);
+					panel.add(floorList);
 					list.setVisible(false);
 				}
 			}
 
-			@Override
 			public void mouseExited(MouseEvent arg0) {
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
@@ -201,12 +202,11 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(false);
 				}
 				if (list.getSelectedValue() == "Floar") {
-					panel.add(floarList);
+					panel.add(floorList);
 					list.setVisible(false);
 				}
 			}
 
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
@@ -233,12 +233,11 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(false);
 				}
 				if (list.getSelectedValue() == "Floar") {
-					panel.add(floarList);
+					panel.add(floorList);
 					list.setVisible(false);
 				}
 			}
 
-			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				if (list.getSelectedValue()=="Kitchen") {
 					panel.add(kitchenList);
@@ -265,53 +264,128 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(false);
 				}
 				if (list.getSelectedValue() == "Floar") {
-					panel.add(floarList);
+					panel.add(floorList);
 					list.setVisible(false);
+					
 				}
 			}
 			
 		});
 		
-		kitchenList.addMouseListener(new MouseListener (){
+		kitchenList.addMouseListener(new MouseListener (){ // TODO changer addfunirture par AddFUrnitureGUI + mettre furniture en param
 
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (kitchenList.getSelectedValue() == "<< Return") {
-					list.setVisible(true);
 					panel.remove(kitchenList);
-					
+					list.setVisible(true);
+				}
+				if (kitchenList.getSelectedValue() == "Fridge") {
+					AbstractRoom fridge = catalog.getFurniture("fridge");
+					kitchen.addFurniture(frigde, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Gas Cooker"){
+					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
+					kitchen.addFurniture(gasCooker, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Sink"){
+					AbstractRoom sink = catalog.getFurniture("sink");
+					kitchen.addFurniture(sink, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Worktop"){
+					AbstractRoom countertop = catalog.getFurniture("worktop");
+					kitchen.addFurniture(countertop, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				if (kitchenList.getSelectedValue() == "<< Return") {
-					list.setVisible(true);
 					panel.remove(kitchenList);
+					list.setVisible(true);
+				}
+				if (kitchenList.getSelectedValue() == "Fridge") {
+					AbstractRoom fridge = catalog.getFurniture("fridge");
+					kitchen.addFurniture(frigde, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Gas Cooker"){
+					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
+					kitchen.addFurniture(gasCooker, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Sink"){
+					AbstractRoom sink = catalog.getFurniture("sink");
+					kitchen.addFurniture(sink, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Worktop"){
+					AbstractRoom countertop = catalog.getFurniture("worktop");
+					kitchen.addFurniture(countertop, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseExited(MouseEvent arg0) {
 				if (kitchenList.getSelectedValue() == "<< Return") {
-					list.setVisible(true);
 					panel.remove(kitchenList);
+					list.setVisible(true);
+				}
+				if (kitchenList.getSelectedValue() == "Fridge") {
+					AbstractRoom fridge = catalog.getFurniture("fridge");
+					kitchen.addFurniture(frigde, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Gas Cooker"){
+					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
+					kitchen.addFurniture(gasCooker, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Sink"){
+					AbstractRoom sink = catalog.getFurniture("sink");
+					kitchen.addFurniture(sink, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Worktop"){
+					AbstractRoom countertop = catalog.getFurniture("Worktop");
+					kitchen.addFurniture(countertop, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				if (kitchenList.getSelectedValue() == "<< Return") {
-					list.setVisible(true);
 					panel.remove(kitchenList);
+					list.setVisible(true);
+				}
+				if (kitchenList.getSelectedValue() == "Fridge") {
+					AbstractRoom fridge = catalog.getFurniture("fridge");
+					kitchen.addFurniture(frigde, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Gas Cooker"){
+					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
+					kitchen.addFurniture(gasCooker, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Sink"){
+					AbstractRoom sink = catalog.getFurniture("sink");
+					kitchen.addFurniture(sink, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Worktop"){
+					AbstractRoom countertop = catalog.getFurniture("worktop");
+					kitchen.addFurniture(countertop, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				if (kitchenList.getSelectedValue() == "<< Return") {
-					list.setVisible(true);
 					panel.remove(kitchenList);
+					list.setVisible(true);
+				}
+				if (kitchenList.getSelectedValue() == "Fridge") {
+					AbstractRoom fridge = catalog.getFurniture("fridge");
+					kitchen.addFurniture(frigde, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Gas Cooker"){
+					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
+					kitchen.addFurniture(gasCooker, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Sink"){
+					AbstractRoom sink = catalog.getFurniture("sink");
+					kitchen.addFurniture(sink, 5, 5, grid);
+				}
+				if (kitchenList.getSelectedValue() == "Worktop"){
+					AbstractRoom countertop = catalog.getFurniture("worktop");
+					kitchen.addFurniture(countertop, 5, 5, grid);
 				}
 			}
 			
@@ -319,44 +393,118 @@ public class ToolbarGUI extends JFrame {
 		
 		livingRoomList.addMouseListener(new MouseListener (){
 
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
-					panel.remove(kitchenList);
-					
+					panel.remove(kitchenList);	
+				}
+				if (livingRoomList.getSelectedValue() == "Coffee Table") {
+					AbstractRoom coffeeTable = catalog.getFurniture("coffee table");
+					livingRoom.addFurniture(coffeeTable, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Small Sofa"){
+					AbstractRoom smallSofa = catalog.getFurniture("small sofa");
+					livingRoom.addFurniture(smallSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Large Sofa"){
+					AbstractRoom largeSofa = catalog.getFurniture("large sofa");
+					livingRoom.addFurniture(largeSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Armchair"){
+					AbstractRoom armchair = catalog.getFurniture("armchair");
+					livingRoom.addFurniture(armchair, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
-					panel.remove(livingRoomList);
+					panel.remove(kitchenList);	
+				}
+				if (livingRoomList.getSelectedValue() == "Coffee Table") {
+					AbstractRoom coffeeTable = catalog.getFurniture("coffee table");
+					livingRoom.addFurniture(coffeeTable, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Small Sofa"){
+					AbstractRoom smallSofa = catalog.getFurniture("small sofa");
+					livingRoom.addFurniture(smallSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Large Sofa"){
+					AbstractRoom largeSofa = catalog.getFurniture("large sofa");
+					livingRoom.addFurniture(largeSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Armchair"){
+					AbstractRoom armchair = catalog.getFurniture("armchair");
+					livingRoom.addFurniture(armchair, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseExited(MouseEvent arg0) {
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
-					panel.remove(livingRoomList);
+					panel.remove(kitchenList);	
+				}
+				if (livingRoomList.getSelectedValue() == "Coffee Table") {
+					AbstractRoom coffeeTable = catalog.getFurniture("coffee table");
+					livingRoom.addFurniture(coffeeTable, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Small Sofa"){
+					AbstractRoom smallSofa = catalog.getFurniture("small sofa");
+					livingRoom.addFurniture(smallSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Large Sofa"){
+					AbstractRoom largeSofa = catalog.getFurniture("large sofa");
+					livingRoom.addFurniture(largeSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Armchair"){
+					AbstractRoom armchair = catalog.getFurniture("armchair");
+					livingRoom.addFurniture(armchair, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
-					panel.remove(livingRoomList);
+					panel.remove(kitchenList);	
+				}
+				if (livingRoomList.getSelectedValue() == "Coffee Table") {
+					AbstractRoom coffeeTable = catalog.getFurniture("coffee table");
+					livingRoom.addFurniture(coffeeTable, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Small Sofa"){
+					AbstractRoom smallSofa = catalog.getFurniture("small sofa");
+					livingRoom.addFurniture(smallSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Large Sofa"){
+					AbstractRoom largeSofa = catalog.getFurniture("large sofa");
+					livingRoom.addFurniture(largeSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Armchair"){
+					AbstractRoom armchair = catalog.getFurniture("armchair");
+					livingRoom.addFurniture(armchair, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				if (livingRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
-					panel.remove(livingRoomList);
+					panel.remove(kitchenList);	
+				}
+				if (livingRoomList.getSelectedValue() == "Coffee Table") {
+					AbstractRoom coffeeTable = catalog.getFurniture("coffee table");
+					livingRoom.addFurniture(coffeeTable, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Small Sofa"){
+					AbstractRoom smallSofa = catalog.getFurniture("small sofa");
+					livingRoom.addFurniture(smallSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Large Sofa"){
+					AbstractRoom largeSofa = catalog.getFurniture("large sofa");
+					livingRoom.addFurniture(largeSofa, 5, 5, grid);
+				}
+				if (livingRoomList.getSelectedValue() == "Armchair"){
+					AbstractRoom armchair = catalog.getFurniture("armchair");
+					livingRoom.addFurniture(armchair, 5, 5, grid);
 				}
 			}
 			
@@ -364,44 +512,118 @@ public class ToolbarGUI extends JFrame {
 		
 		diningRoomList.addMouseListener(new MouseListener (){
 
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
-					
+				}
+				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
+					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
+					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
+					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
+					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					diningRoom.addFurniture(chair, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Buffet"){
+					AbstractRoom sideboard = catalog.getFurniture("buffet");
+					diningRoom.addFurniture(sideboard, 5, 5, grid);
 				}
 			}
 
-			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
 				}
+				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
+					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
+					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
+					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
+					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					diningRoom.addFurniture(chair, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Buffet"){
+					AbstractRoom sideboard = catalog.getFurniture("buffet");
+					diningRoom.addFurniture(sideboard, 5, 5, grid);
+				}
 			}
 
-			@Override
 			public void mouseExited(MouseEvent arg0) {
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
 				}
+				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
+					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
+					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
+					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
+					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					diningRoom.addFurniture(chair, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Buffet"){
+					AbstractRoom sideboard = catalog.getFurniture("buffet");
+					diningRoom.addFurniture(sideboard, 5, 5, grid);
+				}
 			}
 
-			@Override
 			public void mousePressed(MouseEvent arg0) {
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
 				}
+				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
+					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
+					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
+					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
+					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					diningRoom.addFurniture(chair, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Buffet"){
+					AbstractRoom sideboard = catalog.getFurniture("buffet");
+					diningRoom.addFurniture(sideboard, 5, 5, grid);
+				}
 			}
 
-			@Override
 			public void mouseReleased(MouseEvent arg0) {
 				if (diningRoomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(diningRoomList);
+				}
+				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
+					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
+					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
+					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
+					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					diningRoom.addFurniture(chair, 5, 5, grid);
+				}
+				if (diningRoomList.getSelectedValue()== "Buffet"){
+					AbstractRoom sideboard = catalog.getFurniture("buffet");
+					diningRoom.addFurniture(sideboard, 5, 5, grid);
 				}
 			}
 			
@@ -409,57 +631,216 @@ public class ToolbarGUI extends JFrame {
 		
 		bedroomOfficeList.addMouseListener(new MouseListener (){
 
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
-					
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
+					AbstractRoom singleBed = catalog.getFurniture("single bed");
+					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
+					AbstractRoom doubleBed = catalog.getFurniture("double bed");
+					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
+					AbstractRoom nightstand = catalog.getFurniture("nightstand");
+					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
+					AbstractRoom dresser = catalog.getFurniture("dresser");
+					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
+					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
+					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Desk"){
+					AbstractRoom desk = catalog.getFurniture("desk");
+					bedroomOffice.addFurniture(desk, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue() == "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					bedroomOffice.addFurniture(chair, 5, 5, grid);
 				}
 			}
 
 			@Override
-			public void mouseEntered(MouseEvent arg0) {
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
+					AbstractRoom singleBed = catalog.getFurniture("single bed");
+					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
+					AbstractRoom doubleBed = catalog.getFurniture("double bed");
+					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
+					AbstractRoom nightstand = catalog.getFurniture("nightstand");
+					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
+					AbstractRoom dresser = catalog.getFurniture("dresser");
+					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
+					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
+					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Desk"){
+					AbstractRoom desk = catalog.getFurniture("desk");
+					bedroomOffice.addFurniture(desk, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue() == "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					bedroomOffice.addFurniture(chair, 5, 5, grid);
 				}
 			}
 
 			@Override
-			public void mouseExited(MouseEvent arg0) {
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
+					AbstractRoom singleBed = catalog.getFurniture("single bed");
+					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
+					AbstractRoom doubleBed = catalog.getFurniture("double bed");
+					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
+					AbstractRoom nightstand = catalog.getFurniture("nightstand");
+					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
+					AbstractRoom dresser = catalog.getFurniture("dresser");
+					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
+					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
+					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Desk"){
+					AbstractRoom desk = catalog.getFurniture("desk");
+					bedroomOffice.addFurniture(desk, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue() == "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					bedroomOffice.addFurniture(chair, 5, 5, grid);
 				}
 			}
 
 			@Override
-			public void mousePressed(MouseEvent arg0) {
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
+					AbstractRoom singleBed = catalog.getFurniture("single bed");
+					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
+					AbstractRoom doubleBed = catalog.getFurniture("double bed");
+					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
+					AbstractRoom nightstand = catalog.getFurniture("nightstand");
+					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
+					AbstractRoom dresser = catalog.getFurniture("dresser");
+					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
+					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
+					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Desk"){
+					AbstractRoom desk = catalog.getFurniture("desk");
+					bedroomOffice.addFurniture(desk, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue() == "Office Chair"){
+					AbstractRoom officeChair = catalog.getFurniture("office chair");
+					bedroomOffice.addFurniture(officeChair, 5, 5, grid);
 				}
 			}
 
 			@Override
-			public void mouseReleased(MouseEvent arg0) {
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
 				}
-			}
-			
+				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
+					AbstractRoom singleBed = catalog.getFurniture("single bed");
+					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
+					AbstractRoom doubleBed = catalog.getFurniture("double bed");
+					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
+					AbstractRoom nightstand = catalog.getFurniture("nightstand");
+					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
+					AbstractRoom dresser = catalog.getFurniture("dresser");
+					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
+					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
+					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue()== "Desk"){
+					AbstractRoom desk = catalog.getFurniture("desk");
+					bedroomOffice.addFurniture(desk, 5, 5, grid);
+				}
+				if (bedroomOfficeList.getSelectedValue() == "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					bedroomOffice.addFurniture(chair, 5, 5, grid);
+				}
+			}			
 		});
 		
 		bathroomList.addMouseListener(new MouseListener (){
 
-			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
-					
+				}
+				if (bathroomList.getSelectedValue()== "Toilet"){
+					AbstractRoom toilet = catalog.getFurniture("toilet");
+					bathroom.addFurniture(toilet, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Bath"){
+					AbstractRoom bath = catalog.getFurniture("bath");
+					bathroom.addFurniture(bath, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Shower"){
+					AbstractRoom shower = catalog.getFurniture("shower");
+					bathroom.addFurniture(shower, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Washbasin"){
+					AbstractRoom washbasin = catalog.getFurniture("washbasin");
+					bathroom.addFurniture(washbasin, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Worktop"){
+					AbstractRoom worktop = catalog.getFurniture("worktop");
+					bathroom.addFurniture(worktop, 5, 5, grid);
 				}
 			}
 
@@ -469,6 +850,26 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(true);
 					panel.remove(bathroomList);
 				}
+				if (bathroomList.getSelectedValue()== "Toilet"){
+					AbstractRoom toilet = catalog.getFurniture("toilet");
+					bathroom.addFurniture(toilet, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Bath"){
+					AbstractRoom bath = catalog.getFurniture("bath");
+					bathroom.addFurniture(bath, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Shower"){
+					AbstractRoom shower = catalog.getFurniture("shower");
+					bathroom.addFurniture(shower, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Washbasin"){
+					AbstractRoom washbasin = catalog.getFurniture("washbasin");
+					bathroom.addFurniture(washbasin, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Worktop"){
+					AbstractRoom worktop = catalog.getFurniture("worktop");
+					bathroom.addFurniture(worktop, 5, 5, grid);
+				}
 			}
 
 			@Override
@@ -476,6 +877,26 @@ public class ToolbarGUI extends JFrame {
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
+				}
+				if (bathroomList.getSelectedValue()== "Toilet"){
+					AbstractRoom toilet = catalog.getFurniture("toilet");
+					bathroom.addFurniture(toilet, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Bath"){
+					AbstractRoom bath = catalog.getFurniture("bath");
+					bathroom.addFurniture(bath, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Shower"){
+					AbstractRoom shower = catalog.getFurniture("shower");
+					bathroom.addFurniture(shower, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Washbasin"){
+					AbstractRoom washbasin = catalog.getFurniture("washbasin");
+					bathroom.addFurniture(washbasin, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Worktop"){
+					AbstractRoom worktop = catalog.getFurniture("worktop");
+					bathroom.addFurniture(worktop, 5, 5, grid);
 				}
 			}
 
@@ -485,16 +906,56 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(true);
 					panel.remove(bathroomList);
 				}
+				if (bathroomList.getSelectedValue()== "Toilet"){
+					AbstractRoom toilet = catalog.getFurniture("toilet");
+					bathroom.addFurniture(toilet, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Bath"){
+					AbstractRoom bath = catalog.getFurniture("bath");
+					bathroom.addFurniture(bath, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Shower"){
+					AbstractRoom shower = catalog.getFurniture("shower");
+					bathroom.addFurniture(shower, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Washbasin"){
+					AbstractRoom washbasin = catalog.getFurniture("washbasin");
+					bathroom.addFurniture(washbasin, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Worktop"){
+					AbstractRoom worktop = catalog.getFurniture("worktop");
+					bathroom.addFurniture(worktop, 5, 5, grid);
+				}
 			}
 
 			@Override
-			public void mouseReleased(MouseEvent arg0) {
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
 				}
-			}
-			
+				if (bathroomList.getSelectedValue()== "Toilet"){
+					AbstractRoom toilet = catalog.getFurniture("toilet");
+					bathroom.addFurniture(toilet, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Bath"){
+					AbstractRoom bath = catalog.getFurniture("bath");
+					bathroom.addFurniture(bath, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Shower"){
+					AbstractRoom shower = catalog.getFurniture("shower");
+					bathroom.addFurniture(shower, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Washbasin"){
+					AbstractRoom washbasin = catalog.getFurniture("washbasin");
+					bathroom.addFurniture(washbasin, 5, 5, grid);
+				}
+				if (bathroomList.getSelectedValue()== "Worktop"){
+					AbstractRoom worktop = catalog.getFurniture("worktop");
+					AddFurnitureGUI.main(null);		
+				}
+			}		
 		});
 		
 		wallList.addMouseListener(new MouseListener (){
@@ -504,7 +965,31 @@ public class ToolbarGUI extends JFrame {
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
+				}
+			/*	if (wallList.getSelectedValue() == "Carpeting") {		//TODO a changer / a voir
+					AbstractRoom carpeting = catalog.getFurniture("carpeting");
+				}
+				if (wallList.getSelectedValue() == "Paint"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Panelling"){
 					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Small Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("small door");
+				}
+				if (wallList.getSelectedValue () == "Large Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("large door");
+				}
+				if (wallList.getSelectedValue() == "Small Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("small window");
+				}
+				if (wallList.getSelectedValue() == "Large Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("large window");
+				}
+				if (wallList.getSelectedValue() == "Pictures"){
+					AbstractRoom smallDoor = catalog.getFurniture("pictures");
 				}
 			}
 
@@ -514,35 +999,267 @@ public class ToolbarGUI extends JFrame {
 					list.setVisible(true);
 					panel.remove(wallList);
 				}
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				if (wallList.getSelectedValue() == "<< Return") {
-					list.setVisible(true);
-					panel.remove(wallList);
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Paint"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Panelling"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Small Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("small door");
+				}
+				if (wallList.getSelectedValue () == "Large Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("large door");
+				}
+				if (wallList.getSelectedValue() == "Small Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("small window");
+				}
+				if (wallList.getSelectedValue() == "Large Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("large window");
+				}
+				if (wallList.getSelectedValue() == "Pictures"){
+					AbstractRoom smallDoor = catalog.getFurniture("pictures");
 				}
 			}
 
 			@Override
-			public void mousePressed(MouseEvent arg0) {
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Painting"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Panelling"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Small Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("small door");
+				}
+				if (wallList.getSelectedValue () == "Large Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("large door");
+				}
+				if (wallList.getSelectedValue() == "Small Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("small window");
+				}
+				if (wallList.getSelectedValue() == "Large Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("large window");
+				}
+				if (wallList.getSelectedValue() == "Pictures"){
+					AbstractRoom smallDoor = catalog.getFurniture("pictures");
 				}
 			}
 
 			@Override
-			public void mouseReleased(MouseEvent arg0) {
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
 				if (wallList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(wallList);
 				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Paint"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Panelling"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Small Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("small door");
+				}
+				if (wallList.getSelectedValue () == "Large Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("large door");
+				}
+				if (wallList.getSelectedValue() == "Small Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("small window");
+				}
+				if (wallList.getSelectedValue() == "Large Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("large window");
+				}
+				if (wallList.getSelectedValue() == "Pictures"){
+					AbstractRoom smallDoor = catalog.getFurniture("pictures");
+				}
 			}
-			
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (wallList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(wallList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Paint"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Panelling"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Small Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("small door");
+				}
+				if (wallList.getSelectedValue () == "Large Door") {
+					AbstractRoom smallDoor = catalog.getFurniture("large door");
+				}
+				if (wallList.getSelectedValue() == "Small Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("small window");
+				}
+				if (wallList.getSelectedValue() == "Large Windows") {
+					AbstractRoom smallDoor = catalog.getFurniture("large window");
+				}
+				if (wallList.getSelectedValue() == "Pictures"){
+					AbstractRoom smallDoor = catalog.getFurniture("pictures");
+				}
+			}
 		});
 		
-		
+		floorList.addMouseListener (new MouseListener()){
+			public void mouseCLicked (MouseEvent arg0){
+				if (floorList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(floorList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Parquet"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Tiles"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Carpet") {
+					AbstractRoom carpet = catalog.getFurniture("carpet");
+				}
+			}
+				
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (floorList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(floorList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Parquet"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Tiles"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Carpet") {
+					AbstractRoom carpet = catalog.getFurniture("carpet");
+				}
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (floorList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(floorList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Parquet"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Tiles"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Carpet") {
+					AbstractRoom carpet = catalog.getFurniture("carpet");
+				}
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (floorList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(floorList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Parquet"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Tiles"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Carpet") {
+					AbstractRoom carpet = catalog.getFurniture("carpet");
+				}
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (floorList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(floorList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Parquet"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Tiles"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Carpet") {
+					AbstractRoom carpet = catalog.getFurniture("carpet");
+				}
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (floorList.getSelectedValue() == "<< Return") {
+					list.setVisible(true);
+					panel.remove(floorList);
+				}
+			/*	if (wallList.getSelectedValue() == "Wallpaper") {		//TODO a changer / a voir
+					AbstractRoom wallpaper = catalog.getFurniture("wallpapar");
+				}
+				if (wallList.getSelectedValue() == "Parquet"){
+					AbstractRoom
+				}
+				if (wallList.getSelectedValue() == "Tiles"){
+					
+				}
+			*/
+				if (wallList.getSelectedValue () == "Carpet") {
+					AbstractRoom carpet = catalog.getFurniture("carpet");
+				}
+			}
+		});
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {

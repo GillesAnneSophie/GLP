@@ -1,6 +1,7 @@
 package test;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
@@ -8,6 +9,8 @@ import javax.swing.border.MatteBorder;
 
 import catalog.Catalog;
 import place.Apartment;
+import place.Dimension;
+import place.Grid;
 
 /**
  * @author CORALIE Laury Ann
@@ -16,11 +19,13 @@ import place.Apartment;
 public class DesignGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private Catalog cat = new Catalog();
-	private Apartment apt = new Apartment();
+	private Catalog catalog = new Catalog();
+	private Apartment apartment = new Apartment();
 	private JPanel contentPane;
 	private JPanel cells[][];
 	
+	private Dimension dimGrid = new Dimension(20, 20);
+	private Grid grid = new Grid(dimGrid);
 
 	private JMenuBar menuBar = new JMenuBar();
 	private 	JMenu menu = new JMenu("?");
@@ -133,7 +138,7 @@ public class DesignGUI extends JFrame {
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chckbxmntmShowToolbar.isSelected() == true) {
-					ToolbarGUI.main(null);
+					ToolbarGUI.main(apartment, grid ,catalog);
 				}
 				else {
 				
