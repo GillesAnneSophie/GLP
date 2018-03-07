@@ -15,8 +15,8 @@ public class Room extends AbstractRoom
 	
 	/**
 	 * @param name
-	 * @param lenght
 	 * @param width
+	 * @param lenght
 	 * @param category
 	 */
 	public Room(String name, int width, int lenght, Category category) 
@@ -33,15 +33,9 @@ public class Room extends AbstractRoom
 	{
 		return furnituresOfTheRoom;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Room [furnituresOfTheRoom=\n" + furnituresOfTheRoom + "\n" + super.toString() + "]";
-	}
 	
 	
-	/** Return true if the furniture can be place in the room, depending of their Category, else return false
+	/** Return true if the furniture can be place in the room
 	 * @param room
 	 * @param furniture
 	 * @return true or false
@@ -105,13 +99,14 @@ public class Room extends AbstractRoom
 	 * @param furniture
 	 * @param x
 	 * @param y
+	 * @param grid
 	 * */
 	public void addFurniture(AbstractRoom furniture, int x, int y, Grid grid)
 	{
 		if(roomAcceptFurniture(this, furniture))
 		{
 			String nameInGrid = furniture.getName().charAt(0) + "";
-			if(furniture.isStackable())
+			if(furniture.getIsStackable())
 			{
 				nameInGrid+= "S";
 			}
@@ -139,5 +134,11 @@ public class Room extends AbstractRoom
 			}
 		}
 		grid.showGrid();
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Room [furnituresOfTheRoom=\n" + furnituresOfTheRoom + "\n" + super.toString() + "]";
 	}
 }

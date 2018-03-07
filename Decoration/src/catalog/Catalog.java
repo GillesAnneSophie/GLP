@@ -10,7 +10,6 @@ import place.*;
 
 /**
  * @author GILLES Anne-Sophie
- *
  */
 public class Catalog 
 {
@@ -29,13 +28,11 @@ public class Catalog
 	public Catalog()
 	{
 		inventory = new ArrayList<AbstractRoom>();
-		buildFurniture();
+		buildFurnitures();
 	}
 	
-	/**
-	 * Build 
-	 */
-	public void buildFurniture()
+	/** Create all the Furnitures and put them in the inventory */
+	public void buildFurnitures()
 	{
 		/*Create Categories*/
 		Category bathroom = new Bathroom();
@@ -93,7 +90,7 @@ public class Catalog
 		AbstractRoom largeWindow = new Furniture("large window", smallRectangle, isStackable, wall);
 		AbstractRoom picture = new Furniture("pictures", cube, isStackable, wall);
 	
-		/*Add all the furniture in the ArrayList*/
+		/*Add all the furnitures in the ArrayList*/
 		inventory.add(toilet);
 		inventory.add(bath);
 		inventory.add(shower);
@@ -133,17 +130,7 @@ public class Catalog
 		inventory.add(picture);
 	}
 
-	
-	/**
-	 * @return inventory
-	 */
-	public ArrayList<AbstractRoom> getAllTheFurniture() 
-	{
-		return inventory;
-	}
-	
-
-	/**
+	/** Return the furniture which have the chosen name or null if there is no furniture with this name
 	 * @param name
 	 * @return the furniture or null
 	 */

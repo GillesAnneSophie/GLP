@@ -1,26 +1,14 @@
 package place;
 
-
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class Grid 
 {
-	private Apartment apartment;
 	private Dimension dimension;
 	private String[][] grid = new String[][] { {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"} , {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"}};
 	
-	
-	/**
-	 * @param apartment
-	 * @param dimension
-	 */
-	public Grid(Apartment apartment, Dimension dimension) 
-	{
-		this.apartment = apartment;
-		this.dimension = dimension;
-	}
 	
 	/**
 	 * @param dimension
@@ -30,14 +18,6 @@ public class Grid
 		this.dimension = dimension;
 	}
 
-	
-	/**
-	 * @return the apartment
-	 */
-	public Apartment getApartment() 
-	{
-		return apartment;
-	}
 
 	/**
 	 * @return the dimension
@@ -55,14 +35,6 @@ public class Grid
 		return grid[x][y];
 	}
 
-	
-	/**
-	 * @param apartment the apartment to set
-	 */
-	public void setApartment(Apartment apartment) 
-	{
-		this.apartment = apartment;
-	}
 
 	/**
 	 * @param dimension the dimension to set
@@ -81,13 +53,14 @@ public class Grid
 	}
 
 
-	/** Return true if the Furniture or Room can be place at the given position
+	/** Return true if the object can be place at the given position
 	 * @param isStackable
 	 * @param x
 	 * @param y
 	 * @param dimension
 	 * @param type
 	 * @param category
+	 * 
 	 * @return true or false
 	 * */
 	public boolean canBePlace(boolean isStackable, int x, int y, Dimension dimension, String type, String category)
@@ -217,6 +190,7 @@ public class Grid
 			}
 		}
 	}
+	
 	
 	/** Print the current grid */
 	public void showGrid() 

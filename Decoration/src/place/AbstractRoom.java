@@ -14,39 +14,41 @@ public abstract class AbstractRoom
 	private String type;
 	private String name;
 	private Dimension dimension;
-	private boolean stackable;
+	private boolean isStackable;
 	private Category category;
 	private Position position;
 	
 
 	/**
+	 * @param type
 	 * @param name
 	 * @param dimension
-	 * @param stackable
+	 * @param isStackable
 	 * @param category
 	 * */
-	public AbstractRoom(String type, String name, Dimension dimension, boolean stackable, Category category) 
+	public AbstractRoom(String type, String name, Dimension dimension, boolean isStackable, Category category) 
 	{
 		this.type = type;
 		this.name = name;
 		this.dimension = dimension;
-		this.stackable = stackable;
+		this.isStackable = isStackable;
 		this.category = category;
 	}
 
 	/**
+	 * @param type
 	 * @param name
-	 * @param lenght
 	 * @param width
-	 * @param stackable
+	 * @param lenght
+	 * @param isStackable
 	 * @param category
 	 * */
-	public AbstractRoom(String type, String name, int width, int lenght, boolean stackable, Category category) 
+	public AbstractRoom(String type, String name, int width, int lenght, boolean isStackable, Category category) 
 	{
 		this.type = type;
 		this.name = name;
 		dimension = new Dimension(width, lenght);
-		this.stackable = stackable;
+		this.isStackable = isStackable;
 		this.category = category;
 	}
 
@@ -54,55 +56,62 @@ public abstract class AbstractRoom
 	/**
 	 * @return the type
 	 * */
-	public String getType() {
+	public String getType() 
+	{
 		return type;
 	}
 	
 	/**
 	 * @return the name
 	 */
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
 
 	/**
 	 * @return the dimension
 	 */
-	public Dimension getDimension() {
+	public Dimension getDimension() 
+	{
 		return dimension;
 	}
 
 	/**
-	 * @return stackable
+	 * @return isStackable
 	 */
-	public boolean isStackable() {
-		return stackable;
+	public boolean getIsStackable() 
+	{
+		return isStackable;
 	}
 
 	/**
 	 * @return the category
 	 */
-	public String getCategory() {
+	public String getCategory() 
+	{
 		return category.toString();
 	}
 
 	/**
 	 * @return the position
 	 */
-	public Position getPosition() {
+	public Position getPosition() 
+	{
 		return position;
 	}
 	
 	
-	/**
+	/** Set the position of the object in the grid. Return true if the object is placed, false if it can't be place.
 	 * @param x
 	 * @param y
 	 * @param car
 	 * @param grid
+	 * @return true or false
 	 */
 	public boolean setPosition(int x, int y, String car, Grid grid) 
 	{
-		if(grid.canBePlace(isStackable(), x, y, getDimension(), getType(), getCategory()))
+		if(grid.canBePlace(getIsStackable(), x, y, getDimension(), getType(), getCategory()))
 		{
 			this.position = new Position(x, y);
 			for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
@@ -135,11 +144,10 @@ public abstract class AbstractRoom
 			grid.showGrid();
 			return false;
 		}
-		
 	}
 	
 	/**
-	 * @param dimension
+	 * @param dimension the dimension to set
 	 * */
 	public void setDimension(Dimension dimension) 
 	{
@@ -188,9 +196,7 @@ public abstract class AbstractRoom
 	@Override
 	public String toString() {
 		return "name=" + name + ", dimension=" + dimension
-				+ ", stackable=" + stackable + ", category=" + category
+				+ ", stackable=" + isStackable + ", category=" + category
 				+ ", position=" + position;
 	}
-
-
 }

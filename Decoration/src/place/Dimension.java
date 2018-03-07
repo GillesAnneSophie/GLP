@@ -2,7 +2,7 @@ package place;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class Dimension 
 {
@@ -14,7 +14,8 @@ public class Dimension
 	 * @param width
 	 * @param lenght
 	 */
-	public Dimension(int width, int lenght) {
+	public Dimension(int width, int lenght) 
+	{
 		this.lenght = lenght;
 		this.width = width;
 	}
@@ -34,23 +35,6 @@ public class Dimension
 	public int getWidth() 
 	{
 		return width;
-	}
-
-	
-	/**
-	 * @param lenght the lenght to set
-	 */
-	public void setLenght(int lenght) 
-	{
-		this.lenght = lenght;
-	}
-
-	/**
-	 * @param width the width to set
-	 */
-	public void setWidth(int width) 
-	{
-		this.width = width;
 	}
 
 

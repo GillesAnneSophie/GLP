@@ -15,13 +15,6 @@ public class Apartment
 	{
 		roomsList = new HashMap<Integer, Room>();
 	}
-	
-	
-	@Override
-	public String toString() 
-	{
-		return "Apartment [roomsList=" + roomsList + "]";
-	}
 
 
 	/** Add a room in the apartment
@@ -34,7 +27,8 @@ public class Apartment
 	}
 	
 	/** Remove a room from the apartment
-	 * @param name of the room
+	 * @param name
+	 * @param grid
 	 * */
 	public void removeRoom(String name, Grid grid)
 	{
@@ -47,5 +41,12 @@ public class Apartment
 			}
 		}
 		grid.showGrid();
+	}
+	
+	
+	@Override
+	public String toString() 
+	{
+		return "Apartment [roomsList=" + roomsList + "]";
 	}
 }

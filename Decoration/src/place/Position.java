@@ -2,10 +2,11 @@ package place;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class Position 
 {
+	/*x = Width / y = Length*/
 	private int x;
 	private int y;
 

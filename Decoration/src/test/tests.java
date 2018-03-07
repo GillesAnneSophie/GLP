@@ -60,5 +60,5 @@ public class tests
 		
 		//apartment.removeRoom("bedroom", grid);
 		//System.out.println("\n" + apartment);
-}
+	}
 }
