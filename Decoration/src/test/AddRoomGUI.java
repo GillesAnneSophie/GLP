@@ -6,7 +6,6 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
-import catalog.Catalog;
 import catalog.Category;
 import categories.*;
 import place.Apartment;
@@ -17,18 +16,19 @@ import place.Room;
  *
  */
 public class AddRoomGUI extends JFrame {
-
 	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	
 	private JTextField textField = new JTextField();
-	private JTextField textField_2 = new JTextField ();
+	private JTextField textField_2 = new JTextField();
 	
 	private int i;
 	private int j;
 	
 	private JComboBox<String> comboBox = new JComboBox<String>();
 	
+//TODO "sg" moi pas comprendre ?
 	private String sg;
 	
 	private JButton btnEnter = new JButton("Enter");

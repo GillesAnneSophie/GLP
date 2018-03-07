@@ -10,22 +10,23 @@ import javax.swing.border.EmptyBorder;
  * @author CORALIE Laury Ann
  */
 public class HomeGUI extends JFrame {
-
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
 	
 	private GridBagLayout gbl_contentPane = new GridBagLayout();
 	
-	private JLabel lblWelcome = new JLabel("WELCOME");
+	private JLabel lblWelcome = new JLabel("Manag'Apart");
 	
 	private GridBagConstraints gbc_lblWelcome = new GridBagConstraints();
 	private GridBagConstraints gbc_btnNew = new GridBagConstraints();
 	private GridBagConstraints gbc_btnOpenAFile = new GridBagConstraints();
 	
-	private JButton btnNew = new JButton("New file");
-	private 	JButton btnOpenAFile = new JButton("Open a file");
-	
-	
+	private JButton btnNew = new JButton("New management");
+	private JButton btnOpenAFile = new JButton("Open a existing management");
+//TODO Changer la taille de la fenêtre :c ça entre pas avec les nouveaux noms	
+//TODO Gerer un fichier déjà existant (Je pense pas qu'on va avoir le temps !)
 	/**
 	 * Launch the application
 	 */
@@ -34,7 +35,7 @@ public class HomeGUI extends JFrame {
 			public void run() {
 				try {
 					frame.setVisible(true);
-				    frame.setTitle(" Home ");
+				    frame.setTitle("Manag'Apart - Home");
 
 				} catch (Exception e) {
 					e.printStackTrace();

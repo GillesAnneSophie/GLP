@@ -6,22 +6,17 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
-import catalog.Catalog;
-import catalog.Category;
-import categories.Kitchen;
-import place.Apartment;
-import place.Room;
-
-
 /**
  * @author CORALIE Laury Ann
  *
  */
 public class RemoveRoomGUI extends JFrame {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
-	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove :");
+	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove:");
 	private JComboBox<String> comboBox = new JComboBox<String>();
-	private JButton btnEnter = new JButton("Enter");
+	private JButton btnEnter = new JButton("Remove");
 	private String sg;
 	
 	/**
@@ -33,7 +28,7 @@ public class RemoveRoomGUI extends JFrame {
 				try {
 					RemoveRoomGUI frame = new RemoveRoomGUI();
 					frame.setVisible(true);
-				    frame.setTitle("Remove a room");
+				    frame.setTitle("Manag'Apart - Remove a room");
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +51,8 @@ public class RemoveRoomGUI extends JFrame {
 				
 		lblChooseTheRoom.setBounds(10, 56, 166, 14);
 		contentPane.add(lblChooseTheRoom);		
-		
+
+//TODO la liste doit être la liste des pièces présentent dans l'Apartement (à passer en paramètre, donc)
 		comboBox.setBounds(209, 53, 99, 20);
 		contentPane.add(comboBox);
 		comboBox.addItem("Kitchen");
@@ -76,11 +72,9 @@ public class RemoveRoomGUI extends JFrame {
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-
+//TODO l'action liée est "apartment.removeRoom("NomDeLaPièce", grid);" (il faut donc aussi passer la grille en paramètre
 				if (sg == "Kitchen") {
 				
-
-					
 				}
 				if (sg == "Dining Room") {
 				

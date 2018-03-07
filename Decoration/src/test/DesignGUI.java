@@ -17,8 +17,8 @@ import place.Grid;
  *
  */
 public class DesignGUI extends JFrame {
-
 	private static final long serialVersionUID = 1L;
+
 	private Catalog catalog = new Catalog();
 	private Apartment apartment = new Apartment();
 	private JPanel contentPane;

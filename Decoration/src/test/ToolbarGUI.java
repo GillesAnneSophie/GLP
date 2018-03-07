@@ -16,16 +16,16 @@ import java.awt.event.*;
  * @author CORALIE Laury Ann
  */
 public class ToolbarGUI extends JFrame {
-	private static final long serialVersionUID = -3392452619174690772L;
+	
 	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
 
 	private JToolBar toolBar = new JToolBar();
 	
-	private JButton btnAddARoom = new JButton("ADD A ROOM");
-	private JButton btnRemoveARoom = new JButton("REMOVE A ROOM");
-	private JButton btnRemoveAFurn = new JButton("REMOVE A FURNITURE");
+	private JButton btnAddARoom = new JButton("Add a Room");
+	private JButton btnRemoveARoom = new JButton("Remove a Room");
+	private JButton btnRemoveAFurniture = new JButton("Remove a Furniture");
 	
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
@@ -57,7 +57,7 @@ public class ToolbarGUI extends JFrame {
 				try {			
 					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog);
 					frame.setVisible(true);
-				    frame.setTitle(" Toolbar ");
+				    frame.setTitle("Manag'Apart - ToolBar");
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -99,13 +99,13 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(separator);
 		toolBar.add(btnRemoveARoom);
 		
-		btnRemoveAFurn.addActionListener(new ActionListener() {
+		btnRemoveAFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 	
 		toolBar.add(separator_1);
-		toolBar.add(btnRemoveAFurn);
+		toolBar.add(btnRemoveAFurniture);
 		
 		panel.add(list);
 		list.addMouseListener(new MouseListener() {
@@ -135,7 +135,7 @@ public class ToolbarGUI extends JFrame {
 					panel.add(wallList);
 					list.setVisible(false);
 				}
-				if (list.getSelectedValue() == "Floar") {
+				if (list.getSelectedValue() == "Floor") {
 					panel.add(floorList);
 					list.setVisible(false);
 				}
@@ -166,7 +166,7 @@ public class ToolbarGUI extends JFrame {
 					panel.add(wallList);
 					list.setVisible(false);
 				}
-				if (list.getSelectedValue() == "Floar") {
+				if (list.getSelectedValue() == "Floor") {
 					panel.add(floorList);
 					list.setVisible(false);
 				}
@@ -197,7 +197,7 @@ public class ToolbarGUI extends JFrame {
 					panel.add(wallList);
 					list.setVisible(false);
 				}
-				if (list.getSelectedValue() == "Floar") {
+				if (list.getSelectedValue() == "Floor") {
 					panel.add(floorList);
 					list.setVisible(false);
 				}
@@ -228,7 +228,7 @@ public class ToolbarGUI extends JFrame {
 					panel.add(wallList);
 					list.setVisible(false);
 				}
-				if (list.getSelectedValue() == "Floar") {
+				if (list.getSelectedValue() == "Floor") {
 					panel.add(floorList);
 					list.setVisible(false);
 				}
@@ -259,7 +259,7 @@ public class ToolbarGUI extends JFrame {
 					panel.add(wallList);
 					list.setVisible(false);
 				}
-				if (list.getSelectedValue() == "Floar") {
+				if (list.getSelectedValue() == "Floor") {
 					panel.add(floorList);
 					list.setVisible(false);
 					
@@ -300,7 +300,7 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (kitchenList.getSelectedValue() == "Fridge") {
 					AbstractRoom fridge = catalog.getFurniture("fridge");
-					kitchen.addFurniture(frigde, 5, 5, grid);
+					kitchen.addFurniture(fridge, 5, 5, grid);
 				}
 				if (kitchenList.getSelectedValue() == "Gas Cooker"){
 					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
@@ -323,7 +323,7 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (kitchenList.getSelectedValue() == "Fridge") {
 					AbstractRoom fridge = catalog.getFurniture("fridge");
-					kitchen.addFurniture(frigde, 5, 5, grid);
+					kitchen.addFurniture(fridge, 5, 5, grid);
 				}
 				if (kitchenList.getSelectedValue() == "Gas Cooker"){
 					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
@@ -346,7 +346,7 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (kitchenList.getSelectedValue() == "Fridge") {
 					AbstractRoom fridge = catalog.getFurniture("fridge");
-					kitchen.addFurniture(frigde, 5, 5, grid);
+					kitchen.addFurniture(fridge, 5, 5, grid);
 				}
 				if (kitchenList.getSelectedValue() == "Gas Cooker"){
 					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
@@ -369,7 +369,7 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (kitchenList.getSelectedValue() == "Fridge") {
 					AbstractRoom fridge = catalog.getFurniture("fridge");
-					kitchen.addFurniture(frigde, 5, 5, grid);
+					kitchen.addFurniture(fridge, 5, 5, grid);
 				}
 				if (kitchenList.getSelectedValue() == "Gas Cooker"){
 					AbstractRoom gasCooker = catalog.getFurniture("gas cooker");
@@ -738,7 +738,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -775,7 +774,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (bedroomOfficeList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bedroomOfficeList);
@@ -926,7 +924,6 @@ public class ToolbarGUI extends JFrame {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
 				if (bathroomList.getSelectedValue() == "<< Return") {
 					list.setVisible(true);
 					panel.remove(bathroomList);
