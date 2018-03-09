@@ -118,13 +118,13 @@ public class Room extends AbstractRoom
 	 * @param name
 	 * @param grid
 	 * */
-	public void removeFurniture(String name, Grid grid)
+	public void removeFurniture(String name, Grid grid, HashMap<Integer, Room> roomsList)
 	{
 		for(int index=0 ; index<furnituresOfTheRoom.size() ; index++)
 		{
 			if(furnituresOfTheRoom.get(index).getName()==name)
 			{
-				grid.removeFurniture(furnituresOfTheRoom.get(index), getFurnituresOfTheRoom());
+				grid.removeFurniture(furnituresOfTheRoom.get(index), getFurnituresOfTheRoom(), roomsList);
 				furnituresOfTheRoom.remove(index);
 			}
 		}

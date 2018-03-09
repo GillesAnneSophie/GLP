@@ -130,8 +130,7 @@ public abstract class AbstractRoom
 					{
 						if(k==getPosition().getX()-1 || l==getPosition().getY()-1 || l==getPosition().getY()+getDimension().getWidth() || k==getPosition().getX()+getDimension().getLenght())
 						{
-							/*9 = Wall / 1 = Room*/
-							grid.setGrid(k, l, "9");
+							grid.setGrid(k, l, "$");
 						}
 					}
 				}

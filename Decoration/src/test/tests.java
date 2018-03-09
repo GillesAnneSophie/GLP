@@ -52,7 +52,7 @@ public class tests
 		bedroom.addFurniture(furniture3, 4, 3, grid);
 
 			//Delete
-		bedroom.removeFurniture("carpet", grid);
+		bedroom.removeFurniture("carpet", grid, apartment.getRoomsList());
 		//System.out.println("\n" + bedroom);
 		
 		//apartment.removeRoom("bedroom", grid);
