@@ -105,15 +105,10 @@ public class Room extends AbstractRoom
 	{
 		if(roomAcceptFurniture(this, furniture))
 		{
-			String nameInGrid = furniture.getName().charAt(0) + "";
-			if(furniture.getIsStackable())
-			{
-				nameInGrid+= "S";
-			}
-			
+			int counter = furnituresOfTheRoom.size();
+			String nameInGrid = String.valueOf(counter);
 			if(furniture.setPosition(x, y, nameInGrid, grid))
 			{
-				int counter = furnituresOfTheRoom.size();
 				furnituresOfTheRoom.put(counter, furniture);
 			}
 		}
@@ -129,7 +124,7 @@ public class Room extends AbstractRoom
 		{
 			if(furnituresOfTheRoom.get(index).getName()==name)
 			{
-				grid.removeFurniture(furnituresOfTheRoom.get(index));
+				grid.removeFurniture(furnituresOfTheRoom.get(index), getFurnituresOfTheRoom());
 				furnituresOfTheRoom.remove(index);
 			}
 		}

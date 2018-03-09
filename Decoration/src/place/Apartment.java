@@ -15,15 +15,28 @@ public class Apartment
 	{
 		roomsList = new HashMap<Integer, Room>();
 	}
-
+	
+	
+	/**
+	 * @param value
+	 * @return char
+	 * */
+	public char intToString(int value)
+	{
+		return (char)(value+(int)'a'-1);
+	}
 
 	/** Add a room in the apartment
 	 * @param room
 	 * */
-	public void addRoom(Room room)
+	public void addRoom(Room room, int x, int y, Grid grid)
 	{
 		int counter = roomsList.size();
-		roomsList.put(counter, room);
+		String nameInGrid = String.valueOf(intToString(counter));
+		if(room.setPosition(x, y, nameInGrid, grid))
+		{
+			roomsList.put(counter, room);
+		}
 	}
 	
 	/** Remove a room from the apartment

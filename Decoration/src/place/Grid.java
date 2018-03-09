@@ -1,5 +1,7 @@
 package place;
 
+import java.util.HashMap;
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
@@ -60,7 +62,6 @@ public class Grid
 	 * @param dimension
 	 * @param type
 	 * @param category
-	 * 
 	 * @return true or false
 	 * */
 	public boolean canBePlace(boolean isStackable, int x, int y, Dimension dimension, String type, String category)
@@ -78,7 +79,7 @@ public class Grid
 				{
 					for(int j=y ; j<y+dimension.getWidth() ; j++)
 					{
-						if(getGrid(i, j)=="1")
+						if(getGrid(i, j).matches("[a-z]"))
 						{
 							placable = true;
 						}
@@ -107,7 +108,7 @@ public class Grid
 						{
 							break;
 						}
-						else if(getGrid(i, j)=="0")
+						else if(getGrid(i, j)=="#")
 						{
 							placable = true;
 						}
@@ -131,7 +132,7 @@ public class Grid
 				{
 					for(int j=y ; j<y+dimension.getLenght() ; j++)
 					{
-						if(getGrid(i, j)=="9" || getGrid(i, j)=="0")
+						if(getGrid(i, j)=="$" || getGrid(i, j)=="#")
 						{
 							return false;
 						}
@@ -148,7 +149,7 @@ public class Grid
 				{
 					for(int j=y ; j<y+dimension.getLenght() ; j++)
 					{
-						if(getGrid(i, j)=="9")
+						if(getGrid(i, j)=="$")
 						{
 							placable = true;
 						}
@@ -172,7 +173,7 @@ public class Grid
 		{
 			for(int j=room.getPosition().getY()-1 ; j<room.getPosition().getY()+room.getDimension().getWidth()+1 ; j++)
 			{
-				setGrid(i, j, "0");
+				setGrid(i, j, "#");
 			}
 		}
 	}
@@ -180,15 +181,52 @@ public class Grid
 	/** Remove a Furniture from the Grid
 	 * @param furniture
 	 * */
-	public void removeFurniture(AbstractRoom furniture)
+	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> furnituresOfTheRoom)
 	{
 		for(int i=furniture.getPosition().getX() ; i<furniture.getPosition().getX()+furniture.getDimension().getLenght() ; i++)
 		{
 			for(int j=furniture.getPosition().getY() ; j<furniture.getPosition().getY()+furniture.getDimension().getWidth() ; j++)
 			{
-				setGrid(i, j, "1");
+				/*If there is an other Furniture at the same place*/
+				int furnitureToSet = whichFurnitureIsHere(furnituresOfTheRoom, i, j);
+				if(furnitureToSet!=-1)
+				{
+					String number = String.valueOf(furnitureToSet);
+					setGrid(i, j, number);
+				}
+				else
+				{//TODO changer "1" > Caractère correspondant au numéro de la pièce
+					setGrid(i, j, "1");
+				}
 			}
 		}
+	}
+	
+	public int whichFurnitureIsHere(HashMap<Integer, AbstractRoom> furnituresOfTheRoom, int i, int j)
+	{
+		for(int f=0 ; f<furnituresOfTheRoom.size() ; f++)
+		{
+			Position position = furnituresOfTheRoom.get(f).getPosition();
+			AbstractRoom furniture = furnituresOfTheRoom.get(f);
+			if(position.getX()==i && position.getY()==j)
+			{
+				return f;
+			}
+			else
+			{
+				for(int k=position.getX()+1 ; k<position.getX()+furniture.getDimension().getLenght() ; k++)
+				{
+					for(int l=position.getY()+1 ; l<position.getY()+furniture.getDimension().getWidth() ; l++)
+					{
+						if(k==i && l==j)
+						{
+							return f;
+						}
+					}
+				}
+			}
+		}
+		return -1;
 	}
 	
 	
