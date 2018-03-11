@@ -10,7 +10,7 @@ import catalog.*;
  */
 public class Room extends AbstractRoom
 {
-	private HashMap<Integer, AbstractRoom> furnituresOfTheRoom;
+	private HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom;
 
 	
 	/**
@@ -22,16 +22,16 @@ public class Room extends AbstractRoom
 	public Room(String name, int width, int lenght, Category category) 
 	{
 		super("Room", name, width, lenght, false, category);
-		furnituresOfTheRoom = new HashMap<Integer, AbstractRoom>();
+		allTheFurnitureOfTheRoom = new HashMap<Integer, AbstractRoom>();
 	}
 	
 
 	/**
-	 * @return the furnituresOfTheRoom
+	 * @return allTheFurnitureOfTheRoom
 	 */
-	public HashMap<Integer, AbstractRoom> getFurnituresOfTheRoom() 
+	public HashMap<Integer, AbstractRoom> getAllTheFurnitureOfTheRoom() 
 	{
-		return furnituresOfTheRoom;
+		return allTheFurnitureOfTheRoom;
 	}
 	
 	
@@ -97,19 +97,19 @@ public class Room extends AbstractRoom
 //ADD Boolean + erreur impossible d'ajouter ?	
 	/** Add a Furniture in the Room 
 	 * @param furniture
-	 * @param x
-	 * @param y
+	 * @param positionX
+	 * @param positionY
 	 * @param grid
 	 * */
-	public void addFurniture(AbstractRoom furniture, int x, int y, Grid grid)
+	public void addFurniture(AbstractRoom furniture, int positionX, int positionY, Grid grid)
 	{
 		if(roomAcceptFurniture(this, furniture))
 		{
-			int counter = furnituresOfTheRoom.size();
+			int counter = allTheFurnitureOfTheRoom.size();
 			String nameInGrid = String.valueOf(counter);
-			if(furniture.setPosition(x, y, nameInGrid, grid))
+			if(furniture.setPosition(positionX, positionY, nameInGrid, grid))
 			{
-				furnituresOfTheRoom.put(counter, furniture);
+				allTheFurnitureOfTheRoom.put(counter, furniture);
 			}
 		}
 	}
@@ -117,15 +117,16 @@ public class Room extends AbstractRoom
 	/** Remove a Furniture from the Room
 	 * @param name
 	 * @param grid
+	 * @param roomsList
 	 * */
 	public void removeFurniture(String name, Grid grid, HashMap<Integer, Room> roomsList)
 	{
-		for(int index=0 ; index<furnituresOfTheRoom.size() ; index++)
+		for(int index=0 ; index<allTheFurnitureOfTheRoom.size() ; index++)
 		{
-			if(furnituresOfTheRoom.get(index).getName()==name)
+			if(allTheFurnitureOfTheRoom.get(index).getName()==name)
 			{
-				grid.removeFurniture(furnituresOfTheRoom.get(index), getFurnituresOfTheRoom(), roomsList);
-				furnituresOfTheRoom.remove(index);
+				grid.removeFurniture(allTheFurnitureOfTheRoom.get(index), getAllTheFurnitureOfTheRoom(), roomsList);
+				allTheFurnitureOfTheRoom.remove(index);
 			}
 		}
 		grid.showGrid();
@@ -134,6 +135,6 @@ public class Room extends AbstractRoom
 	
 	@Override
 	public String toString() {
-		return "Room [furnituresOfTheRoom=\n" + furnituresOfTheRoom + "\n" + super.toString() + "]";
+		return "Room [allTheFurnitureOfTheRoom=\n" + allTheFurnitureOfTheRoom + "\n" + super.toString() + "]";
 	}
 }

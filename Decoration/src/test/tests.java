@@ -18,7 +18,7 @@ public class tests
 	 */
 	public static void main(String[] args) 
 	{
-			//Create furnitures
+			//Create furniture
 		Catalog catalog = new Catalog();
 		
 			//Create Apartment
@@ -26,8 +26,7 @@ public class tests
 		//System.out.println("\n" + apartment);
 		
 			//Grid
-		Dimension dimGrid = new Dimension(15, 15);
-		Grid grid = new Grid(dimGrid);
+		Grid grid = new Grid();
 		
 			//Create Rooms
 		Category bedroomCategory = new BedroomOffice();
@@ -40,19 +39,19 @@ public class tests
 		apartment.addRoom(bedroom, 3, 4, grid);
 		apartment.addRoom(kitchen, 6, 10, grid);
 		
-			//Add furnitures to rooms
+			//Add furniture to rooms
 		AbstractRoom furniture1 = catalog.getFurniture("single bed");
-		furniture1.furnitureOrientedWest();
-		bedroom.addFurniture(furniture1, 5, 5, grid);
+		//furniture1.furnitureOrientedWest();
+		bedroom.addFurniture(furniture1, 5, 4, grid);
 		
-		AbstractRoom furniture2 = catalog.getFurniture("carpet");
-		bedroom.addFurniture(furniture2, 5, 6, grid);
+		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
+		//bedroom.addFurniture(furniture2, 5, 6, grid);
 		
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		bedroom.addFurniture(furniture3, 4, 3, grid);
 
 			//Delete
-		bedroom.removeFurniture("carpet", grid, apartment.getRoomsList());
+		bedroom.removeFurniture("single bed", grid, apartment.getRoomsList());
 		//System.out.println("\n" + bedroom);
 		
 		//apartment.removeRoom("bedroom", grid);

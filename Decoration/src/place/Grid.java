@@ -8,47 +8,36 @@ import java.util.HashMap;
  */
 public class Grid 
 {
-	private Dimension dimension;
 	private static String charInDefaultGrid = "#";
-	private String[][] grid = new String[][] { 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
-{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid} 
-	};
+	private String[][] grid;
 	
-	/**
-	 * @param dimension
-	 */
-	public Grid(Dimension dimension) 
+
+	public Grid() 
 	{
-		this.dimension = dimension;
+		grid = new String[][] { 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
+			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid} 
+				};
 	}
 
-
-	/**
-	 * @return the dimension
-	 */
-	public Dimension getDimension() 
-	{
-		return dimension;
-	}
 
 	/**
 	 * @return the grid
@@ -56,15 +45,6 @@ public class Grid
 	public String getGrid(int x, int y) 
 	{
 		return grid[x][y];
-	}
-
-
-	/**
-	 * @param dimension the dimension to set
-	 */
-	public void setDimension(Dimension dimension) 
-	{
-		this.dimension = dimension;
 	}
 
 	/**
@@ -78,14 +58,14 @@ public class Grid
 
 	/** Return true if the object can be place at the given position
 	 * @param isStackable
-	 * @param x
-	 * @param y
+	 * @param positionX
+	 * @param positionY
 	 * @param dimension
 	 * @param type
 	 * @param category
 	 * @return true or false
 	 * */
-	public boolean canBePlace(boolean isStackable, int x, int y, Dimension dimension, String type, String category)
+	public boolean canBePlace(boolean isStackable, int positionX, int positionY, Dimension dimension, String type, String category)
 	{
 		boolean placable=false;
 		/* The object is not stackable
@@ -96,9 +76,9 @@ public class Grid
 		{
 			if(type=="Furniture")
 			{
-				for(int i=x ; i<x+dimension.getLenght() ; i++)
+				for(int i=positionX ; i<positionX+dimension.getLenght() ; i++)
 				{
-					for(int j=y ; j<y+dimension.getWidth() ; j++)
+					for(int j=positionY ; j<positionY+dimension.getWidth() ; j++)
 					{
 						if(getGrid(i, j).matches("[a-z]"))
 						{
@@ -113,9 +93,9 @@ public class Grid
 			}
 			else if(type=="Room")
 			{
-				for(int i=x-1 ; i<x+dimension.getWidth()+1 ; i++)
+				for(int i=positionX-1 ; i<positionX+dimension.getWidth()+1 ; i++)
 				{
-					for(int j=y-1 ; j<y+dimension.getLenght()+1 ; j++)
+					for(int j=positionY-1 ; j<positionY+dimension.getLenght()+1 ; j++)
 					{
 						if(i<0)
 						{
@@ -149,9 +129,9 @@ public class Grid
 		{		
 			if(category=="Floor")
 			{
-				for(int i=x ; i<x+dimension.getWidth() ; i++)
+				for(int i=positionX ; i<positionX+dimension.getWidth() ; i++)
 				{
-					for(int j=y ; j<y+dimension.getLenght() ; j++)
+					for(int j=positionY ; j<positionY+dimension.getLenght() ; j++)
 					{
 						if(getGrid(i, j)=="$" || getGrid(i, j)=="#")
 						{
@@ -166,10 +146,10 @@ public class Grid
 			}
 			else if(category=="Wall")
 			{
-				for(int i=x ; i<x+dimension.getWidth() ; i++)
+				for(int i=positionX ; i<positionX+dimension.getWidth() ; i++)
 				{
-					for(int j=y ; j<y+dimension.getLenght() ; j++)
-					{
+					for(int j=positionY ; j<positionY+dimension.getLenght() ; j++)
+					{//TODO ne suffit pas si il y a une porte/fenêtre etc...
 						if(getGrid(i, j)=="$")
 						{
 							placable = true;
@@ -190,9 +170,14 @@ public class Grid
 	 * */
 	public void removeRoom(Room room)
 	{
-		for(int i=room.getPosition().getX()-1 ; i<room.getPosition().getX()+room.getDimension().getLenght()+1 ; i++)
+		int roomPositionX = room.getPosition().getX();
+		int roomLenght = room.getDimension().getLenght();
+		int roomPositionY = room.getPosition().getY();
+		int roomWidth = room.getDimension().getWidth();
+		
+		for(int i=roomPositionX-1 ; i<roomPositionX+roomLenght+1 ; i++)
 		{
-			for(int j=room.getPosition().getY()-1 ; j<room.getPosition().getY()+room.getDimension().getWidth()+1 ; j++)
+			for(int j=roomPositionY-1 ; j<roomPositionY+roomWidth+1 ; j++)
 			{
 				setGrid(i, j, "#");
 			}
@@ -201,15 +186,22 @@ public class Grid
 	
 	/** Remove a Furniture from the Grid
 	 * @param furniture
+	 * @param allTheFurnitureOfTheRoom
+	 * @param roomsList
 	 * */
-	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> furnituresOfTheRoom, HashMap<Integer, Room> roomsList)
+	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, HashMap<Integer, Room> roomsList)
 	{
-		for(int i=furniture.getPosition().getX() ; i<furniture.getPosition().getX()+furniture.getDimension().getLenght() ; i++)
+		int furniturePositionX = furniture.getPosition().getX();
+		int furnitureLenght = furniture.getDimension().getLenght();
+		int furniturePositionY = furniture.getPosition().getY();
+		int furnitureWidth = furniture.getDimension().getWidth();
+		
+		for(int i=furniturePositionX ; i<furniturePositionX+furnitureLenght ; i++)
 		{
-			for(int j=furniture.getPosition().getY() ; j<furniture.getPosition().getY()+furniture.getDimension().getWidth() ; j++)
+			for(int j=furniturePositionY ; j<furniturePositionY+furnitureWidth ; j++)
 			{
 				/*If there is an other Furniture at the same place*/
-				int furnitureToSet = whichFurnitureIsHere(furnituresOfTheRoom, i, j);
+				int furnitureToSet = whichFurnitureIsHere(allTheFurnitureOfTheRoom, i, j);
 				if(furnitureToSet!=-1)
 				{
 					String number = String.valueOf(furnitureToSet);
@@ -226,30 +218,33 @@ public class Grid
 			}
 		}
 	}
-	
+//TODO commentaires	1ere ligne
 	/**
-	 * @param furnituresOfTheRoom
-	 * @param i
-	 * @param j
-	 * @return f
+	 * @param allTheFurnitureOfTheRoom
+	 * @param positionX
+	 * @param positionY
+	 * @return numberOfTheFurniture or -1
 	 * */
-	public int whichFurnitureIsHere(HashMap<Integer, AbstractRoom> furnituresOfTheRoom, int i, int j)
+	public int whichFurnitureIsHere(HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, int positionX, int positionY)
 	{
-		for(int numberOfTheFurniture=0 ; numberOfTheFurniture<furnituresOfTheRoom.size() ; numberOfTheFurniture++)
+		for(int numberOfTheFurniture=0 ; numberOfTheFurniture<allTheFurnitureOfTheRoom.size() ; numberOfTheFurniture++)
 		{
-			Position position = furnituresOfTheRoom.get(numberOfTheFurniture).getPosition();
-			AbstractRoom furniture = furnituresOfTheRoom.get(numberOfTheFurniture);
-			if(position.getX()==i && position.getY()==j)
+			int furniturePositionX = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getPosition().getX();
+			int furniturePositionY = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getPosition().getY();
+			int furnitureLenght = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getLenght();
+			int furnitureWidth = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getWidth();
+			
+			if(furniturePositionX==positionX && furniturePositionY==positionY)
 			{
 				return numberOfTheFurniture;
 			}
 			else
 			{
-				for(int k=position.getX()+1 ; k<position.getX()+furniture.getDimension().getLenght() ; k++)
+				for(int k=furniturePositionX+1 ; k<furniturePositionX+furnitureLenght ; k++)
 				{
-					for(int l=position.getY()+1 ; l<position.getY()+furniture.getDimension().getWidth() ; l++)
+					for(int l=furniturePositionY+1 ; l<furniturePositionY+furnitureWidth ; l++)
 					{
-						if(k==i && l==j)
+						if(k==positionX && l==positionY)
 						{
 							return numberOfTheFurniture;
 						}
@@ -262,29 +257,34 @@ public class Grid
 	
 	/**
 	 * @param roomsList
-	 * @param i
-	 * @param j
-	 * @return a String or null
+	 * @param positionX
+	 * @param positionY
+	 * @return letterOfTheRoom or null
 	 * */
-	public String whichRoomIsHere(HashMap<Integer, Room> roomsList, int i, int j)
+	public String whichRoomIsHere(HashMap<Integer, Room> roomsList, int positionX, int positionY)
 	{
-		for(int letterOfTheRoom=0 ; letterOfTheRoom<roomsList.size() ; letterOfTheRoom++)
+		for(int i=0 ; i<roomsList.size() ; i++)
 		{
-			Position position = roomsList.get(letterOfTheRoom).getPosition();
-			AbstractRoom furniture = roomsList.get(letterOfTheRoom);
-			if(position.getX()==i && position.getY()==j)
+			int roomPositionX = roomsList.get(i).getPosition().getX();
+			int roomPositionY = roomsList.get(i).getPosition().getY();
+			int roomLenght = roomsList.get(i).getDimension().getLenght();
+			int roomWidth = roomsList.get(i).getDimension().getWidth();
+			
+			if(roomPositionX==positionX && roomPositionY==positionY)
 			{
-				return String.valueOf((char)(letterOfTheRoom+(int)'a'-1));
+				String letterOfTheRoom = String.valueOf((char)(i+(int)'a'-1));
+				return letterOfTheRoom;
 			}
 			else
 			{
-				for(int k=position.getX()+1 ; k<position.getX()+furniture.getDimension().getLenght() ; k++)
+				for(int k=roomPositionX+1 ; k<roomPositionX+roomLenght ; k++)
 				{
-					for(int l=position.getY()+1 ; l<position.getY()+furniture.getDimension().getWidth() ; l++)
+					for(int l=roomPositionY+1 ; l<roomPositionY+roomWidth ; l++)
 					{
-						if(k==i && l==j)
+						if(k==positionX && l==positionY)
 						{
-							return String.valueOf((char)(letterOfTheRoom+(int)'a'));
+							String letterOfTheRoom = String.valueOf((char)(i+(int)'a'));
+							return letterOfTheRoom;
 						}
 					}
 				}
@@ -293,7 +293,7 @@ public class Grid
 		return null;
 	}
 	
-	
+//TODO a enlever à la fin DEBUG ONLY
 	/** Print the current grid */
 	public void showGrid() 
 	{

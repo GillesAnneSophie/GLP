@@ -28,11 +28,11 @@ public class Catalog
 	public Catalog()
 	{
 		inventory = new ArrayList<AbstractRoom>();
-		buildFurnitures();
+		buildAllTheFurniture();
 	}
 	
-	/** Create all the Furnitures and put them in the inventory */
-	public void buildFurnitures()
+	/** Create all the Furniture and put them in the inventory */
+	public void buildAllTheFurniture()
 	{
 		/*Create Categories*/
 		Category bathroom = new Bathroom();
@@ -90,7 +90,7 @@ public class Catalog
 		AbstractRoom largeWindow = new Furniture("large window", smallRectangle, isStackable, wall);
 		AbstractRoom picture = new Furniture("pictures", cube, isStackable, wall);
 	
-		/*Add all the furnitures in the ArrayList*/
+		/*Add all the furniture in the ArrayList*/
 		inventory.add(toilet);
 		inventory.add(bath);
 		inventory.add(shower);

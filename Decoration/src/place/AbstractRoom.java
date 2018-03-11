@@ -103,20 +103,25 @@ public abstract class AbstractRoom
 	
 	
 	/** Set the position of the object in the grid. Return true if the object is placed, false if it can't be place.
-	 * @param x
-	 * @param y
+	 * @param positionX
+	 * @param positionY
 	 * @param car
 	 * @param grid
 	 * @return true or false
 	 */
-	public boolean setPosition(int x, int y, String car, Grid grid) 
+	public boolean setPosition(int positionX, int positionY, String car, Grid grid) 
 	{
-		if(grid.canBePlace(getIsStackable(), x, y, getDimension(), getType(), getCategory()))
+		if(grid.canBePlace(getIsStackable(), positionX, positionY, getDimension(), getType(), getCategory()))
 		{
-			this.position = new Position(x, y);
-			for(int i=getPosition().getX() ; i<getPosition().getX()+getDimension().getLenght() ; i++)
+			this.position = new Position(positionX, positionY);
+			int thisPositionX = getPosition().getX();
+			int thisLenght = getDimension().getLenght();
+			int thisPositionY = getPosition().getY();
+			int thisWidth = getDimension().getWidth();
+			
+			for(int i=thisPositionX ; i<thisPositionX+thisLenght ; i++)
 			{
-				for(int j=getPosition().getY() ; j<getPosition().getY()+getDimension().getWidth() ; j++)
+				for(int j=thisPositionY ; j<thisPositionY+thisWidth ; j++)
 				{
 					grid.setGrid(i, j, car);
 				}
@@ -124,11 +129,11 @@ public abstract class AbstractRoom
 			
 			if(type=="Room")
 			{
-				for(int k=getPosition().getX()-1 ; k<getPosition().getX()+getDimension().getLenght()+1 ; k++)
+				for(int k=thisPositionX-1 ; k<thisPositionX+thisLenght+1 ; k++)
 				{
-					for(int l=getPosition().getY()-1 ; l<getPosition().getY()+getDimension().getWidth()+1 ; l++)
+					for(int l=thisPositionY-1 ; l<thisPositionY+thisWidth+1 ; l++)
 					{
-						if(k==getPosition().getX()-1 || l==getPosition().getY()-1 || l==getPosition().getY()+getDimension().getWidth() || k==getPosition().getX()+getDimension().getLenght())
+						if(k==thisPositionX-1 || l==thisPositionY-1 || l==thisPositionY+thisWidth || k==thisPositionX+thisLenght)
 						{
 							grid.setGrid(k, l, "$");
 						}
