@@ -28,12 +28,15 @@ public class Apartment
 
 	/** Add a room in the apartment
 	 * @param room
+	 * @param positionX
+	 * @param positionY
+	 * @param grid
 	 * */
-	public void addRoom(Room room, int x, int y, Grid grid)
+	public void addRoom(Room room, int positionX, int positionY, Grid grid)
 	{
 		int counter = roomsList.size();
 		String nameInGrid = String.valueOf((char)(counter+(int)'a'));
-		if(room.setPosition(x, y, nameInGrid, grid))
+		if(room.setPosition(positionX, positionY, nameInGrid, grid))
 		{
 			roomsList.put(counter, room);
 		}

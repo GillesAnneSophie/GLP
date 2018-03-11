@@ -16,12 +16,12 @@ public class Room extends AbstractRoom
 	/**
 	 * @param name
 	 * @param width
-	 * @param lenght
+	 * @param length
 	 * @param category
 	 */
-	public Room(String name, int width, int lenght, Category category) 
+	public Room(String name, int width, int length, Category category) 
 	{
-		super("Room", name, width, lenght, false, category);
+		super("Room", name, width, length, false, category);
 		allTheFurnitureOfTheRoom = new HashMap<Integer, AbstractRoom>();
 	}
 	

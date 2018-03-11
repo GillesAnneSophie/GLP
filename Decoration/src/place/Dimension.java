@@ -6,27 +6,27 @@ package place;
  */
 public class Dimension 
 {
-	private int lenght;
+	private int length;
 	private int width;
 
 	
 	/**
 	 * @param width
-	 * @param lenght
+	 * @param length
 	 */
-	public Dimension(int width, int lenght) 
+	public Dimension(int width, int length) 
 	{
-		this.lenght = lenght;
+		this.length = length;
 		this.width = width;
 	}
 
 	
 	/**
-	 * @return the lenght
+	 * @return the length
 	 */
-	public int getLenght() 
+	public int getLength() 
 	{
-		return lenght;
+		return length;
 	}
 
 	/**
@@ -41,6 +41,6 @@ public class Dimension
 	@Override
 	public String toString() 
 	{
-		return "[lenght=" + lenght + ", width=" + width + "]";
+		return "[length=" + length + ", width=" + width + "]";
 	}
 }

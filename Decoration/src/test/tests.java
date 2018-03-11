@@ -26,7 +26,8 @@ public class tests
 		//System.out.println("\n" + apartment);
 		
 			//Grid
-		Grid grid = new Grid();
+		Dimension dimGrid = new Dimension(20, 20);
+		Grid grid = new Grid(dimGrid);
 		
 			//Create Rooms
 		Category bedroomCategory = new BedroomOffice();
@@ -37,7 +38,7 @@ public class tests
 		
 			//Add rooms
 		apartment.addRoom(bedroom, 3, 4, grid);
-		apartment.addRoom(kitchen, 6, 10, grid);
+		apartment.addRoom(kitchen, 6, 11, grid);
 		
 			//Add furniture to rooms
 		AbstractRoom furniture1 = catalog.getFurniture("single bed");

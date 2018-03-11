@@ -8,13 +8,23 @@ import java.util.HashMap;
  */
 public class Grid 
 {
-	private static String charInDefaultGrid = "#";
+	private Dimension dimension;
+	private String charInDefaultGrid = "#";
 	private String[][] grid;
 	
 
-	public Grid() 
+	public Grid(Dimension dimension) 
 	{
-		grid = new String[][] { 
+		this.dimension = dimension;
+		grid = new String[dimension.getWidth()][dimension.getLength()];
+		for(int i=0 ; i<dimension.getWidth() ; i++)
+		{
+			for(int j=0 ; j<dimension.getLength() ; j++)
+			{
+				setGrid(i, j, charInDefaultGrid);
+			}
+		}
+		/*grid = new String[][] { 
 			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
 			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
 			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
@@ -35,24 +45,28 @@ public class Grid
 			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
 			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid}, 
 			{charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid, charInDefaultGrid} 
-				};
+				};*/
 	}
 
 
 	/**
-	 * @return the grid
+	 * @param positionX
+	 * @param positionY
+	 * @return the value of the grid at the given position
 	 */
-	public String getGrid(int x, int y) 
+	public String getGrid(int positionX, int positionY) 
 	{
-		return grid[x][y];
+		return grid[positionX][positionY];
 	}
 
 	/**
-	 * @param grid the grid to set
+	 * @param positionX
+	 * @param positionY
+	 * @param car
 	 */
-	public void setGrid(int x, int y, String car) 
+	public void setGrid(int positionX, int positionY, String car) 
 	{
-		this.grid[x][y]=car;
+		this.grid[positionX][positionY]=car;
 	}
 
 
@@ -76,9 +90,9 @@ public class Grid
 		{
 			if(type=="Furniture")
 			{
-				for(int i=positionX ; i<positionX+dimension.getLenght() ; i++)
+				for(int i=positionX ; i<positionX+dimension.getWidth() ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimension.getWidth() ; j++)
+					for(int j=positionY ; j<positionY+dimension.getLength() ; j++)
 					{
 						if(getGrid(i, j).matches("[a-z]"))
 						{
@@ -95,7 +109,7 @@ public class Grid
 			{
 				for(int i=positionX-1 ; i<positionX+dimension.getWidth()+1 ; i++)
 				{
-					for(int j=positionY-1 ; j<positionY+dimension.getLenght()+1 ; j++)
+					for(int j=positionY-1 ; j<positionY+dimension.getLength()+1 ; j++)
 					{
 						if(i<0)
 						{
@@ -131,7 +145,7 @@ public class Grid
 			{
 				for(int i=positionX ; i<positionX+dimension.getWidth() ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimension.getLenght() ; j++)
+					for(int j=positionY ; j<positionY+dimension.getLength() ; j++)
 					{
 						if(getGrid(i, j)=="$" || getGrid(i, j)=="#")
 						{
@@ -148,7 +162,7 @@ public class Grid
 			{
 				for(int i=positionX ; i<positionX+dimension.getWidth() ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimension.getLenght() ; j++)
+					for(int j=positionY ; j<positionY+dimension.getLength() ; j++)
 					{//TODO ne suffit pas si il y a une porte/fenêtre etc...
 						if(getGrid(i, j)=="$")
 						{
@@ -171,13 +185,13 @@ public class Grid
 	public void removeRoom(Room room)
 	{
 		int roomPositionX = room.getPosition().getX();
-		int roomLenght = room.getDimension().getLenght();
+		int roomLength = room.getDimension().getLength();
 		int roomPositionY = room.getPosition().getY();
 		int roomWidth = room.getDimension().getWidth();
 		
-		for(int i=roomPositionX-1 ; i<roomPositionX+roomLenght+1 ; i++)
+		for(int i=roomPositionX-1 ; i<roomPositionX+roomWidth+1 ; i++)
 		{
-			for(int j=roomPositionY-1 ; j<roomPositionY+roomWidth+1 ; j++)
+			for(int j=roomPositionY-1 ; j<roomPositionY+roomLength+1 ; j++)
 			{
 				setGrid(i, j, "#");
 			}
@@ -192,13 +206,13 @@ public class Grid
 	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, HashMap<Integer, Room> roomsList)
 	{
 		int furniturePositionX = furniture.getPosition().getX();
-		int furnitureLenght = furniture.getDimension().getLenght();
+		int furnitureLength = furniture.getDimension().getLength();
 		int furniturePositionY = furniture.getPosition().getY();
 		int furnitureWidth = furniture.getDimension().getWidth();
 		
-		for(int i=furniturePositionX ; i<furniturePositionX+furnitureLenght ; i++)
+		for(int i=furniturePositionX ; i<furniturePositionX+furnitureWidth ; i++)
 		{
-			for(int j=furniturePositionY ; j<furniturePositionY+furnitureWidth ; j++)
+			for(int j=furniturePositionY ; j<furniturePositionY+furnitureLength ; j++)
 			{
 				/*If there is an other Furniture at the same place*/
 				int furnitureToSet = whichFurnitureIsHere(allTheFurnitureOfTheRoom, i, j);
@@ -231,7 +245,7 @@ public class Grid
 		{
 			int furniturePositionX = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getPosition().getX();
 			int furniturePositionY = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getPosition().getY();
-			int furnitureLenght = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getLenght();
+			int furnitureLength = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getLength();
 			int furnitureWidth = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getWidth();
 			
 			if(furniturePositionX==positionX && furniturePositionY==positionY)
@@ -240,9 +254,9 @@ public class Grid
 			}
 			else
 			{
-				for(int k=furniturePositionX+1 ; k<furniturePositionX+furnitureLenght ; k++)
+				for(int k=furniturePositionX+1 ; k<furniturePositionX+furnitureWidth ; k++)
 				{
-					for(int l=furniturePositionY+1 ; l<furniturePositionY+furnitureWidth ; l++)
+					for(int l=furniturePositionY+1 ; l<furniturePositionY+furnitureLength ; l++)
 					{
 						if(k==positionX && l==positionY)
 						{
@@ -267,7 +281,7 @@ public class Grid
 		{
 			int roomPositionX = roomsList.get(i).getPosition().getX();
 			int roomPositionY = roomsList.get(i).getPosition().getY();
-			int roomLenght = roomsList.get(i).getDimension().getLenght();
+			int roomLength = roomsList.get(i).getDimension().getLength();
 			int roomWidth = roomsList.get(i).getDimension().getWidth();
 			
 			if(roomPositionX==positionX && roomPositionY==positionY)
@@ -277,9 +291,9 @@ public class Grid
 			}
 			else
 			{
-				for(int k=roomPositionX+1 ; k<roomPositionX+roomLenght ; k++)
+				for(int k=roomPositionX+1 ; k<roomPositionX+roomWidth ; k++)
 				{
-					for(int l=roomPositionY+1 ; l<roomPositionY+roomWidth ; l++)
+					for(int l=roomPositionY+1 ; l<roomPositionY+roomLength ; l++)
 					{
 						if(k==positionX && l==positionY)
 						{
@@ -298,9 +312,9 @@ public class Grid
 	public void showGrid() 
 	{
 		System.out.println("\nGrid :\n");
-		for(int i=0 ; i<grid.length ; i++)
+		for(int i=0 ; i<dimension.getWidth() ; i++)
 		{
-			for(int j=0 ; j<grid.length ; j++)
+			for(int j=0 ; j<dimension.getLength() ; j++)
 			{
 				System.out.print("|" + grid[i][j]);
 			}
