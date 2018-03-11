@@ -34,7 +34,7 @@ public class Room extends AbstractRoom
 		return allTheFurnitureOfTheRoom;
 	}
 	
-	
+//TODO autre fichier.java  roomAcceptFurniture + addFurniture +	removeFurniture
 	/** Return true if the furniture can be place in the room
 	 * @param room
 	 * @param furniture
@@ -42,20 +42,23 @@ public class Room extends AbstractRoom
 	 * */
 	public boolean roomAcceptFurniture(Room room, AbstractRoom furniture)
 	{
+		String furnitureCategory = furniture.getCategory();
+		String roomCategory = room.getCategory();
+		
 		/*If the Category of the furniture is Floor or Wall*/
-		if(furniture.getCategory()=="Floor" || furniture.getCategory()=="Wall")
+		if(furnitureCategory=="Floor" || furnitureCategory=="Wall")
 		{
 			return true;
 		}
 		/*If the Category of the room is the same as the Catgory of the furniture*/
-		else if(room.getCategory()==furniture.getCategory())
+		else if(roomCategory==furnitureCategory)
 		{
 			return true;
 		}
 		/*If the Category of the furniture is DiningRoom and then, if the Category of the room is Kitchen or LivingRoom*/
-		else if(furniture.getCategory()=="DiningRoom")
+		else if(furnitureCategory=="DiningRoom")
 		{
-			if(room.getCategory()=="Kitchen" || room.getCategory()=="LivingRoom")
+			if(roomCategory=="Kitchen" || roomCategory=="LivingRoom")
 			{
 				return true;
 			}
@@ -65,9 +68,9 @@ public class Room extends AbstractRoom
 			}
 		}
 		/*If the Category of the furniture is LivingRoom and then, if the Category of the room is DiningRoom*/
-		else if(furniture.getCategory()=="LivingRoom")
+		else if(furnitureCategory=="LivingRoom")
 		{
-			if(room.getCategory()=="DiningRoom")
+			if(roomCategory=="DiningRoom")
 			{
 				return true;
 			}
@@ -77,9 +80,9 @@ public class Room extends AbstractRoom
 			}
 		}
 		/*If the Category of the furniture is BedroomOffice and then, if the Category of the room is LivingRoom*/
-		else if(furniture.getCategory()=="BedroomOffice")
+		else if(furnitureCategory=="BedroomOffice")
 		{
-			if(room.getCategory()=="LivingRoom")
+			if(roomCategory=="LivingRoom")
 			{
 				return true;
 			}
@@ -107,6 +110,7 @@ public class Room extends AbstractRoom
 		{
 			int counter = allTheFurnitureOfTheRoom.size();
 			String nameInGrid = String.valueOf(counter);
+			
 			if(furniture.setPosition(positionX, positionY, nameInGrid, grid))
 			{
 				allTheFurnitureOfTheRoom.put(counter, furniture);

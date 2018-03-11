@@ -7,7 +7,6 @@ import java.util.HashMap;
 
 /**
  * @author GILLES Anne-Sophie
- *
  */
 public class Statistics 
 {

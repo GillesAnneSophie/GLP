@@ -17,6 +17,7 @@ public class Grid
 	{
 		this.dimension = dimension;
 		grid = new String[dimension.getLength()][dimension.getWidth()];
+		
 		for(int i=0 ; i<dimension.getLength() ; i++)
 		{
 			for(int j=0 ; j<dimension.getWidth() ; j++)
@@ -59,6 +60,7 @@ public class Grid
 		return grid[positionX][positionY];
 	}
 
+	
 	/**
 	 * @param positionX
 	 * @param positionY
@@ -69,7 +71,7 @@ public class Grid
 		this.grid[positionX][positionY]=car;
 	}
 
-
+//TODO autre fichier.java  canBePlace + removeRoom + removeFurniture + whichRoomIsHere + whichFurnitureIsHere
 	/** Return true if the object can be place at the given position
 	 * @param isStackable
 	 * @param positionX
@@ -82,6 +84,9 @@ public class Grid
 	public boolean canBePlace(boolean isStackable, int positionX, int positionY, Dimension dimension, String type, String category)
 	{
 		boolean placable=false;
+		int dimensionLength = dimension.getLength();
+		int dimensionWidth = dimension.getWidth();
+		
 		/* The object is not stackable
 		 * Can be place IN a room
 		 * Can't be place ON another Furniture
@@ -90,9 +95,9 @@ public class Grid
 		{
 			if(type=="Furniture")
 			{
-				for(int i=positionX ; i<positionX+dimension.getLength() ; i++)
+				for(int i=positionX ; i<positionX+dimensionLength ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimension.getWidth() ; j++)
+					for(int j=positionY ; j<positionY+dimensionWidth ; j++)
 					{
 						if(getGrid(i, j).matches("[a-z]"))
 						{
@@ -107,9 +112,9 @@ public class Grid
 			}
 			else if(type=="Room")
 			{
-				for(int i=positionX-1 ; i<positionX+dimension.getLength()+1 ; i++)
+				for(int i=positionX-1 ; i<positionX+dimensionLength+1 ; i++)
 				{
-					for(int j=positionY-1 ; j<positionY+dimension.getWidth()+1 ; j++)
+					for(int j=positionY-1 ; j<positionY+dimensionWidth+1 ; j++)
 					{
 						if(i<0)
 						{
@@ -143,9 +148,9 @@ public class Grid
 		{		
 			if(category=="Floor")
 			{
-				for(int i=positionX ; i<positionX+dimension.getLength() ; i++)
+				for(int i=positionX ; i<positionX+dimensionLength ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimension.getWidth() ; j++)
+					for(int j=positionY ; j<positionY+dimensionWidth ; j++)
 					{
 						if(getGrid(i, j)=="$" || getGrid(i, j)=="#")
 						{
@@ -160,10 +165,11 @@ public class Grid
 			}
 			else if(category=="Wall")
 			{
-				for(int i=positionX ; i<positionX+dimension.getLength() ; i++)
+				for(int i=positionX ; i<positionX+dimensionLength ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimension.getWidth() ; j++)
-					{//TODO ne suffit pas si il y a une porte/fenêtre etc...
+					for(int j=positionY ; j<positionY+dimensionWidth ; j++)
+					{
+//TODO ne suffit pas si il y a une porte/fenêtre etc...
 						if(getGrid(i, j)=="$")
 						{
 							placable = true;
@@ -185,13 +191,13 @@ public class Grid
 	public void removeRoom(Room room)
 	{
 		int roomPositionX = room.getPosition().getX();
-		int roomLength = room.getDimension().getWidth();
+		int roomLength = room.getDimension().getLength();
 		int roomPositionY = room.getPosition().getY();
-		int roomWidth = room.getDimension().getLength();
+		int roomWidth = room.getDimension().getWidth();
 		
-		for(int i=roomPositionX-1 ; i<roomPositionX+roomWidth+1 ; i++)
+		for(int i=roomPositionY-1 ; i<roomPositionY+roomLength+1 ; i++)
 		{
-			for(int j=roomPositionY-1 ; j<roomPositionY+roomLength+1 ; j++)
+			for(int j=roomPositionX-1 ; j<roomPositionX+roomWidth+1 ; j++)
 			{
 				setGrid(i, j, "#");
 			}
@@ -206,13 +212,13 @@ public class Grid
 	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, HashMap<Integer, Room> roomsList)
 	{
 		int furniturePositionX = furniture.getPosition().getX();
-		int furnitureLength = furniture.getDimension().getWidth();
+		int furnitureLength = furniture.getDimension().getLength();
 		int furniturePositionY = furniture.getPosition().getY();
-		int furnitureWidth = furniture.getDimension().getLength();
+		int furnitureWidth = furniture.getDimension().getWidth();
 		
-		for(int i=furniturePositionX ; i<furniturePositionX+furnitureWidth ; i++)
+		for(int i=furniturePositionY ; i<furniturePositionY+furnitureLength ; i++)
 		{
-			for(int j=furniturePositionY ; j<furniturePositionY+furnitureLength ; j++)
+			for(int j=furniturePositionX ; j<furniturePositionX+furnitureWidth ; j++)
 			{
 				/*If there is an other Furniture at the same place*/
 				int furnitureToSet = whichFurnitureIsHere(allTheFurnitureOfTheRoom, i, j);

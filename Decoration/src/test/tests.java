@@ -9,7 +9,6 @@ import place.*;
 
 /**
  * @author GILLES Anne-Sophie
- *
  */
 public class tests 
 {
@@ -52,7 +51,7 @@ public class tests
 		bedroom.addFurniture(furniture3, 4, 3, grid);
 
 			//Delete
-		bedroom.removeFurniture("single bed", grid, apartment.getRoomsList());
+		//bedroom.removeFurniture("single bed", grid, apartment.getRoomsList());
 		//System.out.println("\n" + bedroom);
 		
 		//apartment.removeRoom("bedroom", grid);

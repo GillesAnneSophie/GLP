@@ -31,6 +31,25 @@ public class Catalog
 		buildAllTheFurniture();
 	}
 	
+	
+	/** Return the furniture which have the chosen name or null if there is no furniture with this name
+	 * @param name
+	 * @return the furniture or null
+	 */
+	public AbstractRoom getFurniture(String name)
+	{
+		name=name.toLowerCase();
+		for(int index=0 ; index<inventory.size() ; index++)
+		{
+			if(inventory.get(index).getName()==name)
+			{
+				return inventory.get(index);
+			}
+		}
+		return null;
+	}
+	
+//TODO lecteure fichier txt	
 	/** Create all the Furniture and put them in the inventory */
 	public void buildAllTheFurniture()
 	{
@@ -128,23 +147,6 @@ public class Catalog
 		inventory.add(smallWindow);
 		inventory.add(largeWindow);
 		inventory.add(picture);
-	}
-
-	/** Return the furniture which have the chosen name or null if there is no furniture with this name
-	 * @param name
-	 * @return the furniture or null
-	 */
-	public AbstractRoom getFurniture(String name)
-	{
-		name=name.toLowerCase();
-		for(int index=0 ; index<inventory.size() ; index++)
-		{
-			if(inventory.get(index).getName()==name)
-			{
-				return inventory.get(index);
-			}
-		}
-		return null;
 	}
 
 

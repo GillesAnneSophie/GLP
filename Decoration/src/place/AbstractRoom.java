@@ -26,6 +26,7 @@ public abstract class AbstractRoom
 	 * @param isStackable
 	 * @param category
 	 * */
+	/*Use to create all the Furniture*/
 	public AbstractRoom(String type, String name, Dimension dimension, boolean isStackable, Category category) 
 	{
 		this.type = type;
@@ -111,15 +112,20 @@ public abstract class AbstractRoom
 	 */
 	public boolean setPosition(int positionX, int positionY, String car, Grid grid) 
 	{
-		if(grid.canBePlace(getIsStackable(), positionX, positionY, getDimension(), getType(), getCategory()))
+		boolean isStackable = getIsStackable();
+		Dimension dimension = getDimension();
+		String type = getType();
+		String category = getCategory();
+		
+		if(grid.canBePlace(isStackable, positionX, positionY, dimension, type, category))
 		{
 			this.position = new Position(positionX, positionY);
 			int thisWidth = getDimension().getWidth();
 			int thisLength = getDimension().getLength();
 			
-			for(int i=positionX ; i<positionX+thisLength ; i++)
+			for(int i=positionY ; i<positionY+thisLength ; i++)
 			{
-				for(int j=positionY ; j<positionY+thisWidth ; j++)
+				for(int j=positionX ; j<positionX+thisWidth ; j++)
 				{
 					grid.setGrid(i, j, car);
 				}
@@ -127,11 +133,11 @@ public abstract class AbstractRoom
 			
 			if(type=="Room")
 			{
-				for(int k=positionX-1 ; k<positionX+thisLength+1 ; k++)
+				for(int k=positionY-1 ; k<positionY+thisLength+1 ; k++)
 				{
-					for(int l=positionY-1 ; l<positionY+thisWidth+1 ; l++)
+					for(int l=positionX-1 ; l<positionX+thisWidth+1 ; l++)
 					{
-						if(k==positionX-1 || l==positionY-1 || k==positionX+thisLength || l==positionY+thisWidth)
+						if(l==positionX-1 || k==positionY-1 || k==positionY+thisLength || l==positionX+thisWidth)
 						{
 							grid.setGrid(k, l, "$");
 						}
@@ -156,7 +162,7 @@ public abstract class AbstractRoom
 		this.dimension=dimension;
 	}
 	
-	//TODO + modif sens des images
+//TODO + modif sens des images + Autre fichier.java ?
 	/**North and South = default orientation
 	 * East and West = Change the orientation
 	 * */

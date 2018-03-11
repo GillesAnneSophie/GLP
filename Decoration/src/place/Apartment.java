@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 /**
  * @author GILLES Anne-Sophie
- *
  */
 public class Apartment 
 {
@@ -25,7 +24,7 @@ public class Apartment
 		return roomsList;
 	}
 
-
+//TODO autre fichier ? addRoom + removeRoom
 	/** Add a room in the apartment
 	 * @param room
 	 * @param positionX
@@ -36,6 +35,7 @@ public class Apartment
 	{
 		int counter = roomsList.size();
 		String nameInGrid = String.valueOf((char)(counter+(int)'a'));
+		
 		if(room.setPosition(positionX, positionY, nameInGrid, grid))
 		{
 			roomsList.put(counter, room);
