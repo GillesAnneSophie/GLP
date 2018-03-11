@@ -6,8 +6,8 @@ package place;
  */
 public class Dimension 
 {
-	private int length;
 	private int width;
+	private int length;
 
 	
 	/**
@@ -16,31 +16,31 @@ public class Dimension
 	 */
 	public Dimension(int width, int length) 
 	{
-		this.length = length;
 		this.width = width;
+		this.length = length;
 	}
 
 	
 	/**
 	 * @return the length
 	 */
-	public int getLength() 
+	public int getWidth() 
 	{
-		return length;
+		return width;
 	}
 
 	/**
 	 * @return the width
 	 */
-	public int getWidth() 
+	public int getLength() 
 	{
-		return width;
+		return length;
 	}
 
 
 	@Override
 	public String toString() 
 	{
-		return "[length=" + length + ", width=" + width + "]";
+		return "[width=" + width + ", length=" + length + "]";
 	}
 }

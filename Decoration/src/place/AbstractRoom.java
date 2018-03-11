@@ -114,12 +114,12 @@ public abstract class AbstractRoom
 		if(grid.canBePlace(getIsStackable(), positionX, positionY, getDimension(), getType(), getCategory()))
 		{
 			this.position = new Position(positionX, positionY);
-			int thisLength = getDimension().getLength();
 			int thisWidth = getDimension().getWidth();
+			int thisLength = getDimension().getLength();
 			
-			for(int i=positionX ; i<positionX+thisWidth ; i++)
+			for(int i=positionX ; i<positionX+thisLength ; i++)
 			{
-				for(int j=positionY ; j<positionY+thisLength ; j++)
+				for(int j=positionY ; j<positionY+thisWidth ; j++)
 				{
 					grid.setGrid(i, j, car);
 				}
@@ -127,11 +127,11 @@ public abstract class AbstractRoom
 			
 			if(type=="Room")
 			{
-				for(int k=positionX-1 ; k<positionX+thisWidth+1 ; k++)
+				for(int k=positionX-1 ; k<positionX+thisLength+1 ; k++)
 				{
-					for(int l=positionY-1 ; l<positionY+thisLength+1 ; l++)
+					for(int l=positionY-1 ; l<positionY+thisWidth+1 ; l++)
 					{
-						if(k==positionX-1 || l==positionY-1 || k==positionX+thisWidth || l==positionY+thisLength)
+						if(k==positionX-1 || l==positionY-1 || k==positionX+thisLength || l==positionY+thisWidth)
 						{
 							grid.setGrid(k, l, "$");
 						}
@@ -180,7 +180,7 @@ public abstract class AbstractRoom
 	{
 		if(getType()=="Furniture")
 		{
-			Dimension tmpDimension = new Dimension(getDimension().getLength(), getDimension().getWidth());
+			Dimension tmpDimension = new Dimension(getDimension().getWidth(), getDimension().getLength());
 			setDimension(tmpDimension);
 		}
 	}
@@ -189,7 +189,7 @@ public abstract class AbstractRoom
 	{
 		if(getType()=="Furniture")
 		{
-			Dimension tmpDimension = new Dimension(getDimension().getLength(), getDimension().getWidth());
+			Dimension tmpDimension = new Dimension(getDimension().getWidth(), getDimension().getLength());
 			setDimension(tmpDimension);
 		}
 	}
