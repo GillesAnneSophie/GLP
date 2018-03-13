@@ -4,6 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
+import net.miginfocom.swing.MigLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
 
 /**
  * @author ZOUHOUDI Chabani
@@ -15,21 +20,15 @@ public class HomeGUI extends JFrame {
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
 	
-	private GridBagLayout gbl_contentPane = new GridBagLayout();
-	
 	private JLabel lblName = new JLabel("Manag'Apart"); // TODO Je pense qu'on devrait voter pour le nom 
-	private JLabel lblWelcome = new JLabel ( "Welcome! Here you can manage your apartment by clicking on "New management" or continue a previous magament with "Open a existing management"");
+	private JLabel lblWelcome = new JLabel ( "Welcome!");
 //TODO ajouter un texte centré en dessous du nom du programme : "Welcome! Here you can manage your apartment by clicking on "New management" or continue a previous magament with "Open a existing management""
 	private JLabel lblAuthor = new JLabel ("By GILLES Anne-Sophie & CORALIE Laury Ann & ZOUHOUDI Chabani");
-	//TODO + "By GILLES Anne-Sophie & CORALIE Laury Ann & ZOUHOUDI Chabani
+	private final JLabel lblMessage = new JLabel(" Here you can manage your apartment by clicking on 'New management' or continue a previous magament with 'Open a existing management'");
 	
-	private GridBagConstraints gbc_lblWelcome = new GridBagConstraints();
-	private GridBagConstraints gbc_btnNew = new GridBagConstraints();
-	private GridBagConstraints gbc_btnOpenAFile = new GridBagConstraints();
-	
-	private JButton btnNew = new JButton("New management");
 	private JButton btnOpenAFile = new JButton("Open a existing management");
-//TODO Changer la taille de la fenêtre :c ça entre pas avec les nouveaux noms	
+	private JButton btnNew = new JButton("New management");
+	//TODO Changer la taille de la fenêtre :c ça entre pas avec les nouveaux noms	
 //TODO Gerer un fichier déjà existant (Je pense pas qu'on va avoir le temps !)
 
 	/**
@@ -56,48 +55,31 @@ public class HomeGUI extends JFrame {
 	public HomeGUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 573, 316);
+		setBounds(100, 100, 877, 272);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		lblWelcome.setBounds(354, 45, 152, 57);
+		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		gbl_contentPane.columnWidths = new int[]{188, 71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 85, 136, 0};
-		gbl_contentPane.rowHeights = new int[]{46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		contentPane.setLayout(gbl_contentPane);
-			
-		lblWelcome.setFont(new Font("Imprint MT Shadow", Font.PLAIN, 42));
-		gbc_lblWelcome.insets = new Insets(0, 0, 5, 5);
-		gbc_lblWelcome.gridx = 7;
-		gbc_lblWelcome.gridy = 4;
-		contentPane.add(lblWelcome, gbc_lblWelcome);
-		
-		btnNew.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				DesignGUI.main(null);
-				SetupGUI.main(null);
-				frame.setVisible(false);
-			}
-		});
-		
-		gbc_btnNew.anchor = GridBagConstraints.WEST;
-		gbc_btnNew.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNew.gridx = 6;
-		gbc_btnNew.gridy = 7;
-		contentPane.add(btnNew, gbc_btnNew);
+		lblWelcome.setFont(new Font("Papyrus", Font.PLAIN, 36));
+		contentPane.add(lblWelcome);
+		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblMessage.setBounds(26, 113, 808, 14);
+		contentPane.add(lblMessage);
+		btnOpenAFile.setBounds(501, 160, 173, 23);
 		
 		btnOpenAFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 			}
 		});
+		contentPane.add(btnOpenAFile);
 		
-		gbc_btnOpenAFile.insets = new Insets(0, 0, 5, 5);
-		gbc_btnOpenAFile.anchor = GridBagConstraints.WEST;
-		gbc_btnOpenAFile.gridx = 8;
-		gbc_btnOpenAFile.gridy = 7;
-		contentPane.add(btnOpenAFile, gbc_btnOpenAFile);
+		
+		btnNew.setBounds(220, 160, 141, 23);
+		contentPane.add(btnNew);
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
