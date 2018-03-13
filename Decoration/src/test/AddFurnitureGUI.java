@@ -1,3 +1,5 @@
+package test;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -12,7 +14,7 @@ public class AddFurnitureGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String furniture) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

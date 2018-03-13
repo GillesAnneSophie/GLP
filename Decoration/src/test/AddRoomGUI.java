@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import catalog.Category;
 import categories.*;
 import place.Apartment;
+import place.Grid;
 import place.Room;
 
 /**
@@ -42,11 +43,11 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(Apartment apartment) {
+	public static void main(Apartment apartment,Grid grid) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddRoomGUI frame = new AddRoomGUI(apartment);
+					AddRoomGUI frame = new AddRoomGUI(apartment,grid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Add a Room");
 
@@ -61,7 +62,7 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public AddRoomGUI(Apartment apartment) {
+	public AddRoomGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 189);
 		contentPane = new JPanel();
@@ -70,7 +71,7 @@ public class AddRoomGUI extends JFrame {
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String sg = (String) comboBox.getSelectedItem();				
+				String string = (String) comboBox.getSelectedItem();				
 			}
 		});
 		
@@ -112,27 +113,27 @@ public class AddRoomGUI extends JFrame {
 				if (string == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
 					Room kitchen = new Room("kitchen", i, j, kitchenCategory);
-					apartment.addRoom(kitchen);
+					apartment.addRoom(kitchen,i,j,grid);
 				}
 				if (string == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
 					Room diningRoom = new Room("diningRoom", i, j, diningRoomCategory);
-					apartment.addRoom(diningRoom);
+					apartment.addRoom(diningRoom,i,j,grid);
 				}
 				if (string == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
 					Room livingRoom = new Room("livingRoom", i, j, livingRoomCategory);
-					apartment.addRoom(livingRoom);
+					apartment.addRoom(livingRoom,i,j,grid);
 				}
 				if (string == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
 					Room bedroomOffice = new Room("bedroomOffice", i, j, bedroomOfficeCategory);
-					apartment.addRoom(bedroomOffice);
+					apartment.addRoom(bedroomOffice,i,j,grid);
 				}
 				if(string == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom", i, j, bathroomCategory);
-					apartment.addRoom(bathroom);
+					apartment.addRoom(bathroom,i,j,grid);
 				}
 			}
 		});	
