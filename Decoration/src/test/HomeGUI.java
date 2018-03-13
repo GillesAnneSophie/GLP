@@ -4,11 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
-import net.miginfocom.swing.MigLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
+
 
 /**
  * @author ZOUHOUDI Chabani
@@ -27,7 +23,7 @@ public class HomeGUI extends JFrame {
 	
 	private JButton btnOpenAFile = new JButton("Open a existing management");
 	private JButton btnNew = new JButton("New management");
-//TODO Gerer un fichier déjà existant (Je pense pas qu'on va avoir le temps !)
+//TODO Gerer un fichier dï¿½jï¿½ existant (Je pense pas qu'on va avoir le temps !)
 
 	/**
 	 * Launch the application

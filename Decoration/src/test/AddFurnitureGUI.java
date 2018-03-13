@@ -7,12 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import place.*;
+import place.AbstractRoom;
+import place.Grid;
 
-/**
- * @author CORALIE Laury Ann
- *
- */
 public class AddFurnitureGUI extends JFrame {
 
 	private JPanel contentPane;
@@ -37,7 +34,7 @@ public class AddFurnitureGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public AddFurnitureGUI(AbstractRoom furniture, Grid grid) {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
