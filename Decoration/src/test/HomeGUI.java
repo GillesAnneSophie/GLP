@@ -17,9 +17,11 @@ public class HomeGUI extends JFrame {
 	
 	private GridBagLayout gbl_contentPane = new GridBagLayout();
 	
-	private JLabel lblWelcome = new JLabel("Manag'Apart");
+	private JLabel lblName = new JLabel("Manag'Apart"); // TODO Je pense qu'on devrait voter pour le nom 
+	private JLabel lblWelcome = new JLabel ( "Welcome! Here you can manage your apartment by clicking on "New management" or continue a previous magament with "Open a existing management"");
 //TODO ajouter un texte centré en dessous du nom du programme : "Welcome! Here you can manage your apartment by clicking on "New management" or continue a previous magament with "Open a existing management""
-//TODO + "By GILLES Anne-Sophie & CORALIE Laury Ann & ZOUHOUDI Chabani
+	private JLabel lblAuthor = new JLabel ("By GILLES Anne-Sophie & CORALIE Laury Ann & ZOUHOUDI Chabani");
+	//TODO + "By GILLES Anne-Sophie & CORALIE Laury Ann & ZOUHOUDI Chabani
 	
 	private GridBagConstraints gbc_lblWelcome = new GridBagConstraints();
 	private GridBagConstraints gbc_btnNew = new GridBagConstraints();
@@ -74,6 +76,7 @@ public class HomeGUI extends JFrame {
 		btnNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				DesignGUI.main(null);
+				SetupGUI.main(null);
 				frame.setVisible(false);
 			}
 		});
