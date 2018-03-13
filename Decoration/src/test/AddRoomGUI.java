@@ -28,14 +28,14 @@ public class AddRoomGUI extends JFrame {
 	
 	private JComboBox<String> comboBox = new JComboBox<String>();
 	
-//TODO "sg" moi pas comprendre ?
-	private String sg;
+	private String string;
 	
 	private JButton btnEnter = new JButton("Add");
 	
 	private JLabel lblChooseTheSize = new JLabel("Enter the size of the room:");
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to add:");
 	private JLabel lblX = new JLabel("x");
+	
 //TODO ajouter "Width: [champ text] x Lenght: []"
 //TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
 	
@@ -109,27 +109,27 @@ public class AddRoomGUI extends JFrame {
 		btnEnter.setBounds(331, 38, 76, 23);
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (sg == "Kitchen") {
+				if (string == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
 					Room kitchen = new Room("kitchen", i, j, kitchenCategory);
 					apartment.addRoom(kitchen);
 				}
-				if (sg == "Dining Room") {
+				if (string == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
 					Room diningRoom = new Room("diningRoom", i, j, diningRoomCategory);
 					apartment.addRoom(diningRoom);
 				}
-				if (sg == "Living Room") {
+				if (string == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
 					Room livingRoom = new Room("livingRoom", i, j, livingRoomCategory);
 					apartment.addRoom(livingRoom);
 				}
-				if (sg == "Bedroom/Office") {
+				if (string == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
 					Room bedroomOffice = new Room("bedroomOffice", i, j, bedroomOfficeCategory);
 					apartment.addRoom(bedroomOffice);
 				}
-				if(sg == "Bathroom") {
+				if(string == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom", i, j, bathroomCategory);
 					apartment.addRoom(bathroom);

@@ -498,7 +498,7 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (livingRoomList.getSelectedValue() == "Armchair"){
 					AbstractRoom armchair = catalog.getFurniture("armchair");
-					livingRoom.addFurniture(armchair, 5, 5, grid);
+					AddFurnitureGUI.main("armchair");
 				}
 			}
 			
@@ -513,19 +513,19 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
 					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
-					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("smallDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
 					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
-					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("largeDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					diningRoom.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 				if (diningRoomList.getSelectedValue()== "Buffet"){
 					AbstractRoom sideboard = catalog.getFurniture("buffet");
-					diningRoom.addFurniture(sideboard, 5, 5, grid);
+					AddFurnitureGUI.main("sideboard");
 				}
 			}
 
@@ -536,19 +536,19 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
 					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
-					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("smallDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
 					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
-					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("largeDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					diningRoom.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 				if (diningRoomList.getSelectedValue()== "Buffet"){
 					AbstractRoom sideboard = catalog.getFurniture("buffet");
-					diningRoom.addFurniture(sideboard, 5, 5, grid);
+					AddFurnitureGUI.main("sideboard");
 				}
 			}
 
@@ -559,19 +559,19 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
 					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
-					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("smallDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
 					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
-					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("largeDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					diningRoom.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 				if (diningRoomList.getSelectedValue()== "Buffet"){
 					AbstractRoom sideboard = catalog.getFurniture("buffet");
-					diningRoom.addFurniture(sideboard, 5, 5, grid);
+					AddFurnitureGUI.main("sideboard");
 				}
 			}
 
@@ -582,19 +582,19 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
 					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
-					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("smallDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
 					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
-					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("largeDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					diningRoom.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 				if (diningRoomList.getSelectedValue()== "Buffet"){
 					AbstractRoom sideboard = catalog.getFurniture("buffet");
-					diningRoom.addFurniture(sideboard, 5, 5, grid);
+					AddFurnitureGUI.main("sideboard");
 				}
 			}
 
@@ -605,19 +605,19 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (diningRoomList.getSelectedValue()== "Small Dining Table"){
 					AbstractRoom smallDiningTable = catalog.getFurniture("small dining table");
-					diningRoom.addFurniture(smallDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("smallDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Large Dining Table"){
 					AbstractRoom largeDiningTable = catalog.getFurniture("large dining table");
-					diningRoom.addFurniture(largeDiningTable, 5, 5, grid);
+					AddFurnitureGUI.main("largeDiningTable");
 				}
 				if (diningRoomList.getSelectedValue()== "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					diningRoom.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 				if (diningRoomList.getSelectedValue()== "Buffet"){
 					AbstractRoom sideboard = catalog.getFurniture("buffet");
-					diningRoom.addFurniture(sideboard, 5, 5, grid);
+					AddFurnitureGUI.main("sideboard");
 				}
 			}
 			
@@ -632,31 +632,30 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
 					AbstractRoom singleBed = catalog.getFurniture("single bed");
-					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+					AddFurnitureGUI.main("single bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
 					AbstractRoom doubleBed = catalog.getFurniture("double bed");
-					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+					AddFurnitureGUI.main("double bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
 					AbstractRoom nightstand = catalog.getFurniture("nightstand");
-					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+					AddFurnitureGUI.main("nightstand");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
 					AbstractRoom dresser = catalog.getFurniture("dresser");
-					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+					AddFurnitureGUI.main("dresser");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
 					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
-					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+					AddFurnitureGUI.main("wardrobe");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Desk"){
 					AbstractRoom desk = catalog.getFurniture("desk");
-					bedroomOffice.addFurniture(desk, 5, 5, grid);
-				}
+					AddFurnitureGUI.main("desk");				}
 				if (bedroomOfficeList.getSelectedValue() == "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					bedroomOffice.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 			}
 
@@ -669,31 +668,30 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
 					AbstractRoom singleBed = catalog.getFurniture("single bed");
-					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+					AddFurnitureGUI.main("single bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
 					AbstractRoom doubleBed = catalog.getFurniture("double bed");
-					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+					AddFurnitureGUI.main("double bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
 					AbstractRoom nightstand = catalog.getFurniture("nightstand");
-					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+					AddFurnitureGUI.main("nightstand");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
 					AbstractRoom dresser = catalog.getFurniture("dresser");
-					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+					AddFurnitureGUI.main("dresser");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
 					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
-					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+					AddFurnitureGUI.main("wardrobe");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Desk"){
 					AbstractRoom desk = catalog.getFurniture("desk");
-					bedroomOffice.addFurniture(desk, 5, 5, grid);
-				}
+					AddFurnitureGUI.main("desk");				}
 				if (bedroomOfficeList.getSelectedValue() == "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					bedroomOffice.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 			}
 
@@ -706,31 +704,30 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
 					AbstractRoom singleBed = catalog.getFurniture("single bed");
-					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+					AddFurnitureGUI.main("single bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
 					AbstractRoom doubleBed = catalog.getFurniture("double bed");
-					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+					AddFurnitureGUI.main("double bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
 					AbstractRoom nightstand = catalog.getFurniture("nightstand");
-					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+					AddFurnitureGUI.main("nightstand");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
 					AbstractRoom dresser = catalog.getFurniture("dresser");
-					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+					AddFurnitureGUI.main("dresser");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
 					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
-					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+					AddFurnitureGUI.main("wardrobe");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Desk"){
 					AbstractRoom desk = catalog.getFurniture("desk");
-					bedroomOffice.addFurniture(desk, 5, 5, grid);
-				}
+					AddFurnitureGUI.main("desk");				}
 				if (bedroomOfficeList.getSelectedValue() == "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					bedroomOffice.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 			}
 
@@ -742,31 +739,30 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
 					AbstractRoom singleBed = catalog.getFurniture("single bed");
-					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+					AddFurnitureGUI.main("single bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
 					AbstractRoom doubleBed = catalog.getFurniture("double bed");
-					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+					AddFurnitureGUI.main("double bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
 					AbstractRoom nightstand = catalog.getFurniture("nightstand");
-					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+					AddFurnitureGUI.main("nightstand");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
 					AbstractRoom dresser = catalog.getFurniture("dresser");
-					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+					AddFurnitureGUI.main("dresser");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
 					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
-					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+					AddFurnitureGUI.main("wardrobe");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Desk"){
 					AbstractRoom desk = catalog.getFurniture("desk");
-					bedroomOffice.addFurniture(desk, 5, 5, grid);
-				}
-				if (bedroomOfficeList.getSelectedValue() == "Office Chair"){
-					AbstractRoom officeChair = catalog.getFurniture("office chair");
-					bedroomOffice.addFurniture(officeChair, 5, 5, grid);
+					AddFurnitureGUI.main("desk");				}
+				if (bedroomOfficeList.getSelectedValue() == "Chair"){
+					AbstractRoom chair = catalog.getFurniture("chair");
+					AddFurnitureGUI.main("chair");
 				}
 			}
 
@@ -778,31 +774,30 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Single Bed"){
 					AbstractRoom singleBed = catalog.getFurniture("single bed");
-					bedroomOffice.addFurniture(singleBed, 5, 5, grid);
+					AddFurnitureGUI.main("single bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Double Bed"){
 					AbstractRoom doubleBed = catalog.getFurniture("double bed");
-					bedroomOffice.addFurniture(doubleBed, 5, 5, grid);
+					AddFurnitureGUI.main("double bed");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Nightstand"){
 					AbstractRoom nightstand = catalog.getFurniture("nightstand");
-					bedroomOffice.addFurniture(nightstand, 5, 5, grid);
+					AddFurnitureGUI.main("nightstand");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Dresser"){
 					AbstractRoom dresser = catalog.getFurniture("dresser");
-					bedroomOffice.addFurniture(dresser, 5, 5, grid);
+					AddFurnitureGUI.main("dresser");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Wardrobe"){
 					AbstractRoom wardrobe = catalog.getFurniture("wardrobe");
-					bedroomOffice.addFurniture(wardrobe, 5, 5, grid);
+					AddFurnitureGUI.main("wardrobe");
 				}
 				if (bedroomOfficeList.getSelectedValue()== "Desk"){
 					AbstractRoom desk = catalog.getFurniture("desk");
-					bedroomOffice.addFurniture(desk, 5, 5, grid);
-				}
+					AddFurnitureGUI.main("desk");				}
 				if (bedroomOfficeList.getSelectedValue() == "Chair"){
 					AbstractRoom chair = catalog.getFurniture("chair");
-					bedroomOffice.addFurniture(chair, 5, 5, grid);
+					AddFurnitureGUI.main("chair");
 				}
 			}			
 		});
@@ -816,23 +811,23 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bathroomList.getSelectedValue()== "Toilet"){
 					AbstractRoom toilet = catalog.getFurniture("toilet");
-					bathroom.addFurniture(toilet, 5, 5, grid);
+					AddFurnitureGUI.main("toilet");
 				}
 				if (bathroomList.getSelectedValue()== "Bath"){
 					AbstractRoom bath = catalog.getFurniture("bath");
-					bathroom.addFurniture(bath, 5, 5, grid);
+					AddFurnitureGUI.main("bath");
 				}
 				if (bathroomList.getSelectedValue()== "Shower"){
 					AbstractRoom shower = catalog.getFurniture("shower");
-					bathroom.addFurniture(shower, 5, 5, grid);
+					AddFurnitureGUI.main("shower");
 				}
 				if (bathroomList.getSelectedValue()== "Washbasin"){
 					AbstractRoom washbasin = catalog.getFurniture("washbasin");
-					bathroom.addFurniture(washbasin, 5, 5, grid);
+					AddFurnitureGUI.main("washbasin");	
 				}
 				if (bathroomList.getSelectedValue()== "Worktop"){
 					AbstractRoom worktop = catalog.getFurniture("worktop");
-					bathroom.addFurniture(worktop, 5, 5, grid);
+					AddFurnitureGUI.main("worktop");		
 				}
 			}
 
@@ -844,23 +839,23 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bathroomList.getSelectedValue()== "Toilet"){
 					AbstractRoom toilet = catalog.getFurniture("toilet");
-					bathroom.addFurniture(toilet, 5, 5, grid);
+					AddFurnitureGUI.main("toilet");
 				}
 				if (bathroomList.getSelectedValue()== "Bath"){
 					AbstractRoom bath = catalog.getFurniture("bath");
-					bathroom.addFurniture(bath, 5, 5, grid);
+					AddFurnitureGUI.main("bath");
 				}
 				if (bathroomList.getSelectedValue()== "Shower"){
 					AbstractRoom shower = catalog.getFurniture("shower");
-					bathroom.addFurniture(shower, 5, 5, grid);
+					AddFurnitureGUI.main("shower");
 				}
 				if (bathroomList.getSelectedValue()== "Washbasin"){
 					AbstractRoom washbasin = catalog.getFurniture("washbasin");
-					bathroom.addFurniture(washbasin, 5, 5, grid);
+					AddFurnitureGUI.main("washbasin");	
 				}
 				if (bathroomList.getSelectedValue()== "Worktop"){
 					AbstractRoom worktop = catalog.getFurniture("worktop");
-					bathroom.addFurniture(worktop, 5, 5, grid);
+					AddFurnitureGUI.main("worktop");		
 				}
 			}
 
@@ -872,23 +867,23 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bathroomList.getSelectedValue()== "Toilet"){
 					AbstractRoom toilet = catalog.getFurniture("toilet");
-					bathroom.addFurniture(toilet, 5, 5, grid);
+					AddFurnitureGUI.main("toilet");
 				}
 				if (bathroomList.getSelectedValue()== "Bath"){
 					AbstractRoom bath = catalog.getFurniture("bath");
-					bathroom.addFurniture(bath, 5, 5, grid);
+					AddFurnitureGUI.main("bath");
 				}
 				if (bathroomList.getSelectedValue()== "Shower"){
 					AbstractRoom shower = catalog.getFurniture("shower");
-					bathroom.addFurniture(shower, 5, 5, grid);
+					AddFurnitureGUI.main("shower");
 				}
 				if (bathroomList.getSelectedValue()== "Washbasin"){
 					AbstractRoom washbasin = catalog.getFurniture("washbasin");
-					bathroom.addFurniture(washbasin, 5, 5, grid);
+					AddFurnitureGUI.main("washbasin");	
 				}
 				if (bathroomList.getSelectedValue()== "Worktop"){
 					AbstractRoom worktop = catalog.getFurniture("worktop");
-					bathroom.addFurniture(worktop, 5, 5, grid);
+					AddFurnitureGUI.main("worktop");		
 				}
 			}
 
@@ -900,23 +895,23 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bathroomList.getSelectedValue()== "Toilet"){
 					AbstractRoom toilet = catalog.getFurniture("toilet");
-					bathroom.addFurniture(toilet, 5, 5, grid);
+					AddFurnitureGUI.main("toilet");
 				}
 				if (bathroomList.getSelectedValue()== "Bath"){
 					AbstractRoom bath = catalog.getFurniture("bath");
-					bathroom.addFurniture(bath, 5, 5, grid);
+					AddFurnitureGUI.main("bath");
 				}
 				if (bathroomList.getSelectedValue()== "Shower"){
 					AbstractRoom shower = catalog.getFurniture("shower");
-					bathroom.addFurniture(shower, 5, 5, grid);
+					AddFurnitureGUI.main("shower");
 				}
 				if (bathroomList.getSelectedValue()== "Washbasin"){
 					AbstractRoom washbasin = catalog.getFurniture("washbasin");
-					bathroom.addFurniture(washbasin, 5, 5, grid);
+					AddFurnitureGUI.main("washbasin");	
 				}
 				if (bathroomList.getSelectedValue()== "Worktop"){
 					AbstractRoom worktop = catalog.getFurniture("worktop");
-					bathroom.addFurniture(worktop, 5, 5, grid);
+					AddFurnitureGUI.main("worktop");		
 				}
 			}
 
@@ -928,23 +923,23 @@ public class ToolbarGUI extends JFrame {
 				}
 				if (bathroomList.getSelectedValue()== "Toilet"){
 					AbstractRoom toilet = catalog.getFurniture("toilet");
-					bathroom.addFurniture(toilet, 5, 5, grid);
+					AddFurnitureGUI.main("toilet");
 				}
 				if (bathroomList.getSelectedValue()== "Bath"){
 					AbstractRoom bath = catalog.getFurniture("bath");
-					bathroom.addFurniture(bath, 5, 5, grid);
+					AddFurnitureGUI.main("bath");
 				}
 				if (bathroomList.getSelectedValue()== "Shower"){
 					AbstractRoom shower = catalog.getFurniture("shower");
-					bathroom.addFurniture(shower, 5, 5, grid);
+					AddFurnitureGUI.main("shower");
 				}
 				if (bathroomList.getSelectedValue()== "Washbasin"){
 					AbstractRoom washbasin = catalog.getFurniture("washbasin");
-					bathroom.addFurniture(washbasin, 5, 5, grid);
+					AddFurnitureGUI.main("washbasin");	
 				}
 				if (bathroomList.getSelectedValue()== "Worktop"){
 					AbstractRoom worktop = catalog.getFurniture("worktop");
-					AddFurnitureGUI.main(null);		
+					AddFurnitureGUI.main("worktop");		
 				}
 			}		
 		});
