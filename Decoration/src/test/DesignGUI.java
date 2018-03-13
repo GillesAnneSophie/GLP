@@ -9,7 +9,6 @@ import javax.swing.border.MatteBorder;
 
 import catalog.Catalog;
 import place.Apartment;
-import place.Dimension;
 import place.Grid;
 
 /**
@@ -21,7 +20,7 @@ public class DesignGUI extends JFrame {
 
 	private Catalog catalog = new Catalog();
 	private Apartment apartment = new Apartment();
-	private Dimension dimGrid = new Dimension(20, 20);
+	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
 	
 	private JPanel contentPane;

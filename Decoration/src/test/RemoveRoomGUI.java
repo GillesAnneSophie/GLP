@@ -3,11 +3,15 @@ package test;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 import javax.swing.border.EmptyBorder;
 
 import place.Apartment;
 import place.Grid;
+import place.Room;
 
 /**
  * @author CORALIE Laury Ann
@@ -18,10 +22,9 @@ public class RemoveRoomGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove:");
-	private JComboBox<String> comboBox = new JComboBox<String>();
+	private JComboBox<Integer> comboBox = new JComboBox<Integer>();
 	private JButton btnEnter = new JButton("Remove");
-	private String sg;
-//TODO "sg" je sais toujours pas ce que c'est
+	private String string;
 	
 	/**
 	 * Launch the application
@@ -58,16 +61,15 @@ public class RemoveRoomGUI extends JFrame {
 
 //TODO la liste doit être la liste des pièces présentent dans l'Apartement (à passer en paramètre, donc)
 		comboBox.setBounds(209, 53, 99, 20);
+		HashMap<Integer, Room> room = apartment.getRoomsList();
+		for (Integer it : room.keySet()) {
+			comboBox.addItem (it);
+		}
 		contentPane.add(comboBox);
-		comboBox.addItem("Kitchen");
-		comboBox.addItem("Dining Room");
-		comboBox.addItem("Living Room");
-		comboBox.addItem("Bedroom/Office");
-		comboBox.addItem("Bathroom");
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String sg = (String) comboBox.getSelectedItem();				
+				String string = (String) comboBox.getSelectedItem();				
 			}
 		});
 		
@@ -76,21 +78,20 @@ public class RemoveRoomGUI extends JFrame {
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-//TODO l'action liée est "apartment.removeRoom("NomDeLaPièce", grid);" (il faut donc aussi passer la grille en paramètre
-				if (sg == "Kitchen") {
-				
+				if (string == "Kitchen") {
+					apartment.removeRoom("kitchen", grid);
 				}
-				if (sg == "Dining Room") {
-				
+				if (string == "Dining Room") {
+					apartment.removeRoom("diningRoom", grid);
 				}
-				if (sg == "Living Room") {
-					
+				if (string == "Living Room") {
+					apartment.removeRoom("livingRoom", grid);
 				}
-				if (sg == "Bedroom/Office") {
-					
+				if (string == "Bedroom/Office") {
+					apartment.removeRoom("bedroomOffice", grid);
 				}
-				if(sg == "Bathroom") {
-					
+				if(string == "Bathroom") {
+					apartment.removeRoom("bathroom", grid);
 				}
 			}
 		});	
