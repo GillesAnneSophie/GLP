@@ -11,7 +11,8 @@ import place.AbstractRoom;
 import place.Grid;
 
 public class AddFurnitureGUI extends JFrame {
-
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 
 	/**

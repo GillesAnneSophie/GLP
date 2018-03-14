@@ -4,14 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
 import javax.swing.border.EmptyBorder;
 
-import place.Apartment;
-import place.Grid;
-import place.Room;
+import place.*;
 
 /**
  * @author CORALIE Laury Ann

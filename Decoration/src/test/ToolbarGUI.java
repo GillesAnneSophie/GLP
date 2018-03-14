@@ -6,15 +6,15 @@ import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 
 import catalog.Catalog;
-import place.AbstractRoom;
-import place.Apartment;
-import place.Grid;
+import place.*;
 
 /**
  * @author ZOUHOUDI Chabani
  * @author CORALIE Laury Ann
  */
 public class ToolbarGUI extends JFrame {
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
 

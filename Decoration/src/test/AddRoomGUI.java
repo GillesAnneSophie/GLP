@@ -8,9 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import catalog.Category;
 import categories.*;
-import place.Apartment;
-import place.Grid;
-import place.Room;
+import place.*;
 
 /**
  * @author CORALIE Laury Ann
@@ -29,7 +27,7 @@ public class AddRoomGUI extends JFrame {
 	private int i;
 	private int j;
 	private int width;
-	private int lenght;
+	private int length;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
@@ -220,7 +218,7 @@ public class AddRoomGUI extends JFrame {
 		
 		textField_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lenght = Integer.parseInt(textField_4.getText());
+				length = Integer.parseInt(textField_4.getText());
 			}
 		});		
 		textField_4.setBounds(270, 94, 34, 17);
