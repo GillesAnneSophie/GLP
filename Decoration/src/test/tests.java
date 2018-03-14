@@ -37,12 +37,12 @@ public class tests
 		
 			//Add rooms
 		apartment.addRoom(bedroom, 3, 4, grid);
-		apartment.addRoom(kitchen, 6, 11, grid);
+		apartment.addRoom(kitchen, 16, 16, grid);
 		
 			//Add furniture to rooms
 		AbstractRoom furniture1 = catalog.getFurniture("single bed");
 		//furniture1.furnitureOrientedWest();
-		bedroom.addFurniture(furniture1, 5, 4, grid);
+		bedroom.addFurniture(furniture1, 6, 5, grid);
 		
 		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
 		//bedroom.addFurniture(furniture2, 5, 6, grid);

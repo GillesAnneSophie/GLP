@@ -95,9 +95,9 @@ public class Grid
 		{
 			if(type=="Furniture")
 			{
-				for(int i=positionX ; i<positionX+dimensionLength ; i++)
+				for(int i=positionY ; i<positionY+dimensionLength ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimensionWidth ; j++)
+					for(int j=positionX ; j<positionX+dimensionWidth ; j++)
 					{
 						if(getGrid(i, j).matches("[a-z]"))
 						{
@@ -112,9 +112,9 @@ public class Grid
 			}
 			else if(type=="Room")
 			{
-				for(int i=positionX-1 ; i<positionX+dimensionLength+1 ; i++)
+				for(int i=positionY-1 ; i<positionY+dimensionLength+1 ; i++)
 				{
-					for(int j=positionY-1 ; j<positionY+dimensionWidth+1 ; j++)
+					for(int j=positionX-1 ; j<positionX+dimensionWidth+1 ; j++)
 					{
 						if(i<0)
 						{
@@ -124,7 +124,7 @@ public class Grid
 						{
 							j++;
 						}
-						else if(i>14)
+						else if(i>(dimension.getWidth()-1))
 						{
 							break;
 						}
@@ -145,12 +145,12 @@ public class Grid
 		 * Can be place ON another objet which is stackable
 		 * */
 		else
-		{		
+		{
 			if(category=="Floor")
 			{
-				for(int i=positionX ; i<positionX+dimensionLength ; i++)
+				for(int i=positionY ; i<positionY+dimensionLength ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimensionWidth ; j++)
+					for(int j=positionX ; j<positionX+dimensionWidth ; j++)
 					{
 						if(getGrid(i, j)=="$" || getGrid(i, j)=="#")
 						{
@@ -165,11 +165,10 @@ public class Grid
 			}
 			else if(category=="Wall")
 			{
-				for(int i=positionX ; i<positionX+dimensionLength ; i++)
+				for(int i=positionY ; i<positionY+dimensionLength ; i++)
 				{
-					for(int j=positionY ; j<positionY+dimensionWidth ; j++)
+					for(int j=positionX ; j<positionX+dimensionWidth ; j++)
 					{
-//TODO ne suffit pas si il y a une porte/fenêtre etc...
 						if(getGrid(i, j)=="$")
 						{
 							placable = true;
@@ -260,11 +259,11 @@ public class Grid
 			}
 			else
 			{
-				for(int k=furniturePositionX+1 ; k<furniturePositionX+furnitureWidth ; k++)
+				for(int k=furniturePositionY+1 ; k<furniturePositionY+furnitureLength ; k++)
 				{
-					for(int l=furniturePositionY+1 ; l<furniturePositionY+furnitureLength ; l++)
+					for(int l=furniturePositionX+1 ; l<furniturePositionX+furnitureWidth ; l++)
 					{
-						if(k==positionX && l==positionY)
+						if(k==positionY && l==positionX)
 						{
 							return numberOfTheFurniture;
 						}
@@ -297,11 +296,11 @@ public class Grid
 			}
 			else
 			{
-				for(int k=roomPositionX+1 ; k<roomPositionX+roomWidth ; k++)
+				for(int k=roomPositionY+1 ; k<roomPositionY+roomLength ; k++)
 				{
-					for(int l=roomPositionY+1 ; l<roomPositionY+roomLength ; l++)
+					for(int l=roomPositionX+1 ; l<roomPositionX+roomWidth ; l++)
 					{
-						if(k==positionX && l==positionY)
+						if(k==positionY && l==positionX)
 						{
 							String letterOfTheRoom = String.valueOf((char)(i+(int)'a'));
 							return letterOfTheRoom;
@@ -322,7 +321,7 @@ public class Grid
 		{
 			for(int j=0 ; j<dimension.getWidth() ; j++)
 			{
-				System.out.print("|" + grid[i][j]);
+				System.out.print("|" + getGrid(i, j));
 			}
 			System.out.print("|\n");
 		}
