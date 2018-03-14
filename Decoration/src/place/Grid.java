@@ -8,19 +8,19 @@ import java.util.HashMap;
  */
 public class Grid 
 {
-	private Dimension dimension;
+	private Dimension gridDimension;
 	private String charInDefaultGrid = "#";
 	private String[][] grid;
 	
 
 	public Grid(Dimension dimension) 
 	{
-		this.dimension = dimension;
-		grid = new String[dimension.getLength()][dimension.getWidth()];
+		this.gridDimension = dimension;
+		grid = new String[gridDimension.getWidth()][gridDimension.getLength()];
 		
-		for(int i=0 ; i<dimension.getLength() ; i++)
+		for(int i=0 ; i<gridDimension.getLength() ; i++)
 		{
-			for(int j=0 ; j<dimension.getWidth() ; j++)
+			for(int j=0 ; j<gridDimension.getWidth() ; j++)
 			{
 				setGrid(i, j, charInDefaultGrid);
 			}
@@ -124,7 +124,7 @@ public class Grid
 						{
 							j++;
 						}
-						else if(i>(dimension.getWidth()-1))
+						else if(i>(gridDimension.getWidth()-1))
 						{
 							break;
 						}
@@ -317,9 +317,9 @@ public class Grid
 	public void showGrid() 
 	{
 		System.out.println("\nGrid :\n");
-		for(int i=0 ; i<dimension.getLength() ; i++)
+		for(int i=0 ; i<gridDimension.getLength() ; i++)
 		{
-			for(int j=0 ; j<dimension.getWidth() ; j++)
+			for(int j=0 ; j<gridDimension.getWidth() ; j++)
 			{
 				System.out.print("|" + getGrid(i, j));
 			}
