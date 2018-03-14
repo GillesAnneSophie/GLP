@@ -71,7 +71,7 @@ public class Grid
 		this.grid[positionX][positionY]=car;
 	}
 
-//TODO autre fichier.java  canBePlace + removeRoom + removeFurniture + whichRoomIsHere + whichFurnitureIsHere
+
 	/** Return true if the object can be place at the given position
 	 * @param isStackable
 	 * @param positionX
@@ -238,8 +238,8 @@ public class Grid
 			}
 		}
 	}
-//TODO commentaires	1ere ligne
-	/**
+
+	/** Return the furniture to set at the given position
 	 * @param allTheFurnitureOfTheRoom
 	 * @param positionX
 	 * @param positionY
@@ -275,7 +275,7 @@ public class Grid
 		return -1;
 	}
 	
-	/**
+	/** Return the room to set at the given position
 	 * @param roomsList
 	 * @param positionX
 	 * @param positionY

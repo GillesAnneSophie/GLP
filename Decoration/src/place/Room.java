@@ -34,7 +34,7 @@ public class Room extends AbstractRoom
 		return allTheFurnitureOfTheRoom;
 	}
 	
-//TODO autre fichier.java  roomAcceptFurniture + addFurniture +	removeFurniture
+
 	/** Return true if the furniture can be place in the room
 	 * @param room
 	 * @param furniture

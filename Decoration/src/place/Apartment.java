@@ -24,7 +24,7 @@ public class Apartment
 		return roomsList;
 	}
 
-//TODO autre fichier ? addRoom + removeRoom
+	
 	/** Add a room in the apartment
 	 * @param room
 	 * @param positionX
