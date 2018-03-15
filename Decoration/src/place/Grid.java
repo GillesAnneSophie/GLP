@@ -84,12 +84,13 @@ public class Grid
 	 * @param isStackable
 	 * @param positionX
 	 * @param positionY
+	 * @param name
 	 * @param dimension
 	 * @param type
 	 * @param category
 	 * @return true or false
 	 * */
-	public boolean canBePlace(boolean isStackable, int positionX, int positionY, Dimension dimension, String type, String category)
+	public boolean canBePlace(boolean isStackable, int positionX, int positionY, String name, Dimension dimension, String type, String category)
 	{
 		boolean placable=false;
 		int dimensionLength = dimension.getLength();
@@ -177,13 +178,71 @@ public class Grid
 				{
 					for(int j=positionX ; j<positionX+dimensionWidth ; j++)
 					{
-						if(getGrid(i, j)=="$")
+						/* If it is a door*/
+						if(name.contains("door"))
 						{
 							placable = true;
+							for(int m=positionY-1 ; m<positionY+dimensionLength+1 ; m++)
+							{
+								for(int n=positionX-1 ; n<positionX+dimensionWidth+1 ; n++)
+								{
+									if(dimensionWidth>1)
+									{
+										if(n==positionX)
+										{
+											if(getGrid(m, n).matches("[0-9]+"))
+											{
+												return false;
+											}
+										}
+										else if(n==(positionX-1)+dimensionWidth)
+										{
+											if(getGrid(m, n).matches("[0-9]+"))
+											{
+												return false;
+											}
+										}
+									}
+									else if(dimensionLength>1)
+									{
+										if(m==positionY)
+										{
+											if(getGrid(m, n).matches("[0-9]+"))
+											{
+												return false;
+											}
+										}
+										else if(m==(positionY-1)+dimensionLength)
+										{
+											if(getGrid(m, n).matches("[0-9]+"))
+											{
+												return false;
+											}
+										}
+									}
+									else
+									{
+										if(m==positionY || n==positionX)
+										{
+											if(getGrid(m, n).matches("[0-9]+"))
+											{
+												return false;
+											}
+										}
+									}
+								}
+							}
 						}
 						else
 						{
-							return false;
+							if(getGrid(i, j)=="$")
+							{
+								placable = true;
+							}
+							else
+							{
+								return false;
+							}
 						}
 					}
 				}

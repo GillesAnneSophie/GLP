@@ -113,11 +113,12 @@ public abstract class AbstractRoom
 	public boolean setPosition(int positionX, int positionY, String car, Grid grid) 
 	{
 		boolean isStackable = getIsStackable();
+		String name = getName();
 		Dimension dimension = getDimension();
 		String type = getType();
 		String category = getCategory();
 		
-		if(grid.canBePlace(isStackable, positionX, positionY, dimension, type, category))
+		if(grid.canBePlace(isStackable, positionX, positionY, name, dimension, type, category))
 		{
 			this.position = new Position(positionX, positionY);
 			int thisWidth = getDimension().getWidth();
