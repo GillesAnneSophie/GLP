@@ -144,6 +144,60 @@ public abstract class AbstractRoom
 					}
 				}
 			}
+			else if(getName().contains("door"))
+			{
+				for(int m=positionY-1 ; m<positionY+thisLength+1 ; m++)
+				{
+					for(int n=positionX-1 ; n<positionX+thisWidth+1 ; n++)
+					{
+						if(thisWidth>1)
+						{
+							if(n==positionX)
+							{
+								if(grid.getGrid(m, n).matches("[a-z]"))
+								{
+									grid.setGrid(m, n, "*");
+								}
+							}
+							else if(n==(positionX-1)+thisWidth)
+							{
+								if(grid.getGrid(m, n).matches("[a-z]"))
+								{
+									grid.setGrid(m, n, "*");
+								}
+							}
+						}
+						else if(thisLength>1)
+						{
+							if(m==positionY)
+							{
+								if(grid.getGrid(m, n).matches("[a-z]"))
+								{
+									grid.setGrid(m, n, "*");
+								}
+							}
+							else if(m==(positionY-1)+thisLength)
+							{
+								if(grid.getGrid(m, n).matches("[a-z]"))
+								{
+									grid.setGrid(m, n, "*");
+								}
+							}
+						}
+						else
+						{
+							if(m==positionY || n==positionX)
+							{
+								if(grid.getGrid(m, n).matches("[a-z]"))
+								{
+									grid.setGrid(m, n, "*");
+								}
+							}
+						}
+//TODO sinon si c'est dans la pièce par rapport aux coordonnées alors c'est bon et il faut retirer le potentiel meuble
+					}
+				}
+			}
 			grid.showGrid();
 			return true;
 		}
@@ -186,7 +240,7 @@ public abstract class AbstractRoom
 	{
 		if(getType()=="Furniture")
 		{
-			Dimension tmpDimension = new Dimension(getDimension().getWidth(), getDimension().getLength());
+			Dimension tmpDimension = new Dimension(getDimension().getLength(), getDimension().getWidth());
 			setDimension(tmpDimension);
 		}
 	}
@@ -195,7 +249,7 @@ public abstract class AbstractRoom
 	{
 		if(getType()=="Furniture")
 		{
-			Dimension tmpDimension = new Dimension(getDimension().getWidth(), getDimension().getLength());
+			Dimension tmpDimension = new Dimension(getDimension().getLength(), getDimension().getWidth());
 			setDimension(tmpDimension);
 		}
 	}

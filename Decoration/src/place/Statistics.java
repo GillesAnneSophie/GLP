@@ -14,7 +14,7 @@ public class Statistics
 	 * @param roomsList
 	 * @return counter
 	 * */
-	public int numberOfRooms(HashMap<Integer, Room> roomsList)
+	public static int numberOfRooms(HashMap<Integer, Room> roomsList)
 	{
 		int counter = roomsList.size();
 		return counter;
@@ -24,7 +24,7 @@ public class Statistics
 	 * @param roomsList
 	 * @return counter
 	 * */
-	public int numberOfFurniture(HashMap<Integer, Room> roomsList)
+	public static int numberOfFurniture(HashMap<Integer, Room> roomsList)
 	{
 		int counter = 0;
 		for(int i=0 ; i<roomsList.size() ; i++)

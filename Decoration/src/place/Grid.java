@@ -49,6 +49,14 @@ public class Grid
 				};*/
 	}
 
+	
+	/**
+	 * @return the gridDimension
+	 */
+	public Dimension getGridDimension() 
+	{
+		return gridDimension;
+	}
 
 	/**
 	 * @param positionX
@@ -214,24 +222,50 @@ public class Grid
 		int furnitureLength = furniture.getDimension().getLength();
 		int furniturePositionY = furniture.getPosition().getY();
 		int furnitureWidth = furniture.getDimension().getWidth();
+		String furnitureCategory = furniture.getCategory();
+		String furnitureName = furniture.getName();
 		
 		for(int i=furniturePositionY ; i<furniturePositionY+furnitureLength ; i++)
 		{
 			for(int j=furniturePositionX ; j<furniturePositionX+furnitureWidth ; j++)
 			{
-				/*If there is an other Furniture at the same place*/
-				int furnitureToSet = whichFurnitureIsHere(allTheFurnitureOfTheRoom, i, j);
-				if(furnitureToSet!=-1)
+				if(furnitureCategory=="Wall")
 				{
-					String number = String.valueOf(furnitureToSet);
-					setGrid(i, j, number);
+					setGrid(i, j, "$");
+					if(furnitureName.contains("door"))
+					{
+						for(int m=furniturePositionY-1 ; m<furniturePositionY+furnitureLength+1 ; m++)
+						{
+							for(int n=furniturePositionX-1 ; n<furniturePositionX+furnitureWidth+1 ; n++)
+							{
+								if(getGrid(m, n)=="*")
+								{
+									String roomToSet = whichRoomIsHere(roomsList, m, n);
+									if(roomToSet!=null)
+									{
+										setGrid(m, n, roomToSet);
+									}
+								}
+							}
+						}
+					}
 				}
 				else
 				{
-					String roomToSet = whichRoomIsHere(roomsList, i, j);
-					if(roomToSet!=null)
+					/*If there is an other Furniture at the same place*/
+					int furnitureToSet = whichFurnitureIsHere(allTheFurnitureOfTheRoom, i, j);
+					if(furnitureToSet!=-1)
 					{
-						setGrid(i, j, roomToSet);
+						String number = String.valueOf(furnitureToSet);
+						setGrid(i, j, number);
+					}
+					else
+					{
+						String roomToSet = whichRoomIsHere(roomsList, i, j);
+						if(roomToSet!=null)
+						{
+							setGrid(i, j, roomToSet);
+						}
 					}
 				}
 			}
@@ -253,20 +287,18 @@ public class Grid
 			int furnitureLength = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getWidth();
 			int furnitureWidth = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getLength();
 			
-			if(furniturePositionX==positionX && furniturePositionY==positionY)
+			for(int k=furniturePositionY ; k<furniturePositionY+furnitureLength ; k++)
 			{
-				return numberOfTheFurniture;
-			}
-			else
-			{
-				for(int k=furniturePositionY+1 ; k<furniturePositionY+furnitureLength ; k++)
+				for(int l=furniturePositionX ; l<furniturePositionX+furnitureWidth ; l++)
 				{
-					for(int l=furniturePositionX+1 ; l<furniturePositionX+furnitureWidth ; l++)
+					String stringNumberOfTheFurniture = String.valueOf(numberOfTheFurniture);
+					if(stringNumberOfTheFurniture.equals(getGrid(k, l)))
 					{
-						if(k==positionY && l==positionX)
-						{
-							return numberOfTheFurniture;
-						}
+						return -1;
+					}
+					if(k==positionX && l==positionY)
+					{
+						return numberOfTheFurniture;
 					}
 				}
 			}
@@ -289,22 +321,14 @@ public class Grid
 			int roomLength = roomsList.get(i).getDimension().getWidth();
 			int roomWidth = roomsList.get(i).getDimension().getLength();
 			
-			if(roomPositionX==positionX && roomPositionY==positionY)
+			for(int k=roomPositionY ; k<roomPositionY+roomLength ; k++)
 			{
-				String letterOfTheRoom = String.valueOf((char)(i+(int)'a'-1));
-				return letterOfTheRoom;
-			}
-			else
-			{
-				for(int k=roomPositionY+1 ; k<roomPositionY+roomLength ; k++)
+				for(int l=roomPositionX ; l<roomPositionX+roomWidth ; l++)
 				{
-					for(int l=roomPositionX+1 ; l<roomPositionX+roomWidth ; l++)
+					if(k==positionX && l==positionY)
 					{
-						if(k==positionY && l==positionX)
-						{
-							String letterOfTheRoom = String.valueOf((char)(i+(int)'a'));
-							return letterOfTheRoom;
-						}
+						String letterOfTheRoom = String.valueOf((char)(i+(int)'a'));
+						return letterOfTheRoom;
 					}
 				}
 			}

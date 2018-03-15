@@ -47,11 +47,16 @@ public class tests
 		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
 		//bedroom.addFurniture(furniture2, 5, 6, grid);
 		
-		AbstractRoom furniture3 = catalog.getFurniture("small door");
-		bedroom.addFurniture(furniture3, 4, 3, grid);
+		AbstractRoom furniture3 = catalog.getFurniture("large door");
+		//furniture3.furnitureOrientedWest();
+		bedroom.addFurniture(furniture3, 2, 5, grid); //4 3 || 2 5
 
+			//Statistics
+		//System.out.println("numberOfFurniture" + Statistics.numberOfFurniture(apartment.getRoomsList()));
+		//System.out.println("numberOfRooms" + Statistics.numberOfRooms(apartment.getRoomsList()));
+		
 			//Delete
-		//bedroom.removeFurniture("single bed", grid, apartment.getRoomsList());
+		//bedroom.removeFurniture("large door", grid, apartment.getRoomsList());
 		//System.out.println("\n" + bedroom);
 		
 		//apartment.removeRoom("bedroom", grid);
