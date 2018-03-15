@@ -42,7 +42,7 @@ public class tests
 			//Add furniture to rooms
 		AbstractRoom furniture1 = catalog.getFurniture("single bed");
 		//furniture1.furnitureOrientedWest();
-		bedroom.addFurniture(furniture1, 3, 4, grid);
+		bedroom.addFurniture(furniture1, 4, 4, grid);
 		
 		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
 		//bedroom.addFurniture(furniture2, 5, 6, grid);

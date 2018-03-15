@@ -17,11 +17,15 @@ public class PrintDrawing
 	 * */
 	public void printRooms(Grid grid)
 	{
-		for(int i=0 ; i<grid.getGridDimension().getLength() ; i++)
+		int gridLength = grid.getGridDimension().getLength();
+		int gridWidth = grid.getGridDimension().getWidth();
+		
+		for(int i=0 ; i<gridLength ; i++)
 		{
-			for(int j=0 ; j<grid.getGridDimension().getWidth() ; j++)
+			for(int j=0 ; j<gridWidth ; j++)
 			{
 				String character = grid.getGrid(i, j);
+				
 				/* If there is a # (Void) at the current position */
 				if(character=="#")
 				{
