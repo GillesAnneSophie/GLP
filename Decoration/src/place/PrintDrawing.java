@@ -60,7 +60,12 @@ public class PrintDrawing
 	 * */
 	public static void printWallFurniture(String name, int positionX, int positionY, Grid grid)
 	{
-		if(grid.getGrid(positionY, positionX-1)=="*" || grid.getGrid(positionY, positionX-1).matches("[a-z]"))
+		String leftPosition = grid.getGrid(positionY, positionX-1);
+		String rightPosition = grid.getGrid(positionY, positionX+1);
+		String upPosition = grid.getGrid(positionY-1, positionX);
+		String downPosition = grid.getGrid(positionY+1, positionX);
+		
+		if(leftPosition=="*" || leftPosition.matches("[a-z]"))
 		{
 			//grid.setGrid(positionY, positionX-1, "L"); Orienté vers la gauche
 //TODO etc avec l'image dans le sens voulu (large door / small window / large window / pictures
@@ -69,15 +74,15 @@ public class PrintDrawing
 				
 			}
 		}
-		else if(grid.getGrid(positionY, positionX+1)=="*" || grid.getGrid(positionY, positionX+1).matches("[a-z]"))
+		else if(rightPosition=="*" || rightPosition.matches("[a-z]"))
 		{
 			//grid.setGrid(positionY, positionX+1, "R"); Orienté vers la droite
 		}
-		else if(grid.getGrid(positionY-1, positionX)=="*" || grid.getGrid(positionY-1, positionX).matches("[a-z]"))
+		else if(upPosition=="*" || upPosition.matches("[a-z]"))
 		{
 			//grid.setGrid(positionY-1, positionX, "U"); Orienté vers le haut
 		}
-		else if(grid.getGrid(positionY+1, positionX)=="*" || grid.getGrid(positionY+1, positionX).matches("[a-z]"))
+		else if(downPosition=="*" || downPosition.matches("[a-z]"))
 		{
 			//grid.setGrid(positionY+1, positionX, "D");Orienté vers le bas
 		}
