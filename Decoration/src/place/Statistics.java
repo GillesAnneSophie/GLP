@@ -10,7 +10,8 @@ import java.util.HashMap;
  */
 public class Statistics 
 {
-	/** Return the number of rooms in the apartment
+	/** 
+	 * Return the number of rooms in the apartment
 	 * @param roomsList
 	 * @return counter
 	 * */
@@ -20,7 +21,8 @@ public class Statistics
 		return counter;
 	}
 	
-	/** Return the number of furniture in the apartment
+	/** 
+	 * Return the number of furniture in the apartment
 	 * @param roomsList
 	 * @return counter
 	 * */

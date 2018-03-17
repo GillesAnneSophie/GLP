@@ -103,7 +103,8 @@ public abstract class AbstractRoom
 	}
 	
 	
-	/** Set the position of the object in the grid. Return true if the object is placed, false if it can't be place.
+	/** 
+	 * Set the position of the object in the grid. Return true if the object is placed, false if it can't be place.
 	 * @param positionX
 	 * @param positionY
 	 * @param car
@@ -145,59 +146,62 @@ public abstract class AbstractRoom
 					}
 				}
 			}
-			else if(getName().contains("door"))
+			else if(category=="Wall")
 			{
-				for(int m=positionY-1 ; m<positionY+thisLength+1 ; m++)
+				if(getName().contains("door"))
 				{
-					for(int n=positionX-1 ; n<positionX+thisWidth+1 ; n++)
+					for(int m=positionY-1 ; m<positionY+thisLength+1 ; m++)
 					{
-						if(thisWidth>1)
+						for(int n=positionX-1 ; n<positionX+thisWidth+1 ; n++)
 						{
-							if(n==positionX)
+							if(thisWidth>1)
 							{
-								if(grid.getGrid(m, n).matches("[a-z]"))
+								if(n==positionX)
 								{
-									grid.setGrid(m, n, "*");
+									if(grid.getGrid(m, n).matches("[a-z]"))
+									{
+										grid.setGrid(m, n, "*");
+									}
+								}
+								else if(n==(positionX-1)+thisWidth)
+								{
+									if(grid.getGrid(m, n).matches("[a-z]"))
+									{
+										grid.setGrid(m, n, "*");
+									}
 								}
 							}
-							else if(n==(positionX-1)+thisWidth)
+							else if(thisLength>1)
 							{
-								if(grid.getGrid(m, n).matches("[a-z]"))
+								if(m==positionY)
 								{
-									grid.setGrid(m, n, "*");
+									if(grid.getGrid(m, n).matches("[a-z]"))
+									{
+										grid.setGrid(m, n, "*");
+									}
+								}
+								else if(m==(positionY-1)+thisLength)
+								{
+									if(grid.getGrid(m, n).matches("[a-z]"))
+									{
+										grid.setGrid(m, n, "*");
+									}
+								}
+							}
+							else
+							{
+								if(m==positionY || n==positionX)
+								{
+									if(grid.getGrid(m, n).matches("[a-z]"))
+									{
+										grid.setGrid(m, n, "*");
+									}
 								}
 							}
 						}
-						else if(thisLength>1)
-						{
-							if(m==positionY)
-							{
-								if(grid.getGrid(m, n).matches("[a-z]"))
-								{
-									grid.setGrid(m, n, "*");
-								}
-							}
-							else if(m==(positionY-1)+thisLength)
-							{
-								if(grid.getGrid(m, n).matches("[a-z]"))
-								{
-									grid.setGrid(m, n, "*");
-								}
-							}
-						}
-						else
-						{
-							if(m==positionY || n==positionX)
-							{
-								if(grid.getGrid(m, n).matches("[a-z]"))
-								{
-									grid.setGrid(m, n, "*");
-								}
-							}
-						}
-//TODO sinon si c'est dans la pièce par rapport aux coordonnées alors c'est bon et il faut retirer le potentiel meuble
 					}
 				}
+				PrintDrawing.printWallFurniture(name, positionX, positionY, grid);
 			}
 			grid.showGrid();
 			return true;
@@ -218,7 +222,8 @@ public abstract class AbstractRoom
 	}
 	
 //TODO + modif sens des images + Autre fichier.java ?
-	/**North and South = default orientation
+	/**
+	 * North and South = default orientation
 	 * East and West = Change the orientation
 	 * */
 	public void furnitureOrientedNorth()

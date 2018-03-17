@@ -1,6 +1,3 @@
-/**
- * 
- */
 package test;
 
 import catalog.*;
@@ -47,9 +44,9 @@ public class tests
 		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
 		//bedroom.addFurniture(furniture2, 5, 6, grid);
 		
-		AbstractRoom furniture3 = catalog.getFurniture("large door");
+		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		//furniture3.furnitureOrientedWest();
-		bedroom.addFurniture(furniture3, 2, 5, grid); //4 3 || 2 5
+		bedroom.addFurniture(furniture3, 5, 9, grid); //6 3 || 2 5
 
 			//Statistics
 		//System.out.println("numberOfFurniture" + Statistics.numberOfFurniture(apartment.getRoomsList()));

@@ -6,7 +6,6 @@ package place;
  */
 public class Position 
 {
-	/* x = Width / y = Length */
 	private int x;
 	private int y;
 

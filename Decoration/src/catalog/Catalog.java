@@ -32,7 +32,8 @@ public class Catalog
 	}
 	
 	
-	/** Return the furniture which have the chosen name or null if there is no furniture with this name
+	/** 
+	 * Return the furniture which have the chosen name or null if there is no furniture with this name
 	 * @param name
 	 * @return the furniture or null
 	 */
@@ -50,7 +51,9 @@ public class Catalog
 	}
 	
 //TODO lecteure fichier txt	
-	/** Create all the Furniture and put them in the inventory */
+	/** 
+	 * Create all the Furniture and put them in the inventory 
+	 * */
 	public void buildAllTheFurniture()
 	{
 		/*Create Categories*/
@@ -107,7 +110,7 @@ public class Catalog
 		AbstractRoom largeDoor = new Furniture("large door", smallRectangle, isStackable, wall);
 		AbstractRoom smallWindow = new Furniture("small window", cube, isStackable, wall);
 		AbstractRoom largeWindow = new Furniture("large window", smallRectangle, isStackable, wall);
-		AbstractRoom picture = new Furniture("pictures", cube, isStackable, wall);
+		AbstractRoom pictures = new Furniture("pictures", cube, isStackable, wall);
 	
 		/*Add all the furniture in the ArrayList*/
 		inventory.add(toilet);
@@ -146,7 +149,7 @@ public class Catalog
 		inventory.add(largeDoor);
 		inventory.add(smallWindow);
 		inventory.add(largeWindow);
-		inventory.add(picture);
+		inventory.add(pictures);
 	}
 
 

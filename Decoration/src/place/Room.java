@@ -35,7 +35,8 @@ public class Room extends AbstractRoom
 	}
 	
 
-	/** Return true if the furniture can be place in the room
+	/** 
+	 * Return true if the furniture can be place in the room
 	 * @param room
 	 * @param furniture
 	 * @return true or false
@@ -98,7 +99,8 @@ public class Room extends AbstractRoom
 	}
 	
 //ADD Boolean + erreur impossible d'ajouter ?	
-	/** Add a Furniture in the Room 
+	/** 
+	 * Add a Furniture in the Room 
 	 * @param furniture
 	 * @param positionX
 	 * @param positionY
@@ -118,7 +120,8 @@ public class Room extends AbstractRoom
 		}
 	}
 	
-	/** Remove a Furniture from the Room
+	/** 
+	 * Remove a Furniture from the Room
 	 * @param name
 	 * @param grid
 	 * @param roomsList

@@ -25,7 +25,8 @@ public class Apartment
 	}
 
 	
-	/** Add a room in the apartment
+	/** 
+	 * Add a room in the apartment
 	 * @param room
 	 * @param positionX
 	 * @param positionY
@@ -42,7 +43,8 @@ public class Apartment
 		}
 	}
 	
-	/** Remove a room from the apartment
+	/** 
+	 * Remove a room from the apartment
 	 * @param name
 	 * @param grid
 	 * */
