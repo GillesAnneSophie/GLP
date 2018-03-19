@@ -16,10 +16,14 @@ public class RemoveRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane;
+	
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove:");
+	
 	private JComboBox<Integer> comboBox = new JComboBox<Integer>();
-	private JButton btnEnter = new JButton("Remove");
-	private String string;
+	
+	private JButton btnRemove = new JButton("Remove");
+	
+	private String chosenRoom;
 	
 	/**
 	 * Launch the application
@@ -54,7 +58,6 @@ public class RemoveRoomGUI extends JFrame {
 		lblChooseTheRoom.setBounds(10, 56, 166, 14);
 		contentPane.add(lblChooseTheRoom);		
 
-//TODO la liste doit être la liste des pièces présentent dans l'Apartement (à passer en paramètre, donc)
 		comboBox.setBounds(209, 53, 99, 20);
 		HashMap<Integer, Room> room = apartment.getRoomsList();
 		for (Integer it : room.keySet()) {
@@ -64,30 +67,32 @@ public class RemoveRoomGUI extends JFrame {
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String string = (String) comboBox.getSelectedItem();				
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
+				chosenRoom = (String) combo.getSelectedItem();	
+
+				if (chosenRoom == "Kitchen") {
+					apartment.removeRoom("kitchen", grid);
+				}
+				if (chosenRoom == "Dining Room") {
+					apartment.removeRoom("diningRoom", grid);
+				}
+				if (chosenRoom == "Living Room") {
+					apartment.removeRoom("livingRoom", grid);
+				}
+				if (chosenRoom == "Bedroom/Office") {
+					apartment.removeRoom("bedroomOffice", grid);
+				}
+				if(chosenRoom == "Bathroom") {
+					apartment.removeRoom("bathroom", grid);
+				}
 			}
 		});
 		
-		btnEnter.setBounds(337, 52, 86, 23);
-		contentPane.add(btnEnter);
-		btnEnter.addActionListener(new ActionListener() {
+		btnRemove.setBounds(337, 52, 86, 23);
+		contentPane.add(btnRemove);
+		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				if (string == "Kitchen") {
-					apartment.removeRoom("kitchen", grid);
-				}
-				if (string == "Dining Room") {
-					apartment.removeRoom("diningRoom", grid);
-				}
-				if (string == "Living Room") {
-					apartment.removeRoom("livingRoom", grid);
-				}
-				if (string == "Bedroom/Office") {
-					apartment.removeRoom("bedroomOffice", grid);
-				}
-				if(string == "Bathroom") {
-					apartment.removeRoom("bathroom", grid);
-				}
+				dispose();
 			}
 		});	
 

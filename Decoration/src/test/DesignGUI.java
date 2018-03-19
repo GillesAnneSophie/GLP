@@ -4,10 +4,13 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import catalog.Catalog;
+import place.AbstractRoom;
 import place.Apartment;
 import place.Grid;
 
@@ -22,9 +25,11 @@ public class DesignGUI extends JFrame {
 	private Apartment apartment = new Apartment();
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
+	private AbstractRoom furniture;
+	private HashMap<Integer, AbstractRoom> roomList = new HashMap<Integer, AbstractRoom>();
 	
 	private JPanel contentPane;
-	private JPanel cells[][];
+	private JPanel [][] cells;
 
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("?");
@@ -135,7 +140,7 @@ public class DesignGUI extends JFrame {
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chckbxmntmShowToolbar.isSelected() == true) {
-					ToolbarGUI.main(apartment, grid ,catalog);
+					ToolbarGUI.main(apartment, grid, catalog, furniture, roomList);
 				}
 				else {
 				
@@ -228,7 +233,7 @@ public class DesignGUI extends JFrame {
 		            }                 
 		        });  
 	
-		cells = contentGrille (contentPane);
+		cells= contentGrille (contentPane);
 		this.setVisible(true);
 		
 		addWindowListener(new WindowAdapter() {

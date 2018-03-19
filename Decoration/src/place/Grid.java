@@ -254,9 +254,9 @@ public class Grid
 	 * Remove a Furniture from the Grid
 	 * @param furniture
 	 * @param allTheFurnitureOfTheRoom
-	 * @param roomsList
+	 * @param apartment
 	 * */
-	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, HashMap<Integer, Room> roomsList)
+	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, HashMap<Integer, AbstractRoom> apartment)
 	{
 		int furniturePositionX = furniture.getPosition().getX();
 		int furnitureLength = furniture.getDimension().getLength();
@@ -280,7 +280,7 @@ public class Grid
 							{
 								if(getGrid(m, n)=="*")
 								{
-									String roomToSet = whichRoomIsHere(roomsList, m, n);
+									String roomToSet = whichRoomIsHere(apartment, m, n);
 									if(roomToSet!=null)
 									{
 										setGrid(m, n, roomToSet);
@@ -301,7 +301,7 @@ public class Grid
 					}
 					else
 					{
-						String roomToSet = whichRoomIsHere(roomsList, i, j);
+						String roomToSet = whichRoomIsHere(apartment, i, j);
 						if(roomToSet!=null)
 						{
 							setGrid(i, j, roomToSet);
@@ -349,19 +349,19 @@ public class Grid
 	
 	/** 
 	 * Return the room to set at the given position
-	 * @param roomsList
+	 * @param apartment
 	 * @param positionX
 	 * @param positionY
 	 * @return letterOfTheRoom or null
 	 * */
-	public String whichRoomIsHere(HashMap<Integer, Room> roomsList, int positionX, int positionY)
+	public String whichRoomIsHere(HashMap<Integer, AbstractRoom> apartment, int positionX, int positionY)
 	{
-		for(int i=0 ; i<roomsList.size() ; i++)
+		for(int i=0 ; i<apartment.size() ; i++)
 		{
-			int roomPositionX = roomsList.get(i).getPosition().getX();
-			int roomPositionY = roomsList.get(i).getPosition().getY();
-			int roomLength = roomsList.get(i).getDimension().getWidth();
-			int roomWidth = roomsList.get(i).getDimension().getLength();
+			int roomPositionX = apartment.get(i).getPosition().getX();
+			int roomPositionY = apartment.get(i).getPosition().getY();
+			int roomLength = apartment.get(i).getDimension().getWidth();
+			int roomWidth = apartment.get(i).getDimension().getLength();
 			
 			for(int k=roomPositionY ; k<roomPositionY+roomLength ; k++)
 			{
@@ -378,7 +378,7 @@ public class Grid
 		return null;
 	}
 	
-//TODO a enlever à la fin DEBUG ONLY
+//TODO a enlever ï¿½ la fin DEBUG ONLY
 	/** 
 	 * Print the current grid 
 	 * */

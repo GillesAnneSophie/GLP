@@ -3,6 +3,8 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.HashMap;
+
 import javax.swing.border.EmptyBorder;
 
 import catalog.Catalog;
@@ -48,11 +50,11 @@ public class ToolbarGUI extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(Apartment apartment, Grid grid, Catalog catalog) {
+	public static void main(Apartment apartment, Grid grid, Catalog catalog, AbstractRoom furniture,HashMap<Integer, AbstractRoom> roomList) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {			
-					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog);
+					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog,furniture,roomList);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - ToolBar");
 
@@ -67,7 +69,7 @@ public class ToolbarGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog) {
+	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog,AbstractRoom furniture,HashMap<Integer, AbstractRoom> roomList) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 440, 353);
 		contentPane = new JPanel();
@@ -82,7 +84,7 @@ public class ToolbarGUI extends JFrame {
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				AddRoomGUI.main(apartment,grid);
+				AddRoomGUI.main(apartment,grid, roomList);
 			}
 		});
 		toolBar.add(btnAddARoom);
@@ -98,7 +100,7 @@ public class ToolbarGUI extends JFrame {
 		
 		btnRemoveAFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				RemoveFurnitureGUI.main(null, grid);
+				RemoveFurnitureGUI.main(furniture, grid, roomList,apartment);
 			}
 		});
 	
