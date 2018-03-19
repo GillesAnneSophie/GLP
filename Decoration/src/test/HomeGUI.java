@@ -23,7 +23,7 @@ public class HomeGUI extends JFrame {
 	
 	private JButton btnOpenAFile = new JButton("Open a existing management");
 	private JButton btnNew = new JButton("New management");
-//TODO Gerer un fichier deja existant (Je pense pas qu'on va avoir le temps !)
+//TODO Gerer un fichier deja existant (Je pense pas qu'on va avoir le temps)
 
 	/**
 	 * Launch the application

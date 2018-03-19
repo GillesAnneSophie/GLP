@@ -29,7 +29,7 @@ public class DesignGUI extends JFrame {
 	private HashMap<Integer, AbstractRoom> roomList = new HashMap<Integer, AbstractRoom>();
 	
 	private JPanel contentPane;
-	private JPanel [][] cells;
+	private JPanel[][] cells;
 
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("?");

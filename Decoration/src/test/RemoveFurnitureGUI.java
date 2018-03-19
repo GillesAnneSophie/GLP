@@ -13,23 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import catalog.Category;
-import categories.Bathroom;
-import categories.BedroomOffice;
-import categories.DiningRoom;
-import categories.Kitchen;
-import categories.LivingRoom;
-import place.AbstractRoom;
-import place.Apartment;
-import place.Grid;
-import place.Room;
+import place.*;
 
 /**
  * @author CORALIE Laury Ann
  *
  */
 public class RemoveFurnitureGUI extends JFrame {
-	
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane;
@@ -116,7 +106,7 @@ public class RemoveFurnitureGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
 				String chosenFurniture = (String) combo.getSelectedItem();	
-				stringRoom.removeFurniture(chosenFurniture,grid,apartment);
+				stringRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList());
 			}
 		});
 		*/
