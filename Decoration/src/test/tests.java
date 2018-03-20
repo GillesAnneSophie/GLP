@@ -15,7 +15,7 @@ public class tests
 	public static void main(String[] args) 
 	{
 			//Create furniture
-		Catalog catalog = new Catalog();
+		Catalog catalog = new Catalog("furniture_catalog.txt");
 		
 			//Create Apartment
 		Apartment apartment = new Apartment();
@@ -33,7 +33,7 @@ public class tests
 		Room kitchen = new Room("kitchen", 1, 2, kitchenCategory);
 		
 			//Add rooms
-		apartment.addRoom(bedroom, 1, 1, grid);
+		apartment.addRoom(bedroom, 3, 3, grid);
 		apartment.addRoom(kitchen, 9, 3, grid);
 		
 			//Add furniture to rooms
@@ -46,7 +46,7 @@ public class tests
 		
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		//furniture3.furnitureOrientedWest();
-		bedroom.addFurniture(furniture3, 5, 9, grid); //6 3 || 2 5
+		bedroom.addFurniture(furniture3, 2, 5, grid); //6 3 || 2 5
 
 			//Statistics
 		//System.out.println("numberOfFurniture" + Statistics.numberOfFurniture(apartment.getRoomsList()));

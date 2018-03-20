@@ -104,15 +104,19 @@ public class Grid
 				{
 					for(int j=positionX-1 ; j<positionX+dimensionWidth+1 ; j++)
 					{
-						if(i<0)
+						if(i<=0)
 						{
 							i++;
 						}
-						else if(j<0)
+						else if(j<=0)
 						{
 							j++;
 						}
-						else if(i>(gridDimension.getWidth()-1))
+						else if(i>=(gridDimension.getWidth()-1))
+						{
+							break;
+						}
+						else if(j>=(gridDimension.getLength()-1))
 						{
 							break;
 						}

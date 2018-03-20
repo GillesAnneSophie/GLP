@@ -11,7 +11,6 @@ import javax.swing.border.MatteBorder;
 import catalog.Catalog;
 import place.Apartment;
 import place.Grid;
-import place.Room;
 
 /**
  * @author CORALIE Laury Ann
@@ -20,7 +19,7 @@ import place.Room;
 public class DesignGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private Catalog catalog = new Catalog();
+	private Catalog catalog = new Catalog("furniture_catalog.txt");
 	private Apartment apartment = new Apartment();
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
