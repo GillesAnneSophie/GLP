@@ -1,6 +1,5 @@
 package test;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,15 +29,14 @@ public class RemoveFurnitureGUI extends JFrame {
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
 	private JButton btnRemove = new JButton ("Remove");
-	
-	private String stringRoom;
-	
+
 	private Room chosenRoom;
+	private AbstractRoom chosenFurniture;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(AbstractRoom furniture, Grid grid,HashMap<Integer, AbstractRoom> roomList,Apartment apartment) {
+	public static void main(AbstractRoom furniture, Grid grid,HashMap<Integer, Room> roomList,Apartment apartment) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -55,12 +53,11 @@ public class RemoveFurnitureGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RemoveFurnitureGUI(AbstractRoom furniture, Grid grid,HashMap<Integer, AbstractRoom> roomList,Apartment apartment) {
+	public RemoveFurnitureGUI(AbstractRoom furniture, Grid grid,HashMap<Integer, Room> roomList,Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 464, 210);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		
@@ -68,50 +65,44 @@ public class RemoveFurnitureGUI extends JFrame {
 		for (Integer it : room.keySet()) {
 			comboBox.addItem (it);
 		}
-		comboBoxRoom.setBounds(179, 39, 99, 20);
+		contentPane.setLayout(null);
+		comboBoxRoom.setBounds(246, 62, 99, 20);
 		contentPane.add(comboBoxRoom);
 		comboBoxRoom.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
-				stringRoom = (String) combo.getSelectedItem();	
-				apartment.getRoomsList();
-				if (stringRoom == "Kitchen") {
-					
-				}
-				if (stringRoom == "Dining Room") {
+				chosenFurniture = (AbstractRoom) combo.getSelectedItem();	
+				chosenRoom.removeFurniture(chosenFurniture.getName(), grid, roomList);
 				
-				}
-				if (stringRoom == "Living Room") {
-					
-				}
-				if (stringRoom == "Bedroom/Office") {
-					
-				}
-				if(stringRoom == "Bathroom") {
-					
-				}
 			}
 		});
 		
 		lblFurnitureRemove.setBounds(10, 56, 166, 14);
 		contentPane.add(lblFurnitureRemove);	
 		
-		/*HashMap<Integer, AbstractRoom> furnitures = stringRoom.getAllTheFurnitureOfTheRoom(); //TODO trouver un moyen de recuperer la liste des pieces 
-		for (Integer it : furnitures.keySet()) {
-			comboBox.addItem (it);
-		}
-		contentPane.add(comboBox);
+		btnRemove.setBounds(315, 93, 109, 18);
+		contentPane.add(btnRemove);
 		
-		comboBox.addActionListener(new ActionListener() {
+		JLabel lblChooseRoom = new JLabel("Choose the room to remove the furniture from:");
+		lblChooseRoom.setBounds(10, 65, 234, 14);
+		contentPane.add(lblChooseRoom);
+		
+		JLabel lblChooseTheFurniture = new JLabel("Choose the furniture to remove:");
+		lblChooseTheFurniture.setBounds(10, 123, 166, 14);
+		contentPane.add(lblChooseTheFurniture);
+		
+		JComboBox<String> comboBoxFurniture = new JComboBox<String>();
+		comboBoxFurniture.setBounds(173, 120, 99, 20);
+		contentPane.add(comboBoxFurniture);
+		comboBoxFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
 				String chosenFurniture = (String) combo.getSelectedItem();	
-				stringRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList());
+				chosenRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList());
 			}
 		});
-		*/
-		btnRemove.setBounds(337, 52, 86, 23);
-		contentPane.add(btnRemove);
+		
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -119,5 +110,4 @@ public class RemoveFurnitureGUI extends JFrame {
 		});	
 
 	}
-
 }

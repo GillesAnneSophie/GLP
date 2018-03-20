@@ -13,6 +13,7 @@ import catalog.Catalog;
 import place.AbstractRoom;
 import place.Apartment;
 import place.Grid;
+import place.Room;
 
 /**
  * @author CORALIE Laury Ann
@@ -26,7 +27,7 @@ public class DesignGUI extends JFrame {
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
 	private AbstractRoom furniture;
-	private HashMap<Integer, AbstractRoom> roomList = new HashMap<Integer, AbstractRoom>();
+	private HashMap<Integer, Room> roomList = new HashMap<Integer, Room>();
 	
 	private JPanel contentPane;
 	private JPanel[][] cells;

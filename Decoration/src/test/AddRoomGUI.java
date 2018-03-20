@@ -48,7 +48,7 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(Apartment apartment,Grid grid,HashMap<Integer, AbstractRoom> roomList) {
+	public static void main(Apartment apartment,Grid grid,HashMap<Integer, Room> roomList) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -67,7 +67,7 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public AddRoomGUI(Apartment apartment, Grid grid,HashMap<Integer, AbstractRoom> roomList) {
+	public AddRoomGUI(Apartment apartment, Grid grid,HashMap<Integer, Room> roomList) {
 		
 		n = rand.nextInt(10) + 1;
 		
