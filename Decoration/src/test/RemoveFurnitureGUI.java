@@ -5,11 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import place.*;
@@ -36,11 +32,11 @@ public class RemoveFurnitureGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(AbstractRoom furniture, Grid grid,HashMap<Integer, Room> roomList,Apartment apartment) {
+	public static void main(Apartment apartment, Grid grid) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RemoveFurnitureGUI frame = new RemoveFurnitureGUI(furniture,grid,roomList,apartment);
+					RemoveFurnitureGUI frame = new RemoveFurnitureGUI(apartment, grid);
 					frame.setVisible(true);
 					frame.setTitle("Remove a furniture");
 				} catch (Exception e) {
@@ -53,7 +49,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RemoveFurnitureGUI(AbstractRoom furniture, Grid grid,HashMap<Integer, Room> roomList,Apartment apartment) {
+	public RemoveFurnitureGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 464, 210);
 		contentPane = new JPanel();
@@ -73,7 +69,7 @@ public class RemoveFurnitureGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
 				chosenFurniture = (AbstractRoom) combo.getSelectedItem();	
-				chosenRoom.removeFurniture(chosenFurniture.getName(), grid, roomList);
+				chosenRoom.removeFurniture(chosenFurniture.getName(), grid, apartment.getRoomsList());
 				
 			}
 		});

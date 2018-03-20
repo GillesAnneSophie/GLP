@@ -53,11 +53,11 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Launch the application
 	 */
-	public static void main(Apartment apartment,Grid grid,HashMap<Integer, Room> roomList) {
+	public static void main(Apartment apartment, Grid grid) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddRoomGUI frame = new AddRoomGUI(apartment,grid,roomList);
+					AddRoomGUI frame = new AddRoomGUI(apartment, grid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Add a Room");
 
@@ -72,7 +72,7 @@ public class AddRoomGUI extends JFrame {
 	/**
 	 * Create the frame
 	 */
-	public AddRoomGUI(Apartment apartment, Grid grid,HashMap<Integer, Room> roomList) {
+	public AddRoomGUI(Apartment apartment, Grid grid) {
 		
 		n = rand.nextInt(10) + 1;
 		
@@ -106,31 +106,31 @@ public class AddRoomGUI extends JFrame {
 					Category kitchenCategory = new Kitchen();
 					Room kitchen = new Room("kitchen"+n, width, lenght, kitchenCategory);
 					apartment.addRoom(kitchen,positionX,positionY,grid);
-					roomList.put(null, kitchen);
+					apartment.getRoomsList().put(null, kitchen);
 				}
 				if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
 					Room diningRoom = new Room("diningRoom"+n, width, lenght, diningRoomCategory);
 					apartment.addRoom(diningRoom,positionX,positionY,grid);
-					roomList.put(null,diningRoom );
+					apartment.getRoomsList().put(null,diningRoom );
 				}
 				if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
 					Room livingRoom = new Room("livingRoom"+n, width, lenght, livingRoomCategory);
 					apartment.addRoom(livingRoom,positionX,positionY,grid);
-					roomList.put(null, livingRoom);
+					apartment.getRoomsList().put(null, livingRoom);
 				}
 				if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
 					Room bedroomOffice = new Room("bedroomOffice"+n, width, lenght, bedroomOfficeCategory);
 					apartment.addRoom(bedroomOffice,positionX,positionY,grid);
-					roomList.put(null, bedroomOffice);
+					apartment.getRoomsList().put(null, bedroomOffice);
 				}
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom"+n, width, lenght, bathroomCategory);
 					apartment.addRoom(bathroom,positionX,positionY,grid);
-					roomList.put(null, bathroom);
+					apartment.getRoomsList().put(null, bathroom);
 				}
 			}
 		});	

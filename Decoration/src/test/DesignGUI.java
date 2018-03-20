@@ -4,13 +4,11 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
 
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import catalog.Catalog;
-import place.AbstractRoom;
 import place.Apartment;
 import place.Grid;
 import place.Room;
@@ -26,8 +24,6 @@ public class DesignGUI extends JFrame {
 	private Apartment apartment = new Apartment();
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
-	private AbstractRoom furniture;
-	private HashMap<Integer, Room> roomList = new HashMap<Integer, Room>();
 	
 	private JPanel contentPane;
 	private JPanel[][] cells;
@@ -35,7 +31,7 @@ public class DesignGUI extends JFrame {
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("?");
 	private JMenu mnView = new JMenu("View");
-	private JMenu mnKitchen = new JMenu("Kitchen");
+/*	private JMenu mnKitchen = new JMenu("Kitchen");
 	private JMenu mnDiningRoom = new JMenu("Dining Room");
 	private JMenu mnLivingRoom = new JMenu("Living Room");
 	private JMenu mnBedroomoffice = new JMenu("Bedroom/Office");
@@ -45,10 +41,10 @@ public class DesignGUI extends JFrame {
 	private JMenu mnWindows = new JMenu("Windows");
 	private JMenu mnArt = new JMenu("Art");
 	private JMenu mnFloor = new JMenu("Floor");
-	
+*/	
 	private JMenuItem mntmHelp = new JMenuItem("Help");
 	private JMenuItem mntmExit = new JMenuItem("Exit ");
-	private JMenuItem mntmFridge = new JMenuItem("Fridge");
+/*	private JMenuItem mntmFridge = new JMenuItem("Fridge");
 	private JMenuItem mntmGasCooker = new JMenuItem("Gas Cooker");
 	private JMenuItem mntmSink = new JMenuItem("Sink");
 	private JMenuItem mntmCountertop = new JMenuItem("Countertop");
@@ -86,7 +82,7 @@ public class DesignGUI extends JFrame {
 	private JMenuItem mntmTiles = new JMenuItem("Tiles");
 	private JMenuItem mntmSmallRug = new JMenuItem("Small Rug");
 	private JMenuItem mntmBigRug = new JMenuItem("Big Rug");
-	
+*/	
 	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
 
 	private JPopupMenu popupMenu = new JPopupMenu();
@@ -141,7 +137,7 @@ public class DesignGUI extends JFrame {
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chckbxmntmShowToolbar.isSelected() == true) {
-					ToolbarGUI.main(apartment, grid, catalog, furniture, roomList);
+					ToolbarGUI.main(apartment, grid, catalog);
 				}
 				else {
 				
@@ -163,7 +159,7 @@ public class DesignGUI extends JFrame {
 				}
 			}
 		}); 
-
+/*
 		popupMenu.add(mnKitchen);
 
 		mnKitchen.add(mntmFridge);
@@ -225,7 +221,7 @@ public class DesignGUI extends JFrame {
 		mnFloor.add(mntmTiles);
 		mnFloor.add(mntmSmallRug);
 		mnFloor.add(mntmBigRug);
-		
+*/
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 		contentPane.addMouseListener(new MouseAdapter() {  
@@ -239,12 +235,12 @@ public class DesignGUI extends JFrame {
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
-			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
-			    if (confirmed == JOptionPane.YES_OPTION) {
-			    		dispose();
-			    }
+				    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+				    if (confirmed == JOptionPane.YES_OPTION) {
+				    		dispose();
+				    }
 			  }
-			});
+		});
 		
 	}
 	
