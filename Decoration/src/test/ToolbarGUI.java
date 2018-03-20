@@ -16,7 +16,7 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Grid keepGrid;
+	private Grid keepGrid; //TODO ca sert à quoi? stp 
 	private Catalog keepCatalog;
 	
 	private JPanel contentPane;
@@ -30,22 +30,22 @@ public class ToolbarGUI extends JFrame {
 	
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
-	private DefaultListModel listRooms;
-	private DefaultListModel listBathroom;
-	private DefaultListModel listBedroomOffice;
-	private DefaultListModel listDiningRoom;
-	private DefaultListModel listFloor;
-	private DefaultListModel listKitchen;
-	private DefaultListModel listLivingRoom;
-	private DefaultListModel listWall;
+	
+	private DefaultListModel<String> listBathroom;
+	private DefaultListModel<String> listBedroomOffice;
+	private DefaultListModel<String> listDiningRoom;
+	private DefaultListModel<String> listFloor;
+	private DefaultListModel<String> listKitchen;
+	private DefaultListModel<String> listLivingRoom;
+	private DefaultListModel<String> listWall;
 	
 	private String [] room = {"-- Select a room to see the furnitures --","Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom","Wall","Floor"};
 	private String chosenRoom;
 	
-	private JComboBox comboBoxRoom = new JComboBox();
+	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
 	private JPanel listPanel;
-	private final JList addFurniture = new JList();
+	private final JList<String> addFurniture = new JList<String>();
 
 	
 	
@@ -113,14 +113,13 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurniture);
 		
-		listRooms = new DefaultListModel();
-		listBathroom = new DefaultListModel();
-		listBedroomOffice = new DefaultListModel();
-		listDiningRoom = new DefaultListModel();
-		listFloor = new DefaultListModel();
-		listKitchen = new DefaultListModel();
-		listLivingRoom = new DefaultListModel();
-		listWall = new DefaultListModel();
+		listBathroom = new DefaultListModel<String>();
+		listBedroomOffice = new DefaultListModel<String>();
+		listDiningRoom = new DefaultListModel<String>();
+		listFloor = new DefaultListModel<String>();
+		listKitchen = new DefaultListModel<String>();
+		listLivingRoom = new DefaultListModel<String>();
+		listWall = new DefaultListModel<String>();
 
 		setListBathroom();
 		setListBedroomOffice();
@@ -135,7 +134,7 @@ public class ToolbarGUI extends JFrame {
         getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
-		comboBoxRoom = new JComboBox(room);
+		comboBoxRoom = new JComboBox<String>(room);
 		listPanel.add(comboBoxRoom);
 		comboBoxRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -143,7 +142,7 @@ public class ToolbarGUI extends JFrame {
 				chosenRoom = (String) combo.getSelectedItem(); 
 				switch (chosenRoom) {
 					case "-- Select a room to see the furnitures --":
-						DefaultListModel curentModel = (DefaultListModel) addFurniture.getModel();
+						DefaultListModel<String> curentModel = (DefaultListModel) addFurniture.getModel();
 						curentModel.clear();
 						break;
 					case "Kitchen":

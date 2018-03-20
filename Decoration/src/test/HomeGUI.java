@@ -16,7 +16,7 @@ public class HomeGUI extends JFrame {
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
 	
-	private JLabel lblName = new JLabel("Manag'Apart"); // TODO Je pense qu'on devrait voter pour le nom. Proposez vos nom, y a pas de soucis. Mais quand j'ai demandé, personne n'a rien dit ^^'
+	/*private JLabel lblName = new JLabel("Manag'Apart");*/ // TODO Je pense qu'on devrait voter pour le nom. Proposez vos nom, y a pas de soucis. Mais quand j'ai demandé, personne n'a rien dit ^^'
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
 	private final JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management' or continue a previous magament with 'Open a existing management'");
@@ -63,6 +63,13 @@ public class HomeGUI extends JFrame {
 		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblMessage.setBounds(26, 113, 808, 14);
 		contentPane.add(lblMessage);
+		
+		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblMessage.setBounds(26, 113, 808, 14);
+		lblAuthor.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		lblAuthor.setLocation(10, 207);
+		lblAuthor.setSize(346, 15);
+		contentPane.add(lblAuthor);
 		
 		btnOpenAFile.setBounds(501, 160, 203, 23);		
 		btnOpenAFile.addActionListener(new ActionListener() {
