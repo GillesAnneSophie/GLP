@@ -41,7 +41,14 @@ public class ToolbarGUI extends JFrame {
 	private DefaultListModel<String> listLivingRoom;
 	private DefaultListModel<String> listWall;
 	
+	private String [] room = {"-- Select a room to see the furnitures --","Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom","Wall","Floor"};
+	private String chosenRoom;
+	
+	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
+	
 	private JPanel listPanel;
+
+	
 	
 	
 	/**
@@ -107,6 +114,44 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurniture);
 		
+		comboBoxRoom = new JComboBox<String>(room);
+		comboBoxRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
+				chosenRoom = (String) combo.getSelectedItem(); 
+				switch (chosenRoom) {
+					case "-- Select a room to see the furnitures --":
+						DefaultListModel curentModel = (DefaultListModel) addFurniture.getModel();
+						curentModel.clear(); 
+						break;
+					case "Kitchen":
+						addFurniture.setModel(listKitchen);
+						break;
+					case "Living Room":
+						addFurniture.setModel(listLivingRoom);
+						break;
+					case "Dining Room":
+						addFurniture.setModel(listDiningRoom);
+						break;
+					case "Bedroom/Office":
+						addFurniture.setModel(listBedroomOffice);
+						break;
+					case "Bathroom":
+						addFurniture.setModel(listBathroom);
+						break;
+					case "Wall":
+						addFurniture.setModel(listWall);
+						break;
+					case "Floor":
+						addFurniture.setModel(listFloor);
+						break;
+				}
+			}
+		});
+		comboBoxRoom.setToolTipText("");
+		comboBoxRoom.setLocation(0, 43);
+		comboBoxRoom.setSize(423, 20);
+		contentPane.add(comboBoxRoom);
 		
 		listRooms = new DefaultListModel<String>();
 		listBathroom = new DefaultListModel<String>();
@@ -117,7 +162,6 @@ public class ToolbarGUI extends JFrame {
 		listLivingRoom = new DefaultListModel<String>();
 		listWall = new DefaultListModel<String>();
 
-		setListRooms();
 		setListBathroom();
 		setListBedroomOffice();
 		setListDiningRoom();
@@ -132,6 +176,7 @@ public class ToolbarGUI extends JFrame {
         addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         addFurniture.setLayoutOrientation(JList.VERTICAL);
         addFurniture.addMouseListener(new ClickAction());
+        addFurniture.setBounds(133,555, 127, 135);
        
         this.add(listPanel);
 		listPanel.add(addFurniture);
@@ -147,24 +192,11 @@ public class ToolbarGUI extends JFrame {
 		});
 	}
 	
-	private void setListRooms()
-	{
-		listRooms.removeAllElements();
-		
-		listRooms.addElement("Bathroom");
-		listRooms.addElement("BedroomOffice");
-		listRooms.addElement("DiningRoom");
-		listRooms.addElement("Floor");
-		listRooms.addElement("Kitchen");
-		listRooms.addElement("LivingRoom");
-		listRooms.addElement("Wall");
-	}
 	
 	private void setListBathroom()
 	{
 		listBathroom.removeAllElements();
 		
-		listBathroom.addElement("<< RETURN");
 		listBathroom.addElement("Toilet");
 		listBathroom.addElement("Bath");
 		listBathroom.addElement("Shower");
@@ -176,7 +208,6 @@ public class ToolbarGUI extends JFrame {
 	{
 		listBedroomOffice.removeAllElements();
 		
-		listBedroomOffice.addElement("<< RETURN");
 		listBedroomOffice.addElement("Single bed");
 		listBedroomOffice.addElement("Double bed");
 		listBedroomOffice.addElement("DiningRoom");
@@ -191,7 +222,6 @@ public class ToolbarGUI extends JFrame {
 	{
 		listDiningRoom.removeAllElements();
 		
-		listDiningRoom.addElement("<< RETURN");
 		listDiningRoom.addElement("Small dining table");
 		listDiningRoom.addElement("Large dining table");
 		listDiningRoom.addElement("Buffet");
@@ -201,8 +231,7 @@ public class ToolbarGUI extends JFrame {
 	private void setListFloor()
 	{
 		listFloor.removeAllElements();
-		
-		listFloor.addElement("<< RETURN");
+
 		listFloor.addElement("Carpet");
 //TODO ajouter les sols
 	}
@@ -211,7 +240,6 @@ public class ToolbarGUI extends JFrame {
 	{
 		listKitchen.removeAllElements();
 		
-		listKitchen.addElement("<< RETURN");
 		listKitchen.addElement("Fridge");
 		listKitchen.addElement("Gas cooker");
 		listKitchen.addElement("Sink");
@@ -222,7 +250,6 @@ public class ToolbarGUI extends JFrame {
 	{
 		listLivingRoom.removeAllElements();
 		
-		listLivingRoom.addElement("<< RETURN");
 		listLivingRoom.addElement("Armchair");
 		listLivingRoom.addElement("Coffee table");
 		listLivingRoom.addElement("Small sofa");
@@ -233,7 +260,6 @@ public class ToolbarGUI extends JFrame {
 	{
 		listWall.removeAllElements();
 		
-		listWall.addElement("<< RETURN");
 		listWall.addElement("Small door");
 		listWall.addElement("Large door");
 		listWall.addElement("Small window");
@@ -252,45 +278,12 @@ public class ToolbarGUI extends JFrame {
 			String name = (String) addFurniture.getModel().getElementAt(selectedItem);
 			
 			//TODO If room > changer la liste sinon addRoom
-			if(name.equals("<< RETURN"))
-			{
-				addFurniture.setModel(listRooms);
-			}
-			else if(name.equals("Bathroom"))
-			{
-				addFurniture.setModel(listBathroom);
-			}
-			else if(name.equals("BedroomOffice"))
-			{
-				addFurniture.setModel(listBedroomOffice);
-			}
-			else if(name.equals("DiningRoom"))
-			{
-				addFurniture.setModel(listDiningRoom);
-			}
-			else if(name.equals("Floor"))
-			{
-				addFurniture.setModel(listFloor);
-			}
-			else if(name.equals("Kitchen"))
-			{
-				addFurniture.setModel(listKitchen);
-			}
-			else if(name.equals("LivingRoom"))
-			{
-				addFurniture.setModel(listLivingRoom);
-			}
-			else if(name.equals("Wall"))
-			{
-				addFurniture.setModel(listWall);
-			}
-			else
-			{
+			
 				name = name.toLowerCase();
 				AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
 				AddFurnitureGUI.main(selectedFurniture, keepGrid);
 				addFurniture.setModel(listRooms);
-			}
+			
 		}
 
 		@Override

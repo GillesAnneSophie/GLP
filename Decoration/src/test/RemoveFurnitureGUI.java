@@ -19,10 +19,12 @@ public class RemoveFurnitureGUI extends JFrame {
 	
 	private JPanel contentPane;
 
-	private JLabel lblFurnitureRemove;
+	private JLabel lblChooseRoom = new JLabel("Choose the room to remove the furniture from:");
+	private JLabel lblChooseTheFurniture = new JLabel("Choose the furniture to remove:");
 	
 	private JComboBox <Integer>comboBox = new JComboBox <Integer>();
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
+	private JComboBox<String> comboBoxFurniture = new JComboBox<String>();
 	
 	private JButton btnRemove = new JButton ("Remove");
 
@@ -51,7 +53,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	 */
 	public RemoveFurnitureGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 464, 210);
+		setBounds(100, 100, 525, 205);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -62,7 +64,7 @@ public class RemoveFurnitureGUI extends JFrame {
 			comboBox.addItem (it);
 		}
 		contentPane.setLayout(null);
-		comboBoxRoom.setBounds(246, 62, 99, 20);
+		comboBoxRoom.setBounds(284, 31, 99, 20);
 		contentPane.add(comboBoxRoom);
 		comboBoxRoom.addActionListener(new ActionListener() {
 
@@ -74,22 +76,16 @@ public class RemoveFurnitureGUI extends JFrame {
 			}
 		});
 		
-		lblFurnitureRemove.setBounds(10, 56, 166, 14);
-		contentPane.add(lblFurnitureRemove);	
-		
-		btnRemove.setBounds(315, 93, 109, 18);
+		btnRemove.setBounds(390, 64, 109, 18);
 		contentPane.add(btnRemove);
 		
-		JLabel lblChooseRoom = new JLabel("Choose the room to remove the furniture from:");
-		lblChooseRoom.setBounds(10, 65, 234, 14);
+		lblChooseRoom.setBounds(10, 34, 275, 14);
 		contentPane.add(lblChooseRoom);
 		
-		JLabel lblChooseTheFurniture = new JLabel("Choose the furniture to remove:");
-		lblChooseTheFurniture.setBounds(10, 123, 166, 14);
+		lblChooseTheFurniture.setBounds(78, 95, 207, 14);
 		contentPane.add(lblChooseTheFurniture);
 		
-		JComboBox<String> comboBoxFurniture = new JComboBox<String>();
-		comboBoxFurniture.setBounds(173, 120, 99, 20);
+		comboBoxFurniture.setBounds(284, 92, 99, 20);
 		contentPane.add(comboBoxFurniture);
 		comboBoxFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
