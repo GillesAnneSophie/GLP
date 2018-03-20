@@ -16,7 +16,7 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Grid keepGrid; //TODO ca sert à quoi? stp 
+	private Grid keepGrid; //TODO ca sert à quoi? stp > ça sert à récuperer la grid pour l'envoyer dans AddRoomGUI (peut etre plus besoin avec ta méthode, A VOIR)
 	private Catalog keepCatalog;
 	
 	private JPanel contentPane;
