@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import catalog.Category;
 import categories.*;
 import place.*;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 /**
  * @author CORALIE Laury Ann
@@ -40,8 +42,10 @@ public class AddRoomGUI extends JFrame {
 	private JLabel lblLength = new JLabel("Length:");
 	private JLabel lblPosition = new JLabel ("Coordonates:");
 	
-	private JTextField textFieldWidth = new JTextField();
-	private JTextField textFieldLength = new JTextField();
+	private SpinnerModel spinnerModel1 = new SpinnerNumberModel (0,0,100,1);
+	private SpinnerModel spinnerModel2 = new SpinnerNumberModel (0,0,100,1);
+	private JSpinner textFieldWidth = new JSpinner(spinnerModel1);
+	private JSpinner textFieldLength = new JSpinner(spinnerModel2);
 	
 //TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
 	
@@ -133,7 +137,7 @@ public class AddRoomGUI extends JFrame {
 		lblChooseTheRoom.setBounds(25, 42, 151, 14);
 		contentPane.add(lblChooseTheRoom);
 			
-		comboBoxX.setBounds(179, 110, 34, 14);
+		comboBoxX.setBounds(179, 110, 34, 15);
 		contentPane.add(comboBoxX);
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
@@ -148,7 +152,7 @@ public class AddRoomGUI extends JFrame {
 			}
 		});
 		
-		comboBoxY.setBounds(232, 110, 34, 14);
+		comboBoxY.setBounds(232, 110, 34, 15);
 		contentPane.add(comboBoxY);
 		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
 		{
@@ -181,25 +185,26 @@ public class AddRoomGUI extends JFrame {
 		
 		contentPane.add(lblLength);
 		
+			
+
 //TODO �a fonctionne pas �a, on rentre jamais dedans
-		textFieldWidth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				roomWidth = Integer.parseInt(textFieldWidth.getText());
+		textFieldWidth.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				roomWidth = (int) textFieldWidth.getValue();
 				System.err.println(roomWidth);
 			}
 		});
 		textFieldWidth.setBounds(164, 78, 34, 20);
 		contentPane.add(textFieldWidth);
-		textFieldWidth.setColumns(10);
 		
-		textFieldLength.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				roomLenght = Integer.parseInt(textFieldLength.getText());
+		
+		textFieldLength.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				roomLenght = (int) textFieldLength.getValue();
 				System.err.println(roomLenght);
 			}
 		});
 		textFieldLength.setBounds(272, 78, 34, 20);
 		contentPane.add(textFieldLength);
-		textFieldLength.setColumns(10);
 	}
 }

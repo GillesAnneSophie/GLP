@@ -30,23 +30,22 @@ public class ToolbarGUI extends JFrame {
 	
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
-	
-	private JList<String> addFurniture;
-	private DefaultListModel<String> listRooms;
-	private DefaultListModel<String> listBathroom;
-	private DefaultListModel<String> listBedroomOffice;
-	private DefaultListModel<String> listDiningRoom;
-	private DefaultListModel<String> listFloor;
-	private DefaultListModel<String> listKitchen;
-	private DefaultListModel<String> listLivingRoom;
-	private DefaultListModel<String> listWall;
+	private DefaultListModel listRooms;
+	private DefaultListModel listBathroom;
+	private DefaultListModel listBedroomOffice;
+	private DefaultListModel listDiningRoom;
+	private DefaultListModel listFloor;
+	private DefaultListModel listKitchen;
+	private DefaultListModel listLivingRoom;
+	private DefaultListModel listWall;
 	
 	private String [] room = {"-- Select a room to see the furnitures --","Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom","Wall","Floor"};
 	private String chosenRoom;
 	
-	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
+	private JComboBox comboBoxRoom = new JComboBox();
 	
 	private JPanel listPanel;
+	private final JList addFurniture = new JList();
 
 	
 	
@@ -114,7 +113,30 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurniture);
 		
-		comboBoxRoom = new JComboBox<String>(room);
+		listRooms = new DefaultListModel();
+		listBathroom = new DefaultListModel();
+		listBedroomOffice = new DefaultListModel();
+		listDiningRoom = new DefaultListModel();
+		listFloor = new DefaultListModel();
+		listKitchen = new DefaultListModel();
+		listLivingRoom = new DefaultListModel();
+		listWall = new DefaultListModel();
+
+		setListBathroom();
+		setListBedroomOffice();
+		setListDiningRoom();
+		setListFloor();
+		setListKitchen();
+		setListLivingRoom();
+		setListWall();
+		
+		listPanel = new JPanel();
+       
+        getContentPane().add(listPanel);
+		listPanel.setLayout(null);
+		
+		comboBoxRoom = new JComboBox(room);
+		listPanel.add(comboBoxRoom);
 		comboBoxRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
@@ -122,7 +144,7 @@ public class ToolbarGUI extends JFrame {
 				switch (chosenRoom) {
 					case "-- Select a room to see the furnitures --":
 						DefaultListModel curentModel = (DefaultListModel) addFurniture.getModel();
-						curentModel.clear(); 
+						curentModel.clear();
 						break;
 					case "Kitchen":
 						addFurniture.setModel(listKitchen);
@@ -149,36 +171,12 @@ public class ToolbarGUI extends JFrame {
 			}
 		});
 		comboBoxRoom.setToolTipText("");
-		comboBoxRoom.setLocation(0, 43);
-		comboBoxRoom.setSize(423, 20);
-		contentPane.add(comboBoxRoom);
+		comboBoxRoom.setLocation(100, 5);
+		comboBoxRoom.setSize(213, 20);
+		addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		addFurniture.setLayoutOrientation(JList.VERTICAL);
+		addFurniture.setBounds(135, 51, 144, 161);
 		
-		listRooms = new DefaultListModel<String>();
-		listBathroom = new DefaultListModel<String>();
-		listBedroomOffice = new DefaultListModel<String>();
-		listDiningRoom = new DefaultListModel<String>();
-		listFloor = new DefaultListModel<String>();
-		listKitchen = new DefaultListModel<String>();
-		listLivingRoom = new DefaultListModel<String>();
-		listWall = new DefaultListModel<String>();
-
-		setListBathroom();
-		setListBedroomOffice();
-		setListDiningRoom();
-		setListFloor();
-		setListKitchen();
-		setListLivingRoom();
-		setListWall();
-		
-		listPanel = new JPanel();
-        addFurniture = new JList<String>();
-        addFurniture.setModel(listRooms);
-        addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        addFurniture.setLayoutOrientation(JList.VERTICAL);
-        addFurniture.addMouseListener(new ClickAction());
-        addFurniture.setBounds(133,555, 127, 135);
-       
-        this.add(listPanel);
 		listPanel.add(addFurniture);
 		
 	
@@ -265,45 +263,5 @@ public class ToolbarGUI extends JFrame {
 		listWall.addElement("Small window");
 		listWall.addElement("Large window");
 		listWall.addElement("Pictures");
-	}
-	
-	
-	
-	
-	class ClickAction implements MouseListener
-	{
-		public void mouseClicked(MouseEvent e) 
-		{
-			int selectedItem = addFurniture.getSelectedIndex();
-			String name = (String) addFurniture.getModel().getElementAt(selectedItem);
-			
-			//TODO If room > changer la liste sinon addRoom
-			
-				name = name.toLowerCase();
-				AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
-				AddFurnitureGUI.main(selectedFurniture, keepGrid);
-				addFurniture.setModel(listRooms);
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			
-		}
-
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			
-		}
 	}
 }
