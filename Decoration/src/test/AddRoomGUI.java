@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.swing.border.EmptyBorder;
 
@@ -23,6 +24,7 @@ public class AddRoomGUI extends JFrame {
 
 	private int positionX;
 	private int positionY;
+	private int n;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
@@ -39,7 +41,7 @@ public class AddRoomGUI extends JFrame {
 	private JLabel lblPosition = new JLabel ("Coodinate:");
 	private final JLabel lblLength = new JLabel("Length:");
 
-	
+	private Random rand = new Random();
 	
 //TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
 	
@@ -66,6 +68,9 @@ public class AddRoomGUI extends JFrame {
 	 * Create the frame
 	 */
 	public AddRoomGUI(Apartment apartment, Grid grid,HashMap<Integer, AbstractRoom> roomList) {
+		
+		n = rand.nextInt(10) + 1;
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 189);
 		contentPane = new JPanel();
@@ -94,31 +99,31 @@ public class AddRoomGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (stringRoom == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
-					Room kitchen = new Room("kitchen", positionX, positionY, kitchenCategory);
+					Room kitchen = new Room("kitchen"+n, positionX, positionY, kitchenCategory);
 					apartment.addRoom(kitchen,positionX,positionY,grid);
 					roomList.put(null, kitchen);
 				}
 				if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
-					Room diningRoom = new Room("diningRoom", positionX, positionY, diningRoomCategory);
+					Room diningRoom = new Room("diningRoom"+n, positionX, positionY, diningRoomCategory);
 					apartment.addRoom(diningRoom,positionX,positionY,grid);
 					roomList.put(null,diningRoom );
 				}
 				if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
-					Room livingRoom = new Room("livingRoom", positionX, positionY, livingRoomCategory);
+					Room livingRoom = new Room("livingRoom"+n, positionX, positionY, livingRoomCategory);
 					apartment.addRoom(livingRoom,positionX,positionY,grid);
 					roomList.put(null, livingRoom);
 				}
 				if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
-					Room bedroomOffice = new Room("bedroomOffice", positionX, positionY, bedroomOfficeCategory);
+					Room bedroomOffice = new Room("bedroomOffice"+n, positionX, positionY, bedroomOfficeCategory);
 					apartment.addRoom(bedroomOffice,positionX,positionY,grid);
 					roomList.put(null, bedroomOffice);
 				}
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
-					Room bathroom = new Room("bathroom", positionX, positionY, bathroomCategory);
+					Room bathroom = new Room("bathroom"+n, positionX, positionY, bathroomCategory);
 					apartment.addRoom(bathroom,positionX,positionY,grid);
 					roomList.put(null, bathroom);
 				}
