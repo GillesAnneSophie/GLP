@@ -3,8 +3,6 @@ package test;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Random;
 
 import javax.swing.border.EmptyBorder;
 
@@ -22,11 +20,10 @@ public class AddRoomGUI extends JFrame {
 	private JPanel contentPane;
 	
 
-	private int positionX;
-	private int positionY;
-	private int n;
-	private int width;
-	private int lenght;
+	private int roomPositionX;
+	private int roomPositionY;
+	private int roomWidth;
+	private int roomLenght;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
@@ -40,13 +37,11 @@ public class AddRoomGUI extends JFrame {
 	private JLabel lblX_2 = new JLabel("X");
 	private JLabel lblX_3 = new JLabel("X");
 	private JLabel lblWidth = new JLabel ("Width:");
-	private JLabel lblPosition = new JLabel ("Coodinate:");
-	private final JLabel lblLength = new JLabel("Length:");
-
-	private Random rand = new Random();
+	private JLabel lblLength = new JLabel("Length:");
+	private JLabel lblPosition = new JLabel ("Coordonates:");
 	
-	private JTextField textField_2 = new JTextField();
-	private JTextField textField_1 = new JTextField();;
+	private JTextField textFieldWidth = new JTextField();
+	private JTextField textFieldLength = new JTextField();
 	
 //TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
 	
@@ -73,9 +68,6 @@ public class AddRoomGUI extends JFrame {
 	 * Create the frame
 	 */
 	public AddRoomGUI(Apartment apartment, Grid grid) {
-		
-		n = rand.nextInt(10) + 1;
-		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 189);
 		contentPane = new JPanel();
@@ -91,46 +83,48 @@ public class AddRoomGUI extends JFrame {
 		
 		comboBoxRoom.setBounds(179, 39, 99, 20);
 		contentPane.add(comboBoxRoom);
-		comboBoxRoom.addItem("Kitchen");
-		comboBoxRoom.addItem("Dining Room");
-		comboBoxRoom.addItem("Living Room");
-		comboBoxRoom.addItem("Bedroom/Office");
 		comboBoxRoom.addItem("Bathroom");
+		comboBoxRoom.addItem("Bedroom/Office");
+		comboBoxRoom.addItem("Dining Room");
+		comboBoxRoom.addItem("Kitchen");
+		comboBoxRoom.addItem("Living Room");
+		
 		contentPane.add(btnEnter);
 
 				
 		btnEnter.setBounds(360, 64, 76, 23);
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (stringRoom == "Kitchen") {
-					Category kitchenCategory = new Kitchen();
-					Room kitchen = new Room("kitchen"+n, width, lenght, kitchenCategory);
-					apartment.addRoom(kitchen,positionX,positionY,grid);
-					apartment.getRoomsList().put(null, kitchen);
-				}
-				if (stringRoom == "Dining Room") {
-					Category diningRoomCategory = new DiningRoom();
-					Room diningRoom = new Room("diningRoom"+n, width, lenght, diningRoomCategory);
-					apartment.addRoom(diningRoom,positionX,positionY,grid);
-					apartment.getRoomsList().put(null,diningRoom );
-				}
-				if (stringRoom == "Living Room") {
-					Category livingRoomCategory = new LivingRoom();
-					Room livingRoom = new Room("livingRoom"+n, width, lenght, livingRoomCategory);
-					apartment.addRoom(livingRoom,positionX,positionY,grid);
-					apartment.getRoomsList().put(null, livingRoom);
+				if(stringRoom == "Bathroom") {
+					Category bathroomCategory = new Bathroom();
+					Room bathroom = new Room("bathroom", roomWidth, roomLenght, bathroomCategory);
+					apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid);
+					apartment.getRoomsList().put(null, bathroom);
 				}
 				if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
-					Room bedroomOffice = new Room("bedroomOffice"+n, width, lenght, bedroomOfficeCategory);
-					apartment.addRoom(bedroomOffice,positionX,positionY,grid);
+					Room bedroomOffice = new Room("bedroomOffice", roomWidth, roomLenght, bedroomOfficeCategory);
+					apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid);
 					apartment.getRoomsList().put(null, bedroomOffice);
 				}
-				if(stringRoom == "Bathroom") {
-					Category bathroomCategory = new Bathroom();
-					Room bathroom = new Room("bathroom"+n, width, lenght, bathroomCategory);
-					apartment.addRoom(bathroom,positionX,positionY,grid);
-					apartment.getRoomsList().put(null, bathroom);
+				if (stringRoom == "Dining Room") {
+					Category diningRoomCategory = new DiningRoom();
+					Room diningRoom = new Room("diningRoom", roomWidth, roomLenght, diningRoomCategory);
+					apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid);
+					apartment.getRoomsList().put(null,diningRoom );
+				}
+				if (stringRoom == "Kitchen") {
+					Category kitchenCategory = new Kitchen();
+					Room kitchen = new Room("kitchen", roomWidth, roomLenght, kitchenCategory);
+					apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid);
+					apartment.getRoomsList().put(null, kitchen);
+				}
+				
+				if (stringRoom == "Living Room") {
+					Category livingRoomCategory = new LivingRoom();
+					Room livingRoom = new Room("livingRoom", roomWidth, roomLenght, livingRoomCategory);
+					apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid);
+					apartment.getRoomsList().put(null, livingRoom);
 				}
 			}
 		});	
@@ -141,62 +135,30 @@ public class AddRoomGUI extends JFrame {
 			
 		comboBoxX.setBounds(179, 125, 34, 14);
 		contentPane.add(comboBoxX);
-		comboBoxX.addItem(0);
-		comboBoxX.addItem(1);
-		comboBoxX.addItem(2);
-		comboBoxX.addItem(3);
-		comboBoxX.addItem(4);
-		comboBoxX.addItem(5);
-		comboBoxX.addItem(6);
-		comboBoxX.addItem(7);
-		comboBoxX.addItem(8);
-		comboBoxX.addItem(9);
-		comboBoxX.addItem(10);
-		comboBoxX.addItem(11);
-		comboBoxX.addItem(12);
-		comboBoxX.addItem(13);
-		comboBoxX.addItem(14);
-		comboBoxX.addItem(15);
-		comboBoxX.addItem(16);
-		comboBoxX.addItem(17);
-		comboBoxX.addItem(18);
-		comboBoxX.addItem(19);
+		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
+		{
+			comboBoxX.addItem(i);
+		}
 		
 		comboBoxX.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
-				positionX = (Integer) combo.getSelectedItem();
+				roomPositionX = (Integer) combo.getSelectedItem();
 				
 			}
 		});
 		
 		comboBoxY.setBounds(232, 125, 34, 14);
 		contentPane.add(comboBoxY);
-		comboBoxY.addItem(0);
-		comboBoxY.addItem(1);
-		comboBoxY.addItem(2);
-		comboBoxY.addItem(3);
-		comboBoxY.addItem(4);
-		comboBoxY.addItem(5);
-		comboBoxY.addItem(6);
-		comboBoxY.addItem(7);
-		comboBoxY.addItem(8);
-		comboBoxY.addItem(9);
-		comboBoxY.addItem(10);
-		comboBoxY.addItem(11);
-		comboBoxY.addItem(12);
-		comboBoxY.addItem(13);
-		comboBoxY.addItem(14);
-		comboBoxY.addItem(15);
-		comboBoxY.addItem(16);
-		comboBoxY.addItem(17);
-		comboBoxY.addItem(18);
-		comboBoxY.addItem(19);
+		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
+		{
+			comboBoxY.addItem(j);
+		}
 		
 		comboBoxY.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
-				positionY = (Integer) combo.getSelectedItem();
+				roomPositionY = (Integer) combo.getSelectedItem();
 					
 			}
 		});
@@ -219,23 +181,25 @@ public class AddRoomGUI extends JFrame {
 		
 		contentPane.add(lblLength);
 		
-		
-		textField_2.addActionListener(new ActionListener() {
+//TODO ça fonctionne pas ça, on rentre jamais dedans
+		textFieldWidth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				width = Integer.parseInt(textField_2.getText());
+				roomWidth = Integer.parseInt(textFieldWidth.getText());
+System.err.println(roomWidth);
 			}
 		});
-		textField_2.setBounds(179, 91, 34, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldWidth.setBounds(179, 91, 34, 20);
+		contentPane.add(textFieldWidth);
+		textFieldWidth.setColumns(10);
 		
-		textField_1.addActionListener(new ActionListener() {
+		textFieldLength.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				lenght = Integer.parseInt(textField_1.getText());
+				roomLenght = Integer.parseInt(textFieldLength.getText());
+System.err.println(roomLenght);
 			}
 		});
-		textField_1.setBounds(272, 91, 34, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldLength.setBounds(272, 91, 34, 20);
+		contentPane.add(textFieldLength);
+		textFieldLength.setColumns(10);
 	}
 }

@@ -33,7 +33,7 @@ public class tests
 		Room kitchen = new Room("kitchen", 1, 2, kitchenCategory);
 		
 			//Add rooms
-		apartment.addRoom(bedroom, 3, 4, grid);
+		apartment.addRoom(bedroom, 1, 1, grid);
 		apartment.addRoom(kitchen, 9, 3, grid);
 		
 			//Add furniture to rooms

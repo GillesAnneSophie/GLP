@@ -289,6 +289,7 @@ public class ToolbarGUI extends JFrame {
 				name = name.toLowerCase();
 				AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
 				AddFurnitureGUI.main(selectedFurniture, keepGrid);
+				addFurniture.setModel(listRooms);
 			}
 		}
 
