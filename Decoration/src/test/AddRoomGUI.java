@@ -25,6 +25,8 @@ public class AddRoomGUI extends JFrame {
 	private int positionX;
 	private int positionY;
 	private int n;
+	private int width;
+	private int lenght;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
@@ -42,6 +44,9 @@ public class AddRoomGUI extends JFrame {
 	private final JLabel lblLength = new JLabel("Length:");
 
 	private Random rand = new Random();
+	
+	private JTextField textField_2 = new JTextField();
+	private JTextField textField_1 = new JTextField();;
 	
 //TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
 	
@@ -99,31 +104,31 @@ public class AddRoomGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (stringRoom == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
-					Room kitchen = new Room("kitchen"+n, positionX, positionY, kitchenCategory);
+					Room kitchen = new Room("kitchen"+n, width, lenght, kitchenCategory);
 					apartment.addRoom(kitchen,positionX,positionY,grid);
 					roomList.put(null, kitchen);
 				}
 				if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
-					Room diningRoom = new Room("diningRoom"+n, positionX, positionY, diningRoomCategory);
+					Room diningRoom = new Room("diningRoom"+n, width, lenght, diningRoomCategory);
 					apartment.addRoom(diningRoom,positionX,positionY,grid);
 					roomList.put(null,diningRoom );
 				}
 				if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
-					Room livingRoom = new Room("livingRoom"+n, positionX, positionY, livingRoomCategory);
+					Room livingRoom = new Room("livingRoom"+n, width, lenght, livingRoomCategory);
 					apartment.addRoom(livingRoom,positionX,positionY,grid);
 					roomList.put(null, livingRoom);
 				}
 				if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
-					Room bedroomOffice = new Room("bedroomOffice"+n, positionX, positionY, bedroomOfficeCategory);
+					Room bedroomOffice = new Room("bedroomOffice"+n, width, lenght, bedroomOfficeCategory);
 					apartment.addRoom(bedroomOffice,positionX,positionY,grid);
 					roomList.put(null, bedroomOffice);
 				}
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
-					Room bathroom = new Room("bathroom"+n, positionX, positionY, bathroomCategory);
+					Room bathroom = new Room("bathroom"+n, width, lenght, bathroomCategory);
 					apartment.addRoom(bathroom,positionX,positionY,grid);
 					roomList.put(null, bathroom);
 				}
@@ -213,5 +218,24 @@ public class AddRoomGUI extends JFrame {
 		lblLength.setBounds(232, 94, 46, 17);
 		
 		contentPane.add(lblLength);
+		
+		
+		textField_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				width = Integer.parseInt(textField_2.getText());
+			}
+		});
+		textField_2.setBounds(179, 91, 34, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lenght = Integer.parseInt(textField_1.getText());
+			}
+		});
+		textField_1.setBounds(272, 91, 34, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 	}
 }
