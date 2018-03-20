@@ -69,22 +69,7 @@ public class RemoveRoomGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
 				chosenRoom = (String) combo.getSelectedItem();	
-
-				if (chosenRoom == "Kitchen") {
-					apartment.removeRoom("kitchen", grid);
-				}
-				if (chosenRoom == "Dining Room") {
-					apartment.removeRoom("diningRoom", grid);
-				}
-				if (chosenRoom == "Living Room") {
-					apartment.removeRoom("livingRoom", grid);
-				}
-				if (chosenRoom == "Bedroom/Office") {
-					apartment.removeRoom("bedroomOffice", grid);
-				}
-				if(chosenRoom == "Bathroom") {
-					apartment.removeRoom("bathroom", grid);
-				}
+				apartment.removeRoom(chosenRoom, grid);
 			}
 		});
 		
