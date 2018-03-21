@@ -186,7 +186,7 @@ public class ToolbarGUI extends JFrame {
 		addFurniture = new JList<String>();
 		addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addFurniture.setLayoutOrientation(JList.VERTICAL);
-		addFurniture.setBounds(135, 51, 144, 161);
+		addFurniture.setBounds(135, 51, 0, 0);
 		addFurniture.addMouseListener(new ClickAction());
 		
 		listPanel.add(addFurniture);
