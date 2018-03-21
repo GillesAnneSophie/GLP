@@ -137,7 +137,7 @@ public class AddFurnitureGUI extends JFrame {
 				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); //TODO quand impl�ment�s + en dessous
 				//furnitureColor = comboBoxColor.getSelectedItem().toString();
 							
-				currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid);
+				currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid); //TODO tjr le meme pb avec la jcombobox
 				
 				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/)
 				{
