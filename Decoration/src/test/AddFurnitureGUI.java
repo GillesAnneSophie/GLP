@@ -1,21 +1,21 @@
 package test;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import catalog.Style;
 import place.AbstractRoom;
 import place.Grid;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.SwingConstants;
 
 public class AddFurnitureGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -25,14 +25,17 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel lblStyle = new JLabel ("Choose the style:");
 	private JLabel lblColor = new JLabel ("Choose the color:");
 	
-	private JTextField textField_1 = new JTextField();
-	private JTextField textField_2 = new JTextField();
+	private int furniturePositionY;
+	private int furniturePositionX;
 	
-	private int width;
-	private int length;
+	private JLabel lblPosition = new JLabel ("Coordonates:");
+	private JLabel lblX = new JLabel("X");
+	private JLabel furnitureName ;
 	
 	private JComboBox<Style> comboBoxStyle = new JComboBox<Style> ();
 	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
+	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
+	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
 	
 	private JButton btnAdd = new JButton ("Add");
 
@@ -57,31 +60,73 @@ public class AddFurnitureGUI extends JFrame {
 	 */
 	public AddFurnitureGUI(AbstractRoom furniture, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 454, 209);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		lblColor.setBounds(47, 65, 103, 15);
 		
-		textField_1.setBounds(179, 94, 34, 17);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);	
-		textField_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				width = Integer.parseInt(textField_1.getText()) ;
-			}			
+		furnitureName = new JLabel (furniture.getName().toUpperCase());
+		furnitureName.setHorizontalAlignment(SwingConstants.CENTER);
+		furnitureName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		furnitureName.setLocation(138, 0);
+		furnitureName.setSize(161, 55);
+		contentPane.add(furnitureName);
+		
+		contentPane.add(lblColor);
+		lblStyle.setBounds(47, 95, 103, 15);
+		
+		contentPane.add(lblStyle);
+		comboBoxColor.setBounds(143, 60, 71, 22);
+		
+		contentPane.add(comboBoxColor);
+		comboBoxStyle.setBounds(143, 90, 71, 22);
+		
+		contentPane.add(comboBoxStyle);
+		lblPosition.setBounds(67, 125, 66, 15);
+		
+		contentPane.add(lblPosition);
+		comboBoxX.setBounds(205, 120, 45, 22);
+		
+		contentPane.add(comboBoxX);
+		comboBoxY.setBounds(143, 120, 45, 22);
+		comboBoxX.setBounds(179, 110, 34, 15);
+		contentPane.add(comboBoxX);
+		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
+		{
+			comboBoxX.addItem(i);
+		}
+		
+		comboBoxX.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent arg0) {
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
+				furniturePositionX = (Integer) combo.getSelectedItem();
+				
+			}
 		});
 		
-		textField_2.setBounds(270, 94, 34, 17);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		textField_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				length = Integer.parseInt(textField_2.getText());
-			}			
-		});
+		comboBoxY.setBounds(232, 110, 34, 15);
+		contentPane.add(comboBoxY);
+		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
+		{
+			comboBoxY.addItem(j);
+		}
 		
+		comboBoxY.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent arg0) {
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
+				furniturePositionY = (Integer) combo.getSelectedItem();
+					
+			}
+		});
+		contentPane.add(comboBoxY);
+		
+		lblX.setBounds(195, 125, 19, 14);
+		contentPane.add(lblX);
+	
+		btnAdd.setBounds(294, 95, 89, 23);
+		contentPane.add(btnAdd);
 		//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
 	}
-
 }
