@@ -3,8 +3,9 @@ package test;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
 import javax.swing.border.EmptyBorder;
+
+import java.util.HashMap;
 
 import place.*;
 
@@ -28,6 +29,8 @@ public class RemoveRoomGUI extends JFrame {
 	
 	/**
 	 * Launch the application
+	 * @param apartment
+	 * @param grid
 	 */
 	public static void main(Apartment apartment, Grid grid){
 		EventQueue.invokeLater(new Runnable() {
@@ -47,6 +50,8 @@ public class RemoveRoomGUI extends JFrame {
 	
 	/**
 	 * Create the frame
+	 * @param apartment
+	 * @param grid
 	 */
 	public RemoveRoomGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

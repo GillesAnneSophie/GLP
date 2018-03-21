@@ -3,10 +3,10 @@ package test;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import java.util.HashMap;
 
 import place.*;
 
@@ -29,7 +29,9 @@ public class RemoveFurnitureGUI extends JFrame {
 	
 	
 	/**
-	 * Launch the application.
+	 * Launch the application
+	 * @param apartment
+	 * @param grid
 	 */
 	public static void main(Apartment apartment, Grid grid) {
 		EventQueue.invokeLater(new Runnable() {
@@ -46,7 +48,9 @@ public class RemoveFurnitureGUI extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame
+	 * @param apartment
+	 * @param grid
 	 */
 	public RemoveFurnitureGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -1,23 +1,19 @@
 package test;
 
 import java.awt.EventQueue;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import catalog.Style;
-import place.AbstractRoom;
-import place.Apartment;
-import place.Grid;
-import place.Room;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.SwingConstants;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
+import catalog.Style;
+import place.*;
+
+/**
+ * @author CORALIE Laury Ann
+ * @author GILLES Anne-Sophie
+ */
 public class AddFurnitureGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -25,13 +21,9 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private JLabel lblStyle = new JLabel ("Choose the style:");
 	private JLabel lblColor = new JLabel ("Choose the color:");
-	
-	private int furniturePositionY;
-	private int furniturePositionX;
-	
 	private JLabel lblPosition = new JLabel ("Coordinates:");
 	private JLabel lblX = new JLabel("X");
-	private JLabel furnitureName ;
+	private JLabel furnitureName;
 	
 	private JComboBox<Style> comboBoxStyle = new JComboBox<Style> ();
 	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
@@ -41,10 +33,15 @@ public class AddFurnitureGUI extends JFrame {
 	private JButton btnAdd = new JButton ("Add");
 
 	private Room currentRoom;
+	private int furniturePositionY;
+	private int furniturePositionX;
 	
 	/**
 	 * Launch the application.
-	 * @param chosenRoom 
+	 * @param furniture
+	 * @param grid
+	 * @param chosenRoom
+	 * @param apartment 
 	 */
 	public static void main(AbstractRoom furniture, Grid grid, String chosenRoom, Apartment apartment) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,7 +58,9 @@ public class AddFurnitureGUI extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @param chosenRoom 
+	 * @param furniture
+	 * @param grid 
+	 * @param chosenRoom
 	 * @param apartment 
 	 */
 	public AddFurnitureGUI(AbstractRoom furniture, Grid grid, String chosenRoom, Apartment apartment) {

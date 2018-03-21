@@ -3,14 +3,14 @@ package test;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 import javax.swing.border.EmptyBorder;
 
 import catalog.Category;
 import categories.*;
 import place.*;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
+
 
 /**
  * @author CORALIE Laury Ann
@@ -50,6 +50,8 @@ public class AddRoomGUI extends JFrame {
 	
 	/**
 	 * Launch the application
+	 * @param apartment
+	 * @param grid
 	 */
 	public static void main(Apartment apartment, Grid grid) {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,6 +71,8 @@ public class AddRoomGUI extends JFrame {
 	
 	/**
 	 * Create the frame
+	 * @param apartment
+	 * @param grid
 	 */
 	public AddRoomGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

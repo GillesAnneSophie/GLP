@@ -3,7 +3,6 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
 import javax.swing.border.EmptyBorder;
 
 import catalog.*;
@@ -51,6 +50,9 @@ public class ToolbarGUI extends JFrame {
 	
 	/**
 	 * Launch the application
+	 * @param apartment
+	 * @param grid
+	 * @param catalog
 	 */
 	public static void main(Apartment apartment, Grid grid, Catalog catalog) {
 		EventQueue.invokeLater(new Runnable() {
@@ -70,6 +72,9 @@ public class ToolbarGUI extends JFrame {
 	
 	/**
 	 * Create the frame
+	 * @param apartment
+	 * @param grid
+	 * @param catalog
 	 */
 	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog) {
 		keepGrid = grid;

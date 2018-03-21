@@ -1,10 +1,8 @@
 package test;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
@@ -14,7 +12,7 @@ import place.Grid;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class DesignGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -37,6 +35,7 @@ public class DesignGUI extends JFrame {
 	
 	/**
 	 * Launch the application
+	 * @param args
 	 */
 	public static void main(String[] args){
 		EventQueue.invokeLater(new Runnable() {
