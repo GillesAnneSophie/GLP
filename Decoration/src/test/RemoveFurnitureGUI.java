@@ -27,8 +27,8 @@ public class RemoveFurnitureGUI extends JFrame {
 	
 	private JButton btnRemove = new JButton ("Remove");
 
-	private Room chosenRoom;
-	private AbstractRoom chosenFurniture;
+	private Room chosenRoom = null;
+	private AbstractRoom chosenFurniture = null;
 	
 	/**
 	 * Launch the application.
@@ -66,15 +66,6 @@ public class RemoveFurnitureGUI extends JFrame {
 		contentPane.setLayout(null);
 		comboBoxRoom.setBounds(284, 31, 99, 20);
 		contentPane.add(comboBoxRoom);
-		comboBoxRoom.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
-				chosenFurniture = (AbstractRoom) combo.getSelectedItem();	
-				chosenRoom.removeFurniture(chosenFurniture.getName(), grid, apartment.getRoomsList());
-				
-			}
-		});
 		
 		btnRemove.setBounds(390, 64, 109, 18);
 		contentPane.add(btnRemove);
@@ -87,19 +78,17 @@ public class RemoveFurnitureGUI extends JFrame {
 		
 		comboBoxFurniture.setBounds(284, 92, 99, 20);
 		contentPane.add(comboBoxFurniture);
-		comboBoxFurniture.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
-				String chosenFurniture = (String) combo.getSelectedItem();	
-				chosenRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList());
-			}
-		});
 		
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
+				String chosenFurniture = (String) comboBoxFurniture.getSelectedItem();
+				String chosenRoomName = (String) comboBoxRoom.getSelectedItem();
+				if(chosenRoomName!=null && chosenFurniture!=null)
+				{
+					Room chosenRoom = apartment.getRoom(chosenRoomName);
+					chosenRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList());
+				}
 			}
-		});	
-
+		});
 	}
 }
