@@ -182,12 +182,9 @@ public class AddRoomGUI extends JFrame {
 		contentPane.add(lblLength);
 		
 			
-
-//TODO �a fonctionne pas �a, on rentre jamais dedans
 		textFieldWidth.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
 				roomWidth = (int) textFieldWidth.getValue();
-				System.err.println(roomWidth);
 			}
 		});
 		textFieldWidth.setBounds(164, 78, 34, 20);
@@ -197,7 +194,6 @@ public class AddRoomGUI extends JFrame {
 		textFieldLength.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
 				roomLenght = (int) textFieldLength.getValue();
-				System.err.println(roomLenght);
 			}
 		});
 		textFieldLength.setBounds(272, 78, 34, 20);
