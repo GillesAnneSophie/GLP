@@ -10,8 +10,9 @@ import catalog.*;
 import place.*;
 
 /**
- * @author ZOUHOUDI Chabani
  * @author CORALIE Laury Ann
+ * @author GILLES Anne-Sophie
+ * @author ZOUHOUDI Chabani
  */
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;

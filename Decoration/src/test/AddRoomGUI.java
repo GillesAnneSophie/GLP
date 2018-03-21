@@ -14,7 +14,7 @@ import javax.swing.event.ChangeEvent;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class AddRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;

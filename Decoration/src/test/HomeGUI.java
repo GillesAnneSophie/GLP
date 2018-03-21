@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 /**
  * @author ZOUHOUDI Chabani
+ * @author GILLES Anne-Sophie
  * @author CORALIE Laury Ann
  */
 public class HomeGUI extends JFrame {
