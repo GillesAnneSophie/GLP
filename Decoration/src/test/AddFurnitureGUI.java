@@ -4,10 +4,18 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import catalog.Category;
 import catalog.Style;
+import categories.Bathroom;
+import categories.BedroomOffice;
+import categories.DiningRoom;
+import categories.Kitchen;
+import categories.LivingRoom;
 import place.*;
 
 /**
@@ -24,20 +32,24 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel lblPosition = new JLabel ("Coordinates:");
 	private JLabel lblX = new JLabel("X");
 	private JLabel furnitureName;
+	private JLabel lblRoom = new JLabel ("Choose the room:");
 	
 	private JComboBox<Style> comboBoxStyle = new JComboBox<Style> ();
 	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
 	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
+	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
 	private JButton btnAdd = new JButton ("Add");
 
 	private Room currentRoom = null;
+	
 	private int furniturePositionY = -1;
 	private int furniturePositionX = -1;
-	//private String furnitureStyle = null; //TODO quand style + color sera implémenté
-	//private String furnitureColor = null;
 	
+	//private String furnitureStyle = null; //TODO quand style + color sera implï¿½mentï¿½
+	//private String furnitureColor = null;
+	private String currentRoomName;
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -111,6 +123,9 @@ public class AddFurnitureGUI extends JFrame {
 		lblX.setBounds(195, 125, 19, 14);
 		contentPane.add(lblX);
 		
+		lblRoom.setBounds(195,300,19,14);
+		contentPane.add(lblRoom);
+		
 		btnAdd.setBounds(294, 95, 89, 23);
 		contentPane.add(btnAdd);
 		
@@ -118,16 +133,31 @@ public class AddFurnitureGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
-				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); //TODO quand implémentés + en dessous
+				currentRoom = apartment.getRoom(currentRoomName);
+				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); //TODO quand implï¿½mentï¿½s + en dessous
 				//furnitureColor = comboBoxColor.getSelectedItem().toString();
-				
-				//TODO ajouter une case pour le choix de la pièce, ça pourra pas fonctionner avant ça :/
-				//currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid);
+							
+				currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid);
 				
 				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/)
 				{
 					dispose();
 				}
+			}
+		});
+		
+		comboBoxRoom.setBounds(179, 39, 99, 20);
+		contentPane.add(comboBoxRoom);
+		comboBoxRoom.addItem("Kitchen");
+		comboBoxRoom.addItem("Bathroom");
+		comboBoxRoom.addItem("Bedroom/Office");
+		comboBoxRoom.addItem("Dining Room");
+		comboBoxRoom.addItem("Living Room");
+		
+		comboBoxRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
+				currentRoomName = (String) combo.getSelectedItem();	
 			}
 		});
 		

@@ -158,7 +158,7 @@ public class AddRoomGUI extends JFrame {
 				
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
-					Room bathroom = new Room("bathroom", roomWidth, roomLength, bathroomCategory);
+					Room bathroom = new Room("Bathroom", roomWidth, roomLength, bathroomCategory);
 					if(!apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
@@ -167,7 +167,7 @@ public class AddRoomGUI extends JFrame {
 				}
 				else if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
-					Room bedroomOffice = new Room("bedroomOffice", roomWidth, roomLength, bedroomOfficeCategory);
+					Room bedroomOffice = new Room("Bedroom/Office", roomWidth, roomLength, bedroomOfficeCategory);
 					if(!apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
@@ -176,7 +176,7 @@ public class AddRoomGUI extends JFrame {
 				}
 				else if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
-					Room diningRoom = new Room("diningRoom", roomWidth, roomLength, diningRoomCategory);
+					Room diningRoom = new Room("Dining Room", roomWidth, roomLength, diningRoomCategory);
 					if(!apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
@@ -185,7 +185,7 @@ public class AddRoomGUI extends JFrame {
 				}
 				else if (stringRoom == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
-					Room kitchen = new Room("kitchen", roomWidth, roomLength, kitchenCategory);
+					Room kitchen = new Room("Kitchen", roomWidth, roomLength, kitchenCategory);
 					if(!apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
@@ -194,7 +194,7 @@ public class AddRoomGUI extends JFrame {
 				}
 				else if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
-					Room livingRoom = new Room("livingRoom", roomWidth, roomLength, livingRoomCategory);
+					Room livingRoom = new Room("Living Room", roomWidth, roomLength, livingRoomCategory);
 					if(!apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
