@@ -22,7 +22,6 @@ public class RemoveFurnitureGUI extends JFrame {
 	private JLabel lblChooseRoom = new JLabel("Choose the room to remove the furniture from:");
 	private JLabel lblChooseTheFurniture = new JLabel("Choose the furniture to remove:");
 	
-	private JComboBox <String>comboBox = new JComboBox <String>();
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<String> comboBoxFurniture = new JComboBox<String>();
 	
@@ -62,7 +61,7 @@ public class RemoveFurnitureGUI extends JFrame {
 		HashMap<Integer, Room> room = apartment.getRoomsList();
 		for (int index=0 ; index<room.size() ; index++) {
 			String roomName = room.get(index).getName();
-			comboBox.addItem (roomName);
+			comboBoxRoom.addItem (roomName);
 		}
 		contentPane.setLayout(null);
 		comboBoxRoom.setBounds(284, 31, 99, 20);

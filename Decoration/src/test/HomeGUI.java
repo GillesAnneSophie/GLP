@@ -16,7 +16,7 @@ public class HomeGUI extends JFrame {
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
 	
-	/*private JLabel lblName = new JLabel("Manag'Apart");*/ // TODO Je pense qu'on devrait voter pour le nom. Proposez vos nom, y a pas de soucis. Mais quand j'ai demandé, personne n'a rien dit ^^'
+	/*private JLabel lblName = new JLabel("Manag'Apart");*/ // TODO Je pense qu'on devrait voter pour le nom. Proposez vos nom, y a pas de soucis. Mais quand j'ai demandï¿½, personne n'a rien dit ^^'
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
 	private final JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management' or continue a previous magament with 'Open a existing management'");
@@ -93,7 +93,7 @@ public class HomeGUI extends JFrame {
 			  public void windowClosing(WindowEvent e) {
 			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
 			    if (confirmed == JOptionPane.YES_OPTION) {
-			    		dispose();
+			    		System.exit(0);
 			    }
 			  }
 			});

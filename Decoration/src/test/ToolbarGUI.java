@@ -16,7 +16,7 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Grid keepGrid; // �a sert � r�cuperer la grid pour l'envoyer dans AddRoomGUI m�thode tout en bas (ClickAction)
+	private Grid keepGrid; 
 	private Catalog keepCatalog;
 	
 	private JPanel contentPane;
@@ -144,7 +144,8 @@ public class ToolbarGUI extends JFrame {
 				chosenRoom = (String) combo.getSelectedItem(); 
 				switch (chosenRoom) {
 					case "-- Select a room to see the furnitures --":
-						addFurniture.setModel(listEmpty);	//TODO enlever la liste
+						//addFurniture.setModel(listEmpty);	//TODO enlever la liste
+						
 						break;
 					case "Kitchen":
 						addFurniture.setModel(listKitchen);
@@ -182,15 +183,15 @@ public class ToolbarGUI extends JFrame {
 		
 		listPanel.add(addFurniture);
 		
-	
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
 				    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the toolbar?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
 				    if (confirmed == JOptionPane.YES_OPTION) {
-				    		dispose();
+				    		System.exit(0);
 				    }
 			  }
 		});
+		
 	}
 	
 	
