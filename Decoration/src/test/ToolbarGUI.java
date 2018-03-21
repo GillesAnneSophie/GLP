@@ -16,7 +16,7 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Grid keepGrid; //TODO ca sert à quoi? stp > ça sert à récuperer la grid pour l'envoyer dans AddRoomGUI (peut etre plus besoin avec ta méthode, A VOIR)
+	private Grid keepGrid; // ça sert à récuperer la grid pour l'envoyer dans AddRoomGUI méthode tout en bas (ClickAction)
 	private Catalog keepCatalog;
 	
 	private JPanel contentPane;
@@ -31,6 +31,8 @@ public class ToolbarGUI extends JFrame {
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
 	
+	private final JList<String> addFurniture;
+	private DefaultListModel<String> listEmpty;
 	private DefaultListModel<String> listBathroom;
 	private DefaultListModel<String> listBedroomOffice;
 	private DefaultListModel<String> listDiningRoom;
@@ -39,16 +41,13 @@ public class ToolbarGUI extends JFrame {
 	private DefaultListModel<String> listLivingRoom;
 	private DefaultListModel<String> listWall;
 	
-	private String [] room = {"-- Select a room to see the furnitures --","Kitchen","Living Room","Dining Room","Bedroom/Office","Bathroom","Wall","Floor"};
+	private String [] room = {"-- Select a room to see the furnitures --", "Bathroom", "Bedroom/Office","Kitchen","Living Room","Dining Room","Wall","Floor"};
 	private String chosenRoom;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
 	private JPanel listPanel;
-	private final JList<String> addFurniture = new JList<String>();
 
-	
-	
 	
 	/**
 	 * Launch the application
@@ -113,6 +112,8 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(separator_1);
 		toolBar.add(btnRemoveAFurniture);
 		
+		
+		listEmpty = new DefaultListModel<String>(); 
 		listBathroom = new DefaultListModel<String>();
 		listBedroomOffice = new DefaultListModel<String>();
 		listDiningRoom = new DefaultListModel<String>();
@@ -142,8 +143,7 @@ public class ToolbarGUI extends JFrame {
 				chosenRoom = (String) combo.getSelectedItem(); 
 				switch (chosenRoom) {
 					case "-- Select a room to see the furnitures --":
-						DefaultListModel<String> curentModel = (DefaultListModel) addFurniture.getModel();
-						curentModel.clear();
+						addFurniture.setModel(listEmpty);
 						break;
 					case "Kitchen":
 						addFurniture.setModel(listKitchen);
@@ -172,9 +172,12 @@ public class ToolbarGUI extends JFrame {
 		comboBoxRoom.setToolTipText("");
 		comboBoxRoom.setLocation(100, 5);
 		comboBoxRoom.setSize(213, 20);
+		
+		addFurniture = new JList<String>();
 		addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addFurniture.setLayoutOrientation(JList.VERTICAL);
 		addFurniture.setBounds(135, 51, 144, 161);
+		addFurniture.addMouseListener(new ClickAction());
 		
 		listPanel.add(addFurniture);
 		
@@ -262,5 +265,37 @@ public class ToolbarGUI extends JFrame {
 		listWall.addElement("Small window");
 		listWall.addElement("Large window");
 		listWall.addElement("Pictures");
+	}
+	
+	class ClickAction implements MouseListener
+	{
+		public void mouseClicked(MouseEvent e) 
+		{
+			if(addFurniture.getModel()!=listEmpty)
+			{
+				int selectedItem = addFurniture.getSelectedIndex();
+				String name = (String) addFurniture.getModel().getElementAt(selectedItem);
+				
+				if(!name.isEmpty())
+				{
+					name = name.toLowerCase();
+					AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
+					AddFurnitureGUI.main(selectedFurniture, keepGrid);
+				}
+			}
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+		}
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+		}
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+		}
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+		}
 	}
 }
