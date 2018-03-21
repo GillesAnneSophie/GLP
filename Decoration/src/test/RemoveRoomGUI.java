@@ -39,7 +39,6 @@ public class RemoveRoomGUI extends JFrame {
 					RemoveRoomGUI frame = new RemoveRoomGUI(apartment, grid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Remove a room");
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,20 +57,25 @@ public class RemoveRoomGUI extends JFrame {
 		setBounds(100, 100, 449, 198);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setContentPane(contentPane);
 				
 		lblChooseTheRoom.setBounds(10, 56, 166, 14);
 		contentPane.add(lblChooseTheRoom);		
 
 		comboBox.setBounds(209, 53, 99, 20);
+		contentPane.add(comboBox);
+		
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
+		
 		for (int index=0 ; index<roomsList.size() ; index++) 
 		{
 			String roomListName = roomsList.get(index).getName();
 			comboBox.addItem (index + "-" + roomListName);
 		}
-		contentPane.add(comboBox);
+		
+		btnRemove.setBounds(337, 52, 86, 23);
+		contentPane.add(btnRemove);
 		
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -85,8 +89,5 @@ public class RemoveRoomGUI extends JFrame {
 				}
 			}
 		});
-		
-		btnRemove.setBounds(337, 52, 86, 23);
-		contentPane.add(btnRemove);
 	}
 }

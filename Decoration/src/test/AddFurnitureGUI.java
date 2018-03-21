@@ -32,23 +32,25 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private JButton btnAdd = new JButton ("Add");
 
-	private Room currentRoom;
-	private int furniturePositionY;
-	private int furniturePositionX;
+	private Room currentRoom = null;
+	private int furniturePositionY = -1;
+	private int furniturePositionX = -1;
+	//private String furnitureStyle = null; //TODO quand style + color sera implémenté
+	//private String furnitureColor = null;
 	
 	/**
 	 * Launch the application.
 	 * @param furniture
 	 * @param grid
-	 * @param chosenRoom
 	 * @param apartment 
 	 */
-	public static void main(AbstractRoom furniture, Grid grid, String chosenRoom, Apartment apartment) {
+	public static void main(AbstractRoom furniture, Grid grid, Apartment apartment) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid,chosenRoom,apartment);
+					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid,apartment);
 					frame.setVisible(true);
+					frame.setTitle("Manag'Apart - Add a furniture");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,91 +58,79 @@ public class AddFurnitureGUI extends JFrame {
 		});
 	}
 
+	
 	/**
 	 * Create the frame.
-	 * @param furniture
-	 * @param grid 
-	 * @param chosenRoom
+	 * @param furnitureToAdd
+	 * @param grid
 	 * @param apartment 
 	 */
-	public AddFurnitureGUI(AbstractRoom furniture, Grid grid, String chosenRoom, Apartment apartment) {
+	public AddFurnitureGUI(AbstractRoom furnitureToAdd, Grid grid, Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 454, 209);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblColor.setBounds(47, 65, 103, 15);
 		
-		furnitureName = new JLabel (furniture.getName().toUpperCase());
+		furnitureName = new JLabel (furnitureToAdd.getName().toUpperCase());
 		furnitureName.setHorizontalAlignment(SwingConstants.CENTER);
 		furnitureName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		furnitureName.setLocation(138, 0);
 		furnitureName.setSize(161, 55);
 		contentPane.add(furnitureName);
 		
+		lblColor.setBounds(47, 65, 103, 15);
 		contentPane.add(lblColor);
+		
 		lblStyle.setBounds(47, 95, 103, 15);
-		
 		contentPane.add(lblStyle);
+		
 		comboBoxColor.setBounds(143, 60, 71, 22);
-		
 		contentPane.add(comboBoxColor);
+		
 		comboBoxStyle.setBounds(143, 90, 71, 22);
-		
 		contentPane.add(comboBoxStyle);
+		
 		lblPosition.setBounds(47, 125, 86, 15);
-		
 		contentPane.add(lblPosition);
-		comboBoxX.setBounds(138, 125, 45, 22);
 		
-		contentPane.add(comboBoxX);
-		comboBoxY.setBounds(205, 125, 35, 15);
 		comboBoxX.setBounds(143, 125, 34, 15);
 		contentPane.add(comboBoxX);
+		comboBoxY.setBounds(205, 125, 35, 15);
+		contentPane.add(comboBoxY);
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
 			comboBoxX.addItem(i);
 		}
-		
-		comboBoxX.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
-				furniturePositionX = (Integer) combo.getSelectedItem();
-				
-			}
-		});
-		
-		contentPane.add(comboBoxY);
 		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
 		{
 			comboBoxY.addItem(j);
 		}
 		
-		comboBoxY.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
-				furniturePositionY = (Integer) combo.getSelectedItem();
-					
-			}
-		});
-		contentPane.add(comboBoxY);
-		
 		lblX.setBounds(195, 125, 19, 14);
 		contentPane.add(lblX);
 		
-		btnAdd.addActionListener(new ActionListener() {
-			
-
-			public void actionPerformed(ActionEvent arg0) {
-				currentRoom = apartment.getRoom(chosenRoom.toLowerCase());
-				currentRoom.addFurniture(furniture, furniturePositionX, furniturePositionY, grid);
-				dispose ();
-			}
-		});
-	
 		btnAdd.setBounds(294, 95, 89, 23);
 		contentPane.add(btnAdd);
+		
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
+				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
+				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); //TODO quand implémentés + en dessous
+				//furnitureColor = comboBoxColor.getSelectedItem().toString();
+				
+				//TODO ajouter une case pour le choix de la pièce, ça pourra pas fonctionner avant ça :/
+				//currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid);
+				
+				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/)
+				{
+					dispose();
+				}
+			}
+		});
+		
 		//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
 	}
 }

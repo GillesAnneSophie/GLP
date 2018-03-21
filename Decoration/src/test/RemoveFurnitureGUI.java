@@ -39,7 +39,7 @@ public class RemoveFurnitureGUI extends JFrame {
 				try {
 					RemoveFurnitureGUI frame = new RemoveFurnitureGUI(apartment, grid);
 					frame.setVisible(true);
-					frame.setTitle("Remove a furniture");
+					frame.setTitle("Manag'Apart - Remove a furniture");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -47,6 +47,7 @@ public class RemoveFurnitureGUI extends JFrame {
 		});
 	}
 
+	
 	/**
 	 * Create the frame
 	 * @param apartment
@@ -57,15 +58,16 @@ public class RemoveFurnitureGUI extends JFrame {
 		setBounds(100, 100, 525, 205);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		
 		HashMap<Integer, Room> room = apartment.getRoomsList();
+		
 		for (int index=0 ; index<room.size() ; index++) {
 			String roomName = room.get(index).getName();
 			comboBoxRoom.addItem (roomName);
 		}
-		contentPane.setLayout(null);
+		
 		comboBoxRoom.setBounds(284, 31, 99, 20);
 		contentPane.add(comboBoxRoom);
 		

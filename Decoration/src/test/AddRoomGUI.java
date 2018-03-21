@@ -21,18 +21,10 @@ public class AddRoomGUI extends JFrame {
 	
 	private JPanel contentPane;
 	
-
-	private int roomPositionX=-1;
-	private int roomPositionY=-1;
-	private int roomWidth=-1;
-	private int roomLength=-1;
-	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
 	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
 
-	private String stringRoom;
-	
 	private JButton btnEnter = new JButton("Add");
 	
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to add:");
@@ -47,6 +39,12 @@ public class AddRoomGUI extends JFrame {
 	private JSpinner textFieldWidth = new JSpinner(spinnerModel1);
 	private JSpinner textFieldLength = new JSpinner(spinnerModel2);
 	
+	private String stringRoom;
+	private int roomPositionX=-1;
+	private int roomPositionY=-1;
+	private int roomWidth=-1;
+	private int roomLength=-1;
+	
 	
 	/**
 	 * Launch the application
@@ -59,8 +57,7 @@ public class AddRoomGUI extends JFrame {
 				try {
 					AddRoomGUI frame = new AddRoomGUI(apartment, grid);
 					frame.setVisible(true);
-				    frame.setTitle("Manag'Apart - Add a Room");
-
+				    frame.setTitle("Manag'Apart - Add a room");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -81,13 +78,6 @@ public class AddRoomGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		comboBoxRoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
-				stringRoom = (String) combo.getSelectedItem();	
-			}
-		});
-		
 		comboBoxRoom.setBounds(179, 39, 99, 20);
 		contentPane.add(comboBoxRoom);
 		comboBoxRoom.addItem("Kitchen");
@@ -95,6 +85,13 @@ public class AddRoomGUI extends JFrame {
 		comboBoxRoom.addItem("Bedroom/Office");
 		comboBoxRoom.addItem("Dining Room");
 		comboBoxRoom.addItem("Living Room");
+		
+		comboBoxRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
+				stringRoom = (String) combo.getSelectedItem();	
+			}
+		});
 		
 		contentPane.add(btnEnter);
 		contentPane.setLayout(null);
@@ -106,10 +103,14 @@ public class AddRoomGUI extends JFrame {
 		contentPane.add(comboBoxX);
 		comboBoxY.setBounds(232, 110, 34, 15);
 		contentPane.add(comboBoxY);
+		
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
 			comboBoxX.addItem(i);
-			comboBoxY.addItem(i);
+		}
+		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
+		{
+			comboBoxY.addItem(j);
 		}
 		
 		lblX_2.setBounds(208, 78, 19, 14);

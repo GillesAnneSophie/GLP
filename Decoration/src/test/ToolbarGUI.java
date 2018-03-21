@@ -16,12 +16,9 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Grid keepGrid; 
-	private Catalog keepCatalog;
-	private Apartment keepApartment;
-	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
+	private JPanel listPanel;
 
 	private JToolBar toolBar = new JToolBar();
 	
@@ -40,12 +37,14 @@ public class ToolbarGUI extends JFrame {
 	private DefaultListModel<String> listLivingRoom;
 	private DefaultListModel<String> listWall;
 	
-	private String [] room = {"-- Select a room to add a furniture --", "Bathroom", "BedroomOffice","Kitchen","LivingRoom","DiningRoom","Wall","Floor"};
-	private String chosenRoom;
-	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
-	private JPanel listPanel;
+	private String [] room = {"-- Select a room to add a furniture --", "Bathroom", "BedroomOffice","Kitchen","LivingRoom","DiningRoom","Wall","Floor"};
+	private String chosenRoom;
+
+	private Grid keepGrid; 
+	private Catalog keepCatalog;
+	private Apartment keepApartment;
 
 	
 	/**
@@ -61,7 +60,6 @@ public class ToolbarGUI extends JFrame {
 					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - ToolBar");
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -89,8 +87,13 @@ public class ToolbarGUI extends JFrame {
 		setContentPane(contentPane);
 			
 		contentPane.add(panel, BorderLayout.CENTER);
-		
 		contentPane.add(toolBar, BorderLayout.NORTH);
+	
+		toolBar.add(btnAddARoom);
+		toolBar.add(separator);
+		toolBar.add(btnRemoveARoom);
+		toolBar.add(separator_1);
+		toolBar.add(btnRemoveAFurniture);
 		
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -98,26 +101,18 @@ public class ToolbarGUI extends JFrame {
 				AddRoomGUI.main(apartment, grid);
 			}
 		});
-		toolBar.add(btnAddARoom);
 		
 		btnRemoveARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				RemoveRoomGUI.main(apartment, grid);
 			}
 		});
-			
-		toolBar.add(separator);
-		toolBar.add(btnRemoveARoom);
 		
 		btnRemoveAFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				RemoveFurnitureGUI.main(apartment, grid);
 			}
 		});
-	
-		toolBar.add(separator_1);
-		toolBar.add(btnRemoveAFurniture);
-		
 		
 		listBathroom = new DefaultListModel<String>();
 		listBedroomOffice = new DefaultListModel<String>();
@@ -136,12 +131,15 @@ public class ToolbarGUI extends JFrame {
 		setListWall();
 		
 		listPanel = new JPanel();
-       
         getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
 		comboBoxRoom = new JComboBox<String>(room);
+		comboBoxRoom.setToolTipText("");
+		comboBoxRoom.setLocation(100, 5);
+		comboBoxRoom.setSize(213, 20);
 		listPanel.add(comboBoxRoom);
+		
 		comboBoxRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
@@ -182,16 +180,12 @@ public class ToolbarGUI extends JFrame {
 				}
 			}
 		});
-		comboBoxRoom.setToolTipText("");
-		comboBoxRoom.setLocation(100, 5);
-		comboBoxRoom.setSize(213, 20);
 		
 		addFurniture = new JList<String>();
 		addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		addFurniture.setLayoutOrientation(JList.VERTICAL);
 		addFurniture.setBounds(135, 51, 0, 0);
 		addFurniture.addMouseListener(new ClickAction());
-		
 		listPanel.add(addFurniture);
 		
 		addWindowListener(new WindowAdapter() {
@@ -291,7 +285,7 @@ public class ToolbarGUI extends JFrame {
 				{
 					name = name.toLowerCase();
 					AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
-					AddFurnitureGUI.main(selectedFurniture, keepGrid,chosenRoom, keepApartment);
+					AddFurnitureGUI.main(selectedFurniture, keepGrid, keepApartment);
 				}
 		}
 

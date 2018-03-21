@@ -36,7 +36,6 @@ public class HomeGUI extends JFrame {
 				try {
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Home");
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,8 +53,8 @@ public class HomeGUI extends JFrame {
 		setBounds(100, 100, 877, 272);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setContentPane(contentPane);
 		
 		lblWelcome.setBounds(354, 45, 152, 57);
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);	
@@ -66,38 +65,37 @@ public class HomeGUI extends JFrame {
 		lblMessage.setBounds(26, 113, 808, 14);
 		contentPane.add(lblMessage);
 		
-		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblMessage.setBounds(26, 113, 808, 14);
 		lblAuthor.setFont(new Font("Tahoma", Font.ITALIC, 11));
 		lblAuthor.setLocation(10, 207);
 		lblAuthor.setSize(346, 15);
 		contentPane.add(lblAuthor);
 		
-		btnOpenAFile.setBounds(501, 160, 203, 23);		
+		btnOpenAFile.setBounds(501, 160, 203, 23);
+		contentPane.add(btnOpenAFile);
+		
 		btnOpenAFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 			}
 		});
-		contentPane.add(btnOpenAFile);
-		
-		
+
 		btnNew.setBounds(220, 160, 141, 23);
+		contentPane.add(btnNew);
+		
 		btnNew.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent arg0) {
 				DesignGUI.main(null);
 				frame.setVisible(false);
 			}
 		});
-		contentPane.add(btnNew);
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
-			    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
-			    if (confirmed == JOptionPane.YES_OPTION) {
-			    		System.exit(0);
-			    }
+				    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
+				    if (confirmed == JOptionPane.YES_OPTION) {
+				    		System.exit(0);
+				    }
 			  }
-			});
+		});
 	}
 }
