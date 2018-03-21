@@ -10,11 +10,12 @@ import javax.swing.border.EmptyBorder;
 
 import catalog.Style;
 import place.AbstractRoom;
+import place.Apartment;
 import place.Grid;
+import place.Room;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.SwingConstants;
 
 public class AddFurnitureGUI extends JFrame {
@@ -39,14 +40,17 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private JButton btnAdd = new JButton ("Add");
 
+	private Room currentRoom;
+	
 	/**
 	 * Launch the application.
+	 * @param chosenRoom 
 	 */
-	public static void main(AbstractRoom furniture, Grid grid) {
+	public static void main(AbstractRoom furniture, Grid grid, String chosenRoom, Apartment apartment) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid);
+					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid,chosenRoom,apartment);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,8 +61,10 @@ public class AddFurnitureGUI extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param chosenRoom 
+	 * @param apartment 
 	 */
-	public AddFurnitureGUI(AbstractRoom furniture, Grid grid) {
+	public AddFurnitureGUI(AbstractRoom furniture, Grid grid, String chosenRoom, Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 454, 209);
 		contentPane = new JPanel();
@@ -123,6 +129,16 @@ public class AddFurnitureGUI extends JFrame {
 		
 		lblX.setBounds(195, 125, 19, 14);
 		contentPane.add(lblX);
+		
+		btnAdd.addActionListener(new ActionListener() {
+			
+
+			public void actionPerformed(ActionEvent arg0) {
+				currentRoom = apartment.getRoom(chosenRoom.toLowerCase());
+				currentRoom.addFurniture(furniture, furniturePositionX, furniturePositionY, grid);
+				dispose ();
+			}
+		});
 	
 		btnAdd.setBounds(294, 95, 89, 23);
 		contentPane.add(btnAdd);

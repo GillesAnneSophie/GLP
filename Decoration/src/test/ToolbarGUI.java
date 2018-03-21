@@ -19,6 +19,7 @@ public class ToolbarGUI extends JFrame {
 	
 	private Grid keepGrid; 
 	private Catalog keepCatalog;
+	private Apartment keepApartment;
 	
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
@@ -31,9 +32,7 @@ public class ToolbarGUI extends JFrame {
 	
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
-//TODO taille par defaut JList bug
 	private final JList<String> addFurniture;
-	private DefaultListModel<String> listEmpty;
 	private DefaultListModel<String> listBathroom;
 	private DefaultListModel<String> listBedroomOffice;
 	private DefaultListModel<String> listDiningRoom;
@@ -42,7 +41,7 @@ public class ToolbarGUI extends JFrame {
 	private DefaultListModel<String> listLivingRoom;
 	private DefaultListModel<String> listWall;
 	
-	private String [] room = {"-- Select a room to see the furnitures --", "Bathroom", "Bedroom/Office","Kitchen","Living Room","Dining Room","Wall","Floor"};
+	private String [] room = {"-- Select a room to see the furnitures --", "Bathroom", "BedroomOffice","Kitchen","LivingRoom","DiningRoom","Wall","Floor"};
 	private String chosenRoom;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
@@ -75,6 +74,7 @@ public class ToolbarGUI extends JFrame {
 	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog) {
 		keepGrid = grid;
 		keepCatalog = catalog;
+		keepApartment = apartment;
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 440, 353);
@@ -114,7 +114,6 @@ public class ToolbarGUI extends JFrame {
 		toolBar.add(btnRemoveAFurniture);
 		
 		
-		listEmpty = new DefaultListModel<String>(); 
 		listBathroom = new DefaultListModel<String>();
 		listBedroomOffice = new DefaultListModel<String>();
 		listDiningRoom = new DefaultListModel<String>();
@@ -123,7 +122,6 @@ public class ToolbarGUI extends JFrame {
 		listLivingRoom = new DefaultListModel<String>();
 		listWall = new DefaultListModel<String>();
 
-		setListEmpty();
 		setListBathroom();
 		setListBedroomOffice();
 		setListDiningRoom();
@@ -144,8 +142,7 @@ public class ToolbarGUI extends JFrame {
 				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
 				chosenRoom = (String) combo.getSelectedItem(); 
 				switch (chosenRoom) {
-					case "-- Select a room to see the furnitures --":
-						addFurniture.setModel(listEmpty);	//TODO enlever la liste
+					case "-- Select a room to see the furnitures --":	
 						addFurniture.setBounds(135, 51, 0, 0);
 						break;
 					case "Kitchen":
@@ -153,15 +150,15 @@ public class ToolbarGUI extends JFrame {
 						addFurniture.setBounds(135, 51, 144, 80);
 						
 						break;
-					case "Living Room":
+					case "LivingRoom":
 						addFurniture.setModel(listLivingRoom);
 						addFurniture.setBounds(135, 51, 144, 80);
 						break;
-					case "Dining Room":
+					case "DiningRoom":
 						addFurniture.setModel(listDiningRoom);
 						addFurniture.setBounds(135, 51, 144, 80);
 						break;
-					case "Bedroom/Office":
+					case "BedroomOffice":
 						addFurniture.setModel(listBedroomOffice);
 						addFurniture.setBounds(135, 51, 144, 140);
 						break;
@@ -203,11 +200,6 @@ public class ToolbarGUI extends JFrame {
 		
 	}
 	
-	
-	private void setListEmpty()
-	{
-		listEmpty.removeAllElements();
-	}
 	
 	private void setListBathroom()
 	{
@@ -294,7 +286,7 @@ public class ToolbarGUI extends JFrame {
 				{
 					name = name.toLowerCase();
 					AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
-					AddFurnitureGUI.main(selectedFurniture, keepGrid);
+					AddFurnitureGUI.main(selectedFurniture, keepGrid,chosenRoom, keepApartment);
 				}
 		}
 

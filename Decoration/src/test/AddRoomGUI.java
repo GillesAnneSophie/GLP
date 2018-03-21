@@ -47,7 +47,6 @@ public class AddRoomGUI extends JFrame {
 	private JSpinner textFieldWidth = new JSpinner(spinnerModel1);
 	private JSpinner textFieldLength = new JSpinner(spinnerModel2);
 	
-//TODO ajouter choix de la position avec deux JList pour choisir parmis les cases existantes
 	
 	/**
 	 * Launch the application
