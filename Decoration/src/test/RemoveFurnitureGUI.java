@@ -26,9 +26,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	private JComboBox<String> comboBoxFurniture = new JComboBox<String>();
 	
 	private JButton btnRemove = new JButton ("Remove");
-
-	private Room chosenRoom = null;
-	private AbstractRoom chosenFurniture = null;
+	
 	
 	/**
 	 * Launch the application.
