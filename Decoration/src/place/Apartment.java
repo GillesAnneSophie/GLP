@@ -23,7 +23,21 @@ public class Apartment
 	{
 		return roomsList;
 	}
-
+	
+	
+	public Room getRoom(String name)
+	{
+		for(int index=0 ; index<getRoomsList().size() ; index++)
+		{
+			Room thisRoom = getRoomsList().get(index);
+			String thisRoomName = thisRoom.getName();
+			if(thisRoomName==name)
+			{
+				return thisRoom;
+			}
+		}
+		return null;
+	}
 	
 	/** 
 	 * Add a room in the apartment
