@@ -40,7 +40,7 @@ public class AddRoomGUI extends JFrame {
 	private JLabel lblX_3 = new JLabel("X");
 	private JLabel lblWidth = new JLabel ("Width:");
 	private JLabel lblLength = new JLabel("Length:");
-	private JLabel lblPosition = new JLabel ("Coordonates:");
+	private JLabel lblPosition = new JLabel ("Coordinates:");
 	
 	private SpinnerModel spinnerModel1 = new SpinnerNumberModel (0,0,100,1);
 	private SpinnerModel spinnerModel2 = new SpinnerNumberModel (0,0,100,1);

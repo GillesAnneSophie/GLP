@@ -29,7 +29,7 @@ public class AddFurnitureGUI extends JFrame {
 	private int furniturePositionY;
 	private int furniturePositionX;
 	
-	private JLabel lblPosition = new JLabel ("Coordonates:");
+	private JLabel lblPosition = new JLabel ("Coordinates:");
 	private JLabel lblX = new JLabel("X");
 	private JLabel furnitureName ;
 	

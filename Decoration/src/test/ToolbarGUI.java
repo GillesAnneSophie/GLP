@@ -41,7 +41,7 @@ public class ToolbarGUI extends JFrame {
 	private DefaultListModel<String> listLivingRoom;
 	private DefaultListModel<String> listWall;
 	
-	private String [] room = {"-- Select a room to see the furnitures --", "Bathroom", "BedroomOffice","Kitchen","LivingRoom","DiningRoom","Wall","Floor"};
+	private String [] room = {"-- Select a room to add a furniture --", "Bathroom", "BedroomOffice","Kitchen","LivingRoom","DiningRoom","Wall","Floor"};
 	private String chosenRoom;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
