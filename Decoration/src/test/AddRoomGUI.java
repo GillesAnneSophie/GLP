@@ -14,7 +14,7 @@ import javax.swing.event.ChangeEvent;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class AddRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -22,10 +22,10 @@ public class AddRoomGUI extends JFrame {
 	private JPanel contentPane;
 	
 
-	private int roomPositionX;
-	private int roomPositionY;
-	private int roomWidth;
-	private int roomLenght;
+	private int roomPositionX=-1;
+	private int roomPositionY=-1;
+	private int roomWidth=-1;
+	private int roomLength=-1;
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
@@ -101,31 +101,33 @@ public class AddRoomGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
-					Room bathroom = new Room("bathroom", roomWidth, roomLenght, bathroomCategory);
+					Room bathroom = new Room("bathroom", roomWidth, roomLength, bathroomCategory);
 					apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid);
 				}
-				if (stringRoom == "Bedroom/Office") {
+				else if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
-					Room bedroomOffice = new Room("bedroomOffice", roomWidth, roomLenght, bedroomOfficeCategory);
+					Room bedroomOffice = new Room("bedroomOffice", roomWidth, roomLength, bedroomOfficeCategory);
 					apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid);
 				}
-				if (stringRoom == "Dining Room") {
+				else if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
-					Room diningRoom = new Room("diningRoom", roomWidth, roomLenght, diningRoomCategory);
+					Room diningRoom = new Room("diningRoom", roomWidth, roomLength, diningRoomCategory);
 					apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid);
 				}
-				if (stringRoom == "Kitchen") {
+				else if (stringRoom == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
-					Room kitchen = new Room("kitchen", roomWidth, roomLenght, kitchenCategory);
+					Room kitchen = new Room("kitchen", roomWidth, roomLength, kitchenCategory);
 					apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid);
 				}
-				
-				if (stringRoom == "Living Room") {
+				else if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
-					Room livingRoom = new Room("livingRoom", roomWidth, roomLenght, livingRoomCategory);
+					Room livingRoom = new Room("livingRoom", roomWidth, roomLength, livingRoomCategory);
 					apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid);
 				}
-				dispose();
+				if(stringRoom!=null && roomWidth!=-1 && roomLength!=-1 && roomPositionX!=-1 && roomPositionY!=-1)
+				{
+					dispose();
+				}
 			}
 		});	
 		contentPane.setLayout(null);
@@ -193,7 +195,7 @@ public class AddRoomGUI extends JFrame {
 		
 		textFieldLength.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
-				roomLenght = (int) textFieldLength.getValue();
+				roomLength = (int) textFieldLength.getValue();
 			}
 		});
 		textFieldLength.setBounds(272, 78, 34, 20);

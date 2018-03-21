@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 /**
  * @author ZOUHOUDI Chabani
+ * @author GILLES Anne-Sophie
  * @author CORALIE Laury Ann
  */
 public class HomeGUI extends JFrame {
@@ -16,7 +17,7 @@ public class HomeGUI extends JFrame {
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
 	
-	/*private JLabel lblName = new JLabel("Manag'Apart");*/ // TODO Je pense qu'on devrait voter pour le nom. Proposez vos nom, y a pas de soucis. Mais quand j'ai demand�, personne n'a rien dit ^^'
+	//private JLabel lblName = new JLabel("Manag'Apart");
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
 	private final JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management' or continue a previous magament with 'Open a existing management'");

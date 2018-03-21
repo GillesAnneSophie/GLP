@@ -6,7 +6,6 @@ package place;
 
 /**
  * @author GILLES Anne-Sophie
- *
  */
 public class PrintDrawing 
 {
@@ -67,7 +66,7 @@ public class PrintDrawing
 		
 		if(leftPosition=="*" || leftPosition.matches("[a-z]"))
 		{
-			//grid.setGrid(positionY, positionX-1, "L"); Orienté vers la gauche
+			//grid.setGrid(positionY, positionX-1, "L"); Orientï¿½ vers la gauche
 //TODO etc avec l'image dans le sens voulu (large door / small window / large window / pictures
 			if(name.equals("small door"))
 			{
@@ -76,15 +75,15 @@ public class PrintDrawing
 		}
 		else if(rightPosition=="*" || rightPosition.matches("[a-z]"))
 		{
-			//grid.setGrid(positionY, positionX+1, "R"); Orienté vers la droite
+			//grid.setGrid(positionY, positionX+1, "R"); Orientï¿½ vers la droite
 		}
 		else if(upPosition=="*" || upPosition.matches("[a-z]"))
 		{
-			//grid.setGrid(positionY-1, positionX, "U"); Orienté vers le haut
+			//grid.setGrid(positionY-1, positionX, "U"); Orientï¿½ vers le haut
 		}
 		else if(downPosition=="*" || downPosition.matches("[a-z]"))
 		{
-			//grid.setGrid(positionY+1, positionX, "D");Orienté vers le bas
+			//grid.setGrid(positionY+1, positionX, "D");Orientï¿½ vers le bas
 		}
 	}
 }

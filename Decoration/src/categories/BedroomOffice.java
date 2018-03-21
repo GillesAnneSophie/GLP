@@ -7,7 +7,6 @@ import catalog.Category;
 
 /**
  * @author GILLES Anne-Sophie
- *
  */
 public class BedroomOffice extends Category
 {	

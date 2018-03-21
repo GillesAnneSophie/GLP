@@ -10,7 +10,7 @@ import place.*;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class RemoveRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;

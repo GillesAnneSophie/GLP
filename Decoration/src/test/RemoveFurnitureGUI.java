@@ -12,7 +12,7 @@ import place.*;
 
 /**
  * @author CORALIE Laury Ann
- *
+ * @author GILLES Anne-Sophie
  */
 public class RemoveFurnitureGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -26,9 +26,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	private JComboBox<String> comboBoxFurniture = new JComboBox<String>();
 	
 	private JButton btnRemove = new JButton ("Remove");
-
-	private Room chosenRoom = null;
-	private AbstractRoom chosenFurniture = null;
+	
 	
 	/**
 	 * Launch the application.

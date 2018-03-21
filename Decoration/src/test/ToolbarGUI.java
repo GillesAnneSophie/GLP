@@ -10,8 +10,9 @@ import catalog.*;
 import place.*;
 
 /**
- * @author ZOUHOUDI Chabani
  * @author CORALIE Laury Ann
+ * @author GILLES Anne-Sophie
+ * @author ZOUHOUDI Chabani
  */
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -195,7 +196,7 @@ public class ToolbarGUI extends JFrame {
 			  public void windowClosing(WindowEvent e) {
 				    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the toolbar?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
 				    if (confirmed == JOptionPane.YES_OPTION) {
-				    		System.exit(0);
+				    		dispose();
 				    }
 			  }
 		});

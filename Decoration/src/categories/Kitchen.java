@@ -6,8 +6,8 @@ package categories;
 import catalog.Category;
 
 /**
- * @author ZOUHOUDI Chabani
  * @author GILLES Anne-Sophie
+ * @author ZOUHOUDI Chabani
  */
 public class Kitchen extends Category 
 {
