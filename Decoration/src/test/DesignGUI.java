@@ -35,8 +35,6 @@ public class DesignGUI extends JFrame {
 	
 	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
 
-	private JPopupMenu popupMenu = new JPopupMenu();
-	
 	
 	/**
 	 * Launch the application
@@ -89,34 +87,13 @@ public class DesignGUI extends JFrame {
 				if (chckbxmntmShowToolbar.isSelected() == true) {
 					ToolbarGUI.main(apartment, grid, catalog);
 				}
-				else {
-				
-				}
 			}
 		});
 		mnView.add(chckbxmntmShowToolbar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		contentPane.add(popupMenu);
-		popupMenu.addMouseListener(new MouseAdapter() {
-		
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				if (arg0.isPopupTrigger()) {
-						popupMenu.show(popupMenu,arg0.getX(),arg0.getY());
-				}
-			}
-		}); 
-
-		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-
-		contentPane.addMouseListener(new MouseAdapter() {  
-		            public void mouseClicked(MouseEvent e) {              
-		                popupMenu.show(contentPane , e.getX(), e.getY());  
-		            }                 
-		        });  
+		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5)); 
 	
 		cells= contentGrille (contentPane);
 		this.setVisible(true);

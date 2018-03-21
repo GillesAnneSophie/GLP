@@ -84,14 +84,14 @@ public class AddFurnitureGUI extends JFrame {
 		comboBoxStyle.setBounds(143, 90, 71, 22);
 		
 		contentPane.add(comboBoxStyle);
-		lblPosition.setBounds(67, 125, 66, 15);
+		lblPosition.setBounds(47, 125, 86, 15);
 		
 		contentPane.add(lblPosition);
-		comboBoxX.setBounds(205, 120, 45, 22);
+		comboBoxX.setBounds(138, 125, 45, 22);
 		
 		contentPane.add(comboBoxX);
-		comboBoxY.setBounds(143, 120, 45, 22);
-		comboBoxX.setBounds(179, 110, 34, 15);
+		comboBoxY.setBounds(205, 125, 35, 15);
+		comboBoxX.setBounds(143, 125, 34, 15);
 		contentPane.add(comboBoxX);
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
@@ -106,7 +106,6 @@ public class AddFurnitureGUI extends JFrame {
 			}
 		});
 		
-		comboBoxY.setBounds(232, 110, 34, 15);
 		contentPane.add(comboBoxY);
 		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
 		{
