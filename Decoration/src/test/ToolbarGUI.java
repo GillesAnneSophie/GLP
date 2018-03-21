@@ -144,29 +144,37 @@ public class ToolbarGUI extends JFrame {
 				chosenRoom = (String) combo.getSelectedItem(); 
 				switch (chosenRoom) {
 					case "-- Select a room to see the furnitures --":
-						//addFurniture.setModel(listEmpty);	//TODO enlever la liste
-						
+						addFurniture.setModel(listEmpty);	//TODO enlever la liste
+						addFurniture.setBounds(135, 51, 0, 0);
 						break;
 					case "Kitchen":
 						addFurniture.setModel(listKitchen);
+						addFurniture.setBounds(135, 51, 144, 80);
+						
 						break;
 					case "Living Room":
 						addFurniture.setModel(listLivingRoom);
+						addFurniture.setBounds(135, 51, 144, 80);
 						break;
 					case "Dining Room":
 						addFurniture.setModel(listDiningRoom);
+						addFurniture.setBounds(135, 51, 144, 80);
 						break;
 					case "Bedroom/Office":
 						addFurniture.setModel(listBedroomOffice);
+						addFurniture.setBounds(135, 51, 144, 140);
 						break;
 					case "Bathroom":
 						addFurniture.setModel(listBathroom);
+						addFurniture.setBounds(135, 51, 144, 90);
 						break;
 					case "Wall":
 						addFurniture.setModel(listWall);
+						addFurniture.setBounds(135, 51, 144, 90);
 						break;
 					case "Floor":
 						addFurniture.setModel(listFloor);
+						addFurniture.setBounds(135, 51, 144, 17);
 						break;
 				}
 			}
