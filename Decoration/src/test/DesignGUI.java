@@ -29,7 +29,6 @@ public class DesignGUI extends JFrame {
 
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("?");
-	private JMenu mnView = new JMenu("View");
 	private JMenuItem mntmHelp = new JMenuItem("Help");
 	private JMenuItem mntmExit = new JMenuItem("Exit ");
 	
@@ -79,8 +78,7 @@ public class DesignGUI extends JFrame {
 		});
 		
 		menu.add(mntmExit);
-		
-		menuBar.add(mnView);
+		menuBar.add(chckbxmntmShowToolbar);
 		
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -89,7 +87,6 @@ public class DesignGUI extends JFrame {
 				}
 			}
 		});
-		mnView.add(chckbxmntmShowToolbar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

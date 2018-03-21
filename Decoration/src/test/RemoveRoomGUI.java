@@ -62,8 +62,10 @@ public class RemoveRoomGUI extends JFrame {
 		comboBox.setBounds(209, 53, 99, 20);
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
 		for (int index=0 ; index<roomsList.size() ; index++) {
-			String roomListName = roomsList.get(index).getName();
-			comboBox.addItem (roomListName);
+			for (Integer roomListKey : roomsList.keySet()) {
+				String roomListName = roomsList.get(index).getName();
+				comboBox.addItem (/*roomListKey + "-" +*/roomListName);
+			}
 		}
 		contentPane.add(comboBox);
 		
