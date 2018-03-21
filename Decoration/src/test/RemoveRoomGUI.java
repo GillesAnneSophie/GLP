@@ -19,7 +19,7 @@ public class RemoveRoomGUI extends JFrame {
 	
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove:");
 	
-	private JComboBox<Integer> comboBox = new JComboBox<Integer>();
+	private JComboBox<String> comboBox = new JComboBox<String>();
 	
 	private JButton btnRemove = new JButton("Remove");
 	
@@ -61,8 +61,9 @@ public class RemoveRoomGUI extends JFrame {
 
 		comboBox.setBounds(209, 53, 99, 20);
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
-		for (Integer it : roomsList.keySet()) {
-			comboBox.addItem (it);
+		for (int index=0 ; index<roomsList.size() ; index++) {
+			String roomListName = roomsList.get(index).getName();
+			comboBox.addItem (roomListName);
 		}
 		contentPane.add(comboBox);
 		
