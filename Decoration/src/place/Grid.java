@@ -104,21 +104,21 @@ public class Grid
 				{
 					for(int j=positionX-1 ; j<positionX+dimensionWidth+1 ; j++)
 					{
-						if(i<=0)
+						if(i<0)
 						{
-							i++;
+							return false;
 						}
-						else if(j<=0)
+						else if(j<0)
 						{
-							j++;
+							return false;
 						}
-						else if(i>=(gridDimension.getWidth()-1))
+						else if(i>(gridDimension.getWidth()-1))
 						{
-							break;
+							return false;
 						}
-						else if(j>=(gridDimension.getLength()-1))
+						else if(j>(gridDimension.getLength()-1))
 						{
-							break;
+							return false;
 						}
 						else if(getGrid(i, j)=="#")
 						{

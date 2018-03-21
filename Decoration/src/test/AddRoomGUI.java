@@ -93,11 +93,63 @@ public class AddRoomGUI extends JFrame {
 		comboBoxRoom.addItem("Living Room");
 		
 		contentPane.add(btnEnter);
-
-				
+		contentPane.setLayout(null);
+		
+		lblChooseTheRoom.setBounds(25, 42, 151, 14);
+		contentPane.add(lblChooseTheRoom);
+		
+		comboBoxX.setBounds(179, 110, 34, 15);
+		contentPane.add(comboBoxX);
+		comboBoxY.setBounds(232, 110, 34, 15);
+		contentPane.add(comboBoxY);
+		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
+		{
+			comboBoxX.addItem(i);
+			comboBoxY.addItem(i);
+		}
+		
+		lblX_2.setBounds(208, 78, 19, 14);
+		contentPane.add(lblX_2);
+		
+		lblWidth.setLocation(123, 78);
+		lblWidth.setSize(53, 14);
+		contentPane.add(lblWidth);
+		
+		lblPosition.setLocation(98, 110);
+		lblPosition.setSize(78, 14);
+		contentPane.add(lblPosition);
+		
+		lblX_3.setBounds(220, 110, 19, 14);		
+		contentPane.add(lblX_3);
+		
+		lblLength.setBounds(228, 78, 58, 17);
+		contentPane.add(lblLength);
+		
+		textFieldWidth.setBounds(164, 78, 34, 20);
+		contentPane.add(textFieldWidth);
+		
+		textFieldLength.setBounds(272, 78, 34, 20);
+		contentPane.add(textFieldLength);
+		
+		textFieldWidth.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				roomWidth = (int) textFieldWidth.getValue();
+			}
+		});
+		
+		textFieldLength.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				roomLength = (int) textFieldLength.getValue();
+			}
+		});
+		
 		btnEnter.setBounds(360, 64, 76, 23);
+		
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				roomPositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
+				roomPositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
+				
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom", roomWidth, roomLength, bathroomCategory);
@@ -129,75 +181,5 @@ public class AddRoomGUI extends JFrame {
 				}
 			}
 		});	
-		contentPane.setLayout(null);
-		
-		lblChooseTheRoom.setBounds(25, 42, 151, 14);
-		contentPane.add(lblChooseTheRoom);
-			
-		comboBoxX.setBounds(179, 110, 34, 15);
-		contentPane.add(comboBoxX);
-		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
-		{
-			comboBoxX.addItem(i);
-		}
-		
-		comboBoxX.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
-				roomPositionX = (Integer) combo.getSelectedItem();
-				
-			}
-		});
-		
-		comboBoxY.setBounds(232, 110, 34, 15);
-		contentPane.add(comboBoxY);
-		for(int j=1 ; j<=grid.getGridDimension().getLength() ; j++)
-		{
-			comboBoxY.addItem(j);
-		}
-		
-		comboBoxY.addActionListener(new ActionListener() {
-			public void actionPerformed (ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();			
-				roomPositionY = (Integer) combo.getSelectedItem();
-					
-			}
-		});
-		
-		
-		lblX_2.setBounds(208, 78, 19, 14);
-		contentPane.add(lblX_2);
-		
-		lblWidth.setLocation(123, 78);
-		lblWidth.setSize(53, 14);
-		contentPane.add(lblWidth);
-		
-		lblPosition.setLocation(98, 110);
-		lblPosition.setSize(78, 14);
-		contentPane.add(lblPosition);
-		
-		lblX_3.setBounds(220, 110, 19, 14);		
-		contentPane.add(lblX_3);
-		lblLength.setBounds(228, 78, 58, 17);
-		
-		contentPane.add(lblLength);
-		
-			
-		textFieldWidth.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent arg0) {
-				roomWidth = (int) textFieldWidth.getValue();
-			}
-		});
-		textFieldWidth.setBounds(164, 78, 34, 20);
-		contentPane.add(textFieldWidth);
-		
-		
-		textFieldLength.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent arg0) {
-				roomLength = (int) textFieldLength.getValue();
-			}
-		});
-		textFieldLength.setBounds(272, 78, 34, 20);
-		contentPane.add(textFieldLength);
 	}
 }

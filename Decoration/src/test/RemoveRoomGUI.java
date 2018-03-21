@@ -23,7 +23,7 @@ public class RemoveRoomGUI extends JFrame {
 	
 	private JButton btnRemove = new JButton("Remove");
 	
-	private String chosenRoom = null;
+	private String roomInfo = null;
 	
 	
 	/**
@@ -61,19 +61,20 @@ public class RemoveRoomGUI extends JFrame {
 
 		comboBox.setBounds(209, 53, 99, 20);
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
-		for (int index=0 ; index<roomsList.size() ; index++) {
-			for (Integer roomListKey : roomsList.keySet()) {
-				String roomListName = roomsList.get(index).getName();
-				comboBox.addItem (/*roomListKey + "-" +*/roomListName);
-			}
+		for (int index=0 ; index<roomsList.size() ; index++) 
+		{
+			String roomListName = roomsList.get(index).getName();
+			comboBox.addItem (index + "-" + roomListName);
 		}
 		contentPane.add(comboBox);
 		
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				chosenRoom = (String) comboBox.getSelectedItem();
-				if(chosenRoom!=null)
+				roomInfo = (String) comboBox.getSelectedItem();
+				if(roomInfo!=null)
 				{
+					String[] roomInfoTab = roomInfo.split("-");
+					int chosenRoom = Integer.valueOf(roomInfoTab[0]);
 					apartment.removeRoom(chosenRoom, grid);
 					dispose();
 				}
