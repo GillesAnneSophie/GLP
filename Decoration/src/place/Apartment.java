@@ -46,7 +46,7 @@ public class Apartment
 	 * @param positionY
 	 * @param grid
 	 * */
-	public void addRoom(Room room, int positionX, int positionY, Grid grid)
+	public boolean addRoom(Room room, int positionX, int positionY, Grid grid)
 	{
 		int counter = roomsList.size();
 		String nameInGrid = String.valueOf((char)(counter+(int)'a'));
@@ -54,7 +54,9 @@ public class Apartment
 		if(room.setPosition(positionX, positionY, nameInGrid, grid))
 		{
 			roomsList.put(counter, room);
+			return true;
 		}
+		return false;
 	}
 	
 	/** 

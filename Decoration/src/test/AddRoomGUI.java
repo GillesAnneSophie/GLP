@@ -154,33 +154,54 @@ public class AddRoomGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				roomPositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				roomPositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
+				boolean dontClose = false;
 				
 				if(stringRoom == "Bathroom") {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom", roomWidth, roomLength, bathroomCategory);
-					apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid);
+					if(!apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid))
+					{
+						dontClose = true;
+						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+					}
 				}
 				else if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
 					Room bedroomOffice = new Room("bedroomOffice", roomWidth, roomLength, bedroomOfficeCategory);
-					apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid);
+					if(!apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid))
+					{
+						dontClose = true;
+						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+					}
 				}
 				else if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
 					Room diningRoom = new Room("diningRoom", roomWidth, roomLength, diningRoomCategory);
-					apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid);
+					if(!apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid))
+					{
+						dontClose = true;
+						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+					}
 				}
 				else if (stringRoom == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
 					Room kitchen = new Room("kitchen", roomWidth, roomLength, kitchenCategory);
-					apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid);
+					if(!apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid))
+					{
+						dontClose = true;
+						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+					}
 				}
 				else if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
 					Room livingRoom = new Room("livingRoom", roomWidth, roomLength, livingRoomCategory);
-					apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid);
+					if(!apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid))
+					{
+						dontClose = true;
+						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+					}
 				}
-				if(stringRoom!=null && roomWidth!=-1 && roomLength!=-1 && roomPositionX!=-1 && roomPositionY!=-1)
+				if(stringRoom!=null && roomWidth!=-1 && roomLength!=-1 && roomPositionX!=-1 && roomPositionY!=-1 && dontClose==false)
 				{
 					dispose();
 				}

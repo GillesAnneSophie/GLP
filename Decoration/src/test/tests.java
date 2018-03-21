@@ -33,8 +33,23 @@ public class tests
 		Room kitchen = new Room("kitchen", 1, 2, kitchenCategory);
 		
 			//Add rooms
-		apartment.addRoom(bedroom, 3, 3, grid);
-		apartment.addRoom(kitchen, 9, 3, grid);
+		if(apartment.addRoom(bedroom, 3, 3, grid))
+		{
+			System.out.println("Bedroom ajoutée");
+		}
+		else
+		{
+			System.out.println("Bedroom n'a pas pu être ajoutée");
+		}
+		if(apartment.addRoom(kitchen, 9, 3, grid))
+		{
+			System.out.println("kitchen ajoutée");
+		}
+		else
+		{
+			System.out.println("kitchen n'a pas pu être ajoutée");
+		}
+		
 		
 			//Add furniture to rooms
 		AbstractRoom furniture1 = catalog.getFurniture("single bed");
