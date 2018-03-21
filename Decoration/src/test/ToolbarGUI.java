@@ -16,7 +16,7 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Grid keepGrid; // ça sert à récuperer la grid pour l'envoyer dans AddRoomGUI méthode tout en bas (ClickAction)
+	private Grid keepGrid; // ï¿½a sert ï¿½ rï¿½cuperer la grid pour l'envoyer dans AddRoomGUI mï¿½thode tout en bas (ClickAction)
 	private Catalog keepCatalog;
 	
 	private JPanel contentPane;
@@ -144,7 +144,7 @@ public class ToolbarGUI extends JFrame {
 				chosenRoom = (String) combo.getSelectedItem(); 
 				switch (chosenRoom) {
 					case "-- Select a room to see the furnitures --":
-						addFurniture.setModel(listEmpty);
+						addFurniture.setModel(listEmpty);	//TODO enlever la liste
 						break;
 					case "Kitchen":
 						addFurniture.setModel(listKitchen);
