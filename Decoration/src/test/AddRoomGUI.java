@@ -103,33 +103,29 @@ public class AddRoomGUI extends JFrame {
 					Category bathroomCategory = new Bathroom();
 					Room bathroom = new Room("bathroom", roomWidth, roomLenght, bathroomCategory);
 					apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid);
-					apartment.getRoomsList().put(null, bathroom);
 				}
 				if (stringRoom == "Bedroom/Office") {
 					Category bedroomOfficeCategory = new BedroomOffice();
 					Room bedroomOffice = new Room("bedroomOffice", roomWidth, roomLenght, bedroomOfficeCategory);
 					apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid);
-					apartment.getRoomsList().put(null, bedroomOffice);
 				}
 				if (stringRoom == "Dining Room") {
 					Category diningRoomCategory = new DiningRoom();
 					Room diningRoom = new Room("diningRoom", roomWidth, roomLenght, diningRoomCategory);
 					apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid);
-					apartment.getRoomsList().put(null,diningRoom );
 				}
 				if (stringRoom == "Kitchen") {
 					Category kitchenCategory = new Kitchen();
 					Room kitchen = new Room("kitchen", roomWidth, roomLenght, kitchenCategory);
 					apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid);
-					apartment.getRoomsList().put(null, kitchen);
 				}
 				
 				if (stringRoom == "Living Room") {
 					Category livingRoomCategory = new LivingRoom();
 					Room livingRoom = new Room("livingRoom", roomWidth, roomLenght, livingRoomCategory);
 					apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid);
-					apartment.getRoomsList().put(null, livingRoom);
 				}
+				dispose();
 			}
 		});	
 		contentPane.setLayout(null);

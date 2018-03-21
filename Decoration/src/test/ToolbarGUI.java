@@ -30,7 +30,7 @@ public class ToolbarGUI extends JFrame {
 	
 	private JSeparator separator = new JSeparator();
 	private JSeparator separator_1 = new JSeparator();
-	
+//TODO taille par defaut JList bug
 	private final JList<String> addFurniture;
 	private DefaultListModel<String> listEmpty;
 	private DefaultListModel<String> listBathroom;
@@ -122,6 +122,7 @@ public class ToolbarGUI extends JFrame {
 		listLivingRoom = new DefaultListModel<String>();
 		listWall = new DefaultListModel<String>();
 
+		setListEmpty();
 		setListBathroom();
 		setListBedroomOffice();
 		setListDiningRoom();
@@ -192,6 +193,11 @@ public class ToolbarGUI extends JFrame {
 		});
 	}
 	
+	
+	private void setListEmpty()
+	{
+		listEmpty.removeAllElements();
+	}
 	
 	private void setListBathroom()
 	{
@@ -271,8 +277,6 @@ public class ToolbarGUI extends JFrame {
 	{
 		public void mouseClicked(MouseEvent e) 
 		{
-			if(addFurniture.getModel()!=listEmpty)
-			{
 				int selectedItem = addFurniture.getSelectedIndex();
 				String name = (String) addFurniture.getModel().getElementAt(selectedItem);
 				
@@ -282,7 +286,6 @@ public class ToolbarGUI extends JFrame {
 					AbstractRoom selectedFurniture = keepCatalog.getFurniture(name);
 					AddFurnitureGUI.main(selectedFurniture, keepGrid);
 				}
-			}
 		}
 
 		@Override
