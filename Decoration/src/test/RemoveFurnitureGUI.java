@@ -84,7 +84,7 @@ public class RemoveFurnitureGUI extends JFrame {
 			HashMap<Integer, AbstractRoom> y = room.get(index).getAllTheFurnitureOfTheRoom();
 			for (int index2 =0;index2<y.size();index2++) {
 				String furnitureName = y.get(index2).getName();
-				comboBoxFurniture.addItem(furnitureName);
+				comboBoxFurniture.addItem(index + "-" + furnitureName);
 			}
 		}
 		comboBoxFurniture.setBounds(284, 92, 99, 20);
@@ -92,12 +92,14 @@ public class RemoveFurnitureGUI extends JFrame {
 		
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String chosenFurniture = (String) comboBoxFurniture.getSelectedItem();
+				String chosenFurnitureInfo = (String) comboBoxFurniture.getSelectedItem();
 				String chosenRoomName = (String) comboBoxRoom.getSelectedItem();
 				if(chosenRoomName!=null && chosenFurniture!=null)
 				{
+					String[] chosenFurnitureInfoTab = chosenFurnitureInfo.split("-");
+					int chosenFurniture = Integer.valueOf(chosenFurnitureInfoTab[0]);
 					Room chosenRoom = apartment.getRoom(chosenRoomName);
-					chosenRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList());
+					chosenRoom.removeFurniture(chosenFurniture, grid, apartment.getRoomsList()); //TODO changer le parametre en int 
 				}
 			}
 		});
