@@ -9,6 +9,7 @@ import javax.swing.border.MatteBorder;
 import catalog.Catalog;
 import place.Apartment;
 import place.Grid;
+import place.Room;
 
 /**
  * @author CORALIE Laury Ann
@@ -22,8 +23,9 @@ public class DesignGUI extends JFrame {
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
 	
-	private JPanel contentPane;
+	private JPanel contentPane = new JPanel();
 	private JPanel[][] cells;
+	private JPanel statBar = new JPanel();
 
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("?");
@@ -32,6 +34,13 @@ public class DesignGUI extends JFrame {
 	
 	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
 
+	private JLabel lblNumberOfRoom = new JLabel ("Room:");
+	private JLabel lblNumberOfFurniture = new JLabel ("Furniture:");	
+	private JLabel roomCounter = new JLabel ("");
+	private JLabel furnitureCounter = new JLabel ("");
+	
+	private int numberOfRoom;
+	private int numberOfFurniture = 0;
 	
 	/**
 	 * Launch the application
@@ -73,7 +82,6 @@ public class DesignGUI extends JFrame {
 			}
 		});
 		
-		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		setContentPane(contentPane);
@@ -100,8 +108,25 @@ public class DesignGUI extends JFrame {
 			}	
 		});
 		
+		statBar.setBorder(BorderFactory.createLineBorder(Color.black));
+		contentPane.add(statBar);
+		
+		statBar.add(lblNumberOfRoom);
+		statBar.add(roomCounter);
+		statBar.add(lblNumberOfFurniture);
+		statBar.add(furnitureCounter);
+		
+		numberOfRoom = apartment.getRoomsList().size();
+		for (int index=0 ; index<numberOfRoom ; index++) {
+			Room roomName = apartment.getRoomsList().get(index);
+			numberOfFurniture = numberOfFurniture + roomName.getAllTheFurnitureOfTheRoom().size();
+		}
+		
+		roomCounter.setText(Integer.toString(numberOfRoom));
+		furnitureCounter.setText(Integer.toString(numberOfFurniture));
+		
 	}
-	
+
 	
 	public static JPanel[][] contentGrille (JPanel content){
 		JPanel grid = new JPanel();		
