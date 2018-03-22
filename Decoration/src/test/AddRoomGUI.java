@@ -80,6 +80,7 @@ public class AddRoomGUI extends JFrame {
 		
 		comboBoxRoom.setBounds(179, 39, 99, 20);
 		contentPane.add(comboBoxRoom);
+		comboBoxRoom.addItem("-- Select a room --");
 		comboBoxRoom.addItem("Kitchen");
 		comboBoxRoom.addItem("Bathroom");
 		comboBoxRoom.addItem("Bedroom/Office");

@@ -80,6 +80,13 @@ public class RemoveFurnitureGUI extends JFrame {
 		lblChooseTheFurniture.setBounds(78, 95, 207, 14);
 		contentPane.add(lblChooseTheFurniture);
 		
+		for (int index=0;index<room.size();index++) {
+			HashMap<Integer, AbstractRoom> y = room.get(index).getAllTheFurnitureOfTheRoom();
+			for (int index2 =0;index2<y.size();index2++) {
+				String furnitureName = y.get(index2).getName();
+				comboBoxFurniture.addItem(furnitureName);
+			}
+		}
 		comboBoxFurniture.setBounds(284, 92, 99, 20);
 		contentPane.add(comboBoxFurniture);
 		

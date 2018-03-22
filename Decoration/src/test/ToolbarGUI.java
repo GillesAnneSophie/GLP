@@ -215,13 +215,12 @@ public class ToolbarGUI extends JFrame {
 	{
 		listBedroomOffice.removeAllElements();
 		
-		listBedroomOffice.addElement("Single bed");
-		listBedroomOffice.addElement("Double bed");
-		listBedroomOffice.addElement("DiningRoom");
+		listBedroomOffice.addElement("SingleBed");
+		listBedroomOffice.addElement("DoubleBed");
 		listBedroomOffice.addElement("Nightstand");
 		listBedroomOffice.addElement("Dresser");
 		listBedroomOffice.addElement("Wardrobe");
-		listBedroomOffice.addElement("Office chair");
+		listBedroomOffice.addElement("OfficeChair");
 		listBedroomOffice.addElement("Desk");
 	}
 	
@@ -229,8 +228,8 @@ public class ToolbarGUI extends JFrame {
 	{
 		listDiningRoom.removeAllElements();
 		
-		listDiningRoom.addElement("Small dining table");
-		listDiningRoom.addElement("Large dining table");
+		listDiningRoom.addElement("SmallDiningTable");
+		listDiningRoom.addElement("LargeDiningTable");
 		listDiningRoom.addElement("Buffet");
 		listDiningRoom.addElement("Chair");
 	}
@@ -248,9 +247,9 @@ public class ToolbarGUI extends JFrame {
 		listKitchen.removeAllElements();
 		
 		listKitchen.addElement("Fridge");
-		listKitchen.addElement("Gas cooker");
+		listKitchen.addElement("GasCooker");
 		listKitchen.addElement("Sink");
-		listKitchen.addElement("Kitchen worktop");
+		listKitchen.addElement("KitchenWorktop");
 	}
 	
 	private void setListLivingRoom()
@@ -258,19 +257,19 @@ public class ToolbarGUI extends JFrame {
 		listLivingRoom.removeAllElements();
 		
 		listLivingRoom.addElement("Armchair");
-		listLivingRoom.addElement("Coffee table");
-		listLivingRoom.addElement("Small sofa");
-		listLivingRoom.addElement("Large sofa");
+		listLivingRoom.addElement("CoffeeTable");
+		listLivingRoom.addElement("SmallSofa");
+		listLivingRoom.addElement("LargeSofa");
 	}
 	
 	private void setListWall()
 	{
 		listWall.removeAllElements();
 		
-		listWall.addElement("Small door");
-		listWall.addElement("Large door");
-		listWall.addElement("Small window");
-		listWall.addElement("Large window");
+		listWall.addElement("SmallDoor");
+		listWall.addElement("LargeDoor");
+		listWall.addElement("SmallWindow");
+		listWall.addElement("LargeWindow");
 		listWall.addElement("Pictures");
 	}
 	
