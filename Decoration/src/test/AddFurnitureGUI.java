@@ -4,18 +4,11 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import catalog.Category;
 import catalog.Style;
-import categories.Bathroom;
-import categories.BedroomOffice;
-import categories.DiningRoom;
-import categories.Kitchen;
-import categories.LivingRoom;
 import place.*;
 
 /**
@@ -50,6 +43,7 @@ public class AddFurnitureGUI extends JFrame {
 	//private String furnitureStyle = null; //TODO quand style + color sera impl�ment�
 	//private String furnitureColor = null;
 	private String currentRoomName;
+
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -130,6 +124,8 @@ public class AddFurnitureGUI extends JFrame {
 		contentPane.add(btnAdd);
 		
 		btnAdd.addActionListener(new ActionListener() {
+			
+
 			public void actionPerformed(ActionEvent arg0) {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
