@@ -30,7 +30,7 @@ public class DesignGUI extends JFrame {
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menu = new JMenu("?");
 	private JMenuItem mntmHelp = new JMenuItem("Help");
-	private JMenuItem mntmExit = new JMenuItem("Exit ");
+	private JMenuItem mntmExit = new JMenuItem("Exit");
 	
 	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
 
@@ -64,12 +64,16 @@ public class DesignGUI extends JFrame {
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 736, 812);
+		setBounds(100, 100, 736, 824);
+		menuBar.setPreferredSize(new Dimension(50, 30));
+		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		
 		setJMenuBar(menuBar);
+		menu.setPreferredSize(new Dimension(20, 22));
 		menuBar.add(menu);
 		menu.add(mntmHelp);
 		menu.add(mntmExit);
+		chckbxmntmShowToolbar.setPreferredSize(new Dimension(50, 22));
 		menuBar.add(chckbxmntmShowToolbar);
 		
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
@@ -86,13 +90,13 @@ public class DesignGUI extends JFrame {
 	
 		cells = contentGrille (contentPane);
 		
-		this.setVisible(true);
+		//this.setVisible(true);
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
 				    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
 				    if (confirmed == JOptionPane.YES_OPTION) {
-				    		System.exit(0);
+				    	System.exit(0);
 				    }
 			  }
 		});
@@ -109,9 +113,11 @@ public class DesignGUI extends JFrame {
 		statBar.setPreferredSize(new Dimension(650, 30));
 		statBar.setBorder(BorderFactory.createLineBorder(Color.black));
 		contentPane.add(statBar);
-		
 		statBar.add(lblNumberOfRoom);
 		statBar.add(roomCounter);
+		Component horizontalStrut = Box.createHorizontalStrut(10);
+		horizontalStrut.setPreferredSize(new Dimension(60, 15));
+		statBar.add(horizontalStrut);
 		statBar.add(lblNumberOfFurniture);
 		statBar.add(furnitureCounter);
 

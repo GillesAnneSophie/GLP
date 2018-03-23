@@ -19,16 +19,12 @@ public class ToolbarGUI extends JFrame {
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
 	private JPanel listPanel;
-
-	private JToolBar toolBar = new JToolBar();
 	
 	private JButton btnAddARoom = new JButton("Add a Room");
 	private JButton btnRemoveARoom = new JButton("Remove a Room");
 	private JButton btnRemoveAFurniture = new JButton("Remove a Furniture");
 	
-	private JSeparator separator = new JSeparator();
-	private JSeparator separator_1 = new JSeparator();
-	private final JList<String> addFurniture;
+	private JList<String> addFurniture;
 	private DefaultListModel<String> listBathroom;
 	private DefaultListModel<String> listBedroomOffice;
 	private DefaultListModel<String> listDiningRoom;
@@ -39,7 +35,6 @@ public class ToolbarGUI extends JFrame {
 	
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
-	private String [] room = {"-- Select a room to add a furniture --", "Bathroom", "Bedroom/Office", "Dining Room", "Kitchen","Living Room", "Wall", "Floor"};
 	private String chosenRoom;
 
 	private Grid keepGrid; 
@@ -80,39 +75,13 @@ public class ToolbarGUI extends JFrame {
 		keepApartment = apartment;
 		
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 440, 353);
+		setBounds(100, 100, 416, 318);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 			
 		contentPane.add(panel, BorderLayout.CENTER);
-		contentPane.add(toolBar, BorderLayout.NORTH);
-	
-		toolBar.add(btnAddARoom);
-		toolBar.add(separator);
-		toolBar.add(btnRemoveARoom);
-		toolBar.add(separator_1);
-		toolBar.add(btnRemoveAFurniture);
-		
-		btnAddARoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				AddRoomGUI.main(apartment, grid);
-			}
-		});
-		
-		btnRemoveARoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				RemoveRoomGUI.main(apartment, grid);
-			}
-		});
-		
-		btnRemoveAFurniture.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				RemoveFurnitureGUI.main(apartment, grid);
-			}
-		});
 		
 		listBathroom = new DefaultListModel<String>();
 		listBedroomOffice = new DefaultListModel<String>();
@@ -134,11 +103,20 @@ public class ToolbarGUI extends JFrame {
         getContentPane().add(listPanel);
 		listPanel.setLayout(null);
 		
-		comboBoxRoom = new JComboBox<String>(room);
+		comboBoxRoom = new JComboBox<String>();
 		comboBoxRoom.setToolTipText("");
-		comboBoxRoom.setLocation(100, 5);
-		comboBoxRoom.setSize(213, 20);
+		comboBoxRoom.setLocation(84, 11);
+		comboBoxRoom.setSize(247, 20);
 		listPanel.add(comboBoxRoom);
+
+		comboBoxRoom.addItem("-- Select a room to add a furniture --");
+		comboBoxRoom.addItem("Bathroom");
+		comboBoxRoom.addItem("Bedroom/Office");
+		comboBoxRoom.addItem("Dining Room");
+		comboBoxRoom.addItem("Kitchen");
+		comboBoxRoom.addItem("Living Room");
+		comboBoxRoom.addItem("Wall");
+		comboBoxRoom.addItem("Floor");
 		
 		comboBoxRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -187,6 +165,31 @@ public class ToolbarGUI extends JFrame {
 		addFurniture.setBounds(135, 51, 0, 0);
 		addFurniture.addMouseListener(new ClickAction());
 		listPanel.add(addFurniture);
+			
+		JPanel buttonsPanel = new JPanel();
+		contentPane.add(buttonsPanel, BorderLayout.NORTH);
+		buttonsPanel.add(btnAddARoom);
+		buttonsPanel.add(btnRemoveARoom);
+		buttonsPanel.add(btnRemoveAFurniture);
+			
+		btnRemoveAFurniture.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				RemoveFurnitureGUI.main(apartment, grid);
+			}
+		});
+		
+		btnRemoveARoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				RemoveRoomGUI.main(apartment, grid);
+			}
+		});
+		
+		btnAddARoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				AddRoomGUI.main(apartment, grid);
+			}
+		});
 		
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {

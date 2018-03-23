@@ -30,16 +30,16 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel lblColor = new JLabel ("Choose the color:");
 	private JLabel lblPosition = new JLabel ("Coordinates:");
 	private JLabel lblX = new JLabel("X");
-	private JLabel furnitureName;
 	private JLabel lblRoom = new JLabel ("Choose the room:");
 	private JLabel lblOrientation = new JLabel ("Choose the furniture's orientation :");
+	private JLabel furnitureName;
 	
 	private JComboBox<Style> comboBoxStyle = new JComboBox<Style> ();
 	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
 	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
-	private JComboBox <String> comboBoxOrientation = new JComboBox <String> ();
+	private JComboBox<String> comboBoxOrientation = new JComboBox <String> ();
 	
 	private JButton btnAdd = new JButton ("Add");
 
@@ -52,7 +52,7 @@ public class AddFurnitureGUI extends JFrame {
 	//private String furnitureStyle = null;
 	//private String furnitureColor = null;
 	
-//TODO ajouter une option pour choisir la direction du meuble, je ferais les m�thodes pour que �a fonctionne
+//TODO link les choix d'orientations
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -82,7 +82,7 @@ public class AddFurnitureGUI extends JFrame {
 	 */
 	public AddFurnitureGUI(AbstractRoom furnitureToAdd, Grid grid, Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 617, 222);
+		setBounds(100, 100, 617, 214);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -90,29 +90,29 @@ public class AddFurnitureGUI extends JFrame {
 		
 		furnitureName = new JLabel (furnitureToAdd.getName().toUpperCase());
 		furnitureName.setHorizontalAlignment(SwingConstants.CENTER);
-		furnitureName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		furnitureName.setFont(new Font("Tahoma", Font.BOLD, 17));
 		furnitureName.setLocation(138, 0);
-		furnitureName.setSize(161, 55);
+		furnitureName.setSize(334, 38);
 		contentPane.add(furnitureName);
 		
-		lblColor.setBounds(47, 69, 86, 15);
+		lblColor.setBounds(35, 69, 106, 15);
 		contentPane.add(lblColor);
 		
-		lblStyle.setBounds(47, 99, 86, 15);
+		lblStyle.setBounds(35, 99, 106, 15);
 		contentPane.add(lblStyle);
 		
-		comboBoxColor.setBounds(138, 65, 92, 22);
+		comboBoxColor.setBounds(151, 65, 92, 22);
 		contentPane.add(comboBoxColor);
 		
-		comboBoxStyle.setBounds(138, 95, 92, 22);
+		comboBoxStyle.setBounds(151, 95, 92, 22);
 		contentPane.add(comboBoxStyle);
 		
-		lblPosition.setBounds(47, 130, 71, 15);
+		lblPosition.setBounds(35, 134, 79, 15);
 		contentPane.add(lblPosition);
 		
-		comboBoxX.setBounds(119, 130, 41, 15);
+		comboBoxX.setBounds(119, 130, 41, 22);
 		contentPane.add(comboBoxX);
-		comboBoxY.setBounds(189, 130, 41, 15);
+		comboBoxY.setBounds(189, 130, 41, 22);
 		contentPane.add(comboBoxY);
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
@@ -123,25 +123,25 @@ public class AddFurnitureGUI extends JFrame {
 			comboBoxY.addItem(j);
 		}
 		
-		lblX.setBounds(172, 128, 12, 22);
+		lblX.setBounds(172, 130, 12, 22);
 		contentPane.add(lblX);
 		
 		lblRoom.setBounds(195,300,19,14);
 		contentPane.add(lblRoom);
-		lblOrientation.setSize(174, 20);
-		lblOrientation.setLocation(298, 66);
+		lblOrientation.setSize(198, 15);
+		lblOrientation.setLocation(282, 69);
 		
 		contentPane.add(lblOrientation);
-		comboBoxOrientation.setSize(71, 20);
+		comboBoxOrientation.setSize(71, 22);
 		comboBoxOrientation.setLocation(337, 96);
 		
-		comboBoxOrientation.addItem("NORTH");
-		comboBoxOrientation.addItem("SOUTH");
-		comboBoxOrientation.addItem("EAST");
-		comboBoxOrientation.addItem("WEST");
+		comboBoxOrientation.addItem("North");
+		comboBoxOrientation.addItem("South");
+		comboBoxOrientation.addItem("East");
+		comboBoxOrientation.addItem("West");
 		contentPane.add(comboBoxOrientation);
 		
-		btnAdd.setBounds(502, 82, 89, 23);
+		btnAdd.setBounds(502, 82, 89, 22);
 		contentPane.add(btnAdd);
 		
 		btnAdd.addActionListener(new ActionListener() {
@@ -167,13 +167,15 @@ public class AddFurnitureGUI extends JFrame {
 			}
 		});
 		
-		
-		comboBoxRoom.setBounds(179, 39, 99, 20);
+		comboBoxRoom.setBounds(273, 36, 135, 22);
 		contentPane.add(comboBoxRoom);
+		
+		JLabel lblChooseTheRoom = new JLabel("Choose the room to add the furniture in:");
+		lblChooseTheRoom.setBounds(35, 40, 228, 15);
+		contentPane.add(lblChooseTheRoom);
 		comboBoxRoom.addItem("-- Select a room --");
 		
 		HashMap<Integer, Room> room = apartment.getRoomsList();
-		
 		for(int index=0 ; index<room.size() ; index++) {
 			String roomName = room.get(index).getName();
 			comboBoxRoom.addItem(roomName);
@@ -187,7 +189,7 @@ public class AddFurnitureGUI extends JFrame {
 		});
 	}
 //TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
-		
+
 	public void paintComponent(Graphics g) throws IOException{
 	   
 	      Image img = ImageIO.read(new File("Decoration/drawings/"+furnitureName+".jpg"));

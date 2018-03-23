@@ -58,7 +58,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	 */
 	public RemoveFurnitureGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 525, 205);
+		setBounds(100, 100, 608, 172);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -70,16 +70,16 @@ public class RemoveFurnitureGUI extends JFrame {
 			comboBoxRoom.addItem (roomName);
 		}
 		
-		comboBoxRoom.setBounds(284, 31, 99, 20);
+		comboBoxRoom.setBounds(289, 30, 135, 22);
 		contentPane.add(comboBoxRoom);
 		
-		btnRemove.setBounds(390, 64, 109, 18);
+		btnRemove.setBounds(473, 57, 109, 22);
 		contentPane.add(btnRemove);
 		
-		lblChooseRoom.setBounds(10, 34, 275, 14);
+		lblChooseRoom.setBounds(23, 34, 264, 15);
 		contentPane.add(lblChooseRoom);
 		
-		lblChooseTheFurniture.setBounds(78, 95, 207, 14);
+		lblChooseTheFurniture.setBounds(105, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
 		
 		for (int index=0;index<room.size();index++) {
@@ -89,7 +89,8 @@ public class RemoveFurnitureGUI extends JFrame {
 				comboBoxFurniture.addItem(index + "-" + furnitureName);
 			}
 		}
-		comboBoxFurniture.setBounds(284, 92, 99, 20);
+		
+		comboBoxFurniture.setBounds(289, 85, 120, 22);
 		contentPane.add(comboBoxFurniture);
 	
 		btnRemove.addActionListener(new ActionListener() {

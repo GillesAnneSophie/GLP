@@ -54,16 +54,16 @@ public class RemoveRoomGUI extends JFrame {
 	 */
 	public RemoveRoomGUI(Apartment apartment, Grid grid) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 449, 198);
+		setBounds(100, 100, 458, 106);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 				
-		lblChooseTheRoom.setBounds(10, 56, 166, 14);
+		lblChooseTheRoom.setBounds(21, 25, 174, 15);
 		contentPane.add(lblChooseTheRoom);		
 
-		comboBox.setBounds(209, 53, 99, 20);
+		comboBox.setBounds(192, 21, 135, 22);
 		contentPane.add(comboBox);
 		
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
@@ -74,7 +74,7 @@ public class RemoveRoomGUI extends JFrame {
 			comboBox.addItem (index + "-" + roomListName);
 		}
 		
-		btnRemove.setBounds(337, 52, 86, 23);
+		btnRemove.setBounds(346, 21, 86, 22);
 		contentPane.add(btnRemove);
 		
 		btnRemove.addActionListener(new ActionListener() {

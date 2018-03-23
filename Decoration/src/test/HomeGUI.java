@@ -62,7 +62,7 @@ public class HomeGUI extends JFrame {
 		contentPane.add(lblWelcome);
 		
 		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblMessage.setBounds(26, 113, 808, 14);
+		lblMessage.setBounds(26, 113, 808, 15);
 		contentPane.add(lblMessage);
 		
 		lblAuthor.setFont(new Font("Tahoma", Font.ITALIC, 11));
@@ -70,7 +70,7 @@ public class HomeGUI extends JFrame {
 		lblAuthor.setSize(346, 15);
 		contentPane.add(lblAuthor);
 		
-		btnOpenAFile.setBounds(501, 160, 203, 23);
+		btnOpenAFile.setBounds(471, 160, 209, 22);
 		contentPane.add(btnOpenAFile);
 		
 		btnOpenAFile.addActionListener(new ActionListener() {
@@ -79,7 +79,7 @@ public class HomeGUI extends JFrame {
 			}
 		});
 
-		btnNew.setBounds(220, 160, 141, 23);
+		btnNew.setBounds(220, 160, 141, 22);
 		contentPane.add(btnNew);
 		
 		btnNew.addActionListener(new ActionListener () {

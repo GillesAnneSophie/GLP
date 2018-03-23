@@ -28,7 +28,6 @@ public class AddRoomGUI extends JFrame {
 	private JButton btnEnter = new JButton("Add");
 	
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to add:");
-	private JLabel lblX_2 = new JLabel("X");
 	private JLabel lblX_3 = new JLabel("X");
 	private JLabel lblWidth = new JLabel ("Width:");
 	private JLabel lblLength = new JLabel("Length:");
@@ -78,7 +77,7 @@ public class AddRoomGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		comboBoxRoom.setBounds(179, 39, 127, 20);
+		comboBoxRoom.setBounds(172, 36, 127, 22);
 		contentPane.add(comboBoxRoom);
 		comboBoxRoom.addItem("-- Select a room --");
 		comboBoxRoom.addItem("Bathroom");
@@ -97,12 +96,12 @@ public class AddRoomGUI extends JFrame {
 		contentPane.add(btnEnter);
 		contentPane.setLayout(null);
 		
-		lblChooseTheRoom.setBounds(25, 42, 151, 14);
+		lblChooseTheRoom.setBounds(161, 11, 142, 15);
 		contentPane.add(lblChooseTheRoom);
 		
-		comboBoxX.setBounds(172, 110, 41, 15);
+		comboBoxX.setBounds(240, 80, 41, 22);
 		contentPane.add(comboBoxX);
-		comboBoxY.setBounds(232, 110, 41, 15);
+		comboBoxY.setBounds(315, 80, 41, 22);
 		contentPane.add(comboBoxY);
 		
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
@@ -114,27 +113,24 @@ public class AddRoomGUI extends JFrame {
 			comboBoxY.addItem(j);
 		}
 		
-		lblX_2.setBounds(197, 78, 21, 14);
-		contentPane.add(lblX_2);
-		
-		lblWidth.setLocation(101, 78);
-		lblWidth.setSize(41, 14);
+		lblWidth.setLocation(27, 70);
+		lblWidth.setSize(41, 15);
 		contentPane.add(lblWidth);
 		
-		lblPosition.setLocation(101, 110);
-		lblPosition.setSize(68, 14);
+		lblPosition.setLocation(145, 84);
+		lblPosition.setSize(85, 15);
 		contentPane.add(lblPosition);
 		
-		lblX_3.setBounds(220, 110, 19, 14);		
+		lblX_3.setBounds(295, 84, 19, 14);		
 		contentPane.add(lblX_3);
 		
-		lblLength.setBounds(207, 77, 41, 17);
+		lblLength.setBounds(27, 100, 51, 15);
 		contentPane.add(lblLength);
 		
-		textFieldWidth.setBounds(140, 75, 47, 20);
+		textFieldWidth.setBounds(88, 66, 47, 22);
 		contentPane.add(textFieldWidth);
 		
-		textFieldLength.setBounds(255, 75, 47, 20);
+		textFieldLength.setBounds(88, 96, 47, 22);
 		contentPane.add(textFieldLength);
 		
 		textFieldWidth.addChangeListener(new ChangeListener() {
@@ -149,7 +145,7 @@ public class AddRoomGUI extends JFrame {
 			}
 		});
 		
-		btnEnter.setBounds(360, 64, 76, 23);
+		btnEnter.setBounds(371, 66, 76, 22);
 		
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
