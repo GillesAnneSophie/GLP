@@ -23,7 +23,7 @@ public class Furniture extends AbstractRoom
 		super("Furniture", name, dimension, stackable, category);
 	}
 
-//TODO style + color ?	
+//TODO Style : style + color ?	
 	/**
 	 * @return the style
 	 */

@@ -221,7 +221,7 @@ public abstract class AbstractRoom
 		this.dimension=dimension;
 	}
 	
-//TODO + modif sens des images + Autre fichier.java ?
+//TODO Print : modif sens des images + Autre fichier.java ?
 	/**
 	 * North and South = default orientation
 	 * East and West = Change the orientation

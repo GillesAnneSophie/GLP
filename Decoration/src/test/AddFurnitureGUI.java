@@ -48,11 +48,12 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private int furniturePositionY = -1;
 	private int furniturePositionX = -1;
-//TODO quand style + color seront implementes
+	private String furnitureOrientation = null;
+//TODO Style : quand style + color seront implementes
 	//private String furnitureStyle = null;
 	//private String furnitureColor = null;
 	
-//TODO link les choix d'orientations
+
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -148,12 +149,30 @@ public class AddFurnitureGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
+				furnitureOrientation = comboBoxOrientation.getSelectedItem().toString();
 				currentRoom = apartment.getRoom(currentRoomName);
-//TODO quand impementes (x3)
+//TODO Style : quand impementes (x3)
 				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
 				//furnitureColor = comboBoxColor.getSelectedItem().toString();
 				
-				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null)
+				if(furnitureOrientation=="North")
+				{
+					furnitureToAdd.furnitureOrientedNorth();
+				}
+				else if(furnitureOrientation=="South")
+				{
+					furnitureToAdd.furnitureOrientedSouth();
+				}
+				else if(furnitureOrientation=="East")
+				{
+					furnitureToAdd.furnitureOrientedEast();
+				}
+				else if(furnitureOrientation=="West")
+				{
+					furnitureToAdd.furnitureOrientedWest();
+				}
+				
+				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null && furnitureOrientation!=null)
 				{
 					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
 					{
@@ -188,7 +207,7 @@ public class AddFurnitureGUI extends JFrame {
 			}
 		});
 	}
-//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
+//TODO GUI : utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
 
 	public void paintComponent(Graphics g) throws IOException{
 	   

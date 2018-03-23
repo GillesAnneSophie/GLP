@@ -67,7 +67,7 @@ public class PrintDrawing
 		if(leftPosition=="*" || leftPosition.matches("[a-z]"))
 		{
 			//grid.setGrid(positionY, positionX-1, "L"); Orient� vers la gauche
-//TODO etc avec l'image dans le sens voulu (large door / small window / large window / pictures
+//TODO Print : etc avec l'image dans le sens voulu (large door / small window / large window / pictures)
 			if(name.equals("small door"))
 			{
 				

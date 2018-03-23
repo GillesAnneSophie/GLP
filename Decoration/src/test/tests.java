@@ -61,9 +61,9 @@ public class tests
 		
 		AbstractRoom furniture3 = catalog.getFurniture("small door");
 		//furniture3.furnitureOrientedWest();
-//TODO fonctionnent pas : meubles de Wall + carpet(?)
+//TODO TEST : fonctionnent pas : meubles de Wall + carpet(?)
 		bedroom.addFurniture(furniture3, 2, 5, grid); //6 3 || 2 5
-
+//TODO TEST : Impossible de mettre une carpet sur un autre objet O_o
 			//Statistics
 		//System.out.println("numberOfFurniture" + Statistics.numberOfFurniture(apartment.getRoomsList()));
 		//System.out.println("numberOfRooms" + Statistics.numberOfRooms(apartment.getRoomsList()));
