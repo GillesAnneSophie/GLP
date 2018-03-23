@@ -38,7 +38,7 @@ public class DesignGUI extends JFrame {
 	private JLabel lblNumberOfFurniture = new JLabel ("Furniture:");	
 	private JLabel roomCounter = new JLabel ("");
 	private JLabel furnitureCounter = new JLabel ("");
-//TODO changer la taille de cette fen�tre sinon on voit pas les stats //La bar de stat va en bas normalement mais comme j'ai pas windowbuilder jlai fais a l'oeil 
+//TODO changer la taille de cette fen�tre sinon on voit pas les stats //La bar de stat va en bas
 	
 	/**
 	 * Launch the application

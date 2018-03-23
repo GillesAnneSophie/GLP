@@ -48,11 +48,11 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private int furniturePositionY = -1;
 	private int furniturePositionX = -1;
-	
-	//private String furnitureStyle = null; //TODO quand style + color sera impl�ment�
+//TODO quand style + color seront implementes
+	//private String furnitureStyle = null;
 	//private String furnitureColor = null;
 	
-//TODO ajouter une option pour choisir la direction du meuble : North/South/East/West je ferais les m�thodes pour que �a fonctionne
+//TODO ajouter une option pour choisir la direction du meuble, je ferais les m�thodes pour que �a fonctionne
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -145,16 +145,15 @@ public class AddFurnitureGUI extends JFrame {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
 				currentRoom = apartment.getRoom(currentRoomName);
-				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); //TODO quand impl�ment�s + en dessous
+//TODO quand impementes (x3)
+				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
 				//furnitureColor = comboBoxColor.getSelectedItem().toString();
 				
 				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null)
 				{
-//TODO tjr le meme pb avec la jcombobox ???? 
-					// TODO Quel pb?
 					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
 					{
-						JOptionPane.showMessageDialog(null,"ERROR: furnitureToAdd could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null,"ERROR: " + furnitureToAdd.getName() + " could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
 					}
 					else
 					{
@@ -167,11 +166,13 @@ public class AddFurnitureGUI extends JFrame {
 		
 		comboBoxRoom.setBounds(179, 39, 99, 20);
 		contentPane.add(comboBoxRoom);
+		comboBoxRoom.addItem("-- Select a room --");
+		
 		HashMap<Integer, Room> room = apartment.getRoomsList();
 		
-		for (int index=0 ; index<room.size() ; index++) {
+		for(int index=0 ; index<room.size() ; index++) {
 			String roomName = room.get(index).getName();
-			comboBoxRoom.addItem (roomName);
+			comboBoxRoom.addItem(roomName);
 		}
 		
 		comboBoxRoom.addActionListener(new ActionListener() {
@@ -181,13 +182,11 @@ public class AddFurnitureGUI extends JFrame {
 			}
 		});
 	}
-		//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
+//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
 		
-		public void paintComponent(Graphics g) throws IOException{
-		   
-		      Image img = ImageIO.read(new File("Decoration/drawings/"+furnitureName+".jpg"));
-		      g.drawImage(img, furniturePositionX, furniturePositionY, this);
+	public void paintComponent(Graphics g) throws IOException{
+	   
+	      Image img = ImageIO.read(new File("Decoration/drawings/"+furnitureName+".jpg"));
+	      g.drawImage(img, furniturePositionX, furniturePositionY, this);
 	}
-	
-	
 }

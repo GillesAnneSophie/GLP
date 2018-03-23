@@ -30,7 +30,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	private String chosenRoomName = null;
 	private String chosenFurnitureInfo = null;
 	
-	
+//TODO totalement buggé > suppr fonctionne pas + génére nullPointerException en cliquand tu le bouton toolbar ensuite.
 	/**
 	 * Launch the application
 	 * @param apartment
