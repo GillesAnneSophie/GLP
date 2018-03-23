@@ -382,7 +382,7 @@ public class Grid
 		return null;
 	}
 	
-//TODO a enlever � la fin DEBUG ONLY
+//TODO a enlever a la fin DEBUG ONLY
 	/** 
 	 * Print the current grid 
 	 * */

@@ -44,7 +44,7 @@ public class AddFurnitureGUI extends JFrame {
 	//private String furnitureStyle = null; //TODO quand style + color sera implï¿½mentï¿½
 	//private String furnitureColor = null;
 	
-	
+//TODO ajouter une option pour choisir la direction du meuble : North/South/East/West je ferais les méthodes pour que ça fonctionne
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -134,7 +134,7 @@ public class AddFurnitureGUI extends JFrame {
 				
 				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null)
 				{
-//TODO tjr le meme pb avec la jcombobox
+//TODO tjr le meme pb avec la jcombobox ????
 					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
 					{
 //TODO POPUP qui dit : "ERROR: furnitureToAdd could not be add!" avec bouton OK

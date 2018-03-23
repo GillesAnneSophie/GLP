@@ -103,6 +103,7 @@ public class RemoveFurnitureGUI extends JFrame {
 					int chosenFurniture = Integer.valueOf(chosenFurnitureInfoTab[0]);
 					Room chosenRoom = apartment.getRoom(chosenRoomName);
 					chosenRoom.removeFurniture(chosenFurniture, grid, apartment);
+					dispose();
 				}
 			}
 		});
