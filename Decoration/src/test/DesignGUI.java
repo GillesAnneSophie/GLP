@@ -7,9 +7,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 import catalog.Catalog;
+import place.Statistics;
 import place.Apartment;
 import place.Grid;
-import place.Room;
 
 /**
  * @author CORALIE Laury Ann
@@ -113,12 +113,12 @@ public class DesignGUI extends JFrame {
 		statBar.add(roomCounter);
 		statBar.add(lblNumberOfFurniture);
 		statBar.add(furnitureCounter);
-//TODO je fini ce soir	
-		numberOfRooms(apartment.getRoomsList();
-		numberOfFurniture(apartment.getRoomsList();
+
+		String currentRoomCounter = Integer.toString(Statistics.numberOfRooms(apartment.getRoomsList()));
+		String currentFurnitureCounter = Integer.toString(Statistics.numberOfFurniture(apartment.getRoomsList()));
 		
-		roomCounter.setText());
-		furnitureCounter.setText());
+		roomCounter.setText(currentRoomCounter);
+		furnitureCounter.setText(currentFurnitureCounter);
 		
 	}
 
