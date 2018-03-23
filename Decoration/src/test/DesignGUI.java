@@ -38,7 +38,7 @@ public class DesignGUI extends JFrame {
 	private JLabel lblNumberOfFurniture = new JLabel ("Furniture:");	
 	private JLabel roomCounter = new JLabel ("");
 	private JLabel furnitureCounter = new JLabel ("");
-
+//TODO changer la taille de cette fenêtre sinon on voit pas les stats 
 	
 	/**
 	 * Launch the application
