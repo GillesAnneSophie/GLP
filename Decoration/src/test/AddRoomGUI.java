@@ -78,7 +78,7 @@ public class AddRoomGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		comboBoxRoom.setBounds(179, 39, 99, 20);
+		comboBoxRoom.setBounds(179, 39, 127, 20);
 		contentPane.add(comboBoxRoom);
 		comboBoxRoom.addItem("-- Select a room --");
 		comboBoxRoom.addItem("Bathroom");
@@ -100,9 +100,9 @@ public class AddRoomGUI extends JFrame {
 		lblChooseTheRoom.setBounds(25, 42, 151, 14);
 		contentPane.add(lblChooseTheRoom);
 		
-		comboBoxX.setBounds(179, 110, 34, 15);
+		comboBoxX.setBounds(172, 110, 41, 15);
 		contentPane.add(comboBoxX);
-		comboBoxY.setBounds(232, 110, 34, 15);
+		comboBoxY.setBounds(232, 110, 41, 15);
 		contentPane.add(comboBoxY);
 		
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
@@ -114,27 +114,27 @@ public class AddRoomGUI extends JFrame {
 			comboBoxY.addItem(j);
 		}
 		
-		lblX_2.setBounds(208, 78, 19, 14);
+		lblX_2.setBounds(197, 78, 21, 14);
 		contentPane.add(lblX_2);
 		
-		lblWidth.setLocation(123, 78);
-		lblWidth.setSize(53, 14);
+		lblWidth.setLocation(101, 78);
+		lblWidth.setSize(41, 14);
 		contentPane.add(lblWidth);
 		
-		lblPosition.setLocation(98, 110);
-		lblPosition.setSize(78, 14);
+		lblPosition.setLocation(101, 110);
+		lblPosition.setSize(68, 14);
 		contentPane.add(lblPosition);
 		
 		lblX_3.setBounds(220, 110, 19, 14);		
 		contentPane.add(lblX_3);
 		
-		lblLength.setBounds(228, 78, 58, 17);
+		lblLength.setBounds(207, 77, 41, 17);
 		contentPane.add(lblLength);
 		
-		textFieldWidth.setBounds(164, 78, 34, 20);
+		textFieldWidth.setBounds(140, 75, 47, 20);
 		contentPane.add(textFieldWidth);
 		
-		textFieldLength.setBounds(272, 78, 34, 20);
+		textFieldLength.setBounds(255, 75, 47, 20);
 		contentPane.add(textFieldLength);
 		
 		textFieldWidth.addChangeListener(new ChangeListener() {

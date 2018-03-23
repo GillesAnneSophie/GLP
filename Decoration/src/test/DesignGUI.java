@@ -34,11 +34,11 @@ public class DesignGUI extends JFrame {
 	
 	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
 
-	private JLabel lblNumberOfRoom = new JLabel ("Room:");
-	private JLabel lblNumberOfFurniture = new JLabel ("Furniture:");	
+	private JLabel lblNumberOfRoom = new JLabel ("Number of rooms:");
+	private JLabel lblNumberOfFurniture = new JLabel ("Number of furniture:");	
 	private JLabel roomCounter = new JLabel ("");
 	private JLabel furnitureCounter = new JLabel ("");
-//TODO changer la taille de cette fen�tre sinon on voit pas les stats //La bar de stat va en bas
+
 	
 	/**
 	 * Launch the application
@@ -64,7 +64,7 @@ public class DesignGUI extends JFrame {
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 688, 477);
+		setBounds(100, 100, 736, 812);
 		
 		setJMenuBar(menuBar);
 		menuBar.add(menu);
@@ -106,6 +106,7 @@ public class DesignGUI extends JFrame {
 			}	
 		});
 		
+		statBar.setPreferredSize(new Dimension(650, 30));
 		statBar.setBorder(BorderFactory.createLineBorder(Color.black));
 		contentPane.add(statBar);
 		
@@ -119,7 +120,6 @@ public class DesignGUI extends JFrame {
 		
 		roomCounter.setText(currentRoomCounter);
 		furnitureCounter.setText(currentFurnitureCounter);
-		
 	}
 
 	

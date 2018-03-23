@@ -82,7 +82,7 @@ public class AddFurnitureGUI extends JFrame {
 	 */
 	public AddFurnitureGUI(AbstractRoom furnitureToAdd, Grid grid, Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 454, 209);
+		setBounds(100, 100, 617, 222);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -95,24 +95,24 @@ public class AddFurnitureGUI extends JFrame {
 		furnitureName.setSize(161, 55);
 		contentPane.add(furnitureName);
 		
-		lblColor.setBounds(47, 65, 103, 15);
+		lblColor.setBounds(47, 69, 86, 15);
 		contentPane.add(lblColor);
 		
-		lblStyle.setBounds(47, 95, 103, 15);
+		lblStyle.setBounds(47, 99, 86, 15);
 		contentPane.add(lblStyle);
 		
-		comboBoxColor.setBounds(143, 60, 71, 22);
+		comboBoxColor.setBounds(138, 65, 92, 22);
 		contentPane.add(comboBoxColor);
 		
-		comboBoxStyle.setBounds(143, 90, 71, 22);
+		comboBoxStyle.setBounds(138, 95, 92, 22);
 		contentPane.add(comboBoxStyle);
 		
-		lblPosition.setBounds(47, 125, 86, 15);
+		lblPosition.setBounds(47, 130, 71, 15);
 		contentPane.add(lblPosition);
 		
-		comboBoxX.setBounds(143, 125, 34, 15);
+		comboBoxX.setBounds(119, 130, 41, 15);
 		contentPane.add(comboBoxX);
-		comboBoxY.setBounds(205, 125, 35, 15);
+		comboBoxY.setBounds(189, 130, 41, 15);
 		contentPane.add(comboBoxY);
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
@@ -123,13 +123,17 @@ public class AddFurnitureGUI extends JFrame {
 			comboBoxY.addItem(j);
 		}
 		
-		lblX.setBounds(195, 125, 19, 14);
+		lblX.setBounds(172, 128, 12, 22);
 		contentPane.add(lblX);
 		
 		lblRoom.setBounds(195,300,19,14);
 		contentPane.add(lblRoom);
+		lblOrientation.setSize(174, 20);
+		lblOrientation.setLocation(298, 66);
 		
 		contentPane.add(lblOrientation);
+		comboBoxOrientation.setSize(71, 20);
+		comboBoxOrientation.setLocation(337, 96);
 		
 		comboBoxOrientation.addItem("NORTH");
 		comboBoxOrientation.addItem("SOUTH");
@@ -137,7 +141,7 @@ public class AddFurnitureGUI extends JFrame {
 		comboBoxOrientation.addItem("WEST");
 		contentPane.add(comboBoxOrientation);
 		
-		btnAdd.setBounds(294, 95, 89, 23);
+		btnAdd.setBounds(502, 82, 89, 23);
 		contentPane.add(btnAdd);
 		
 		btnAdd.addActionListener(new ActionListener() {
