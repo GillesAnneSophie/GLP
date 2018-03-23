@@ -38,9 +38,7 @@ public class DesignGUI extends JFrame {
 	private JLabel lblNumberOfFurniture = new JLabel ("Furniture:");	
 	private JLabel roomCounter = new JLabel ("");
 	private JLabel furnitureCounter = new JLabel ("");
-	
-	private int numberOfRoom;
-	private int numberOfFurniture = 0;
+
 	
 	/**
 	 * Launch the application
@@ -115,15 +113,12 @@ public class DesignGUI extends JFrame {
 		statBar.add(roomCounter);
 		statBar.add(lblNumberOfFurniture);
 		statBar.add(furnitureCounter);
+//TODO je fini ce soir	
+		numberOfRooms(apartment.getRoomsList();
+		numberOfFurniture(apartment.getRoomsList();
 		
-		numberOfRoom = apartment.getRoomsList().size();
-		for (int index=0 ; index<numberOfRoom ; index++) {
-			Room roomName = apartment.getRoomsList().get(index);
-			numberOfFurniture = numberOfFurniture + roomName.getAllTheFurnitureOfTheRoom().size();
-		}
-		
-		roomCounter.setText(Integer.toString(numberOfRoom));
-		furnitureCounter.setText(Integer.toString(numberOfFurniture));
+		roomCounter.setText());
+		furnitureCounter.setText());
 		
 	}
 

@@ -106,7 +106,7 @@ public class Room extends AbstractRoom
 	 * @param positionY
 	 * @param grid
 	 * */
-	public void addFurniture(AbstractRoom furniture, int positionX, int positionY, Grid grid)
+	public boolean addFurniture(AbstractRoom furniture, int positionX, int positionY, Grid grid)
 	{
 		if(roomAcceptFurniture(this, furniture))
 		{
@@ -116,8 +116,10 @@ public class Room extends AbstractRoom
 			if(furniture.setPosition(positionX, positionY, nameInGrid, grid))
 			{
 				allTheFurnitureOfTheRoom.put(counter, furniture);
+				return true;
 			}
 		}
+		return false;
 	}
 	
 	/** 

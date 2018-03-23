@@ -35,6 +35,7 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private JButton btnAdd = new JButton ("Add");
 
+	private String currentRoomName = null;
 	private Room currentRoom = null;
 	
 	private int furniturePositionY = -1;
@@ -42,8 +43,8 @@ public class AddFurnitureGUI extends JFrame {
 	
 	//private String furnitureStyle = null; //TODO quand style + color sera implï¿½mentï¿½
 	//private String furnitureColor = null;
-	private String currentRoomName;
-
+	
+	
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -54,7 +55,7 @@ public class AddFurnitureGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid,apartment);
+					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid, apartment);
 					frame.setVisible(true);
 					frame.setTitle("Manag'Apart - Add a furniture");
 				} catch (Exception e) {
@@ -124,24 +125,29 @@ public class AddFurnitureGUI extends JFrame {
 		contentPane.add(btnAdd);
 		
 		btnAdd.addActionListener(new ActionListener() {
-			
-
 			public void actionPerformed(ActionEvent arg0) {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
 				currentRoom = apartment.getRoom(currentRoomName);
 				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); //TODO quand implï¿½mentï¿½s + en dessous
 				//furnitureColor = comboBoxColor.getSelectedItem().toString();
-							
-				currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid); //TODO tjr le meme pb avec la jcombobox
 				
-				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/)
+				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null)
 				{
-					dispose();
+//TODO tjr le meme pb avec la jcombobox
+					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
+					{
+//TODO POPUP qui dit : "ERROR: furnitureToAdd could not be add!" avec bouton OK
+					}
+					else
+					{
+						dispose();
+					}
 				}
 			}
 		});
 		
+//TODO ici c'est la liste des pièces actuelles pas la liste des pièces possible ;)
 		comboBoxRoom.setBounds(179, 39, 99, 20);
 		contentPane.add(comboBoxRoom);
 		comboBoxRoom.addItem("-- Select a room --");
