@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -26,12 +27,14 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel lblX = new JLabel("X");
 	private JLabel furnitureName;
 	private JLabel lblRoom = new JLabel ("Choose the room:");
+	private JLabel lblOrientation = new JLabel ("Choose the furniture's orientation :");
 	
 	private JComboBox<Style> comboBoxStyle = new JComboBox<Style> ();
 	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
 	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
+	private JComboBox <String> comboBoxOrientation = new JComboBox <String> ();
 	
 	private JButton btnAdd = new JButton ("Add");
 
@@ -44,7 +47,7 @@ public class AddFurnitureGUI extends JFrame {
 	//private String furnitureStyle = null; //TODO quand style + color sera implï¿½mentï¿½
 	//private String furnitureColor = null;
 	
-//TODO ajouter une option pour choisir la direction du meuble : North/South/East/West je ferais les méthodes pour que ça fonctionne
+//TODO ajouter une option pour choisir la direction du meuble : North/South/East/West je ferais les mï¿½thodes pour que ï¿½a fonctionne
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -121,6 +124,14 @@ public class AddFurnitureGUI extends JFrame {
 		lblRoom.setBounds(195,300,19,14);
 		contentPane.add(lblRoom);
 		
+		contentPane.add(lblOrientation);
+		
+		comboBoxOrientation.addItem("NORTH");
+		comboBoxOrientation.addItem("SOUTH");
+		comboBoxOrientation.addItem("EAST");
+		comboBoxOrientation.addItem("WEST");
+		contentPane.add(comboBoxOrientation);
+		
 		btnAdd.setBounds(294, 95, 89, 23);
 		contentPane.add(btnAdd);
 		
@@ -134,10 +145,11 @@ public class AddFurnitureGUI extends JFrame {
 				
 				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null)
 				{
-//TODO tjr le meme pb avec la jcombobox ????
+//TODO tjr le meme pb avec la jcombobox ???? 
+					// TODO Quel pb?
 					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
 					{
-//TODO POPUP qui dit : "ERROR: furnitureToAdd could not be add!" avec bouton OK
+						JOptionPane.showMessageDialog(null,"ERROR: furnitureToAdd could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
 					}
 					else
 					{
@@ -147,15 +159,15 @@ public class AddFurnitureGUI extends JFrame {
 			}
 		});
 		
-//TODO ici c'est la liste des pièces actuelles pas la liste des pièces possible ;)
+		
 		comboBoxRoom.setBounds(179, 39, 99, 20);
 		contentPane.add(comboBoxRoom);
-		comboBoxRoom.addItem("-- Select a room --");
-		comboBoxRoom.addItem("Kitchen");
-		comboBoxRoom.addItem("Bathroom");
-		comboBoxRoom.addItem("Bedroom/Office");
-		comboBoxRoom.addItem("Dining Room");
-		comboBoxRoom.addItem("Living Room");
+		HashMap<Integer, Room> room = apartment.getRoomsList();
+		
+		for (int index=0 ; index<room.size() ; index++) {
+			String roomName = room.get(index).getName();
+			comboBoxRoom.addItem (roomName);
+		}
 		
 		comboBoxRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

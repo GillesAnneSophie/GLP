@@ -163,7 +163,7 @@ public class AddRoomGUI extends JFrame {
 					if(!apartment.addRoom(bathroom, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
-						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+						JOptionPane.showMessageDialog(null,"ERROR: Bathroom could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 				else if (stringRoom == "Bedroom/Office") {
@@ -172,7 +172,7 @@ public class AddRoomGUI extends JFrame {
 					if(!apartment.addRoom(bedroomOffice, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
-						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+						JOptionPane.showMessageDialog(null,"ERROR: Bedroom/Office could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 				else if (stringRoom == "Dining Room") {
@@ -181,7 +181,7 @@ public class AddRoomGUI extends JFrame {
 					if(!apartment.addRoom(diningRoom, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
-						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+						JOptionPane.showMessageDialog(null,"ERROR: Dining Room could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 				else if (stringRoom == "Kitchen") {
@@ -190,7 +190,7 @@ public class AddRoomGUI extends JFrame {
 					if(!apartment.addRoom(kitchen, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
-						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
+						JOptionPane.showMessageDialog(null,"ERROR: Kitchen could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);	
 					}
 				}
 				else if (stringRoom == "Living Room") {
@@ -199,8 +199,8 @@ public class AddRoomGUI extends JFrame {
 					if(!apartment.addRoom(livingRoom, roomPositionX, roomPositionY, grid))
 					{
 						dontClose = true;
-						//TODO POPUP qui dit : "ERROR: Bathroom could not be add!" avec bouton OK
-					}
+						JOptionPane.showMessageDialog(null,"ERROR: Living Room could not be add!", "ERROR",JOptionPane.INFORMATION_MESSAGE);	
+											}
 				}
 				if(stringRoom!=null && roomWidth!=-1 && roomLength!=-1 && roomPositionX!=-1 && roomPositionY!=-1 && dontClose==false)
 				{
