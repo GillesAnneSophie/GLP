@@ -2,10 +2,15 @@ package test;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -175,7 +180,14 @@ public class AddFurnitureGUI extends JFrame {
 				currentRoomName = (String) combo.getSelectedItem();	
 			}
 		});
-		
-		//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
 	}
+		//TODO utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
+		
+		public void paintComponent(Graphics g) throws IOException{
+		   
+		      Image img = ImageIO.read(new File("Decoration/drawings/"+furnitureName+".jpg"));
+		      g.drawImage(img, furniturePositionX, furniturePositionY, this);
+	}
+	
+	
 }

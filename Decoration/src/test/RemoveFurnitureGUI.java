@@ -65,7 +65,6 @@ public class RemoveFurnitureGUI extends JFrame {
 		setContentPane(contentPane);
 		
 		HashMap<Integer, Room> room = apartment.getRoomsList();
-		
 		for (int index=0 ; index<room.size() ; index++) {
 			String roomName = room.get(index).getName();
 			comboBoxRoom.addItem (roomName);
