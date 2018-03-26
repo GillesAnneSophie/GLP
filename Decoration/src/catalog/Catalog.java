@@ -16,9 +16,6 @@ public class Catalog
 {
 	private ArrayList<AbstractRoom> inventory;
 	
-	private static boolean isNotStackable = false;
-	private static boolean isStackable = true;
-	
 	/*Create Dimensions*/
 	private static Dimension cube = new Dimension(1, 1);
 	private static Dimension smallRectangle = new Dimension(1, 2);
@@ -62,8 +59,9 @@ public class Catalog
 	
 
 	/** 
-	 * Create all the Furniture and put them in the inventory 
-	 * */
+	 * Create all the Furniture and put them in the inventory
+	 * @param fileName
+	 */
 	public void buildAllTheFurniture(String fileName)
 	{
 		try 
@@ -92,13 +90,13 @@ public class Catalog
 					case "largeRectangle" : dimension=largeRectangle;
 											break;
 				}
-				if(thisLine[2]=="isNotStackable")
+				if(thisLine[2].equals("isNotStackable"))
 				{
-					stackable = isNotStackable;
+					stackable = false;
 				}
-				else if(thisLine[2]=="isStackable")
+				else if(thisLine[2].equals("isStackable"))
 				{
-					stackable = isStackable;
+					stackable = true;
 				}
 				switch (thisLine[3])
 				{
