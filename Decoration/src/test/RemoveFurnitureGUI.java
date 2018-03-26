@@ -81,7 +81,7 @@ public class RemoveFurnitureGUI extends JFrame {
 		
 		lblChooseTheFurniture.setBounds(105, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
-		
+	
 //TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante à la pièce sélectionnée avant (il faut un Listener?)
 		for (int index=0;index<room.size();index++) {
 			HashMap<Integer, AbstractRoom> y = room.get(index).getAllTheFurnitureOfTheRoom();

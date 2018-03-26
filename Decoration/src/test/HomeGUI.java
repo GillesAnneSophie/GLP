@@ -79,7 +79,6 @@ public class HomeGUI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				JFileChooser fc = new JFileChooser();
 				fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);		
 				if(arg0.getSource() == btnOpenAFile) {					
