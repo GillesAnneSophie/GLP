@@ -32,7 +32,7 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel lblOrientation = new JLabel ("Choose the furniture's orientation :");
 	private JLabel furnitureName;
 	
-	private JComboBox<Style> comboBoxStyle = new JComboBox<Style> ();
+	private JComboBox<String> comboBoxStyle = new JComboBox<String> ();
 	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
 	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
@@ -111,6 +111,12 @@ public class AddFurnitureGUI extends JFrame {
 		comboBoxStyle.setBounds(151, 95, 92, 22);
 		contentPane.add(comboBoxStyle);
 		
+		comboBoxStyle.addItem("- Select style -");
+		comboBoxStyle.addItem("Basic");
+		comboBoxStyle.addItem("Modern");
+		comboBoxStyle.addItem("Rustic");
+		comboBoxStyle.addItem("Vintage");
+		
 		lblPosition.setBounds(35, 134, 79, 15);
 		contentPane.add(lblPosition);
 		
@@ -139,6 +145,7 @@ public class AddFurnitureGUI extends JFrame {
 		comboBoxOrientation.setSize(71, 22);
 		comboBoxOrientation.setLocation(337, 96);
 		
+		comboBoxOrientation.addItem("- Select orientation -");
 		comboBoxOrientation.addItem("North");
 		comboBoxOrientation.addItem("South");
 		comboBoxOrientation.addItem("East");
