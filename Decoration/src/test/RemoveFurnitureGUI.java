@@ -64,11 +64,27 @@ public class RemoveFurnitureGUI extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		comboBoxRoom.addItem("-- Select a room --");
 		HashMap<Integer, Room> room = apartment.getRoomsList();
 		for (int index=0 ; index<room.size() ; index++) {
 			String roomName = room.get(index).getName();
 			comboBoxRoom.addItem (roomName);
+			
 		}
+
+		comboBoxFurniture.addItem("-- Select a room first --");
+		comboBoxRoom.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Stub de la mÃ©thode gÃ©nÃ©rÃ© automatiquement
+				Room selectedRoom = (Room) comboBoxRoom.getSelectedItem();
+				HashMap<Integer, AbstractRoom> y = selectedRoom.getAllTheFurnitureOfTheRoom();
+				for (int index =0;index<y.size();index++) {
+					String furnitureName = y.get(index).getName();
+					comboBoxFurniture.addItem(index + "-" + furnitureName);
+				}
+			}
+		});
 		
 		comboBoxRoom.setBounds(289, 30, 135, 22);
 		contentPane.add(comboBoxRoom);
@@ -82,14 +98,8 @@ public class RemoveFurnitureGUI extends JFrame {
 		lblChooseTheFurniture.setBounds(105, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
 	
-//TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante à la pièce sélectionnée avant (il faut un Listener?)
-		for (int index=0;index<room.size();index++) {
-			HashMap<Integer, AbstractRoom> y = room.get(index).getAllTheFurnitureOfTheRoom();
-			for (int index2 =0;index2<y.size();index2++) {
-				String furnitureName = y.get(index2).getName();
-				comboBoxFurniture.addItem(index + "-" + furnitureName);
-			}
-		}
+//TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante ï¿½ la piï¿½ce sï¿½lectionnï¿½e avant (il faut un Listener?)
+		
 		
 		comboBoxFurniture.setBounds(289, 85, 120, 22);
 		contentPane.add(comboBoxFurniture);
