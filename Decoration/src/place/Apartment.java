@@ -24,7 +24,7 @@ public class Apartment
 		return roomsList;
 	}
 	
-	
+
 	public Room getRoom(String name)
 	{
 		for(int index=0 ; index<getRoomsList().size() ; index++)

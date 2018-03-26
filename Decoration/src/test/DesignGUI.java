@@ -6,10 +6,6 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
 import catalog.Catalog;
 import place.Statistics;
 import place.Apartment;
@@ -42,8 +38,6 @@ public class DesignGUI extends JFrame {
 	private JLabel lblNumberOfFurniture = new JLabel ("Number of furniture:");	
 	private JLabel roomCounter = new JLabel ("");
 	private JLabel furnitureCounter = new JLabel ("");
-	
-	private static Graphics graphics;
 
 	
 	/**
@@ -158,8 +152,15 @@ public class DesignGUI extends JFrame {
 	}
 	//TODO GUI : utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
 
-	public static void paintComponent(String name, int furniturePositionX, int furniturePositionY) throws IOException {
-		      Image image = ImageIO.read(new File("./Decoration/drawings/"+name+".png"));
+/*	public static void paintComponent(String name, int furniturePositionX, int furniturePositionY) throws IOException {
+		      Image image = ImageIO.read(new File("./drawings/"+name+".png"));
 		      graphics.drawImage(image, furniturePositionX, furniturePositionY, null);
 	}
+	
+	public void painter(String name, int furniturePositionX, int furniturePositionY)
+	{
+		ImageIcon icon = new ImageIcon("./drawings/"+name+".png");
+		Image image = icon.getImage();
+		graphics.drawImage(image, furniturePositionX, furniturePositionY, null);
+	}*/
 }

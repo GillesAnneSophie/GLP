@@ -9,8 +9,6 @@ package place;
  */
 public class PrintDrawing 
 {
-	
-	
 	/** 
 	 * Print a Wall, Floor or Void image depending on the current character in the grid
 	 * @param grid
@@ -26,22 +24,22 @@ public class PrintDrawing
 			{
 				String character = grid.getGrid(i, j);
 				
-				/* If there is a # (Void) at the current position */
+				// If there is a # (Void) at the current position 
 				if(character=="#")
 				{
-					// 
+					//
 				}
-				/* If there is a $ (Wall) at the current position */
+				// If there is a $ (Wall) at the current position 
 				else if(character=="$")
 				{
 					// wall.png
 				}
-				/* If there is a letter (Floor) at the current position */
+				// If there is a letter (Floor) at the current position 
 				else if(character.matches("[a-z]"))
 				{
 					// floor.png
 				}
-				/* If there is a * at the current position */
+				// If there is a * at the current position 
 				else if(character=="*")
 				{
 					// void.png
