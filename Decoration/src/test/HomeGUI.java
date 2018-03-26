@@ -17,7 +17,7 @@ public class HomeGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
-	
+
 	//private JLabel lblName = new JLabel("Manag'Apart");
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");

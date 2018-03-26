@@ -6,8 +6,9 @@ import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.io.File;
+
 import catalog.Catalog;
-import javaProj.ModeGraphique;
 import place.Statistics;
 import place.Apartment;
 import place.Grid;
@@ -72,7 +73,7 @@ public class DesignGUI extends JFrame {
 		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		
 		setJMenuBar(menuBar);
-		menu.setPreferredSize(new Dimension(20, 22));
+		menu.setPreferredSize(new Dimension(30, 22));
 		menuBar.add(menu);
 		menu.add(mntmOpen);
 		menu.add(mntmSave);
@@ -82,12 +83,10 @@ public class DesignGUI extends JFrame {
 		menuBar.add(chckbxmntmShowToolbar);
 		
 		mntmOpen.addActionListener(new ActionListener() {
-
 			private File file;
-
+			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				JFileChooser fc = new JFileChooser();
 				fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);		
 				if(arg0.getSource() == mntmOpen) {					
@@ -103,6 +102,7 @@ public class DesignGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chckbxmntmShowToolbar.isSelected() == true) {
 					ToolbarGUI.main(apartment, grid, catalog);
+					chckbxmntmShowToolbar.setSelected(false);
 				}
 			}
 		});

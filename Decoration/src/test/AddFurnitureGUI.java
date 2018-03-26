@@ -182,13 +182,12 @@ public class AddFurnitureGUI extends JFrame {
 					}
 					else
 					{
-						//TODO ajout de l'image à la position donnee par l'utilisateur 
+						//TODO ajout de l'image a� la position donnee par l'utilisateur 
 						BufferedImage furnitureImg;
 						try {
 							furnitureImg = ImageIO.read(new File (defaultFurniturePath +furnitureToAdd.getName()+defaultExtension ));
 							add(new JLabel(new ImageIcon(furnitureImg)));
 						} catch (IOException e) {
-							// TODO Bloc catch généré automatiquement
 							e.printStackTrace();
 						}
 						
