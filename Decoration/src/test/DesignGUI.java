@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import catalog.Catalog;
+import javaProj.ModeGraphique;
 import place.Statistics;
 import place.Apartment;
 import place.Grid;
@@ -28,7 +29,9 @@ public class DesignGUI extends JFrame {
 	private JPanel statBar = new JPanel();
 
 	private JMenuBar menuBar = new JMenuBar();
-	private JMenu menu = new JMenu("?");
+	private JMenu menu = new JMenu("File");
+	private JMenuItem mntmOpen = new JMenuItem("Open a existing file");
+	private JMenuItem mntmSave = new JMenuItem("Save this file");
 	private JMenuItem mntmHelp = new JMenuItem("Help");
 	private JMenuItem mntmExit = new JMenuItem("Exit");
 	
@@ -71,10 +74,30 @@ public class DesignGUI extends JFrame {
 		setJMenuBar(menuBar);
 		menu.setPreferredSize(new Dimension(20, 22));
 		menuBar.add(menu);
+		menu.add(mntmOpen);
+		menu.add(mntmSave);
 		menu.add(mntmHelp);
 		menu.add(mntmExit);
 		chckbxmntmShowToolbar.setPreferredSize(new Dimension(50, 22));
 		menuBar.add(chckbxmntmShowToolbar);
+		
+		mntmOpen.addActionListener(new ActionListener() {
+
+			private File file;
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Stub de la méthode généré automatiquement
+				JFileChooser fc = new JFileChooser();
+				fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);		
+				if(arg0.getSource() == mntmOpen) {					
+					int returnV = fc.showOpenDialog(DesignGUI.this);					
+					if(returnV == JFileChooser.APPROVE_OPTION) {					
+						file = fc.getSelectedFile();
+					}
+				}
+			}		
+		});
 		
 		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

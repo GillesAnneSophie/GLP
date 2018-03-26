@@ -1,11 +1,14 @@
 package test;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import catalog.Style;
@@ -43,9 +46,14 @@ public class AddFurnitureGUI extends JFrame {
 	private int furniturePositionY = -1;
 	private int furniturePositionX = -1;
 	private String furnitureOrientation = null;
+
+	protected String defaultFurniturePath = "/Decoration/drawings/";
+	protected String defaultExtension = ".pgn";
 //TODO Style : quand style + color seront implementes
 	//private String furnitureStyle = null;
 	//private String furnitureColor = null;
+
+	
 	
 
 	/**
@@ -174,6 +182,16 @@ public class AddFurnitureGUI extends JFrame {
 					}
 					else
 					{
+						//TODO ajout de l'image à la position donnee par l'utilisateur 
+						BufferedImage furnitureImg;
+						try {
+							furnitureImg = ImageIO.read(new File (defaultFurniturePath +furnitureToAdd.getName()+defaultExtension ));
+							add(new JLabel(new ImageIcon(furnitureImg)));
+						} catch (IOException e) {
+							// TODO Bloc catch généré automatiquement
+							e.printStackTrace();
+						}
+						
 						dispose();
 					}
 				}
