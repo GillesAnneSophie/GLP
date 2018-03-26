@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 
 /**
@@ -74,9 +75,20 @@ public class HomeGUI extends JFrame {
 		contentPane.add(btnOpenAFile);
 		
 		btnOpenAFile.addActionListener(new ActionListener() {
+			private File file;
+
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
-			}
+				// TODO Stub de la méthode généré automatiquement
+				JFileChooser fc = new JFileChooser();
+				fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);		
+				if(arg0.getSource() == btnOpenAFile) {					
+					int returnV = fc.showOpenDialog(HomeGUI.this);					
+					if(returnV == JFileChooser.APPROVE_OPTION) {					
+						file = fc.getSelectedFile();
+					}
+				}
+			}	
 		});
 
 		btnNew.setBounds(220, 160, 141, 22);
