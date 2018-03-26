@@ -1,10 +1,10 @@
 package test;
 
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 import java.util.HashMap;
 
@@ -82,7 +82,7 @@ public class RemoveFurnitureGUI extends JFrame {
 		lblChooseTheFurniture.setBounds(105, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
 		
-//TODO GUI : FONCTIONNE PAS > Si on clique si le choix du meuble alors on doit afficher la liste des meubles correspondante à la pièce sélectionnée avant (il faut un Listener)
+//TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante à la pièce sélectionnée avant (il faut un Listener?)
 		for (int index=0;index<room.size();index++) {
 			HashMap<Integer, AbstractRoom> y = room.get(index).getAllTheFurnitureOfTheRoom();
 			for (int index2 =0;index2<y.size();index2++) {

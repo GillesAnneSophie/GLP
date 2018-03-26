@@ -1,11 +1,11 @@
 package test;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.*;
 
 import catalog.Category;
 import categories.*;

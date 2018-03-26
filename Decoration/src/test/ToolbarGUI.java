@@ -1,9 +1,9 @@
  package test;
 
-import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.*;
 
 import catalog.*;
 import place.*;
@@ -19,7 +19,7 @@ public class ToolbarGUI extends JFrame {
 	private JPanel contentPane;
 	private JPanel panel = new JPanel();
 	private JPanel listPanel;
-	
+
 	private JButton btnAddARoom = new JButton("Add a Room");
 	private JButton btnRemoveARoom = new JButton("Remove a Room");
 	private JButton btnRemoveAFurniture = new JButton("Remove a Furniture");
