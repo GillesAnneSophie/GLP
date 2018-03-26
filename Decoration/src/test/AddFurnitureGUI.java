@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+import catalog.Furniture;
 import catalog.Style;
 import place.*;
 
@@ -49,9 +50,9 @@ public class AddFurnitureGUI extends JFrame {
 
 	protected String defaultFurniturePath = "/Decoration/drawings/";
 	protected String defaultExtension = ".pgn";
-//TODO Style : quand style + color seront implementes
-	//private String furnitureStyle = null;
-	//private String furnitureColor = null;
+
+	private String furnitureStyle = null;
+	private String furnitureColor = null;
 
 	
 	
@@ -62,7 +63,7 @@ public class AddFurnitureGUI extends JFrame {
 	 * @param grid
 	 * @param apartment 
 	 */
-	public static void main(AbstractRoom furniture, Grid grid, Apartment apartment) {
+	public static void main(Furniture furniture, Grid grid, Apartment apartment) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -83,7 +84,7 @@ public class AddFurnitureGUI extends JFrame {
 	 * @param grid
 	 * @param apartment 
 	 */
-	public AddFurnitureGUI(AbstractRoom furnitureToAdd, Grid grid, Apartment apartment) {
+	public AddFurnitureGUI(Furniture furnitureToAdd, Grid grid, Apartment apartment) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 617, 214);
 		contentPane = new JPanel();
@@ -153,9 +154,11 @@ public class AddFurnitureGUI extends JFrame {
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
 				furnitureOrientation = comboBoxOrientation.getSelectedItem().toString();
 				currentRoom = apartment.getRoom(currentRoomName);
-//TODO Style : quand impementes (x3)
-				//furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
-				//furnitureColor = comboBoxColor.getSelectedItem().toString();
+
+				furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
+				furnitureColor = comboBoxColor.getSelectedItem().toString();
+				
+				furnitureToAdd.setStyle(furnitureStyle);
 				
 				if(furnitureOrientation=="North")
 				{
@@ -174,7 +177,7 @@ public class AddFurnitureGUI extends JFrame {
 					furnitureToAdd.furnitureOrientedWest();
 				}
 				
-				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null && furnitureStyle!=null*/ && currentRoom!=null && furnitureOrientation!=null)
+				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null*/ && furnitureStyle!=null && currentRoom!=null && furnitureOrientation!=null)
 				{
 					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
 					{

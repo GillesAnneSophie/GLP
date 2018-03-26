@@ -14,7 +14,7 @@ import place.*;
  */
 public class Catalog 
 {
-	private ArrayList<AbstractRoom> inventory;
+	private ArrayList<Furniture> inventory;
 	
 	/*Create Dimensions*/
 	private static Dimension cube = new Dimension(1, 1);
@@ -34,7 +34,7 @@ public class Catalog
 	
 	public Catalog(String fileName)
 	{
-		inventory = new ArrayList<AbstractRoom>();
+		inventory = new ArrayList<Furniture>();
 		buildAllTheFurniture(fileName);
 	}
 	
@@ -44,7 +44,7 @@ public class Catalog
 	 * @param name
 	 * @return the furniture or null
 	 */
-	public AbstractRoom getFurniture(String name)
+	public Furniture getFurniture(String name)
 	{
 		name=name.toLowerCase();
 		for(int index=0 ; index<inventory.size() ; index++)

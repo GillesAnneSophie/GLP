@@ -76,7 +76,6 @@ public class RemoveFurnitureGUI extends JFrame {
 		comboBoxRoom.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Stub de la méthode généré automatiquement
 				Room selectedRoom = (Room) comboBoxRoom.getSelectedItem();
 				HashMap<Integer, AbstractRoom> y = selectedRoom.getAllTheFurnitureOfTheRoom();
 				for (int index =0;index<y.size();index++) {

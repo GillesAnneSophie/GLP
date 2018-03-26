@@ -1,6 +1,7 @@
 package catalog;
 
 import place.*;
+import styles.*;
 
 /**
  * @author CORALIE Laury Ann
@@ -23,15 +24,15 @@ public class Furniture extends AbstractRoom
 		super("Furniture", name, dimension, stackable, category);
 	}
 
-//TODO Style : style + color ?	
+
 	/**
 	 * @return the style
 	 */
-	public Style getStyle() 
+	public String getStyle() 
 	{
-		return style;
+		return style.toString();
 	}
-	
+//TODO Color
 	/**
 	 * @return the color
 	 */
@@ -43,9 +44,25 @@ public class Furniture extends AbstractRoom
 	/**
 	 * @param style the style to set
 	 */
-	public void setStyle(Style style)
+	public void setStyle(String style)
 	{
-		this.style = style;
+		style = style.toLowerCase();
+		if(style.equals("basic"))
+		{
+			this.style = new Basic();
+		}
+		else if(style.equals("modern"))
+		{
+			this.style = new Modern();
+		}
+		else if(style.equals("rustic"))
+		{
+			this.style = new Rustic();
+		}
+		else if(style.equals("vintage"))
+		{
+			this.style = new Vintage();
+		}
 	}
 
 	/**
