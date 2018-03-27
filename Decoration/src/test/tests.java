@@ -29,8 +29,8 @@ public class tests
 		Category bedroomCategory = new BedroomOffice();
 		Room bedroom = new Room("bedroom", 4, 5, bedroomCategory);
 		
-		Category kitchenCategory = new Kitchen();
-		Room kitchen = new Room("kitchen", 1, 2, kitchenCategory);
+		Category bathroomCategory = new Bathroom();
+		Room bathroom = new Room("bathroom", 3, 3, bathroomCategory);
 		
 			//Add rooms
 		if(apartment.addRoom(bedroom, 3, 3, grid))
@@ -41,27 +41,27 @@ public class tests
 		{
 			System.out.println("Bedroom n'a pas pu être ajoutée");
 		}
-		if(apartment.addRoom(kitchen, 9, 3, grid))
+		
+		if(apartment.addRoom(bathroom, 9, 3, grid))
 		{
-			System.out.println("kitchen ajoutée");
+			System.out.println("bathroom ajoutée");
 		}
 		else
 		{
-			System.out.println("kitchen n'a pas pu être ajoutée");
+			System.out.println("bathroom n'a pas pu être ajoutée");
 		}
 		
-		
 			//Add furniture to rooms
-		AbstractRoom furniture1 = catalog.getFurniture("single bed");
-		//furniture1.furnitureOrientedWest();
-		bedroom.addFurniture(furniture1, 4, 4, grid);
+		//AbstractRoom furniture1 = catalog.getFurniture("single bed");
+		//furniture1.furnitureOrientedNorth();
+		//bedroom.addFurniture(furniture1, 4, 4, grid);
 		
 		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
 		//bedroom.addFurniture(furniture2, 5, 6, grid);
 		
-		AbstractRoom furniture3 = catalog.getFurniture("carpet");
+		//AbstractRoom furniture3 = catalog.getFurniture("carpet");
 		//furniture3.furnitureOrientedWest();
-		bedroom.addFurniture(furniture3, 4, 6, grid); //6 3 || 2 5
+		//bedroom.addFurniture(furniture3, 4, 6, grid); //6 3 || 2 5
 
 			//Statistics
 		//System.out.println("numberOfFurniture" + Statistics.numberOfFurniture(apartment.getRoomsList()));
@@ -74,5 +74,8 @@ public class tests
 		
 		//apartment.removeRoom("bedroom", grid);
 		//System.out.println("\n" + apartment);
+		
+			//Automatic Decoration
+		new AutomaticDecoration(null, null, catalog, apartment, grid);
 	}
 }

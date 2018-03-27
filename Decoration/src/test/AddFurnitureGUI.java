@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
 import java.util.HashMap;
 
 import catalog.Furniture;
-import catalog.Style;
 import place.*;
 
 /**
