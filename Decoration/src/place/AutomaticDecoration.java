@@ -23,12 +23,13 @@ public class AutomaticDecoration
 	public AutomaticDecoration(String quantity, String style, Catalog catalog, Apartment apartment, Grid grid)
 	{
 		minimumDecoration(style, catalog, apartment, grid);
+		minimumWallDecoration(catalog, apartment, grid);
 		//moreDecoration(quantity, style, catalog, apartment, grid);
 	}
 	
-//TODO AutoDeco : à faire + doors/windows
+
 	/**
-	 * 
+	 * Set the strict minimum of furniture for each room
 	 * @param style
 	 * @param catalog
 	 * @param apartment
@@ -44,55 +45,96 @@ public class AutomaticDecoration
 			Room currentRoom = roomsList.get(index);
 			int roomsWidth = currentRoom.getDimension().getWidth();
 			int roomsLength = currentRoom.getDimension().getLength();
+			int positionX = currentRoom.getPosition().getX();
+			int positionY = currentRoom.getPosition().getY();
 			String roomsCategory = currentRoom.getCategory();
+			int furnitureCounter = 0;
 //Parcourir le sol de la pièce
-			for(int i=0 ; i<roomsLength ; i++)
+			for(int i=positionY ; i<positionY+roomsLength ; i++)
 			{
-				for(int j=0 ; j<roomsWidth ; j++)
+				for(int j=positionX ; j<positionX+roomsWidth ; j++)
 				{
 					String currentPosition = grid.getGrid(i, j);
-					int positionX = currentRoom.getPosition().getX();
-					int positionY = currentRoom.getPosition().getY();
 //Si on est sur un bord / contre un mur ET que la case est libre
-					//TODO ça fonctionne pas ça x)
 					if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
 					{
 //En fonction de la pièce, on pose les meubles correspondants
 						if(roomsCategory.equals("Bathroom"))
 						{
 //On parcours les furniture minimales à poser
-							for(int m=0 ; m<minimumBathroomFurniture.length ; m++)
+							for(int m=furnitureCounter ; m<minimumBathroomFurniture.length ; m++)
 							{
 								String currentFurniture = minimumBathroomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 
-//Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce
-								if(furnitureToAdd != null && !currentRoom.addFurniture(furnitureToAdd, i, j, grid))
+//Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
+								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
-									break;
-								}
-								else
-								{
-									i++;
+									furnitureCounter++;
 									j++;
+									break;
 								}
 							}
 						}
 						else if(roomsCategory.equals("BedroomOffice"))
 						{
-							
+							for(int m=furnitureCounter ; m<minimumBedroomOfficeFurniture.length ; m++)
+							{System.err.println(furnitureCounter+" "+minimumBedroomOfficeFurniture.length);
+								String currentFurniture = minimumBedroomOfficeFurniture[m];
+								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+
+								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								{
+									furnitureCounter++;
+									j++;
+									break;
+								}
+							}
 						}
 						else if(roomsCategory.equals("DiningRoom"))
 						{
-							
+							for(int m=furnitureCounter ; m<minimumDiningRoomFurniture.length ; m++)
+							{
+								String currentFurniture = minimumDiningRoomFurniture[m];
+								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+
+								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								{
+									furnitureCounter++;
+									j++;
+									break;
+								}
+							}
 						}
 						else if(roomsCategory.equals("Kitchen"))
 						{
-							
+							for(int m=furnitureCounter ; m<minimumKitchenFurniture.length ; m++)
+							{
+								String currentFurniture = minimumKitchenFurniture[m];
+								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+
+								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								{
+									furnitureCounter++;
+									j++;
+									break;
+								}
+							}
 						}
 						else if(roomsCategory.equals("LivingRoom"))
 						{
-							
+							for(int m=furnitureCounter ; m<minimumLivingRoomFurniture.length ; m++)
+							{
+								String currentFurniture = minimumLivingRoomFurniture[m];
+								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+
+								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								{
+									furnitureCounter++;
+									j++;
+									break;
+								}
+							}
 						}
 					}
 					
@@ -103,6 +145,19 @@ public class AutomaticDecoration
 
 	}
 	
+//TODO AutoDeco : doors/windows
+	/**
+	 * Set the strict minimum of doors and windows for each room
+	 * @param catalog
+	 * @param apartment
+	 * @param grid
+	 */
+	public void minimumWallDecoration(Catalog catalog, Apartment apartment, Grid grid)
+	{
+		
+	}
+
+//TODO AutoDeco : more
 	/**
 	 * 
 	 * @param quantity

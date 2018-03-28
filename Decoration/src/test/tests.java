@@ -50,6 +50,7 @@ public class tests
 		{
 			System.out.println("bathroom n'a pas pu être ajoutée");
 		}
+		System.out.println("bipboop");
 		
 			//Add furniture to rooms
 		//AbstractRoom furniture1 = catalog.getFurniture("single bed");
