@@ -26,20 +26,20 @@ public class tests
 		Grid grid = new Grid(dimGrid);
 		
 			//Create Rooms
-		Category diningroomCategory = new DiningRoom();
-		Room diningroom = new Room("diningroom", 4, 5, diningroomCategory);
+		Category kitchenCategory = new Kitchen();
+		Room kitchen = new Room("kitchen", 4, 5, kitchenCategory);
 		
 		Category bathroomCategory = new Bathroom();
 		Room bathroom = new Room("bathroom", 3, 3, bathroomCategory);
 		
 			//Add rooms
-		if(apartment.addRoom(diningroom, 3, 3, grid))
+		if(apartment.addRoom(kitchen, 3, 3, grid))
 		{
-			System.out.println("diningroom ajoutée");
+			System.out.println("kitchen ajoutée");
 		}
 		else
 		{
-			System.out.println("diningroom n'a pas pu être ajoutée");
+			System.out.println("kitchen n'a pas pu être ajoutée");
 		}
 		
 		if(apartment.addRoom(bathroom, 9, 3, grid))
@@ -76,6 +76,6 @@ public class tests
 		//System.out.println("\n" + apartment);
 		
 			//Automatic Decoration
-		new AutomaticDecoration(null, null, catalog, apartment, grid);
+		new AutomaticDecoration("maximalist", null, catalog, apartment, grid);
 	}
 }

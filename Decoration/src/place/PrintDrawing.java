@@ -8,7 +8,7 @@ package place;
  * @author GILLES Anne-Sophie
  */
 public class PrintDrawing 
-{
+{//TODO Print : Poser les meubles dans le bon sens
 	/** 
 	 * Print a Wall, Floor or Void image depending on the current character in the grid
 	 * @param grid
