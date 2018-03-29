@@ -26,20 +26,20 @@ public class tests
 		Grid grid = new Grid(dimGrid);
 		
 			//Create Rooms
-		Category bedroomCategory = new BedroomOffice();
-		Room bedroom = new Room("bedroom", 4, 5, bedroomCategory);
+		Category diningroomCategory = new DiningRoom();
+		Room diningroom = new Room("diningroom", 4, 5, diningroomCategory);
 		
 		Category bathroomCategory = new Bathroom();
 		Room bathroom = new Room("bathroom", 3, 3, bathroomCategory);
 		
 			//Add rooms
-		if(apartment.addRoom(bedroom, 3, 3, grid))
+		if(apartment.addRoom(diningroom, 3, 3, grid))
 		{
-			System.out.println("Bedroom ajoutée");
+			System.out.println("diningroom ajoutée");
 		}
 		else
 		{
-			System.out.println("Bedroom n'a pas pu être ajoutée");
+			System.out.println("diningroom n'a pas pu être ajoutée");
 		}
 		
 		if(apartment.addRoom(bathroom, 9, 3, grid))
@@ -50,7 +50,6 @@ public class tests
 		{
 			System.out.println("bathroom n'a pas pu être ajoutée");
 		}
-		System.out.println("bipboop");
 		
 			//Add furniture to rooms
 		//AbstractRoom furniture1 = catalog.getFurniture("single bed");
