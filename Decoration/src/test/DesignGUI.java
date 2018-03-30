@@ -36,7 +36,8 @@ public class DesignGUI extends JFrame {
 	private JMenuItem mntmHelp = new JMenuItem("Help");
 	private JMenuItem mntmExit = new JMenuItem("Exit");
 	
-	private JCheckBoxMenuItem chckbxmntmShowToolbar = new JCheckBoxMenuItem("Show Toolbar");
+	private JButton btnAutomaticDecoration = new JButton("Automatic Decoration");
+	private JButton btnShowToolbar = new JButton("Open Toolbar");
 
 	private JLabel lblNumberOfRoom = new JLabel ("Number of rooms:");
 	private JLabel lblNumberOfFurniture = new JLabel ("Number of furniture:");	
@@ -45,7 +46,7 @@ public class DesignGUI extends JFrame {
 
 	
 	/**
-	 * Launch the application
+	 * Launch the application.
 	 * @param args
 	 */
 	public static void main(String[] args){
@@ -64,11 +65,12 @@ public class DesignGUI extends JFrame {
 
 	
 	/**
-	 * Create the frame
+	 * Create the frame.
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 736, 824);
+		menuBar.setBackground(SystemColor.menu);
 		menuBar.setPreferredSize(new Dimension(50, 30));
 		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		
@@ -79,8 +81,14 @@ public class DesignGUI extends JFrame {
 		menu.add(mntmSave);
 		menu.add(mntmHelp);
 		menu.add(mntmExit);
-		chckbxmntmShowToolbar.setPreferredSize(new Dimension(50, 22));
-		menuBar.add(chckbxmntmShowToolbar);
+		btnAutomaticDecoration.setBackground(SystemColor.menu);
+		btnAutomaticDecoration.setBorderPainted(false);
+		
+		menuBar.add(btnAutomaticDecoration);
+		btnShowToolbar.setBackground(SystemColor.menu);
+		btnShowToolbar.setBorderPainted(false);
+		
+		menuBar.add(btnShowToolbar);
 		
 		mntmOpen.addActionListener(new ActionListener() {
 			private File file;
@@ -98,12 +106,15 @@ public class DesignGUI extends JFrame {
 			}		
 		});
 		
-		chckbxmntmShowToolbar.addActionListener(new ActionListener() {
+		btnAutomaticDecoration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (chckbxmntmShowToolbar.isSelected() == true) {
-					ToolbarGUI.main(apartment, grid, catalog);
-					chckbxmntmShowToolbar.setSelected(false);
-				}
+				AutomaticDecorationGUI.main(catalog, apartment, grid);
+			}
+		});
+		
+		btnShowToolbar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ToolbarGUI.main(apartment, grid, catalog);
 			}
 		});
 		

@@ -32,7 +32,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	
 	
 	/**
-	 * Launch the application
+	 * Launch the application.
 	 * @param apartment
 	 * @param grid
 	 */
@@ -52,7 +52,7 @@ public class RemoveFurnitureGUI extends JFrame {
 
 	
 	/**
-	 * Create the frame
+	 * Create the frame.
 	 * @param apartment
 	 * @param grid
 	 */
@@ -85,7 +85,7 @@ public class RemoveFurnitureGUI extends JFrame {
 			}
 		});
 		
-		comboBoxRoom.setBounds(289, 30, 135, 22);
+		comboBoxRoom.setBounds(300, 30, 135, 22);
 		contentPane.add(comboBoxRoom);
 		
 		btnRemove.setBounds(473, 57, 109, 22);
@@ -94,13 +94,13 @@ public class RemoveFurnitureGUI extends JFrame {
 		lblChooseRoom.setBounds(23, 34, 264, 15);
 		contentPane.add(lblChooseRoom);
 		
-		lblChooseTheFurniture.setBounds(105, 89, 182, 15);
+		lblChooseTheFurniture.setBounds(23, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
 	
 //TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante � la pi�ce s�lectionn�e avant (il faut un Listener?)
 		
 		
-		comboBoxFurniture.setBounds(289, 85, 120, 22);
+		comboBoxFurniture.setBounds(278, 85, 157, 22);
 		contentPane.add(comboBoxFurniture);
 	
 		btnRemove.addActionListener(new ActionListener() {

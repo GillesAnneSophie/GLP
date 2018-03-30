@@ -28,7 +28,7 @@ public class RemoveRoomGUI extends JFrame {
 	
 	
 	/**
-	 * Launch the application
+	 * Launch the application.
 	 * @param apartment
 	 * @param grid
 	 */
@@ -48,7 +48,7 @@ public class RemoveRoomGUI extends JFrame {
 
 	
 	/**
-	 * Create the frame
+	 * Create the frame.
 	 * @param apartment
 	 * @param grid
 	 */

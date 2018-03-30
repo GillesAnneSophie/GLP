@@ -46,7 +46,7 @@ public class AddRoomGUI extends JFrame {
 	
 	
 	/**
-	 * Launch the application
+	 * Launch the application.
 	 * @param apartment
 	 * @param grid
 	 */
@@ -66,7 +66,7 @@ public class AddRoomGUI extends JFrame {
 
 	
 	/**
-	 * Create the frame
+	 * Create the frame.
 	 * @param apartment
 	 * @param grid
 	 */

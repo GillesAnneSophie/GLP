@@ -6,6 +6,7 @@ package test;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.EventQueue;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,7 @@ import catalog.Catalog;
 import place.Apartment;
 import place.AutomaticDecoration;
 import place.Grid;
+
 
 /**
  * @author GILLES Anne-Sophie
@@ -37,6 +39,9 @@ public class AutomaticDecorationGUI extends JFrame
 	
 	/**
 	 * Launch the application.
+	 * @param catalog
+	 * @param apartment
+	 * @param grid
 	 */
 	public static void main(Catalog catalog, Apartment apartment, Grid grid) {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,19 +60,24 @@ public class AutomaticDecorationGUI extends JFrame
 	
 	/**
 	 * Create the frame.
+	 * @param catalog
+	 * @param apartment
+	 * @param grid
 	 */
 	public AutomaticDecorationGUI(Catalog catalog, Apartment apartment, Grid grid)
 	{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 399, 214);
+		setBounds(100, 100, 414, 214);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lblStyle.setBounds(35, 61, 106, 15);
+		lblStyle.setBounds(24, 61, 106, 15);
 		contentPane.add(lblStyle);
+		comboBoxStyle.setMinimumSize(new Dimension(30, 20));
+		comboBoxStyle.setPreferredSize(new Dimension(35, 20));
 		
 		comboBoxStyle.addItem("- Select style -");
 		comboBoxStyle.addItem("Basic");
@@ -75,21 +85,23 @@ public class AutomaticDecorationGUI extends JFrame
 		comboBoxStyle.addItem("Rustic");
 		comboBoxStyle.addItem("Vintage");
 		
-		comboBoxStyle.setBounds(151, 57, 92, 22);
+		comboBoxStyle.setBounds(151, 57, 123, 22);
 		contentPane.add(comboBoxStyle);
 		
-		lblQuantity.setBounds(35, 99, 106, 15);
+		lblQuantity.setBounds(24, 99, 121, 15);
 		contentPane.add(lblQuantity);
+		comboBoxQuantity.setMinimumSize(new Dimension(30, 20));
+		comboBoxQuantity.setPreferredSize(new Dimension(35, 20));
 		
 		comboBoxQuantity.addItem("- Select quantity -");
 		comboBoxQuantity.addItem("Minimalist");
 		comboBoxQuantity.addItem("Basic");
 		comboBoxQuantity.addItem("Maximalist");
 		
-		comboBoxQuantity.setBounds(151, 95, 92, 22);
+		comboBoxQuantity.setBounds(151, 95, 123, 22);
 		contentPane.add(comboBoxQuantity);
 		
-		btnAdd.setBounds(284, 75, 89, 22);
+		btnAdd.setBounds(299, 75, 89, 22);
 		contentPane.add(btnAdd);
 		
 		btnAdd.addActionListener(new ActionListener() {

@@ -28,7 +28,7 @@ public class HomeGUI extends JFrame {
 //TODO Home : Gerer un fichier deja existant (Je pense pas qu'on va avoir le temps)
 
 	/**
-	 * Launch the application
+	 * Launch the application.
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -46,7 +46,7 @@ public class HomeGUI extends JFrame {
 
 	
 	/**
-	 * Create the frame
+	 * Create the frame.
 	 */
 	public HomeGUI() {
 		setBackground(Color.WHITE);

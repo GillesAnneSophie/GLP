@@ -43,7 +43,7 @@ public class ToolbarGUI extends JFrame {
 
 	
 	/**
-	 * Launch the application
+	 * Launch the application.
 	 * @param apartment
 	 * @param grid
 	 * @param catalog
@@ -64,7 +64,7 @@ public class ToolbarGUI extends JFrame {
 
 	
 	/**
-	 * Create the frame
+	 * Create the frame.
 	 * @param apartment
 	 * @param grid
 	 * @param catalog
