@@ -54,8 +54,6 @@ public class AddFurnitureGUI extends JFrame {
 	private String furnitureStyle = null;
 	private String furnitureColor = null;
 
-	
-	
 
 	/**
 	 * Launch the application.
