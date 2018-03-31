@@ -3,12 +3,17 @@
  */
 package place;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 
 /**
  * @author GILLES Anne-Sophie
  */
 public class PrintDrawing 
-{//TODO Print : Poser les meubles dans le bon sens
+{
+//TODO Print : Poser les meubles dans le bon sens
 	/** 
 	 * Print a Wall, Floor or Void image depending on the current character in the grid
 	 * @param grid
