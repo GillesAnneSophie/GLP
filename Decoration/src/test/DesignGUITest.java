@@ -7,12 +7,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import catalog.Catalog;
 import place.Statistics;
 import place.Apartment;
 import place.Grid;
+import place.PrintDrawing;
 
 
 /**
@@ -85,62 +85,8 @@ public class DesignGUITest extends JFrame
 	/*Grid configuration*/
 		JLabel tabI[] = new JLabel[20];
 		JLabel tabJ[] = new JLabel[20];
-		int counterI = 0;
-		int counterJ = 0;
-
-		for(int i=1 ; i<=735 ; i+=35)
-		{
-			for(int j=1 ; j<=735 ; j+=35)
-			{
-				if(i==1 && j==1)
-				{
-					JLabel xy = new JLabel("Y\\/ X>");
-					xy.setBounds(i, j, 35, 35);
-					xy.setPreferredSize(new Dimension(35, 35));
-					gridPanel.add(xy);
-				}
-				else if(i==1)
-				{
-					JLabel tmp = new JLabel();
-					tmp.setText(String.valueOf(counterI+1));
-					tabI[counterI] = tmp;
-					tabI[counterI].setBounds(i, j, 35, 35);
-					tabI[counterI].setPreferredSize(new Dimension(35, 35));
-					gridPanel.add(tabI[counterI]);
-					
-					counterI++;
-				}
-				else if(j==1)
-				{
-					JLabel tmp = new JLabel();
-					tmp.setText(String.valueOf(counterJ+1));
-					tabJ[counterJ] = tmp;
-					tabJ[counterJ].setBounds(i, j, 35, 35);
-					tabJ[counterJ].setPreferredSize(new Dimension(35, 35));
-					gridPanel.add(tabJ[counterJ]);
-					
-					counterJ++;
-				}
-				else if(i==1+35*3 && j==1+35*5)
-				{
-					ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
-					Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-					ImageIcon imageIcon2 = new ImageIcon(image2);
-					JLabel test2 = new JLabel(imageIcon2);
-					test2.setBounds(i, j, 35, 35);
-					gridPanel.add(test2);
-				}
-				else
-				{
-					ImageIcon image = new ImageIcon("./drawings/empty.png");
-					Image image1 = image.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-					ImageIcon imageToSet = new ImageIcon(image1);
-					JLabel test = new JLabel(imageToSet);
-					test.setBounds(i, j, 35, 35);
-					gridPanel.add(test);
-				}
-			}
-		}
+		
+		new PrintDrawing(gridPanel, tabI, tabJ);
 		contentPane.add(gridPanel);
 		
 	/*Menu Bar*/

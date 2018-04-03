@@ -201,7 +201,7 @@ public abstract class AbstractRoom
 						}
 					}
 				}
-				PrintDrawing.printWallFurniture(name, positionX, positionY, grid);
+				//PrintDrawing.printWallFurniture(name, positionX, positionY, grid);
 			}
 			grid.showGrid();
 			return true;
