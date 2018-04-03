@@ -85,8 +85,9 @@ public class DesignGUITest extends JFrame
 	/*Grid configuration*/
 		JLabel tabI[] = new JLabel[20];
 		JLabel tabJ[] = new JLabel[20];
+		JLabel tabGrid[][] = new JLabel[20][20];
 		
-		new PrintDrawing(gridPanel, tabI, tabJ);
+		new PrintDrawing(gridPanel, tabI, tabJ, tabGrid);
 		contentPane.add(gridPanel);
 		
 	/*Menu Bar*/

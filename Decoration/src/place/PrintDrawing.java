@@ -18,11 +18,14 @@ public class PrintDrawing
 	 * @param gridPanel
 	 * @param tabI
 	 * @param tabJ
+	 * @param tabGrid
 	 */
-	public PrintDrawing(JPanel gridPanel, JLabel tabI[], JLabel tabJ[])
+	public PrintDrawing(JPanel gridPanel, JLabel tabI[], JLabel tabJ[], JLabel tabGrid[][])
 	{
 		int counterI = 0;
 		int counterJ = 0;
+		int counterGridI = 0;
+		int counterGridJ = 0;
 
 		for(int i=1 ; i<=735 ; i+=35)
 		{
@@ -68,15 +71,35 @@ public class PrintDrawing
 				}*/
 				else
 				{
-					ImageIcon image = new ImageIcon("./drawings/empty.png");
+					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
+					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageToSet = new ImageIcon(image);
+					JLabel tmp = new JLabel(imageToSet);
+					tabGrid[counterGridI][counterGridJ] = tmp;
+					tabGrid[counterGridI][counterGridJ].setBounds(i, j, 35, 35);
+					gridPanel.add(tabGrid[counterGridI][counterGridJ]);
+					
+					counterGridJ++;
+					if(counterGridJ>19)
+					{
+						counterGridJ = 0;
+						counterGridI++;
+					}
+					
+					/*ImageIcon image = new ImageIcon("./drawings/empty.png");
 					Image image1 = image.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image1);
 					JLabel test = new JLabel(imageToSet);
 					test.setBounds(i, j, 35, 35);
-					gridPanel.add(test);
+					gridPanel.add(test);*/
 				}
 			}
 		}
+	//Y qu'a modif la coordonée qui nous interesse o/
+		ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
+		Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+		ImageIcon imageIcon2 = new ImageIcon(image2);
+		tabGrid[1][1].setIcon(imageIcon2);
 	}
 //TODO Print : Poser les meubles dans le bon sens
 	/** 
