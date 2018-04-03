@@ -50,11 +50,11 @@ public class AddRoomGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 */
-	public static void main(Apartment apartment, Grid grid) {
+	public static void main(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddRoomGUI frame = new AddRoomGUI(apartment, grid);
+					AddRoomGUI frame = new AddRoomGUI(apartment, grid, gridPanel, tabGrid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Add a room");
 				} catch (Exception e) {
@@ -70,7 +70,7 @@ public class AddRoomGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 */
-	public AddRoomGUI(Apartment apartment, Grid grid) {
+	public AddRoomGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 473, 189);
 		contentPane = new JPanel();
@@ -149,8 +149,8 @@ public class AddRoomGUI extends JFrame {
 		
 		btnEnter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				roomPositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				roomPositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
+				roomPositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				boolean dontClose = false;
 				
 				if(stringRoom == "Bathroom") {
@@ -200,6 +200,7 @@ public class AddRoomGUI extends JFrame {
 				}
 				if(stringRoom!=null && roomWidth!=-1 && roomLength!=-1 && roomPositionX!=-1 && roomPositionY!=-1 && dontClose==false)
 				{
+					PrintDrawing.updateGrid(grid, gridPanel, tabGrid);
 					dispose();
 				}
 			}

@@ -48,11 +48,11 @@ public class ToolbarGUI extends JFrame {
 	 * @param grid
 	 * @param catalog
 	 */
-	public static void main(Apartment apartment, Grid grid, Catalog catalog) {
+	public static void main(Apartment apartment, Grid grid, Catalog catalog, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {			
-					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog);
+					ToolbarGUI frame = new ToolbarGUI (apartment, grid, catalog, gridPanel, tabGrid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - ToolBar");
 				} catch (Exception e) {
@@ -69,11 +69,11 @@ public class ToolbarGUI extends JFrame {
 	 * @param grid
 	 * @param catalog
 	 */
-	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog) {
+	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog, JPanel gridPanel, JLabel tabGrid[][]) {
 		keepGrid = grid;
 		keepCatalog = catalog;
 		keepApartment = apartment;
-		
+
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 416, 318);
 		contentPane = new JPanel();
@@ -164,6 +164,11 @@ public class ToolbarGUI extends JFrame {
 		addFurniture.setLayoutOrientation(JList.VERTICAL);
 		addFurniture.setBounds(135, 51, 0, 0);
 		addFurniture.addMouseListener(new ClickAction());
+		
+		grid = keepGrid;
+		apartment = keepApartment;
+		catalog = keepCatalog;
+		
 		listPanel.add(addFurniture);
 			
 		JPanel buttonsPanel = new JPanel();
@@ -174,20 +179,20 @@ public class ToolbarGUI extends JFrame {
 			
 		btnRemoveAFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				RemoveFurnitureGUI.main(apartment, grid);
+				RemoveFurnitureGUI.main(keepApartment, keepGrid);
 			}
 		});
 		
 		btnRemoveARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				RemoveRoomGUI.main(apartment, grid);
+				RemoveRoomGUI.main(keepApartment, keepGrid);
 			}
 		});
 		
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				AddRoomGUI.main(apartment, grid);
+				AddRoomGUI.main(keepApartment, keepGrid, gridPanel, tabGrid);
 			}
 		});
 		

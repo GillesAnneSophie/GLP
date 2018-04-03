@@ -161,7 +161,7 @@ public class AddFurnitureGUI extends JFrame {
 				currentRoom = apartment.getRoom(currentRoomName);
 
 				furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
-				furnitureColor = comboBoxColor.getSelectedItem().toString();
+				//furnitureColor = comboBoxColor.getSelectedItem().toString();
 				
 				furnitureToAdd.setStyle(furnitureStyle);
 				

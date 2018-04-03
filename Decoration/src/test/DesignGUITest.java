@@ -25,7 +25,7 @@ public class DesignGUITest extends JFrame
 
 	private Catalog catalog = new Catalog("furniture_catalog.txt");
 	private Apartment apartment = new Apartment();
-	private place.Dimension dimGrid = new place.Dimension(20, 0);
+	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
 	
 	private JPanel contentPane = new JPanel();
@@ -79,7 +79,7 @@ public class DesignGUITest extends JFrame
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		setContentPane(contentPane);
 		
-		gridPanel.setBackground(Color.LIGHT_GRAY);
+		gridPanel.setBackground(new Color(100, 149, 237));
 		gridPanel.setPreferredSize(new Dimension(860, 860));
 
 	/*Grid configuration*/
@@ -87,7 +87,7 @@ public class DesignGUITest extends JFrame
 		JLabel tabJ[] = new JLabel[20];
 		JLabel tabGrid[][] = new JLabel[20][20];
 		
-		new PrintDrawing(gridPanel, tabI, tabJ, tabGrid);
+		PrintDrawing.printGrid(gridPanel, tabI, tabJ, tabGrid);
 		contentPane.add(gridPanel);
 		
 	/*Menu Bar*/
@@ -157,7 +157,7 @@ public class DesignGUITest extends JFrame
 		
 		btnShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ToolbarGUI.main(apartment, grid, catalog);
+				ToolbarGUI.main(apartment, grid, catalog, gridPanel, tabGrid);
 			}
 		});
 		

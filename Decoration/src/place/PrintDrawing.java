@@ -20,7 +20,7 @@ public class PrintDrawing
 	 * @param tabJ
 	 * @param tabGrid
 	 */
-	public PrintDrawing(JPanel gridPanel, JLabel tabI[], JLabel tabJ[], JLabel tabGrid[][])
+	public static void printGrid(JPanel gridPanel, JLabel tabI[], JLabel tabJ[], JLabel tabGrid[][])
 	{
 		int counterI = 0;
 		int counterJ = 0;
@@ -60,15 +60,6 @@ public class PrintDrawing
 					
 					counterJ++;
 				}
-				/*else if(i==1+35*3 && j==1+35*5)
-				{
-					ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
-					Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-					ImageIcon imageIcon2 = new ImageIcon(image2);
-					JLabel test2 = new JLabel(imageIcon2);
-					test2.setBounds(i, j, 35, 35);
-					gridPanel.add(test2);
-				}*/
 				else
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
@@ -95,18 +86,17 @@ public class PrintDrawing
 				}
 			}
 		}
-	//Y qu'a modif la coordonée qui nous interesse o/
-		ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
-		Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-		ImageIcon imageIcon2 = new ImageIcon(image2);
-		tabGrid[1][1].setIcon(imageIcon2);
 	}
+	
+	
 //TODO Print : Poser les meubles dans le bon sens
-	/** 
-	 * Print a Wall, Floor or Void image depending on the current character in the grid
+	/**
+	 * 
 	 * @param grid
-	 * */
-/*	public static void printRooms(Grid grid)
+	 * @param gridPanel
+	 * @param tabGrid
+	 */
+	public static void updateGrid(Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		int gridLength = grid.getGridDimension().getLength();
 		int gridWidth = grid.getGridDimension().getWidth();
@@ -118,28 +108,46 @@ public class PrintDrawing
 				String character = grid.getGrid(i, j);
 				
 				// If there is a # (Void) at the current position 
-				if(character=="#")
+				if(character.equals("#"))
 				{
-					//
+					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
+					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageToSet = new ImageIcon(image);
+					tabGrid[i][j].setIcon(imageToSet);
 				}
 				// If there is a $ (Wall) at the current position 
-				else if(character=="$")
+				else if(character.equals("$"))
 				{
-					// wall.png
+					ImageIcon imageIcon = new ImageIcon("./drawings/wall.png");
+					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageToSet = new ImageIcon(image);
+					tabGrid[i][j].setIcon(imageToSet);
 				}
 				// If there is a letter (Floor) at the current position 
 				else if(character.matches("[a-z]"))
 				{
-					// floor.png
+					ImageIcon imageIcon = new ImageIcon("./drawings/floor.png");
+					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageToSet = new ImageIcon(image);
+					tabGrid[i][j].setIcon(imageToSet);
 				}
 				// If there is a * at the current position 
-				else if(character=="*")
+				else if(character.equals("*"))
 				{
-					// void.png
+					ImageIcon imageIcon = new ImageIcon("./drawings/void.png");
+					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageToSet = new ImageIcon(image);
+					tabGrid[i][j].setIcon(imageToSet);
+				}
+				// There is a number at the current position
+				else
+				{
+					
 				}
 			}
 		}
-	}*/
+	}
+	
 	
 	/**
 	 * Print wall furniture in the right direction
@@ -177,4 +185,14 @@ public class PrintDrawing
 			//grid.setGrid(positionY+1, positionX, "D");Orientï¿½ vers le bas
 		}
 	}*/
+	
+	
+	
+	
+	/*
+	ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
+	Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+	ImageIcon imageIcon2 = new ImageIcon(image2);
+	tabGrid[1][1].setIcon(imageIcon2);
+	*/
 }
