@@ -121,6 +121,15 @@ public class DesignGUITest extends JFrame
 					
 					counterJ++;
 				}
+				else if(i==1+35*3 && j==1+35*5)
+				{
+					ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
+					Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageIcon2 = new ImageIcon(image2);
+					JLabel test2 = new JLabel(imageIcon2);
+					test2.setBounds(i, j, 35, 35);
+					gridPanel.add(test2);
+				}
 				else
 				{
 					ImageIcon image = new ImageIcon("./drawings/empty.png");
@@ -132,13 +141,6 @@ public class DesignGUITest extends JFrame
 				}
 			}
 		}
-		/*ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
-		Image image2 = imageIcon.getImage().getScaledInstance(34, 34, Image.SCALE_DEFAULT);
-		ImageIcon imageIcon2 = new ImageIcon(image2);
-		
-		JLabel test2 = new JLabel(imageIcon2);
-		test2.setBounds(50, 5, 34, 34);
-		gridPanel.add(test2);*/
 		contentPane.add(gridPanel);
 		
 	/*Menu Bar*/
