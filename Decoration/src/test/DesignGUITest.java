@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import catalog.Catalog;
 import place.Statistics;
@@ -28,7 +29,7 @@ public class DesignGUITest extends JFrame
 	private Grid grid = new Grid(dimGrid);
 	
 	private JPanel contentPane = new JPanel();
-	private Container gridPanel = new JPanel(new GridLayout(20, 20));
+	private JPanel gridPanel = new JPanel();
 	private JPanel statisticsPanel = new JPanel();
 
 	private JMenuBar menuBar = new JMenuBar();
@@ -72,21 +73,72 @@ public class DesignGUITest extends JFrame
 	public DesignGUITest() 
 	{
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 736, 824);
+		setBounds(500, 40, 880, 990);
 		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		setContentPane(contentPane);
 		
-		gridPanel.setPreferredSize(new Dimension(700, 700));
-		for(int i=0 ; i<20*20 ; i++)
+		gridPanel.setBackground(Color.LIGHT_GRAY);
+		gridPanel.setPreferredSize(new Dimension(860, 860));
+
+	/*Grid configuration*/
+		JLabel tabI[] = new JLabel[20];
+		JLabel tabJ[] = new JLabel[20];
+		int counterI = 0;
+		int counterJ = 0;
+
+		for(int i=1 ; i<=735 ; i+=35)
 		{
-				ImageIcon image = new ImageIcon("./drawings/empty.png");
-				Image image1 = image.getImage().getScaledInstance(34, 34, Image.SCALE_DEFAULT);
-				ImageIcon imageToSet = new ImageIcon(image1);
-				JLabel test = new JLabel(imageToSet);
-				gridPanel.add(test);
+			for(int j=1 ; j<=735 ; j+=35)
+			{
+				if(i==1 && j==1)
+				{
+					JLabel xy = new JLabel("Y\\/ X>");
+					xy.setBounds(i, j, 35, 35);
+					xy.setPreferredSize(new Dimension(35, 35));
+					gridPanel.add(xy);
+				}
+				else if(i==1)
+				{
+					JLabel tmp = new JLabel();
+					tmp.setText(String.valueOf(counterI+1));
+					tabI[counterI] = tmp;
+					tabI[counterI].setBounds(i, j, 35, 35);
+					tabI[counterI].setPreferredSize(new Dimension(35, 35));
+					gridPanel.add(tabI[counterI]);
+					
+					counterI++;
+				}
+				else if(j==1)
+				{
+					JLabel tmp = new JLabel();
+					tmp.setText(String.valueOf(counterJ+1));
+					tabJ[counterJ] = tmp;
+					tabJ[counterJ].setBounds(i, j, 35, 35);
+					tabJ[counterJ].setPreferredSize(new Dimension(35, 35));
+					gridPanel.add(tabJ[counterJ]);
+					
+					counterJ++;
+				}
+				else
+				{
+					ImageIcon image = new ImageIcon("./drawings/empty.png");
+					Image image1 = image.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					ImageIcon imageToSet = new ImageIcon(image1);
+					JLabel test = new JLabel(imageToSet);
+					test.setBounds(i, j, 35, 35);
+					gridPanel.add(test);
+				}
+			}
 		}
+		/*ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
+		Image image2 = imageIcon.getImage().getScaledInstance(34, 34, Image.SCALE_DEFAULT);
+		ImageIcon imageIcon2 = new ImageIcon(image2);
+		
+		JLabel test2 = new JLabel(imageIcon2);
+		test2.setBounds(50, 5, 34, 34);
+		gridPanel.add(test2);*/
 		contentPane.add(gridPanel);
 		
 	/*Menu Bar*/
