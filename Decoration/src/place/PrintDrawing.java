@@ -5,8 +5,11 @@ package place;
 
 import java.awt.Dimension;
 import java.awt.Image;
+import java.io.File;
 
 import javax.swing.*;
+
+import catalog.Furniture;
 
 /**
  * @author GILLES Anne-Sophie
@@ -91,12 +94,12 @@ public class PrintDrawing
 	
 //TODO Print : Poser les meubles dans le bon sens
 	/**
-	 * 
+	 * Update the grid with rooms (floors, walls, void, emtpy)
 	 * @param grid
 	 * @param gridPanel
 	 * @param tabGrid
 	 */
-	public static void updateGrid(Grid grid, JPanel gridPanel, JLabel tabGrid[][])
+	public static void updateRooms(Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		int gridLength = grid.getGridDimension().getLength();
 		int gridWidth = grid.getGridDimension().getWidth();
@@ -139,13 +142,63 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
 				}
-				// There is a number at the current position
-				else
+			}
+		}
+	}
+	
+	
+	/**
+	 * Print the given furniture
+	 * @param furniture
+	 * @param gridPanel
+	 * @param tabGrid
+	 */
+	public static void printFurniture(Furniture furniture, JPanel gridPanel, JLabel tabGrid[][])
+	{
+		String furnitureName = furniture.getName().toLowerCase();
+		String furnitureStyle = furniture.getStyle().toLowerCase();
+		int furniturePositionX = furniture.getPosition().getX();
+		int furniturePositionY = furniture.getPosition().getY();
+		int furnitureWidth = furniture.getDimension().getWidth();
+		int furnitureLength = furniture.getDimension().getLength();
+		
+		String path = findPathToFurnitureImage(furnitureName, furnitureStyle);
+
+		if(path != null)
+		{
+			ImageIcon imageIcon = new ImageIcon(path);
+			Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+			ImageIcon imageToSet = new ImageIcon(image);
+			tabGrid[furniturePositionY][furniturePositionX].setIcon(imageToSet);
+		}
+		
+	}
+	
+	/**
+	 * 
+	 * @param furnitureName
+	 * @param furnitureStyle
+	 * @return path
+	 */
+	public static String findPathToFurnitureImage(String furnitureName, String furnitureStyle)
+	{
+		String directoryPath = "./drawings";
+		File directory = new File(directoryPath);
+		File[] filesList = directory.listFiles();
+		String path = "./drawings/"+ furnitureName + ".png";
+
+		for(File currentFile : filesList)
+		{
+			if(currentFile.getName().contains(furnitureName))
+			{
+				if(currentFile.getName().contains(furnitureStyle))
 				{
-					
+					path = directoryPath + "/" + currentFile.getName();
+					return path;
 				}
 			}
 		}
+		return path;
 	}
 	
 	
@@ -191,8 +244,8 @@ public class PrintDrawing
 	
 	/*
 	ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
-	Image image2 = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-	ImageIcon imageIcon2 = new ImageIcon(image2);
+	Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+	ImageIcon imageIcon2 = new ImageIcon(image);
 	tabGrid[1][1].setIcon(imageIcon2);
 	*/
 }

@@ -32,11 +32,11 @@ public class RemoveRoomGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 */
-	public static void main(Apartment apartment, Grid grid){
+	public static void main(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]){
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RemoveRoomGUI frame = new RemoveRoomGUI(apartment, grid);
+					RemoveRoomGUI frame = new RemoveRoomGUI(apartment, grid, gridPanel, tabGrid);
 					frame.setVisible(true);
 				    frame.setTitle("Manag'Apart - Remove a room");
 				} catch (Exception e) {
@@ -52,7 +52,7 @@ public class RemoveRoomGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 */
-	public RemoveRoomGUI(Apartment apartment, Grid grid) {
+	public RemoveRoomGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 458, 106);
 		contentPane = new JPanel();
@@ -85,6 +85,8 @@ public class RemoveRoomGUI extends JFrame {
 					String[] roomInfoTab = roomInfo.split("-");
 					int chosenRoom = Integer.valueOf(roomInfoTab[0]);
 					apartment.removeRoom(chosenRoom, grid);
+					
+					PrintDrawing.updateRooms(grid, gridPanel, tabGrid);
 					dispose();
 				}
 			}

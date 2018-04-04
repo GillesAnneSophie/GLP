@@ -61,11 +61,11 @@ public class AddFurnitureGUI extends JFrame {
 	 * @param grid
 	 * @param apartment 
 	 */
-	public static void main(Furniture furniture, Grid grid, Apartment apartment) {
+	public static void main(Furniture furniture, Grid grid, Apartment apartment, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid, apartment);
+					AddFurnitureGUI frame = new AddFurnitureGUI(furniture, grid, apartment, gridPanel, tabGrid);
 					frame.setVisible(true);
 					frame.setTitle("Manag'Apart - Add a furniture");
 				} catch (Exception e) {
@@ -82,7 +82,7 @@ public class AddFurnitureGUI extends JFrame {
 	 * @param grid
 	 * @param apartment 
 	 */
-	public AddFurnitureGUI(Furniture furnitureToAdd, Grid grid, Apartment apartment) {
+	public AddFurnitureGUI(Furniture furnitureToAdd, Grid grid, Apartment apartment, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 617, 214);
 		contentPane = new JPanel();
@@ -190,15 +190,7 @@ public class AddFurnitureGUI extends JFrame {
 					}
 					else
 					{
-						//TODO ajout de l'image a  la position donnee par l'utilisateur 
-						BufferedImage furnitureImg;
-						try {
-							furnitureImg = ImageIO.read(new File (defaultFurniturePath +furnitureToAdd.getName()+defaultExtension ));
-							add(new JLabel(new ImageIcon(furnitureImg)));
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-						
+						PrintDrawing.printFurniture(furnitureToAdd, gridPanel, tabGrid);
 						dispose();
 					}
 				}

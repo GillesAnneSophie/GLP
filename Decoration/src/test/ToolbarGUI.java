@@ -40,6 +40,8 @@ public class ToolbarGUI extends JFrame {
 	private Grid keepGrid; 
 	private Catalog keepCatalog;
 	private Apartment keepApartment;
+	private JPanel keepGridPanel;
+	private JLabel[][] keepTabGrid;
 
 	
 	/**
@@ -73,6 +75,8 @@ public class ToolbarGUI extends JFrame {
 		keepGrid = grid;
 		keepCatalog = catalog;
 		keepApartment = apartment;
+		keepGridPanel = gridPanel;
+		keepTabGrid = tabGrid;
 
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 416, 318);
@@ -168,6 +172,8 @@ public class ToolbarGUI extends JFrame {
 		grid = keepGrid;
 		apartment = keepApartment;
 		catalog = keepCatalog;
+		gridPanel = keepGridPanel;
+		tabGrid = keepTabGrid;
 		
 		listPanel.add(addFurniture);
 			
@@ -185,14 +191,14 @@ public class ToolbarGUI extends JFrame {
 		
 		btnRemoveARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				RemoveRoomGUI.main(keepApartment, keepGrid);
+				RemoveRoomGUI.main(keepApartment, keepGrid, keepGridPanel, keepTabGrid);
 			}
 		});
 		
 		btnAddARoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				AddRoomGUI.main(keepApartment, keepGrid, gridPanel, tabGrid);
+				AddRoomGUI.main(keepApartment, keepGrid, keepGridPanel, keepTabGrid);
 			}
 		});
 		
@@ -291,7 +297,7 @@ public class ToolbarGUI extends JFrame {
 				{
 					name = name.toLowerCase();
 					Furniture selectedFurniture = keepCatalog.getFurniture(name);
-					AddFurnitureGUI.main(selectedFurniture, keepGrid, keepApartment);
+					AddFurnitureGUI.main(selectedFurniture, keepGrid, keepApartment, keepGridPanel, keepTabGrid);
 				}
 		}
 
