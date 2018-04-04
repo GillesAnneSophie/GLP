@@ -24,7 +24,7 @@ public class DesignGUI extends JFrame
 	private static final long serialVersionUID = 1L;
 
 	private Catalog catalog = new Catalog("furniture_catalog.txt");
-	private Apartment apartment = new Apartment();
+	private static Apartment apartment = new Apartment();
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
 	
@@ -46,8 +46,8 @@ public class DesignGUI extends JFrame
 
 	private JLabel lblNumberOfRoom = new JLabel ("Number of rooms:");
 	private JLabel lblNumberOfFurniture = new JLabel ("Number of furniture:");	
-	private JLabel roomCounter = new JLabel ("");
-	private JLabel furnitureCounter = new JLabel ("");
+	private static JLabel roomCounter = new JLabel ("");
+	private static JLabel furnitureCounter = new JLabel ("");
 	
 	
 	/**
@@ -131,11 +131,7 @@ public class DesignGUI extends JFrame
 		statisticsPanel.add(furnitureCounter);
 		contentPane.add(statisticsPanel);
 
-		String currentRoomCounter = Integer.toString(Statistics.numberOfRooms(apartment.getRoomsList()));
-		String currentFurnitureCounter = Integer.toString(Statistics.numberOfFurniture(apartment.getRoomsList()));
-		
-		roomCounter.setText(currentRoomCounter);
-		furnitureCounter.setText(currentFurnitureCounter);
+		setStatistics();
 		
 	/*Menu Listeners*/
 		mntmOpen.addActionListener(new ActionListener() {
@@ -184,5 +180,17 @@ public class DesignGUI extends JFrame
 				}
 			}	
 		});
+	}
+	
+	/**
+	 * Set current statistics
+	 */
+	public static void setStatistics()
+	{
+		String currentRoomCounter = Integer.toString(Statistics.numberOfRooms(apartment.getRoomsList()));
+		String currentFurnitureCounter = Integer.toString(Statistics.numberOfFurniture(apartment.getRoomsList()));
+		
+		roomCounter.setText(currentRoomCounter);
+		furnitureCounter.setText(currentFurnitureCounter);
 	}
 }

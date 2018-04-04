@@ -87,6 +87,7 @@ public class RemoveRoomGUI extends JFrame {
 					apartment.removeRoom(chosenRoom, grid);
 					
 					PrintDrawing.updateRooms(grid, gridPanel, tabGrid);
+					DesignGUI.setStatistics();
 					dispose();
 				}
 			}

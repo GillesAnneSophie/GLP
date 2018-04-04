@@ -185,7 +185,7 @@ public class ToolbarGUI extends JFrame {
 			
 		btnRemoveAFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				RemoveFurnitureGUI.main(keepApartment, keepGrid);
+				RemoveFurnitureGUI.main(keepApartment, keepGrid, keepGridPanel, keepTabGrid);
 			}
 		});
 		

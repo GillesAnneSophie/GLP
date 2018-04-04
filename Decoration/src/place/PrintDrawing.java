@@ -155,6 +155,7 @@ public class PrintDrawing
 	 */
 	public static void printFurniture(Furniture furniture, JPanel gridPanel, JLabel tabGrid[][])
 	{
+		
 		String furnitureName = furniture.getName().toLowerCase();
 		String furnitureStyle = furniture.getStyle().toLowerCase();
 		int furniturePositionX = furniture.getPosition().getX();
@@ -163,15 +164,12 @@ public class PrintDrawing
 		int furnitureLength = furniture.getDimension().getLength();
 		
 		String path = findPathToFurnitureImage(furnitureName, furnitureStyle);
-
-		if(path != null)
-		{
-			ImageIcon imageIcon = new ImageIcon(path);
-			Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-			ImageIcon imageToSet = new ImageIcon(image);
-			tabGrid[furniturePositionY][furniturePositionX].setIcon(imageToSet);
-		}
+		ImageIcon imageIcon = new ImageIcon(path);
+//TODO Print : Fonctionne pas pour les meubles de taille + 1*1	
+		Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 		
+		ImageIcon imageToSet = new ImageIcon(image);
+		tabGrid[furniturePositionY][furniturePositionX].setIcon(imageToSet);
 	}
 	
 	/**

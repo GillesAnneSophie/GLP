@@ -36,11 +36,11 @@ public class RemoveFurnitureGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 */
-	public static void main(Apartment apartment, Grid grid) {
+	public static void main(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RemoveFurnitureGUI frame = new RemoveFurnitureGUI(apartment, grid);
+					RemoveFurnitureGUI frame = new RemoveFurnitureGUI(apartment, grid, gridPanel, tabGrid);
 					frame.setVisible(true);
 					frame.setTitle("Manag'Apart - Remove a furniture");
 				} catch (Exception e) {
@@ -56,7 +56,7 @@ public class RemoveFurnitureGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 */
-	public RemoveFurnitureGUI(Apartment apartment, Grid grid) {
+	public RemoveFurnitureGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 608, 172);
 		contentPane = new JPanel();
@@ -113,6 +113,9 @@ public class RemoveFurnitureGUI extends JFrame {
 					int chosenFurniture = Integer.valueOf(chosenFurnitureInfoTab[0]);
 					Room chosenRoom = apartment.getRoom(chosenRoomName);
 					chosenRoom.removeFurniture(chosenFurniture, grid, apartment);
+					
+					PrintDrawing.updateRooms(grid, gridPanel, tabGrid);
+					DesignGUI.setStatistics();
 					dispose();
 				}
 			}
