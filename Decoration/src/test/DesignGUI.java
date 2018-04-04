@@ -3,7 +3,6 @@ package test;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -13,12 +12,15 @@ import catalog.Catalog;
 import place.Statistics;
 import place.Apartment;
 import place.Grid;
+import place.PrintDrawing;
+
 
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
-public class DesignGUI extends JFrame {
+public class DesignGUI extends JFrame 
+{
 	private static final long serialVersionUID = 1L;
 
 	private Catalog catalog = new Catalog("furniture_catalog.txt");
@@ -26,12 +28,14 @@ public class DesignGUI extends JFrame {
 	private place.Dimension dimGrid = new place.Dimension(20, 20);
 	private Grid grid = new Grid(dimGrid);
 	
-	private JPanel contentPane = new JPanel();
-	private JPanel[][] cells;
-	private JPanel statBar = new JPanel();
+	private JPanel contentPane = new JPanel(null);
+	private JPanel gridPanel = new JPanel();
+	private JPanel statisticsPanel = new JPanel();
+	
+	JScrollPane scrollPane = new JScrollPane(gridPanel);
 
 	private JMenuBar menuBar = new JMenuBar();
-	private JMenu menu = new JMenu("File");
+	private JMenu menuFile = new JMenu("File");
 	private JMenuItem mntmOpen = new JMenuItem("Open a existing file");
 	private JMenuItem mntmSave = new JMenuItem("Save this file");
 	private JMenuItem mntmHelp = new JMenuItem("Help");
@@ -68,29 +72,72 @@ public class DesignGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public DesignGUI() {
+	public DesignGUI() 
+	{
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 736, 824);
+		setBounds(500, 40, 918, 700);
+	
+	/*ScrollPane/Bar*/
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBounds(5, 5, 890, 590);
+        
+        contentPane.add(scrollPane);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		gridPanel.setBackground(new Color(100, 149, 237));
+		gridPanel.setPreferredSize(new Dimension(875, 860));
+
+	/*Grid configuration*/
+		JLabel tabI[] = new JLabel[20];
+		JLabel tabJ[] = new JLabel[20];
+		JLabel tabGrid[][] = new JLabel[20][20];
+		
+		PrintDrawing.printGrid(gridPanel, tabI, tabJ, tabGrid);
+		
+	/*Menu Bar*/
 		menuBar.setBackground(SystemColor.menu);
 		menuBar.setPreferredSize(new Dimension(50, 30));
 		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		
 		setJMenuBar(menuBar);
-		menu.setPreferredSize(new Dimension(30, 22));
-		menuBar.add(menu);
-		menu.add(mntmOpen);
-		menu.add(mntmSave);
-		menu.add(mntmHelp);
-		menu.add(mntmExit);
+		
+		menuFile.setPreferredSize(new Dimension(30, 22));
+		menuFile.add(mntmOpen);
+		menuFile.add(mntmSave);
+		menuFile.add(mntmHelp);
+		menuFile.add(mntmExit);
+		
 		btnAutomaticDecoration.setBackground(SystemColor.menu);
 		btnAutomaticDecoration.setBorderPainted(false);
 		
-		menuBar.add(btnAutomaticDecoration);
 		btnShowToolbar.setBackground(SystemColor.menu);
 		btnShowToolbar.setBorderPainted(false);
 		
+		menuBar.add(menuFile);
+		menuBar.add(btnAutomaticDecoration);
 		menuBar.add(btnShowToolbar);
+		Component horizontalStrut = Box.createHorizontalStrut(10);
+		horizontalStrut.setPreferredSize(new Dimension(60, 15));
 		
+	/*Statistics*/
+		statisticsPanel.setBounds(160, 600, 600, 27);
+		statisticsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+		
+		statisticsPanel.add(lblNumberOfRoom);
+		statisticsPanel.add(roomCounter);
+		statisticsPanel.add(horizontalStrut);
+		statisticsPanel.add(lblNumberOfFurniture);
+		statisticsPanel.add(furnitureCounter);
+		contentPane.add(statisticsPanel);
+
+		String currentRoomCounter = Integer.toString(Statistics.numberOfRooms(apartment.getRoomsList()));
+		String currentFurnitureCounter = Integer.toString(Statistics.numberOfFurniture(apartment.getRoomsList()));
+		
+		roomCounter.setText(currentRoomCounter);
+		furnitureCounter.setText(currentFurnitureCounter);
+		
+	/*Menu Listeners*/
 		mntmOpen.addActionListener(new ActionListener() {
 			private File file;
 			
@@ -115,16 +162,11 @@ public class DesignGUI extends JFrame {
 		
 		btnShowToolbar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ToolbarGUI.main(apartment, grid, catalog);
+				ToolbarGUI.main(apartment, grid, catalog, gridPanel, tabGrid);
 			}
 		});
 		
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		setContentPane(contentPane);
-	
-		cells = contentGrid (contentPane);
-		
+	/*Close Window*/
 		addWindowListener(new WindowAdapter() {
 			  public void windowClosing(WindowEvent e) {
 				    int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
@@ -142,72 +184,5 @@ public class DesignGUI extends JFrame {
 				}
 			}	
 		});
-		
-		statBar.setPreferredSize(new Dimension(650, 30));
-		statBar.setBorder(BorderFactory.createLineBorder(Color.black));
-		contentPane.add(statBar);
-		statBar.add(lblNumberOfRoom);
-		statBar.add(roomCounter);
-		Component horizontalStrut = Box.createHorizontalStrut(10);
-		horizontalStrut.setPreferredSize(new Dimension(60, 15));
-		statBar.add(horizontalStrut);
-		statBar.add(lblNumberOfFurniture);
-		statBar.add(furnitureCounter);
-
-		String currentRoomCounter = Integer.toString(Statistics.numberOfRooms(apartment.getRoomsList()));
-		String currentFurnitureCounter = Integer.toString(Statistics.numberOfFurniture(apartment.getRoomsList()));
-		
-		roomCounter.setText(currentRoomCounter);
-		furnitureCounter.setText(currentFurnitureCounter);
-		
-		
-		JPanel panelTest = new JPanel();
-		contentPane.add(panelTest);
-		JLabel test = new JLabel(new ImageIcon("./drawings/toilet.png"));
-		panelTest.add(test);
 	}
-
-	
-	public static JPanel[][] contentGrid (JPanel content){
-		JPanel gridPanel = new JPanel();		
-		gridPanel.setLayout(new GridLayout (20,20));
-		gridPanel.setPreferredSize(new Dimension (700,700));		
-		JPanel cell [][] = createGrid (gridPanel);
-		gridPanel.setBackground(Color.white);
-		content.add(gridPanel,BorderLayout.CENTER);
-		
-		return cell;
-	}
-
-	public static JPanel[][] createGrid(JPanel grid){
-		JPanel cell[][]= new JPanel[20][20];
-		for(int i=0; i<cell.length; i++){
-			for(int j=0; j<cell.length; j++){
-				cell[i][j]= new JPanel();
-		        cell[i][j].setSize(new Dimension(100, 100));
-		        cell[i][j].setBackground(Color.white);
-		        cell[i][j].setBorder(new MatteBorder(1,1,1,1,Color.BLACK));
-		        grid.add(cell[i][j]);
-		    }
-		}
-		return cell;
-	}
-	//TODO GUI : utiliser ImageIcon(getURL(getCodeBase(),"")) pour integrer les images des meubles
-
-/*	public  void paintComponent(Graphics g) {
-		     if(image!=null)
-		     {
-		    	 Graphics2D g2d = (Graphics2D)g;
-		    	 g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-		    	 g2d.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		     }
-	}
-	
-	public void painter(String name, int furniturePositionX, int furniturePositionY)
-	{
-		ImageIcon icon = new ImageIcon("./drawings/"+name+".png");
-		Image image = icon.getImage();
-		graphics.drawImage(image, furniturePositionX, furniturePositionY, null);
-	}*/
-	
 }
