@@ -21,7 +21,7 @@ import place.*;
 public class AddFurnitureGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel contentPane;
+	private JPanel contentPane = new JPanel();
 	
 	private JLabel lblStyle = new JLabel ("Choose the style:");
 	private JLabel lblColor = new JLabel ("Choose the color:");
@@ -85,11 +85,11 @@ public class AddFurnitureGUI extends JFrame {
 	public AddFurnitureGUI(Furniture furnitureToAdd, Grid grid, Apartment apartment, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 617, 214);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+		setContentPane(contentPane);
+	
 		furnitureName = new JLabel (furnitureToAdd.getName().toUpperCase());
 		furnitureName.setHorizontalAlignment(SwingConstants.CENTER);
 		furnitureName.setFont(new Font("Tahoma", Font.BOLD, 17));
@@ -120,8 +120,10 @@ public class AddFurnitureGUI extends JFrame {
 		
 		comboBoxX.setBounds(119, 130, 41, 22);
 		contentPane.add(comboBoxX);
+		
 		comboBoxY.setBounds(189, 130, 41, 22);
 		contentPane.add(comboBoxY);
+		
 		for(int i=1 ; i<=grid.getGridDimension().getWidth() ; i++)
 		{
 			comboBoxX.addItem(i);
@@ -136,13 +138,13 @@ public class AddFurnitureGUI extends JFrame {
 		
 		lblRoom.setBounds(195,300,19,14);
 		contentPane.add(lblRoom);
+		
 		lblOrientation.setSize(198, 15);
 		lblOrientation.setLocation(282, 69);
-		
 		contentPane.add(lblOrientation);
+		
 		comboBoxOrientation.setSize(71, 22);
 		comboBoxOrientation.setLocation(337, 96);
-		
 		comboBoxOrientation.addItem("- Select orientation -");
 		comboBoxOrientation.addItem("North");
 		comboBoxOrientation.addItem("South");
@@ -152,6 +154,29 @@ public class AddFurnitureGUI extends JFrame {
 		
 		btnAdd.setBounds(502, 82, 89, 22);
 		contentPane.add(btnAdd);
+			
+		comboBoxRoom.setBounds(273, 36, 135, 22);
+		comboBoxRoom.addItem("-- Select a room --");
+		contentPane.add(comboBoxRoom);
+		
+		JLabel lblChooseTheRoom = new JLabel("Choose the room to add the furniture in:");
+		lblChooseTheRoom.setBounds(35, 40, 228, 15);
+		contentPane.add(lblChooseTheRoom);
+		
+		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
+		
+		for(int index=0 ; index<roomsList.size() ; index++) {
+			String roomName = roomsList.get(index).getName();
+			comboBoxRoom.addItem(roomName);
+		}
+		
+		
+		comboBoxRoom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
+				currentRoomName = (String) combo.getSelectedItem();	
+			}
+		});
 		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -179,27 +204,6 @@ public class AddFurnitureGUI extends JFrame {
 						dispose();
 					}
 				}
-			}
-		});
-		
-		comboBoxRoom.setBounds(273, 36, 135, 22);
-		contentPane.add(comboBoxRoom);
-		
-		JLabel lblChooseTheRoom = new JLabel("Choose the room to add the furniture in:");
-		lblChooseTheRoom.setBounds(35, 40, 228, 15);
-		contentPane.add(lblChooseTheRoom);
-		comboBoxRoom.addItem("-- Select a room --");
-		
-		HashMap<Integer, Room> room = apartment.getRoomsList();
-		for(int index=0 ; index<room.size() ; index++) {
-			String roomName = room.get(index).getName();
-			comboBoxRoom.addItem(roomName);
-		}
-		
-		comboBoxRoom.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JComboBox<?> combo = (JComboBox<?>)arg0.getSource();
-				currentRoomName = (String) combo.getSelectedItem();	
 			}
 		});
 	}

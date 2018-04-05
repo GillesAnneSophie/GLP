@@ -21,8 +21,7 @@ import place.PrintDrawing;
  */
 
 
-public class DesignGUI extends JFrame 
-{
+public class DesignGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private Catalog catalog = new Catalog("furniture_catalog.txt");
@@ -74,22 +73,21 @@ public class DesignGUI extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public DesignGUI() 
-	{
+	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(500, 40, 918, 700);
-	
-	/*ScrollPane/Bar*/
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setBounds(5, 5, 890, 590);
-        
-        contentPane.add(scrollPane);
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		gridPanel.setBackground(new Color(100, 149, 237));
 		gridPanel.setPreferredSize(new Dimension(875, 860));
+	
+	/*ScrollPane/Bar*/
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBounds(5, 5, 890, 590);
+        contentPane.add(scrollPane);
 
 	/*Grid configuration*/
 		JLabel tabI[] = new JLabel[20];
@@ -109,23 +107,22 @@ public class DesignGUI extends JFrame
 		menuFile.add(mntmSave);
 		menuFile.add(mntmHelp);
 		menuFile.add(mntmExit);
+		menuBar.add(menuFile);
 		
 		btnAutomaticDecoration.setBackground(SystemColor.menu);
 		btnAutomaticDecoration.setBorderPainted(false);
+		menuBar.add(btnAutomaticDecoration);
 		
 		btnShowToolbar.setBackground(SystemColor.menu);
 		btnShowToolbar.setBorderPainted(false);
-		
-		menuBar.add(menuFile);
-		menuBar.add(btnAutomaticDecoration);
 		menuBar.add(btnShowToolbar);
+		
 		Component horizontalStrut = Box.createHorizontalStrut(10);
 		horizontalStrut.setPreferredSize(new Dimension(60, 15));
 		
 	/*Statistics*/
 		statisticsPanel.setBounds(160, 600, 600, 27);
 		statisticsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-		
 		statisticsPanel.add(lblNumberOfRoom);
 		statisticsPanel.add(roomCounter);
 		statisticsPanel.add(horizontalStrut);
@@ -183,6 +180,7 @@ public class DesignGUI extends JFrame
 			}	
 		});
 	}
+	
 	
 	/**
 	 * Set current statistics

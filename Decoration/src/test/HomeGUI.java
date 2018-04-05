@@ -17,7 +17,7 @@ import java.io.File;
 public class HomeGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel contentPane;
+	private JPanel contentPane = new JPanel();
 	private static HomeGUI frame = new HomeGUI();
 //TODO GUI : afficher le titre du logiciel en grand du coup ? \/
 	//private JLabel lblName = new JLabel("Manag'Apart");
@@ -54,7 +54,7 @@ public class HomeGUI extends JFrame {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 877, 272);
-		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
@@ -75,6 +75,10 @@ public class HomeGUI extends JFrame {
 		
 		btnOpenAFile.setBounds(471, 160, 209, 22);
 		contentPane.add(btnOpenAFile);
+
+		btnNew.setBounds(220, 160, 141, 22);
+		contentPane.add(btnNew);
+		
 		
 		btnOpenAFile.addActionListener(new ActionListener() {
 			private File file;
@@ -91,9 +95,6 @@ public class HomeGUI extends JFrame {
 				}
 			}	
 		});
-
-		btnNew.setBounds(220, 160, 141, 22);
-		contentPane.add(btnNew);
 		
 		btnNew.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent arg0) {

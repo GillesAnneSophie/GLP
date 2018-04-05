@@ -25,7 +25,7 @@ public class AutomaticDecorationGUI extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel contentPane;
+	private JPanel contentPane = new JPanel();
 	
 	private JLabel lblStyle = new JLabel ("Choose the style:");
 	private JLabel lblQuantity = new JLabel("Choose the quantity:");
@@ -70,41 +70,35 @@ public class AutomaticDecorationGUI extends JFrame
 	 * @param gridPanel
 	 * @param tabGrid
 	 */
-	public AutomaticDecorationGUI(Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
-	{
+	public AutomaticDecorationGUI(Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]){
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 414, 214);
 		
-		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setContentPane(contentPane);
 		
 		lblStyle.setBounds(24, 61, 106, 15);
 		contentPane.add(lblStyle);
-		comboBoxStyle.setMinimumSize(new Dimension(30, 20));
-		comboBoxStyle.setPreferredSize(new Dimension(35, 20));
 		
+		comboBoxStyle.setBounds(151, 57, 123, 22);
+		comboBoxStyle.setPreferredSize(new Dimension(35, 20));
 		comboBoxStyle.addItem("- Select style -");
 		comboBoxStyle.addItem("Basic");
 		comboBoxStyle.addItem("Modern");
 		comboBoxStyle.addItem("Rustic");
 		comboBoxStyle.addItem("Vintage");
-		
-		comboBoxStyle.setBounds(151, 57, 123, 22);
 		contentPane.add(comboBoxStyle);
 		
 		lblQuantity.setBounds(24, 99, 121, 15);
 		contentPane.add(lblQuantity);
-		comboBoxQuantity.setMinimumSize(new Dimension(30, 20));
-		comboBoxQuantity.setPreferredSize(new Dimension(35, 20));
 		
+		comboBoxQuantity.setBounds(151, 95, 123, 22);
+		comboBoxQuantity.setPreferredSize(new Dimension(35, 20));
 		comboBoxQuantity.addItem("- Select quantity -");
 		comboBoxQuantity.addItem("Minimalist");
 		comboBoxQuantity.addItem("Basic");
 		comboBoxQuantity.addItem("Maximalist");
-		
-		comboBoxQuantity.setBounds(151, 95, 123, 22);
 		contentPane.add(comboBoxQuantity);
 		
 		btnAdd.setBounds(299, 75, 89, 22);
@@ -121,6 +115,5 @@ public class AutomaticDecorationGUI extends JFrame
 				}
 			}
 		});
-		
 	}
 }

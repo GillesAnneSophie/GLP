@@ -19,7 +19,7 @@ import place.*;
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel contentPane;
+	private JPanel contentPane = new JPanel();
 	private JPanel panel = new JPanel();
 	private JPanel listPanel;
 
@@ -79,21 +79,22 @@ public class ToolbarGUI extends JFrame {
 	 * @param tabGrid
 	 */
 	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog, JPanel gridPanel, JLabel tabGrid[][]) {
-		keepGrid = grid;
-		keepCatalog = catalog;
-		keepApartment = apartment;
-		keepGridPanel = gridPanel;
-		keepTabGrid = tabGrid;
-
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 416, 318);
-		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 			
 		contentPane.add(panel, BorderLayout.CENTER);
 		
+		
+		keepGrid = grid;
+		keepCatalog = catalog;
+		keepApartment = apartment;
+		keepGridPanel = gridPanel;
+		keepTabGrid = tabGrid;
+
 		listBathroom = new DefaultListModel<String>();
 		listBedroomOffice = new DefaultListModel<String>();
 		listDiningRoom = new DefaultListModel<String>();
@@ -110,16 +111,14 @@ public class ToolbarGUI extends JFrame {
 		setListLivingRoom();
 		setListWall();
 		
+		
 		listPanel = new JPanel();
-        getContentPane().add(listPanel);
 		listPanel.setLayout(null);
+        getContentPane().add(listPanel);
 		
 		comboBoxRoom = new JComboBox<String>();
-		comboBoxRoom.setToolTipText("");
 		comboBoxRoom.setLocation(84, 11);
 		comboBoxRoom.setSize(247, 20);
-		listPanel.add(comboBoxRoom);
-
 		comboBoxRoom.addItem("-- Select a room to add a furniture --");
 		comboBoxRoom.addItem("Bathroom");
 		comboBoxRoom.addItem("Bedroom/Office");
@@ -128,6 +127,28 @@ public class ToolbarGUI extends JFrame {
 		comboBoxRoom.addItem("Living Room");
 		comboBoxRoom.addItem("Wall");
 		comboBoxRoom.addItem("Floor");
+		listPanel.add(comboBoxRoom);
+		
+		addFurniture = new JList<String>();
+		addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		addFurniture.setLayoutOrientation(JList.VERTICAL);
+		addFurniture.setBounds(135, 51, 0, 0);
+		addFurniture.addMouseListener(new ClickAction());
+		listPanel.add(addFurniture);
+			
+		JPanel buttonsPanel = new JPanel();
+		contentPane.add(buttonsPanel, BorderLayout.NORTH);
+		buttonsPanel.add(btnAddARoom);
+		buttonsPanel.add(btnRemoveARoom);
+		buttonsPanel.add(btnRemoveAFurniture);
+		
+		
+		grid = keepGrid;
+		apartment = keepApartment;
+		catalog = keepCatalog;
+		gridPanel = keepGridPanel;
+		tabGrid = keepTabGrid;
+			
 		
 		comboBoxRoom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -170,26 +191,6 @@ public class ToolbarGUI extends JFrame {
 			}
 		});
 		
-		addFurniture = new JList<String>();
-		addFurniture.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		addFurniture.setLayoutOrientation(JList.VERTICAL);
-		addFurniture.setBounds(135, 51, 0, 0);
-		addFurniture.addMouseListener(new ClickAction());
-		
-		grid = keepGrid;
-		apartment = keepApartment;
-		catalog = keepCatalog;
-		gridPanel = keepGridPanel;
-		tabGrid = keepTabGrid;
-		
-		listPanel.add(addFurniture);
-			
-		JPanel buttonsPanel = new JPanel();
-		contentPane.add(buttonsPanel, BorderLayout.NORTH);
-		buttonsPanel.add(btnAddARoom);
-		buttonsPanel.add(btnRemoveARoom);
-		buttonsPanel.add(btnRemoveAFurniture);
-			
 		btnRemoveAFurniture.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				RemoveFurnitureGUI.main(keepApartment, keepGrid, keepGridPanel, keepTabGrid);

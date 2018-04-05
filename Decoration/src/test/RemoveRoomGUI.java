@@ -19,11 +19,11 @@ import place.*;
 public class RemoveRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel contentPane;
+	private JPanel contentPane = new JPanel();
 	
 	private JLabel lblChooseTheRoom = new JLabel("Choose the room to remove:");
 	
-	private JComboBox<String> comboBox = new JComboBox<String>();
+	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
 	
 	private JButton btnRemove = new JButton("Remove");
 	
@@ -62,7 +62,7 @@ public class RemoveRoomGUI extends JFrame {
 	public RemoveRoomGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 458, 106);
-		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
@@ -70,15 +70,13 @@ public class RemoveRoomGUI extends JFrame {
 		lblChooseTheRoom.setBounds(21, 25, 174, 15);
 		contentPane.add(lblChooseTheRoom);		
 
-		comboBox.setBounds(192, 21, 135, 22);
-		contentPane.add(comboBox);
-		
+		comboBoxRoom.setBounds(192, 21, 135, 22);
+		contentPane.add(comboBoxRoom);
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
-		
 		for (int index=0 ; index<roomsList.size() ; index++) 
 		{
 			String roomListName = roomsList.get(index).getName();
-			comboBox.addItem (index + "-" + roomListName);
+			comboBoxRoom.addItem (index + "-" + roomListName);
 		}
 		
 		btnRemove.setBounds(346, 21, 86, 22);
@@ -86,7 +84,7 @@ public class RemoveRoomGUI extends JFrame {
 		
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				roomInfo = (String) comboBox.getSelectedItem();
+				roomInfo = (String) comboBoxRoom.getSelectedItem();
 				if(roomInfo!=null)
 				{
 					String[] roomInfoTab = roomInfo.split("-");
