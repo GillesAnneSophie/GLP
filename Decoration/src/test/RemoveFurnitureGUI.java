@@ -10,10 +10,13 @@ import java.util.HashMap;
 
 import place.*;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class RemoveFurnitureGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -35,6 +38,8 @@ public class RemoveFurnitureGUI extends JFrame {
 	 * Launch the application.
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public static void main(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
@@ -55,6 +60,8 @@ public class RemoveFurnitureGUI extends JFrame {
 	 * Create the frame.
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public RemoveFurnitureGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -98,7 +105,6 @@ public class RemoveFurnitureGUI extends JFrame {
 		contentPane.add(lblChooseTheFurniture);
 	
 //TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante � la pi�ce s�lectionn�e avant (il faut un Listener?)
-		
 		
 		comboBoxFurniture.setBounds(278, 85, 157, 22);
 		contentPane.add(comboBoxFurniture);

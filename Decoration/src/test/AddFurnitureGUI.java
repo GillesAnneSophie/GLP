@@ -11,10 +11,13 @@ import java.util.HashMap;
 import catalog.Furniture;
 import place.*;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class AddFurnitureGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -45,14 +48,16 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private String furnitureOrientation = null;
 	private String furnitureStyle = null;
-	private String furnitureColor = null;
-
+	//private String furnitureColor = null;
+//TODO : GUI : Color ?
 
 	/**
 	 * Launch the application.
 	 * @param furniture
 	 * @param grid
-	 * @param apartment 
+	 * @param apartment
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public static void main(Furniture furniture, Grid grid, Apartment apartment, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
@@ -73,7 +78,9 @@ public class AddFurnitureGUI extends JFrame {
 	 * Create the frame.
 	 * @param furnitureToAdd
 	 * @param grid
-	 * @param apartment 
+	 * @param apartment
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public AddFurnitureGUI(Furniture furnitureToAdd, Grid grid, Apartment apartment, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

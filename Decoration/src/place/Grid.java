@@ -2,10 +2,13 @@ package place;
 
 import java.util.HashMap;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class Grid 
 {
 	private Dimension gridDimension;
@@ -13,6 +16,10 @@ public class Grid
 	private String[][] grid;
 	
 
+	/**
+	 * Build a Grid
+	 * @param dimension
+	 */
 	public Grid(Dimension dimension) 
 	{
 		this.gridDimension = dimension;
@@ -58,7 +65,7 @@ public class Grid
 	}
 
 
-	/** 
+	/**
 	 * Return true if the object can be place at the given position
 	 * @param isStackable
 	 * @param positionX
@@ -68,17 +75,18 @@ public class Grid
 	 * @param type
 	 * @param category
 	 * @return true or false
-	 * */
+	 */
 	public boolean canBePlace(boolean isStackable, int positionX, int positionY, String name, Dimension dimension, String type, String category)
 	{
 		boolean placable=false;
 		int dimensionLength = dimension.getLength();
 		int dimensionWidth = dimension.getWidth();
 		
-		/* The object is not stackable
-		 * Can be place IN a room
-		 * Can't be place ON another Furniture
-		 * */
+	/* 
+	 * The object is not stackable
+	 * Can be place IN a room
+	 * Can't be place ON another Furniture
+	 * */
 		if(!isStackable)
 		{
 			if(type=="Furniture")
@@ -132,10 +140,10 @@ public class Grid
 				}
 			}
 		}
-		/* The object is stackable
-		 * Can be place IN a room
-		 * Can be place ON another objet which is stackable
-		 * */
+	/* The object is stackable
+	 * Can be place IN a room
+	 * Can be place ON another element which is stackable
+	 * */
 		else
 		{
 			if(category=="Floor")
@@ -161,7 +169,6 @@ public class Grid
 				{
 					for(int j=positionX ; j<positionX+dimensionWidth ; j++)
 					{
-						/* If it is a door*/
 						if(name.contains("door"))
 						{
 							placable = true;
@@ -254,12 +261,12 @@ public class Grid
 		}
 	}
 	
-	/** 
+	/**
 	 * Remove a Furniture from the Grid
 	 * @param furniture
 	 * @param allTheFurnitureOfTheRoom
 	 * @param roomsList
-	 * */
+	 */
 	public void removeFurniture(AbstractRoom furniture, HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, HashMap<Integer, Room> roomsList)
 	{
 		int furniturePositionX = furniture.getPosition().getX();
@@ -296,7 +303,6 @@ public class Grid
 				}
 				else
 				{
-					/*If there is an other Furniture at the same place*/
 					int furnitureToSet = whichFurnitureIsHere(allTheFurnitureOfTheRoom, furnitureName, i, j);
 					if(furnitureToSet!=-1)
 					{
@@ -316,13 +322,14 @@ public class Grid
 		}
 	}
 
-	/** 
+	/**
 	 * Return the furniture to set at the given position
 	 * @param allTheFurnitureOfTheRoom
+	 * @param name
 	 * @param positionX
 	 * @param positionY
 	 * @return numberOfTheFurniture or -1
-	 * */
+	 */
 	public int whichFurnitureIsHere(HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, String name, int positionX, int positionY)
 	{
 		for(int numberOfTheFurniture=0 ; numberOfTheFurniture<allTheFurnitureOfTheRoom.size() ; numberOfTheFurniture++)
@@ -380,7 +387,7 @@ public class Grid
 	
 //TODO Grid : DEBUG ONLY (a suppr)
 	/** 
-	 * Print the current grid 
+	 * Show the current grid (Console)
 	 * */
 	public void showGrid() 
 	{

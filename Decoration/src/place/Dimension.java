@@ -1,9 +1,12 @@
 package place;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class Dimension 
 {
 	private int width;
@@ -22,7 +25,7 @@ public class Dimension
 
 	
 	/**
-	 * @return the length
+	 * @return the width
 	 */
 	public int getWidth() 
 	{
@@ -30,7 +33,7 @@ public class Dimension
 	}
 
 	/**
-	 * @return the width
+	 * @return the length
 	 */
 	public int getLength() 
 	{

@@ -4,9 +4,12 @@ import catalog.*;
 import categories.*;
 import place.*;
 
+
 /**
  * @author GILLES Anne-Sophie
  */
+
+
 public class tests 
 {
 	/**
@@ -15,7 +18,7 @@ public class tests
 	public static void main(String[] args) 
 	{
 			//Create furniture
-		Catalog catalog = new Catalog("furniture_catalog.txt");
+		//Catalog catalog = new Catalog("furniture_catalog.txt");
 		
 			//Create Apartment
 		Apartment apartment = new Apartment();
@@ -53,7 +56,6 @@ public class tests
 		
 			//Add furniture to rooms
 		//AbstractRoom furniture1 = catalog.getFurniture("single bed");
-		//furniture1.furnitureOrientedNorth();
 		//bedroom.addFurniture(furniture1, 4, 4, grid);
 		
 		//AbstractRoom furniture2 = catalog.getFurniture("carpet");
@@ -76,6 +78,6 @@ public class tests
 		//System.out.println("\n" + apartment);
 		
 			//Automatic Decoration
-		new AutomaticDecoration("maximalist", null, catalog, apartment, grid);
+		//new AutomaticDecoration("maximalist", null, catalog, apartment, grid);
 	}
 }

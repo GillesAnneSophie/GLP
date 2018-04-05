@@ -5,10 +5,12 @@ package place;
 
 import catalog.Category;
 
+
 /**
  * @author GILLES Anne-Sophie
- *
  */
+
+
 public abstract class AbstractRoom 
 {
 	private String type;
@@ -20,13 +22,13 @@ public abstract class AbstractRoom
 	
 
 	/**
+	 * Build an AbstractRoom (Furniture)
 	 * @param type
 	 * @param name
 	 * @param dimension
 	 * @param isStackable
 	 * @param category
-	 * */
-	/*Use to create all the Furniture*/
+	 */
 	public AbstractRoom(String type, String name, Dimension dimension, boolean isStackable, Category category) 
 	{
 		this.type = type;
@@ -37,13 +39,14 @@ public abstract class AbstractRoom
 	}
 
 	/**
+	 * Build an AbstractRoom (Rooms)
 	 * @param type
 	 * @param name
 	 * @param width
 	 * @param length
 	 * @param isStackable
 	 * @param category
-	 * */
+	 */
 	public AbstractRoom(String type, String name, int width, int length, boolean isStackable, Category category) 
 	{
 		this.type = type;
@@ -103,15 +106,23 @@ public abstract class AbstractRoom
 	}
 	
 	
-	/** 
-	 * Set the position of the object in the grid. Return true if the object is placed, false if it can't be place.
+	/**
+	 * @param dimension the dimension to set
+	 * */
+	public void setDimension(Dimension dimension) 
+	{
+		this.dimension=dimension;
+	}
+	
+	/**
+	 * Set the position of the element in the grid, return true if the element is place
 	 * @param positionX
 	 * @param positionY
-	 * @param car
+	 * @param character
 	 * @param grid
 	 * @return true or false
 	 */
-	public boolean setPosition(int positionX, int positionY, String car, Grid grid) 
+	public boolean setPosition(int positionX, int positionY, String character, Grid grid) 
 	{
 		boolean isStackable = getIsStackable();
 		String name = getName();
@@ -129,7 +140,7 @@ public abstract class AbstractRoom
 			{
 				for(int j=positionX ; j<positionX+thisWidth ; j++)
 				{
-					grid.setGrid(i, j, car);
+					grid.setGrid(i, j, character);
 				}
 			}
 			
@@ -201,7 +212,6 @@ public abstract class AbstractRoom
 						}
 					}
 				}
-				//PrintDrawing.printWallFurniture(name, positionX, positionY, grid);
 			}
 			grid.showGrid();
 			return true;
@@ -212,15 +222,6 @@ public abstract class AbstractRoom
 			return false;
 		}
 	}
-	
-	/**
-	 * @param dimension the dimension to set
-	 * */
-	public void setDimension(Dimension dimension) 
-	{
-		this.dimension=dimension;
-	}
-	
 	
 	/**
 	 * Change the orientation of the furniture

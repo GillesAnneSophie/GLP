@@ -8,11 +8,14 @@ import java.awt.event.*;
 import catalog.*;
 import place.*;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  * @author ZOUHOUDI Chabani
  */
+
+
 public class ToolbarGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -49,6 +52,8 @@ public class ToolbarGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 * @param catalog
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public static void main(Apartment apartment, Grid grid, Catalog catalog, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
@@ -70,6 +75,8 @@ public class ToolbarGUI extends JFrame {
 	 * @param apartment
 	 * @param grid
 	 * @param catalog
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public ToolbarGUI(Apartment apartment, Grid grid, Catalog catalog, JPanel gridPanel, JLabel tabGrid[][]) {
 		keepGrid = grid;

@@ -19,6 +19,8 @@ import place.Grid;
 /**
  * @author GILLES Anne-Sophie
  */
+
+
 public class AutomaticDecorationGUI extends JFrame
 {
 	private static final long serialVersionUID = 1L;
@@ -42,12 +44,14 @@ public class AutomaticDecorationGUI extends JFrame
 	 * @param catalog
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
-	public static void main(Catalog catalog, Apartment apartment, Grid grid) {
+	public static void main(Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AutomaticDecorationGUI frame = new AutomaticDecorationGUI(catalog, apartment, grid);
+					AutomaticDecorationGUI frame = new AutomaticDecorationGUI(catalog, apartment, grid, gridPanel, tabGrid);
 					frame.setVisible(true);
 					frame.setTitle("Manag'Apart - Automatic decoration");
 				} catch (Exception e) {
@@ -63,8 +67,10 @@ public class AutomaticDecorationGUI extends JFrame
 	 * @param catalog
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
-	public AutomaticDecorationGUI(Catalog catalog, Apartment apartment, Grid grid)
+	public AutomaticDecorationGUI(Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 414, 214);
@@ -111,7 +117,7 @@ public class AutomaticDecorationGUI extends JFrame
 				
 				if(style != null && quantity != null)
 				{
-					new AutomaticDecoration(quantity, style, catalog, apartment, grid);
+					new AutomaticDecoration(quantity, style, catalog, apartment, grid, gridPanel, tabGrid);
 				}
 			}
 		});

@@ -2,14 +2,20 @@ package place;
 
 import java.util.HashMap;
 
+
 /**
  * @author GILLES Anne-Sophie
  */
+
+
 public class Apartment 
 {
 	private HashMap<Integer, Room> roomsList;
 	
 
+	/**
+	 * Build an Apartment
+	 */
 	public Apartment()
 	{
 		roomsList = new HashMap<Integer, Room>();
@@ -25,12 +31,18 @@ public class Apartment
 	}
 	
 
+	/**
+	 * Return the room which have the given name
+	 * @param name
+	 * @return thisRoom or null
+	 */
 	public Room getRoom(String name)
 	{
 		for(int index=0 ; index<getRoomsList().size() ; index++)
 		{
 			Room thisRoom = getRoomsList().get(index);
 			String thisRoomName = thisRoom.getName();
+			
 			if(thisRoomName==name)
 			{
 				return thisRoom;
@@ -39,13 +51,14 @@ public class Apartment
 		return null;
 	}
 	
-	/** 
-	 * Add a room in the apartment
+	/**
+	 * Add a room in the apartment, return true if the room is add
 	 * @param room
 	 * @param positionX
 	 * @param positionY
 	 * @param grid
-	 * */
+	 * @return true or false
+	 */
 	public boolean addRoom(Room room, int positionX, int positionY, Grid grid)
 	{
 		int counter = roomsList.size();
@@ -59,11 +72,11 @@ public class Apartment
 		return false;
 	}
 	
-	/** 
+	/**
 	 * Remove a room from the apartment
-	 * @param name
+	 * @param index
 	 * @param grid
-	 * */
+	 */
 	public void removeRoom(int index, Grid grid)
 	{
 		grid.removeRoom(roomsList.get(index));

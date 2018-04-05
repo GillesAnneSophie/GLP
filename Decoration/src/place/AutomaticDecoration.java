@@ -5,7 +5,11 @@ package place;
 
 import java.util.HashMap;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import catalog.*;
+import test.DesignGUI;
 
 /**
  * @author GILLES Anne-Sophie
@@ -24,21 +28,34 @@ public class AutomaticDecoration
 	private String[] moreKitchenFurniture = {"kitchen worktop"};
 	private String[] moreLivingRoomFurniture = {"small sofa"};
 	
-	public AutomaticDecoration(String quantity, String style, Catalog catalog, Apartment apartment, Grid grid)
-	{
-		minimumDecoration(style, catalog, apartment, grid);
-		moreDecoration(quantity, style, catalog, apartment, grid);
-	}
 	
-
 	/**
-	 * Set the strict minimum of furniture for each room
+	 * 
+	 * @param quantity
 	 * @param style
 	 * @param catalog
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
-	public void minimumDecoration(String style, Catalog catalog, Apartment apartment, Grid grid)
+	public AutomaticDecoration(String quantity, String style, Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
+	{
+		minimumDecoration(style, catalog, apartment, grid, gridPanel, tabGrid);
+		moreDecoration(quantity, style, catalog, apartment, grid, gridPanel, tabGrid);
+	}
+	
+
+	/**
+	 * Set the strict minimum of furniture in each room
+	 * @param style
+	 * @param catalog
+	 * @param apartment
+	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
+	 */
+	public void minimumDecoration(String style, Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
 		
@@ -58,6 +75,25 @@ public class AutomaticDecoration
 				for(int j=positionX ; j<positionX+roomsWidth ; j++)
 				{
 					String currentPosition = grid.getGrid(i, j);
+					String furnitureOrientation = null;
+
+					if(j==1)
+					{
+						furnitureOrientation = "west";
+					}
+					else if(j==roomsWidth)
+					{
+						furnitureOrientation = "east";
+					}
+					else if(i==1)
+					{
+						furnitureOrientation = "north";
+					}
+					else if(i==roomsLength)
+					{
+						furnitureOrientation = "south";
+					}
+					
 //Si on est sur un bord / contre un mur ET que la case est libre
 					if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
 					{
@@ -69,10 +105,14 @@ public class AutomaticDecoration
 							{
 								String currentFurniture = minimumBathroomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								
 //Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
+									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+									DesignGUI.setStatistics();
+									
 									furnitureCounter++;
 									j++;
 									break;
@@ -85,9 +125,13 @@ public class AutomaticDecoration
 							{
 								String currentFurniture = minimumBedroomOfficeFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
+									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+									DesignGUI.setStatistics();
+									
 									furnitureCounter++;
 									j++;
 									break;
@@ -100,9 +144,12 @@ public class AutomaticDecoration
 							{
 								String currentFurniture = minimumDiningRoomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
 								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
+									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+									DesignGUI.setStatistics();
 //Si c'est une table, il faut poser des chaises autour
 									if(currentFurniture.contains("table"))
 									{
@@ -115,7 +162,7 @@ public class AutomaticDecoration
 											{
 //On pose la chaise seulement si on est pas dans un coin de la table
 												if( !((p==j-1 && q==i-1) || (p==j-1 && q==i+furnitureWidth) || (p==j+furnitureLength && q==i-1) || (p==j+furnitureLength && q==i+furnitureWidth)) )
-												{
+												{//TODO orientation ?
 													Furniture chair = catalog.getFurniture("chair");
 													currentRoom.addFurniture(chair, q, p, grid);
 												}
@@ -135,9 +182,13 @@ public class AutomaticDecoration
 							{
 								String currentFurniture = minimumKitchenFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
+									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+									DesignGUI.setStatistics();
+									
 									furnitureCounter++;
 									j++;
 									break;
@@ -150,9 +201,13 @@ public class AutomaticDecoration
 							{
 								String currentFurniture = minimumLivingRoomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
+									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+									DesignGUI.setStatistics();
+									
 									furnitureCounter++;
 									j++;
 									break;
@@ -175,8 +230,10 @@ public class AutomaticDecoration
 	 * @param catalog
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
-	public void moreDecoration(String quantity, String style, Catalog catalog, Apartment apartment, Grid grid)
+	public void moreDecoration(String quantity, String style, Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		if(quantity != null)
 		{
@@ -200,6 +257,25 @@ public class AutomaticDecoration
 					for(int j=positionX+roomsWidth ; j>positionX ; j--)
 					{
 						String currentPosition = grid.getGrid(i, j);
+						String furnitureOrientation = null;
+
+						if(j==1)
+						{
+							furnitureOrientation = "west";
+						}
+						else if(j==roomsWidth)
+						{
+							furnitureOrientation = "east";
+						}
+						else if(i==1)
+						{
+							furnitureOrientation = "north";
+						}
+						else if(i==roomsLength)
+						{
+							furnitureOrientation = "south";
+						}
+						
 //Si on est sur un bord / contre un mur ET que la case est libre
 						if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
 						{
@@ -211,10 +287,14 @@ public class AutomaticDecoration
 								{
 									String currentFurniture = moreBathroomFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									
 //Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
 //Si la quantité est maximalist et que c'est un worktop, on en rajoute 1 à côté
 										if(quantity.equals("maximalist") && currentFurniture.contains("worktop"))
 										{
@@ -222,6 +302,9 @@ public class AutomaticDecoration
 											{
 												j--;
 												currentRoom.addFurniture(furnitureToAdd, j, i, grid);
+												
+												PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+												DesignGUI.setStatistics();
 											}
 										}
 										furnitureCounter++;
@@ -237,10 +320,14 @@ public class AutomaticDecoration
 								{
 									String currentFurniture = moreBedroomOfficeFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									
 //Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
 										furnitureCounter++;
 										j--;
 										break;
@@ -254,10 +341,14 @@ public class AutomaticDecoration
 								{
 									String currentFurniture = moreDiningRoomFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									
 //Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
 										furnitureCounter++;
 										j--;
 										break;
@@ -271,10 +362,14 @@ public class AutomaticDecoration
 								{
 									String currentFurniture = moreKitchenFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									
 //Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
 //Si la quantité est maximalist et que c'est un worktop, on en rajoute 2 côte à côte
 										if(quantity.equals("maximalist") && currentFurniture.contains("worktop"))
 										{
@@ -282,6 +377,9 @@ public class AutomaticDecoration
 											{
 												j--;
 												currentRoom.addFurniture(furnitureToAdd, j, i, grid);
+												
+												PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+												DesignGUI.setStatistics();
 											}
 										}
 										furnitureCounter++;
@@ -297,10 +395,14 @@ public class AutomaticDecoration
 								{
 									String currentFurniture = moreLivingRoomFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									
 //Si on a bien récuperer la furniture ET qu'on a réussis à ajouter la furniture dans la pièce => On se décale d'une case pour pas coller les meubles et on passe au meuble suivant et case suivante
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
 //Si la quantité est maximalist, on ajoute 2 armchair
 										if(quantity.equals("maximalist"))
 										{
@@ -309,6 +411,9 @@ public class AutomaticDecoration
 											{
 												j--;
 												currentRoom.addFurniture(armchair, j, i, grid);
+												
+												PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+												DesignGUI.setStatistics();
 											}
 										}
 										furnitureCounter++;
@@ -321,6 +426,10 @@ public class AutomaticDecoration
 								{
 									Furniture armchair = catalog.getFurniture("armchair");
 									currentRoom.addFurniture(armchair, j, i, grid);
+									
+									PrintDrawing.printFurniture(armchair, furnitureOrientation, gridPanel, tabGrid);
+									DesignGUI.setStatistics();
+									
 									maxCounter++;
 								}
 							}

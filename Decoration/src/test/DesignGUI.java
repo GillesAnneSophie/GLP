@@ -19,6 +19,8 @@ import place.PrintDrawing;
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class DesignGUI extends JFrame 
 {
 	private static final long serialVersionUID = 1L;
@@ -152,7 +154,7 @@ public class DesignGUI extends JFrame
 		
 		btnAutomaticDecoration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				AutomaticDecorationGUI.main(catalog, apartment, grid);
+				AutomaticDecorationGUI.main(catalog, apartment, grid, gridPanel, tabGrid);
 			}
 		});
 		

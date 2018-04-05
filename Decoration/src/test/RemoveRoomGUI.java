@@ -9,10 +9,13 @@ import java.util.HashMap;
 
 import place.*;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class RemoveRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -31,6 +34,8 @@ public class RemoveRoomGUI extends JFrame {
 	 * Launch the application.
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public static void main(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]){
 		EventQueue.invokeLater(new Runnable() {
@@ -51,6 +56,8 @@ public class RemoveRoomGUI extends JFrame {
 	 * Create the frame.
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public RemoveRoomGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

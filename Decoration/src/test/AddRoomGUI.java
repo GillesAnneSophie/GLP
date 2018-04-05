@@ -16,6 +16,8 @@ import place.*;
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class AddRoomGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
@@ -49,6 +51,8 @@ public class AddRoomGUI extends JFrame {
 	 * Launch the application.
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public static void main(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,6 +73,8 @@ public class AddRoomGUI extends JFrame {
 	 * Create the frame.
 	 * @param apartment
 	 * @param grid
+	 * @param gridPanel
+	 * @param tabGrid
 	 */
 	public AddRoomGUI(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][]) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -3,10 +3,13 @@ package catalog;
 import place.*;
 import styles.*;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class Furniture extends AbstractRoom
 {
 	private Style style;
@@ -14,6 +17,7 @@ public class Furniture extends AbstractRoom
 	
 	
 	/**
+	 * Build a Furniture
 	 * @param name
 	 * @param dimension
 	 * @param stackable

@@ -1,15 +1,19 @@
 package place;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class Position 
 {
 	private int x;
 	private int y;
 
 	/**
+	 * Build a Position
 	 * @param x
 	 * @param y
 	 */

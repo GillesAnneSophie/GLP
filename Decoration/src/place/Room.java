@@ -4,16 +4,20 @@ import java.util.HashMap;
 
 import catalog.*;
 
+
 /**
  * @author CORALIE Laury Ann
  * @author GILLES Anne-Sophie
  */
+
+
 public class Room extends AbstractRoom
 {
 	private HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom;
 
 	
 	/**
+	 * Build a Room
 	 * @param name
 	 * @param width
 	 * @param length
@@ -36,7 +40,7 @@ public class Room extends AbstractRoom
 	
 
 	/** 
-	 * Return true if the furniture can be place in the room
+	 * Return true if the furniture can be add to the room
 	 * @param room
 	 * @param furniture
 	 * @return true or false
@@ -46,17 +50,17 @@ public class Room extends AbstractRoom
 		String furnitureCategory = furniture.getCategory();
 		String roomCategory = room.getCategory();
 		
-		/*If the Category of the furniture is Floor or Wall*/
+	/*If the Category of the furniture is Floor or Wall*/
 		if(furnitureCategory=="Floor" || furnitureCategory=="Wall")
 		{
 			return true;
 		}
-		/*If the Category of the room is the same as the Catgory of the furniture*/
+	/*If the Category of the room is the same as the Catgory of the furniture*/
 		else if(roomCategory==furnitureCategory)
 		{
 			return true;
 		}
-		/*If the Category of the furniture is DiningRoom and then, if the Category of the room is Kitchen or LivingRoom*/
+	/*If the Category of the furniture is DiningRoom and then, if the Category of the room is Kitchen or LivingRoom*/
 		else if(furnitureCategory=="DiningRoom")
 		{
 			if(roomCategory=="Kitchen" || roomCategory=="LivingRoom")
@@ -68,7 +72,7 @@ public class Room extends AbstractRoom
 				return false;
 			}
 		}
-		/*If the Category of the furniture is LivingRoom and then, if the Category of the room is DiningRoom*/
+	/*If the Category of the furniture is LivingRoom and then, if the Category of the room is DiningRoom*/
 		else if(furnitureCategory=="LivingRoom")
 		{
 			if(roomCategory=="DiningRoom")
@@ -80,7 +84,7 @@ public class Room extends AbstractRoom
 				return false;
 			}
 		}
-		/*If the Category of the furniture is BedroomOffice and then, if the Category of the room is LivingRoom*/
+	/*If the Category of the furniture is BedroomOffice and then, if the Category of the room is LivingRoom*/
 		else if(furnitureCategory=="BedroomOffice")
 		{
 			if(roomCategory=="LivingRoom")
@@ -98,14 +102,15 @@ public class Room extends AbstractRoom
 		}
 	}
 	
-//ADD Boolean + erreur impossible d'ajouter ?	
-	/** 
-	 * Add a Furniture in the Room 
+
+	/**
+	 * Add a Furniture in the Room, return true if the furniture is add
 	 * @param furniture
 	 * @param positionX
 	 * @param positionY
 	 * @param grid
-	 * */
+	 * @return true or false
+	 */
 	public boolean addFurniture(AbstractRoom furniture, int positionX, int positionY, Grid grid)
 	{
 		if(roomAcceptFurniture(this, furniture))
@@ -122,12 +127,12 @@ public class Room extends AbstractRoom
 		return false;
 	}
 	
-	/** 
+	/**
 	 * Remove a Furniture from the Room
-	 * @param name
+	 * @param index
 	 * @param grid
-	 * @param roomsList
-	 * */
+	 * @param apartment
+	 */
 	public void removeFurniture(int index, Grid grid, Apartment apartment)
 	{
 		grid.removeFurniture(getAllTheFurnitureOfTheRoom().get(index), getAllTheFurnitureOfTheRoom(), apartment.getRoomsList());

@@ -9,20 +9,23 @@ import java.util.ArrayList;
 import categories.*;
 import place.*;
 
+
 /**
  * @author GILLES Anne-Sophie
  */
+
+
 public class Catalog 
 {
 	private ArrayList<Furniture> inventory;
 	
-	/*Create Dimensions*/
+/*Create Dimensions*/
 	private static Dimension cube = new Dimension(1, 1);
 	private static Dimension smallRectangle = new Dimension(2, 1);
 	private static Dimension mediumRectangle = new Dimension(3, 1);
 	private static Dimension largeRectangle = new Dimension(2, 3);
 	
-	/*Create Categories*/
+/*Create Categories*/
 	private Category bathroom = new Bathroom();
 	private Category bedroomOffice = new BedroomOffice();
 	private Category diningRoom = new DiningRoom();
@@ -32,6 +35,10 @@ public class Catalog
 	private Category wall = new Wall();
 	
 	
+	/**
+	 * Build a Catalog
+	 * @param fileName
+	 */
 	public Catalog(String fileName)
 	{
 		inventory = new ArrayList<Furniture>();
@@ -40,7 +47,7 @@ public class Catalog
 	
 	
 	/** 
-	 * Return the furniture which have the chosen name or null if there is no furniture with this name
+	 * Return the furniture which have the chosen name
 	 * @param name
 	 * @return the furniture or null
 	 */

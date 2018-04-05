@@ -11,9 +11,12 @@ import javax.swing.*;
 
 import catalog.Furniture;
 
+
 /**
  * @author GILLES Anne-Sophie
  */
+
+
 public class PrintDrawing 
 {
 	/**
@@ -84,7 +87,6 @@ public class PrintDrawing
 		}
 	}
 	
-	
 	/**
 	 * Update the grid with rooms (floors, walls, void, empty)
 	 * @param grid
@@ -102,7 +104,7 @@ public class PrintDrawing
 			{
 				String character = grid.getGrid(i, j);
 				
-				// If there is a # (Void) at the current position 
+			/*If there is a # (Empty) at the current position*/
 				if(character.equals("#"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
@@ -110,7 +112,7 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
 				}
-				// If there is a $ (Wall) at the current position 
+			/*If there is a $ (Wall) at the current position*/
 				else if(character.equals("$"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/wall.png");
@@ -118,7 +120,7 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
 				}
-				// If there is a letter (Floor) at the current position 
+			/*If there is a letter (Floor) at the current position*/
 				else if(character.matches("[a-z]"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/floor.png");
@@ -126,7 +128,7 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
 				}
-				// If there is a * at the current position 
+			/*If there is a * (Void) at the current position*/
 				else if(character.equals("*"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/void.png");
@@ -138,7 +140,6 @@ public class PrintDrawing
 		}
 	}
 	
-	
 	/**
 	 * Print the given furniture
 	 * @param furniture
@@ -148,7 +149,6 @@ public class PrintDrawing
 	 */
 	public static void printFurniture(Furniture furniture, String furnitureOrientation, JPanel gridPanel, JLabel tabGrid[][])
 	{
-		
 		String furnitureName = furniture.getName().toLowerCase().replaceAll(" ", "");
 		String furnitureStyle = furniture.getStyle();
 		if(furnitureStyle != null)
@@ -166,11 +166,20 @@ public class PrintDrawing
 		if(path != null)
 		{
 			ImageIcon imageIcon = new ImageIcon(path);
-//TODO Print : Fonctionne pas pour les meubles de taille + 1*1 >  1*2 / 1*3 / 2*3
-			Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-			
+			Image image = imageIcon.getImage().getScaledInstance(35*furnitureWidth, 35*furnitureLength, Image.SCALE_DEFAULT);	
 			ImageIcon imageToSet = new ImageIcon(image);
 			tabGrid[furniturePositionY][furniturePositionX].setIcon(imageToSet);
+			
+			for(int i=furniturePositionY ; i<furniturePositionY+furnitureLength ; i++)
+			{
+				for(int j=furniturePositionX ; j<furniturePositionX+furnitureWidth ; j++)
+				{
+					if(!(j==furniturePositionX && i==furniturePositionY))
+					{
+						tabGrid[i][j].setIcon(null);
+					}
+				}
+			}
 		}
 	}
 	
@@ -225,22 +234,4 @@ public class PrintDrawing
 		}
 		return path;
 	}
-	
-	
-	
-	/*
-	ImageIcon image = new ImageIcon("./drawings/empty.png");
-	Image image1 = image.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-	ImageIcon imageToSet = new ImageIcon(image1);
-	JLabel test = new JLabel(imageToSet);
-	test.setBounds(i, j, 35, 35);
-	gridPanel.add(test);
-	*/
-	
-	/*
-	ImageIcon imageIcon = new ImageIcon("./drawings/toilet.png");
-	Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
-	ImageIcon imageIcon2 = new ImageIcon(image);
-	tabGrid[1][1].setIcon(imageIcon2);
-	*/
 }

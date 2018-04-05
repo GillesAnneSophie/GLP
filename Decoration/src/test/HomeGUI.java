@@ -12,12 +12,14 @@ import java.io.File;
  * @author GILLES Anne-Sophie
  * @author CORALIE Laury Ann
  */
+
+
 public class HomeGUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane;
 	private static HomeGUI frame = new HomeGUI();
-
+//TODO GUI : afficher le titre du logiciel en grand du coup ? \/
 	//private JLabel lblName = new JLabel("Manag'Apart");
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
