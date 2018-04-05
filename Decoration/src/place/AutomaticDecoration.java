@@ -11,7 +11,7 @@ import catalog.*;
  * @author GILLES Anne-Sophie
  */
 public class AutomaticDecoration 
-{//TODO AutoDeco : desk+office chair (?)
+{
 	private String[] minimumBathroomFurniture = {"toilet", "shower", "washbasin"};
 	private String[] minimumBedroomOfficeFurniture = {"single bed", "desk"};
 	private String[] minimumDiningRoomFurniture = {"small dining table"};

@@ -32,7 +32,7 @@ public class Furniture extends AbstractRoom
 	{
 		return style.toString();
 	}
-//TODO Color
+
 	/**
 	 * @return the color
 	 */

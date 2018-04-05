@@ -252,7 +252,6 @@ public class ToolbarGUI extends JFrame {
 		listFloor.removeAllElements();
 
 		listFloor.addElement("Carpet");
-//TODO ToolBar : ajouter les sols
 	}
 	
 	private void setListKitchen()

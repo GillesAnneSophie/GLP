@@ -42,11 +42,8 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private int furniturePositionY = -1;
 	private int furniturePositionX = -1;
+	
 	private String furnitureOrientation = null;
-
-	protected String defaultFurniturePath = "/Decoration/drawings/";
-	protected String defaultExtension = ".pgn";
-
 	private String furnitureStyle = null;
 	private String furnitureColor = null;
 
@@ -160,23 +157,7 @@ public class AddFurnitureGUI extends JFrame {
 				//furnitureColor = comboBoxColor.getSelectedItem().toString();
 				
 				furnitureToAdd.setStyle(furnitureStyle);
-				
-				if(furnitureOrientation=="North")
-				{
-					furnitureToAdd.furnitureOrientedNorth();
-				}
-				else if(furnitureOrientation=="South")
-				{
-					furnitureToAdd.furnitureOrientedSouth();
-				}
-				else if(furnitureOrientation=="East")
-				{
-					furnitureToAdd.furnitureOrientedEast();
-				}
-				else if(furnitureOrientation=="West")
-				{
-					furnitureToAdd.furnitureOrientedWest();
-				}
+				furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
 				
 				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null*/ && furnitureStyle!=null && currentRoom!=null && furnitureOrientation!=null)
 				{
@@ -186,7 +167,7 @@ public class AddFurnitureGUI extends JFrame {
 					}
 					else
 					{
-						PrintDrawing.printFurniture(furnitureToAdd, gridPanel, tabGrid);
+						PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
 						DesignGUI.setStatistics();
 						dispose();
 					}

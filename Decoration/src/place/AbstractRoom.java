@@ -221,42 +221,24 @@ public abstract class AbstractRoom
 		this.dimension=dimension;
 	}
 	
-//TODO Print : modif sens des images + Autre fichier.java ?
+	
 	/**
-	 * North and South = default orientation
-	 * East and West = Change the orientation
-	 * */
-	public void furnitureOrientedNorth()
+	 * Change the orientation of the furniture
+	 * @param orientation
+	 */
+	public void changeFurnitureOrientation(String orientation)
 	{
+		orientation = orientation.toLowerCase();
+		
 		if(getType()=="Furniture")
 		{
-			
-		}
-	}
-	
-	public void furnitureOrientedSouth()
-	{
-		if(getType()=="Furniture")
-		{
-			
-		}
-	}
-	
-	public void furnitureOrientedEast()
-	{
-		if(getType()=="Furniture")
-		{
-			Dimension tmpDimension = new Dimension(getDimension().getLength(), getDimension().getWidth());
-			setDimension(tmpDimension);
-		}
-	}
-	
-	public void furnitureOrientedWest()
-	{
-		if(getType()=="Furniture")
-		{
-			Dimension tmpDimension = new Dimension(getDimension().getLength(), getDimension().getWidth());
-			setDimension(tmpDimension);
+			if(orientation.equals("east") || orientation.equals("west"))
+			{
+				int length = getDimension().getLength();
+				int width = getDimension().getWidth();
+				Dimension tmpDimension = new Dimension(length, width);
+				setDimension(tmpDimension);
+			}
 		}
 	}
 

@@ -18,8 +18,8 @@ public class Catalog
 	
 	/*Create Dimensions*/
 	private static Dimension cube = new Dimension(1, 1);
-	private static Dimension smallRectangle = new Dimension(1, 2);
-	private static Dimension mediumRectangle = new Dimension(1, 3);
+	private static Dimension smallRectangle = new Dimension(2, 1);
+	private static Dimension mediumRectangle = new Dimension(3, 1);
 	private static Dimension largeRectangle = new Dimension(2, 3);
 	
 	/*Create Categories*/
