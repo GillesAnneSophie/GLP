@@ -57,11 +57,11 @@ public class Grid
 	/**
 	 * @param positionX
 	 * @param positionY
-	 * @param car
+	 * @param character
 	 */
-	public void setGrid(int positionX, int positionY, String car) 
+	public void setGrid(int positionX, int positionY, String character) 
 	{
-		this.grid[positionX][positionY]=car;
+		this.grid[positionX][positionY]=character;
 	}
 
 
