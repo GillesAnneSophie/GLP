@@ -34,9 +34,6 @@ public class DesignGUI extends JFrame {
 	JScrollPane scrollPane = new JScrollPane(gridPanel);
 
 	private JMenuBar menuBar = new JMenuBar();
-	private JMenu menuFile = new JMenu("File");
-	private JMenuItem mntmHelp = new JMenuItem("Help");
-	private JMenuItem mntmExit = new JMenuItem("Exit");
 	
 	private JButton btnAutomaticDecoration = new JButton("Automatic Decoration");
 	private JButton btnShowToolbar = new JButton("Open Toolbar");
@@ -98,11 +95,6 @@ public class DesignGUI extends JFrame {
 		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		setJMenuBar(menuBar);
 		
-		menuFile.setPreferredSize(new Dimension(30, 22));
-		menuFile.add(mntmHelp);
-		menuFile.add(mntmExit);
-		menuBar.add(menuFile);
-		
 		btnAutomaticDecoration.setBackground(SystemColor.menu);
 		btnAutomaticDecoration.setBorderPainted(false);
 		menuBar.add(btnAutomaticDecoration);
@@ -147,15 +139,6 @@ public class DesignGUI extends JFrame {
 				    	System.exit(0);
 				    }
 			  }
-		});
-		
-		mntmExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				int confirmed = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit the program?", "Exit Program Message Box",JOptionPane.YES_NO_OPTION);
-				if (confirmed == JOptionPane.YES_OPTION) {
-					System.exit(0);
-				}
-			}	
 		});
 	}
 	

@@ -52,12 +52,23 @@ public class Apartment
 	 */
 	public boolean addRoom(Room room, int positionX, int positionY, Grid grid)
 	{
-		int counter = roomsList.size();
-		String nameInGrid = String.valueOf((char)(counter+(int)'a'));
+		int size = roomsList.size();
+		int counter=0;
+		int index=0;
+		while(counter<size)
+		{
+			if(roomsList.get(index) != null)
+			{
+				counter++;
+			}
+			index++;
+		}
+
+		String nameInGrid = String.valueOf((char)(index+(int)'a'));
 		
 		if(room.setPosition(positionX, positionY, nameInGrid, grid))
 		{
-			roomsList.put(counter, room);
+			roomsList.put(index, room);
 			return true;
 		}
 		return false;

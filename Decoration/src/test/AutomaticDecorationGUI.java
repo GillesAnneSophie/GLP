@@ -14,6 +14,7 @@ import catalog.Catalog;
 import place.Apartment;
 import place.AutomaticDecoration;
 import place.Grid;
+import place.Statistics;
 
 
 /**
@@ -109,7 +110,11 @@ public class AutomaticDecorationGUI extends JFrame
 				style = comboBoxStyle.getSelectedItem().toString(); 
 				quantity = comboBoxQuantity.getSelectedItem().toString();
 				
-				if(style != null && quantity != null)
+				if(Statistics.numberOfRooms(apartment.getRoomsList())==0)
+				{
+					JOptionPane.showMessageDialog(null,"ERROR: there is no room!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
+				}
+				else if(style != null && quantity != null)
 				{
 					new AutomaticDecoration(quantity, style, catalog, apartment, grid, gridPanel, tabGrid);
 				}

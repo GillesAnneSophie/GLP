@@ -89,11 +89,12 @@ public class PrintDrawing
 	
 	/**
 	 * Update the grid with rooms (floors, walls, void, empty)
+	 * @param apartment
 	 * @param grid
 	 * @param gridPanel
 	 * @param tabGrid
 	 */
-	public static void updateRooms(Grid grid, JPanel gridPanel, JLabel tabGrid[][])
+	public static void updateRooms(Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		int gridLength = grid.getGridDimension().getLength();
 		int gridWidth = grid.getGridDimension().getWidth();
@@ -123,10 +124,21 @@ public class PrintDrawing
 			/*If there is a letter (Floor) at the current position*/
 				else if(character.matches("[a-z]"))
 				{
+					int roomIndex = -1;
+					for(int l=0 ; l<character.length() ; l++)
+					{
+						char thisCharacter = character.charAt(l);
+						int thisIndex = thisCharacter - 'a' + 1;
+						roomIndex = roomIndex+thisIndex;
+					}
 					ImageIcon imageIcon = new ImageIcon("./drawings/floor.png");
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
+					
+					Room currentRoom = apartment.getRoom(roomIndex);
+					String currentRoomName = currentRoom.getName();
+					tabGrid[i][j].setToolTipText(roomIndex + " - " + currentRoomName);
 				}
 			/*If there is a * (Void) at the current position*/
 				else if(character.equals("*"))

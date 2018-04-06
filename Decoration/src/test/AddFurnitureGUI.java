@@ -154,9 +154,18 @@ public class AddFurnitureGUI extends JFrame {
 		contentPane.add(lblChooseTheRoom);
 		
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
-		for(int index=0 ; index<roomsList.size() ; index++) {
-			String roomName = roomsList.get(index).getName();
-			comboBoxRoom.addItem(index + "-" + roomName);
+		int size = roomsList.size();
+		int counter=0;
+		int index=0;
+		while(counter<size)
+		{
+			if(roomsList.get(index) != null)
+			{
+				String roomListName = roomsList.get(index).getName();
+				comboBoxRoom.addItem (index + "-" + roomListName);
+				counter++;
+			}
+			index++;
 		}
 		
 		
@@ -174,10 +183,13 @@ public class AddFurnitureGUI extends JFrame {
 				furnitureOrientation = comboBoxOrientation.getSelectedItem().toString();
 				furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
 				
-				String[] roomInfoTab = currentRoomName.split("-");
-				int chosenRoom = Integer.valueOf(roomInfoTab[0]);
-				currentRoom = apartment.getRoom(chosenRoom);
-
+				if(currentRoomName != "-- Select a room --")
+				{
+					String[] roomInfoTab = currentRoomName.split("-");
+					int chosenRoom = Integer.valueOf(roomInfoTab[0]);
+					currentRoom = apartment.getRoom(chosenRoom);
+				}
+				
 				furnitureToAdd.setStyle(furnitureStyle);
 				furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
 				

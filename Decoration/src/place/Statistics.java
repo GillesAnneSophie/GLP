@@ -34,7 +34,10 @@ public class Statistics
 		int counter = 0;
 		for(int i=0 ; i<roomsList.size() ; i++)
 		{
-			counter += roomsList.get(i).getAllTheFurnitureOfTheRoom().size();
+			if(roomsList.get(i) != null)
+			{
+				counter+=roomsList.get(i).getAllTheFurnitureOfTheRoom().size();
+			}
 		}
 		return counter;
 	}

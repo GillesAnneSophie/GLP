@@ -18,11 +18,12 @@ public class HomeGUI extends JFrame {
 	
 	private JPanel contentPane = new JPanel();
 	private static HomeGUI frame = new HomeGUI();
+	private JLabel lblManagApart = new JLabel("Manag'Apart");
+	private JLabel lblWelcome = new JLabel("Welcome in Manag'Apart!");
+	private JLabel lblMessage = new JLabel("You can start a new management by clicking on \"New management\".");
+	private JLabel lblHaveFun = new JLabel("Have fun!");
+	private JLabel lblAuthors = new JLabel("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
 	
-	private JLabel lblName = new JLabel("Manag'Apart");
-	private JLabel lblWelcome = new JLabel ( "Welcome!");
-	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
-	private JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management'");
 	
 	private JButton btnNew = new JButton("New management");
 
@@ -51,31 +52,37 @@ public class HomeGUI extends JFrame {
 	public HomeGUI() {
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 877, 272);
+		setBounds(200, 100, 582, 324);
 		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		contentPane.add(lblName);
+		lblManagApart.setBounds(153, 11, 250, 57);
+		lblManagApart.setHorizontalAlignment(SwingConstants.CENTER);	
+		lblManagApart.setFont(new Font("Papyrus", Font.BOLD, 36));
+		contentPane.add(lblManagApart);
 		
-		lblWelcome.setBounds(354, 45, 152, 57);
-		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);	
-		lblWelcome.setFont(new Font("Papyrus", Font.PLAIN, 36));
+		lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblWelcome.setBounds(205, 90, 174, 15);
 		contentPane.add(lblWelcome);
 		
 		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblMessage.setBounds(26, 113, 808, 15);
+		lblMessage.setBounds(82, 116, 429, 15);
 		contentPane.add(lblMessage);
 		
-		lblAuthor.setFont(new Font("Tahoma", Font.ITALIC, 11));
-		lblAuthor.setLocation(10, 207);
-		lblAuthor.setSize(346, 15);
-		contentPane.add(lblAuthor);
-
-		btnNew.setBounds(220, 160, 141, 22);
+		btnNew.setBounds(215, 169, 141, 22);
 		btnNew.setHorizontalAlignment(JButton.CENTER);
 		contentPane.add(btnNew);
+		
+		lblHaveFun.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 12));
+		lblHaveFun.setBounds(263, 202, 70, 14);
+		contentPane.add(lblHaveFun);
+		
+		lblAuthors.setFont(new Font("Tahoma", Font.ITALIC, 11));
+		lblAuthors.setLocation(111, 259);
+		lblAuthors.setSize(346, 15);
+		contentPane.add(lblAuthors);
 		
 		
 		btnNew.addActionListener(new ActionListener () {

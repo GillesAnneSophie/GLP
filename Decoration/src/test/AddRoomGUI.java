@@ -207,7 +207,7 @@ public class AddRoomGUI extends JFrame {
 				}
 				if(stringRoom!=null && roomWidth!=-1 && roomLength!=-1 && roomPositionX!=-1 && roomPositionY!=-1 && dontClose==false)
 				{
-					PrintDrawing.updateRooms(grid, gridPanel, tabGrid);
+					PrintDrawing.updateRooms(apartment, grid, gridPanel, tabGrid);
 					DesignGUI.setStatistics();
 					dispose();
 				}

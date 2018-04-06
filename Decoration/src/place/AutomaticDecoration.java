@@ -61,6 +61,7 @@ public class AutomaticDecoration
 	public void minimumDecoration(String style, Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
+		style = style.toLowerCase();
 		
 		for(int index=0 ; index<roomsList.size() ; index++)
 		{
@@ -105,6 +106,7 @@ public class AutomaticDecoration
 								String currentFurniture = minimumBathroomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								furnitureToAdd.setStyle(style);
 								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
@@ -124,6 +126,7 @@ public class AutomaticDecoration
 								String currentFurniture = minimumBedroomOfficeFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								furnitureToAdd.setStyle(style);
 								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
@@ -143,6 +146,7 @@ public class AutomaticDecoration
 								String currentFurniture = minimumDiningRoomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								furnitureToAdd.setStyle(style);
 								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
@@ -179,6 +183,7 @@ public class AutomaticDecoration
 								String currentFurniture = minimumKitchenFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								furnitureToAdd.setStyle(style);
 								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
@@ -198,6 +203,7 @@ public class AutomaticDecoration
 								String currentFurniture = minimumLivingRoomFurniture[m];
 								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+								furnitureToAdd.setStyle(style);
 								
 								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 								{
@@ -280,6 +286,7 @@ public class AutomaticDecoration
 									String currentFurniture = moreBathroomFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
@@ -310,6 +317,7 @@ public class AutomaticDecoration
 									String currentFurniture = moreBedroomOfficeFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
@@ -329,6 +337,7 @@ public class AutomaticDecoration
 									String currentFurniture = moreDiningRoomFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
@@ -348,6 +357,7 @@ public class AutomaticDecoration
 									String currentFurniture = moreKitchenFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
@@ -378,6 +388,7 @@ public class AutomaticDecoration
 									String currentFurniture = moreLivingRoomFurniture[m];
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
@@ -404,6 +415,7 @@ public class AutomaticDecoration
 								if(quantity.equals("maximalist") && maxCounter<=2)
 								{
 									Furniture armchair = catalog.getFurniture("armchair");
+									armchair.setStyle(style);
 									currentRoom.addFurniture(armchair, j, i, grid);
 									
 									PrintDrawing.printFurniture(armchair, furnitureOrientation, gridPanel, tabGrid);

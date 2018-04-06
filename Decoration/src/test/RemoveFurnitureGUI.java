@@ -73,10 +73,20 @@ public class RemoveFurnitureGUI extends JFrame {
 		comboBoxRoom.setBounds(300, 30, 135, 22);
 		comboBoxRoom.addItem("-- Select a room --");
 		contentPane.add(comboBoxRoom);
+		
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
-		for (int index=0 ; index<roomsList.size() ; index++) {
-			String roomName = roomsList.get(index).getName();
-			comboBoxRoom.addItem (index + "-" + roomName);
+		int size = roomsList.size();
+		int counter=0;
+		int index=0;
+		while(counter<size)
+		{
+			if(roomsList.get(index) != null)
+			{
+				String roomListName = roomsList.get(index).getName();
+				comboBoxRoom.addItem (index + "-" + roomListName);
+				counter++;
+			}
+			index++;
 		}
 		
 		btnRemove.setBounds(473, 57, 109, 22);
@@ -96,15 +106,21 @@ public class RemoveFurnitureGUI extends JFrame {
 		comboBoxRoom.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String selectedRoom = (String) comboBoxRoom.getSelectedItem();			
-				String[] roomInfoTab = selectedRoom.split("-");
-				int chosenRoomIndex = Integer.valueOf(roomInfoTab[0]);
-				Room choosenRoom = apartment.getRoom(chosenRoomIndex);
+				String selectedRoom = (String) comboBoxRoom.getSelectedItem();
 				
-				HashMap<Integer, AbstractRoom> y = choosenRoom.getAllTheFurnitureOfTheRoom();
-				for (int index =0;index<y.size();index++) {
-					String furnitureName = y.get(index).getName();
-					comboBoxFurniture.addItem(index + "-" + furnitureName);
+				if(selectedRoom != "-- Select a room --")
+				{
+					String[] roomInfoTab = selectedRoom.split("-");
+					int chosenRoomIndex = Integer.valueOf(roomInfoTab[0]);
+					Room choosenRoom = apartment.getRoom(chosenRoomIndex);
+				
+					comboBoxFurniture.removeAll();
+					
+					HashMap<Integer, AbstractRoom> y = choosenRoom.getAllTheFurnitureOfTheRoom();
+					for (int index =0;index<y.size();index++) {
+						String furnitureName = y.get(index).getName();
+						comboBoxFurniture.addItem(index + "-" + furnitureName);
+					}
 				}
 			}
 		});
@@ -112,21 +128,25 @@ public class RemoveFurnitureGUI extends JFrame {
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				chosenFurnitureInfo = (String) comboBoxFurniture.getSelectedItem();
-				String selectedRoom = (String) comboBoxRoom.getSelectedItem();			
-				String[] roomInfoTab = selectedRoom.split("-");
-				int chosenRoomIndex = Integer.valueOf(roomInfoTab[0]);
+				String selectedRoom = (String) comboBoxRoom.getSelectedItem();
 				
-				if(chosenRoomIndex>=0 && chosenFurnitureInfo!=null)
+				if(selectedRoom != "-- Select a room --")
 				{
-					String[] chosenFurnitureInfoTab = chosenFurnitureInfo.split("-");
-					int chosenFurniture = Integer.valueOf(chosenFurnitureInfoTab[0]);
+					String[] roomInfoTab = selectedRoom.split("-");
+					int chosenRoomIndex = Integer.valueOf(roomInfoTab[0]);
 					
-					Room chosenRoom = apartment.getRoom(chosenRoomIndex);
-					chosenRoom.removeFurniture(chosenFurniture, grid, apartment);
-					
-					PrintDrawing.updateRooms(grid, gridPanel, tabGrid);
-					DesignGUI.setStatistics();
-					dispose();
+					if(chosenRoomIndex>=0 && chosenFurnitureInfo!="-- Select a room first --")
+					{
+						String[] chosenFurnitureInfoTab = chosenFurnitureInfo.split("-");
+						int chosenFurniture = Integer.valueOf(chosenFurnitureInfoTab[0]);
+						
+						Room chosenRoom = apartment.getRoom(chosenRoomIndex);
+						chosenRoom.removeFurniture(chosenFurniture, grid, apartment);
+						
+						PrintDrawing.updateRooms(apartment, grid, gridPanel, tabGrid);
+						DesignGUI.setStatistics();
+						dispose();
+					}
 				}
 			}
 		});
