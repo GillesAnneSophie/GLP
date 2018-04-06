@@ -4,7 +4,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 
 
 /**
@@ -20,14 +19,11 @@ public class HomeGUI extends JFrame {
 	private JPanel contentPane = new JPanel();
 	private static HomeGUI frame = new HomeGUI();
 //TODO GUI : afficher le titre du logiciel en grand du coup ? \/
-	//private JLabel lblName = new JLabel("Manag'Apart");
+	private JLabel lblName = new JLabel("Manag'Apart");
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
-	private final JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management' or continue a previous magament with 'Open a existing management'");
-	
-	private JButton btnOpenAFile = new JButton("Open a existing management");
+	private final JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management'");
 	private JButton btnNew = new JButton("New management");
-//TODO Home : Charger + Sauvegarder fichier + COLOR ?
 
 	/**
 	 * Launch the application.
@@ -59,6 +55,8 @@ public class HomeGUI extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
+		contentPane.add(lblName);
+		
 		lblWelcome.setBounds(354, 45, 152, 57);
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);	
 		lblWelcome.setFont(new Font("Papyrus", Font.PLAIN, 36));
@@ -72,29 +70,10 @@ public class HomeGUI extends JFrame {
 		lblAuthor.setLocation(10, 207);
 		lblAuthor.setSize(346, 15);
 		contentPane.add(lblAuthor);
-		
-		btnOpenAFile.setBounds(471, 160, 209, 22);
-		contentPane.add(btnOpenAFile);
 
 		btnNew.setBounds(220, 160, 141, 22);
+		btnNew.setHorizontalAlignment(JButton.CENTER);
 		contentPane.add(btnNew);
-		
-		
-		btnOpenAFile.addActionListener(new ActionListener() {
-			private File file;
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser fc = new JFileChooser();
-				fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);		
-				if(arg0.getSource() == btnOpenAFile) {					
-					int returnV = fc.showOpenDialog(HomeGUI.this);					
-					if(returnV == JFileChooser.APPROVE_OPTION) {					
-						file = fc.getSelectedFile();
-					}
-				}
-			}	
-		});
 		
 		btnNew.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent arg0) {

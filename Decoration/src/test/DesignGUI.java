@@ -37,8 +37,6 @@ public class DesignGUI extends JFrame {
 
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menuFile = new JMenu("File");
-	private JMenuItem mntmOpen = new JMenuItem("Open a existing file");
-	private JMenuItem mntmSave = new JMenuItem("Save this file");
 	private JMenuItem mntmHelp = new JMenuItem("Help");
 	private JMenuItem mntmExit = new JMenuItem("Exit");
 	
@@ -103,8 +101,6 @@ public class DesignGUI extends JFrame {
 		setJMenuBar(menuBar);
 		
 		menuFile.setPreferredSize(new Dimension(30, 22));
-		menuFile.add(mntmOpen);
-		menuFile.add(mntmSave);
 		menuFile.add(mntmHelp);
 		menuFile.add(mntmExit);
 		menuBar.add(menuFile);
@@ -133,21 +129,6 @@ public class DesignGUI extends JFrame {
 		setStatistics();
 		
 	/*Menu Listeners*/
-		mntmOpen.addActionListener(new ActionListener() {
-			private File file;
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				JFileChooser fc = new JFileChooser();
-				fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);		
-				if(arg0.getSource() == mntmOpen) {					
-					int returnV = fc.showOpenDialog(DesignGUI.this);					
-					if(returnV == JFileChooser.APPROVE_OPTION) {					
-						file = fc.getSelectedFile();
-					}
-				}
-			}		
-		});
 		
 		btnAutomaticDecoration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

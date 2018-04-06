@@ -24,7 +24,6 @@ public class AddFurnitureGUI extends JFrame {
 	private JPanel contentPane = new JPanel();
 	
 	private JLabel lblStyle = new JLabel ("Choose the style:");
-	private JLabel lblColor = new JLabel ("Choose the color:");
 	private JLabel lblPosition = new JLabel ("Coordinates:");
 	private JLabel lblX = new JLabel("X");
 	private JLabel lblRoom = new JLabel ("Choose the room:");
@@ -32,7 +31,6 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel furnitureName;
 	
 	private JComboBox<String> comboBoxStyle = new JComboBox<String> ();
-	private JComboBox<String> comboBoxColor = new JComboBox <String> ();
 	private JComboBox<Integer> comboBoxX = new JComboBox<Integer>();
 	private JComboBox<Integer> comboBoxY = new JComboBox<Integer>();
 	private JComboBox<String> comboBoxRoom = new JComboBox<String>();
@@ -48,9 +46,7 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private String furnitureOrientation = null;
 	private String furnitureStyle = null;
-	//private String furnitureColor = null;
-//TODO : GUI : Color ?
-
+	
 	/**
 	 * Launch the application.
 	 * @param furniture
@@ -96,16 +92,10 @@ public class AddFurnitureGUI extends JFrame {
 		furnitureName.setLocation(138, 0);
 		furnitureName.setSize(334, 38);
 		contentPane.add(furnitureName);
-		
-		lblColor.setBounds(35, 69, 106, 15);
-		contentPane.add(lblColor);
-		
+			
 		lblStyle.setBounds(35, 99, 106, 15);
 		contentPane.add(lblStyle);
-		
-		comboBoxColor.setBounds(151, 65, 92, 22);
-		contentPane.add(comboBoxColor);
-		
+				
 		comboBoxStyle.setBounds(151, 95, 92, 22);
 		contentPane.add(comboBoxStyle);
 		
@@ -167,7 +157,7 @@ public class AddFurnitureGUI extends JFrame {
 		
 		for(int index=0 ; index<roomsList.size() ; index++) {
 			String roomName = roomsList.get(index).getName();
-			comboBoxRoom.addItem(roomName);
+			comboBoxRoom.addItem(index + "-" + roomName);
 		}
 		
 		
@@ -183,15 +173,16 @@ public class AddFurnitureGUI extends JFrame {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
 				furnitureOrientation = comboBoxOrientation.getSelectedItem().toString();
-				currentRoom = apartment.getRoom(currentRoomName);
+				String[] roomInfoTab = currentRoomName.split("-");
+				int chosenRoom = Integer.valueOf(roomInfoTab[0]);
+				currentRoom = apartment.getRoom(chosenRoom); //TODO changer getRoom pour un int en parametre
 
 				furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
-				//furnitureColor = comboBoxColor.getSelectedItem().toString();
-				
+
 				furnitureToAdd.setStyle(furnitureStyle);
 				furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
 				
-				if(furniturePositionY!=-1 && furniturePositionX!=-1 /*&& furnitureColor!=null*/ && furnitureStyle!=null && currentRoom!=null && furnitureOrientation!=null)
+				if(furniturePositionY!=-1 && furniturePositionX!=-1 && furnitureStyle!=null && currentRoom!=null && furnitureOrientation!=null)
 				{
 					if(!currentRoom.addFurniture(furnitureToAdd, furniturePositionX, furniturePositionY, grid))
 					{

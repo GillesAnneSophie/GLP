@@ -77,7 +77,7 @@ public class RemoveFurnitureGUI extends JFrame {
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
 		for (int index=0 ; index<roomsList.size() ; index++) {
 			String roomName = roomsList.get(index).getName();
-			comboBoxRoom.addItem (roomName);
+			comboBoxRoom.addItem (index + "-" + roomName);
 		}
 		
 		btnRemove.setBounds(473, 57, 109, 22);
@@ -98,8 +98,11 @@ public class RemoveFurnitureGUI extends JFrame {
 		comboBoxRoom.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				Room selectedRoom = (Room) comboBoxRoom.getSelectedItem();
-				HashMap<Integer, AbstractRoom> y = selectedRoom.getAllTheFurnitureOfTheRoom();
+				String selectedRoom = (String) comboBoxRoom.getSelectedItem();			
+				String[] roomInfoTab = selectedRoom.split("-");
+				String chosenRoom = String.valueOf(roomInfoTab[0]); //TODO modifier getAlltheFurnitureOfTheRoom pour un String ou un Int sinon ca marche pas 
+				
+				HashMap<Integer, AbstractRoom> y = chosenRoom.getAllTheFurnitureOfTheRoom();
 				for (int index =0;index<y.size();index++) {
 					String furnitureName = y.get(index).getName();
 					comboBoxFurniture.addItem(index + "-" + furnitureName);
