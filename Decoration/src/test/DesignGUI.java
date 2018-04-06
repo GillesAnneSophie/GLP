@@ -6,8 +6,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-import java.io.File;
-
 import catalog.Catalog;
 import place.Statistics;
 import place.Apartment;
@@ -81,7 +79,7 @@ public class DesignGUI extends JFrame {
 		gridPanel.setBackground(new Color(100, 149, 237));
 		gridPanel.setPreferredSize(new Dimension(875, 860));
 	
-	/*ScrollPane/Bar*/
+	/*ScrollPane*/
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setBounds(5, 5, 890, 590);
@@ -113,10 +111,10 @@ public class DesignGUI extends JFrame {
 		btnShowToolbar.setBorderPainted(false);
 		menuBar.add(btnShowToolbar);
 		
+	/*Statistics*/
 		Component horizontalStrut = Box.createHorizontalStrut(10);
 		horizontalStrut.setPreferredSize(new Dimension(60, 15));
 		
-	/*Statistics*/
 		statisticsPanel.setBounds(160, 600, 600, 27);
 		statisticsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		statisticsPanel.add(lblNumberOfRoom);
@@ -129,7 +127,6 @@ public class DesignGUI extends JFrame {
 		setStatistics();
 		
 	/*Menu Listeners*/
-		
 		btnAutomaticDecoration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AutomaticDecorationGUI.main(catalog, apartment, grid, gridPanel, tabGrid);

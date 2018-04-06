@@ -28,6 +28,7 @@ public class AddFurnitureGUI extends JFrame {
 	private JLabel lblX = new JLabel("X");
 	private JLabel lblRoom = new JLabel ("Choose the room:");
 	private JLabel lblOrientation = new JLabel ("Choose the furniture's orientation :");
+	private JLabel lblChooseTheRoom = new JLabel("Choose the room to add the furniture in:");
 	private JLabel furnitureName;
 	
 	private JComboBox<String> comboBoxStyle = new JComboBox<String> ();
@@ -46,6 +47,7 @@ public class AddFurnitureGUI extends JFrame {
 	
 	private String furnitureOrientation = null;
 	private String furnitureStyle = null;
+	
 	
 	/**
 	 * Launch the application.
@@ -97,13 +99,12 @@ public class AddFurnitureGUI extends JFrame {
 		contentPane.add(lblStyle);
 				
 		comboBoxStyle.setBounds(151, 95, 92, 22);
-		contentPane.add(comboBoxStyle);
-		
 		comboBoxStyle.addItem("- Select style -");
 		comboBoxStyle.addItem("Basic");
 		comboBoxStyle.addItem("Modern");
 		comboBoxStyle.addItem("Rustic");
 		comboBoxStyle.addItem("Vintage");
+		contentPane.add(comboBoxStyle);
 		
 		lblPosition.setBounds(35, 134, 79, 15);
 		contentPane.add(lblPosition);
@@ -149,12 +150,10 @@ public class AddFurnitureGUI extends JFrame {
 		comboBoxRoom.addItem("-- Select a room --");
 		contentPane.add(comboBoxRoom);
 		
-		JLabel lblChooseTheRoom = new JLabel("Choose the room to add the furniture in:");
 		lblChooseTheRoom.setBounds(35, 40, 228, 15);
 		contentPane.add(lblChooseTheRoom);
 		
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
-		
 		for(int index=0 ; index<roomsList.size() ; index++) {
 			String roomName = roomsList.get(index).getName();
 			comboBoxRoom.addItem(index + "-" + roomName);
@@ -173,11 +172,11 @@ public class AddFurnitureGUI extends JFrame {
 				furniturePositionY = Integer.valueOf(comboBoxY.getSelectedItem().toString())-1;
 				furniturePositionX = Integer.valueOf(comboBoxX.getSelectedItem().toString())-1;
 				furnitureOrientation = comboBoxOrientation.getSelectedItem().toString();
+				furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
+				
 				String[] roomInfoTab = currentRoomName.split("-");
 				int chosenRoom = Integer.valueOf(roomInfoTab[0]);
-				currentRoom = apartment.getRoom(chosenRoom); //TODO changer getRoom pour un int en parametre
-
-				furnitureStyle = comboBoxStyle.getSelectedItem().toString(); 
+				currentRoom = apartment.getRoom(chosenRoom);
 
 				furnitureToAdd.setStyle(furnitureStyle);
 				furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);

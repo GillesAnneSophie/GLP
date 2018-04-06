@@ -18,13 +18,15 @@ public class HomeGUI extends JFrame {
 	
 	private JPanel contentPane = new JPanel();
 	private static HomeGUI frame = new HomeGUI();
-//TODO GUI : afficher le titre du logiciel en grand du coup ? \/
+	
 	private JLabel lblName = new JLabel("Manag'Apart");
 	private JLabel lblWelcome = new JLabel ( "Welcome!");
 	private JLabel lblAuthor = new JLabel ("By CORALIE Laury Ann & GILLES Anne-Sophie & ZOUHOUDI Chabani");
-	private final JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management'");
+	private JLabel lblMessage = new JLabel("Here you can manage your apartment by clicking on 'New management'");
+	
 	private JButton btnNew = new JButton("New management");
 
+	
 	/**
 	 * Launch the application.
 	 * @param args
@@ -74,6 +76,7 @@ public class HomeGUI extends JFrame {
 		btnNew.setBounds(220, 160, 141, 22);
 		btnNew.setHorizontalAlignment(JButton.CENTER);
 		contentPane.add(btnNew);
+		
 		
 		btnNew.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent arg0) {

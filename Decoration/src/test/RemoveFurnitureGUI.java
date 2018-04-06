@@ -30,7 +30,6 @@ public class RemoveFurnitureGUI extends JFrame {
 	
 	private JButton btnRemove = new JButton ("Remove");
 	
-	private String chosenRoomName = null;
 	private String chosenFurnitureInfo = null;
 	
 	
@@ -89,7 +88,6 @@ public class RemoveFurnitureGUI extends JFrame {
 		lblChooseTheFurniture.setBounds(23, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
 	
-//TODO GUI : FONCTIONNE PAS > Si on clique sur le choix du meuble alors on doit afficher la liste des meubles correspondante � la pi�ce s�lectionn�e avant (il faut un Listener?)
 		comboBoxFurniture.setBounds(278, 85, 157, 22);
 		comboBoxFurniture.addItem("-- Select a room first --");
 		contentPane.add(comboBoxFurniture);
@@ -100,9 +98,10 @@ public class RemoveFurnitureGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String selectedRoom = (String) comboBoxRoom.getSelectedItem();			
 				String[] roomInfoTab = selectedRoom.split("-");
-				String chosenRoom = String.valueOf(roomInfoTab[0]); //TODO modifier getAlltheFurnitureOfTheRoom pour un String ou un Int sinon ca marche pas 
+				int chosenRoomIndex = Integer.valueOf(roomInfoTab[0]);
+				Room choosenRoom = apartment.getRoom(chosenRoomIndex);
 				
-				HashMap<Integer, AbstractRoom> y = chosenRoom.getAllTheFurnitureOfTheRoom();
+				HashMap<Integer, AbstractRoom> y = choosenRoom.getAllTheFurnitureOfTheRoom();
 				for (int index =0;index<y.size();index++) {
 					String furnitureName = y.get(index).getName();
 					comboBoxFurniture.addItem(index + "-" + furnitureName);
@@ -113,12 +112,16 @@ public class RemoveFurnitureGUI extends JFrame {
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				chosenFurnitureInfo = (String) comboBoxFurniture.getSelectedItem();
-				chosenRoomName = (String) comboBoxRoom.getSelectedItem();
-				if(chosenRoomName!=null && chosenFurnitureInfo!=null)
+				String selectedRoom = (String) comboBoxRoom.getSelectedItem();			
+				String[] roomInfoTab = selectedRoom.split("-");
+				int chosenRoomIndex = Integer.valueOf(roomInfoTab[0]);
+				
+				if(chosenRoomIndex>=0 && chosenFurnitureInfo!=null)
 				{
 					String[] chosenFurnitureInfoTab = chosenFurnitureInfo.split("-");
 					int chosenFurniture = Integer.valueOf(chosenFurnitureInfoTab[0]);
-					Room chosenRoom = apartment.getRoom(chosenRoomName);
+					
+					Room chosenRoom = apartment.getRoom(chosenRoomIndex);
 					chosenRoom.removeFurniture(chosenFurniture, grid, apartment);
 					
 					PrintDrawing.updateRooms(grid, gridPanel, tabGrid);

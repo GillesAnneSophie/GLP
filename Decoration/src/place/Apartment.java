@@ -32,23 +32,14 @@ public class Apartment
 	
 
 	/**
-	 * Return the room which have the given name
-	 * @param name
-	 * @return thisRoom or null
+	 * Return the room which have the given index
+	 * @param index
+	 * @return thisRoom
 	 */
-	public Room getRoom(String name)
+	public Room getRoom(int index)
 	{
-		for(int index=0 ; index<getRoomsList().size() ; index++)
-		{
-			Room thisRoom = getRoomsList().get(index);
-			String thisRoomName = thisRoom.getName();
-			
-			if(thisRoomName==name)
-			{
-				return thisRoom;
-			}
-		}
-		return null;
+		Room thisRoom = getRoomsList().get(index);
+		return thisRoom;
 	}
 	
 	/**
