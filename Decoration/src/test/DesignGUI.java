@@ -28,7 +28,7 @@ public class DesignGUI extends JFrame {
 	private Grid grid = new Grid(dimGrid);
 	
 	private JPanel contentPane = new JPanel(null);
-	private JPanel gridPanel = new JPanel();
+	private JPanel gridPanel = new JPanel(null);
 	private JPanel statisticsPanel = new JPanel();
 	
 	JScrollPane scrollPane = new JScrollPane(gridPanel);
@@ -68,19 +68,21 @@ public class DesignGUI extends JFrame {
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(500, 40, 918, 700);
+		setPreferredSize(new Dimension(814, 700));
+		setBounds(500, 40, 814, 700);
 		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		gridPanel.setBackground(new Color(100, 149, 237));
-		gridPanel.setPreferredSize(new Dimension(875, 860));
+		gridPanel.setPreferredSize(new Dimension(860, 780));
 	
 	/*ScrollPane*/
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setBounds(5, 5, 890, 590);
-        contentPane.add(scrollPane);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setPreferredSize(new Dimension(790, 590));
+		scrollPane.setBounds(5, 5, 790, 590);
+		contentPane.add(scrollPane);
 
 	/*Grid configuration*/
 		JLabel tabI[] = new JLabel[20];
@@ -91,23 +93,26 @@ public class DesignGUI extends JFrame {
 		
 	/*Menu Bar*/
 		menuBar.setBackground(SystemColor.menu);
-		menuBar.setPreferredSize(new Dimension(50, 30));
+		menuBar.setPreferredSize(new Dimension(810, 30));
 		menuBar.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		setJMenuBar(menuBar);
 		
 		btnAutomaticDecoration.setBackground(SystemColor.menu);
 		btnAutomaticDecoration.setBorderPainted(false);
+		btnAutomaticDecoration.setPreferredSize(new Dimension(135, 23));
 		menuBar.add(btnAutomaticDecoration);
 		
 		btnShowToolbar.setBackground(SystemColor.menu);
 		btnShowToolbar.setBorderPainted(false);
+		btnShowToolbar.setPreferredSize(new Dimension(93, 23));
 		menuBar.add(btnShowToolbar);
 		
 	/*Statistics*/
 		Component horizontalStrut = Box.createHorizontalStrut(10);
 		horizontalStrut.setPreferredSize(new Dimension(60, 15));
 		
-		statisticsPanel.setBounds(160, 600, 600, 27);
+		statisticsPanel.setPreferredSize(new Dimension(600, 27));
+		statisticsPanel.setBounds(98, 599, 600, 27);
 		statisticsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		statisticsPanel.add(lblNumberOfRoom);
 		statisticsPanel.add(roomCounter);
@@ -117,6 +122,7 @@ public class DesignGUI extends JFrame {
 		contentPane.add(statisticsPanel);
 
 		setStatistics();
+		pack();
 		
 	/*Menu Listeners*/
 		btnAutomaticDecoration.addActionListener(new ActionListener() {

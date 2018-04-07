@@ -209,7 +209,7 @@ public class AutomaticDecoration
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
 									furnitureToAdd.setStyle(style);
-									
+								System.err.println();
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
 										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);

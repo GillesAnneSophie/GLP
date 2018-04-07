@@ -176,47 +176,50 @@ public class Grid
 							{
 								for(int n=positionX-1 ; n<positionX+dimensionWidth+1 ; n++)
 								{
-									if(dimensionWidth>1)
+									if(m>=0 && n>=0)
 									{
-										if(n==positionX)
+										if(dimensionWidth>1)
 										{
-											if(getGrid(m, n).matches("[0-9]+"))
+											if(n==positionX)
 											{
-												return false;
+												if(getGrid(m, n).matches("[0-9]+"))
+												{
+													return false;
+												}
+											}
+											else if(n==(positionX-1)+dimensionWidth)
+											{
+												if(getGrid(m, n).matches("[0-9]+"))
+												{
+													return false;
+												}
 											}
 										}
-										else if(n==(positionX-1)+dimensionWidth)
+										else if(dimensionLength>1)
 										{
-											if(getGrid(m, n).matches("[0-9]+"))
+											if(m==positionY)
 											{
-												return false;
+												if(getGrid(m, n).matches("[0-9]+"))
+												{
+													return false;
+												}
+											}
+											else if(m==(positionY-1)+dimensionLength)
+											{
+												if(getGrid(m, n).matches("[0-9]+"))
+												{
+													return false;
+												}
 											}
 										}
-									}
-									else if(dimensionLength>1)
-									{
-										if(m==positionY)
+										else
 										{
-											if(getGrid(m, n).matches("[0-9]+"))
+											if(m==positionY || n==positionX)
 											{
-												return false;
-											}
-										}
-										else if(m==(positionY-1)+dimensionLength)
-										{
-											if(getGrid(m, n).matches("[0-9]+"))
-											{
-												return false;
-											}
-										}
-									}
-									else
-									{
-										if(m==positionY || n==positionX)
-										{
-											if(getGrid(m, n).matches("[0-9]+"))
-											{
-												return false;
+												if(getGrid(m, n).matches("[0-9]+"))
+												{
+													return false;
+												}
 											}
 										}
 									}

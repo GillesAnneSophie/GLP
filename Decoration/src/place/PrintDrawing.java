@@ -33,15 +33,15 @@ public class PrintDrawing
 		int counterGridI = 0;
 		int counterGridJ = 0;
 
-		for(int i=1 ; i<=735 ; i+=35)
+		for(int i=1 ; i<=735 ; i+=36)
 		{
-			for(int j=1 ; j<=735 ; j+=35)
+			for(int j=1 ; j<=735 ; j+=36)
 			{
 				if(i==1 && j==1)
 				{
 					JLabel xy = new JLabel("Y\\/ X>");
-					xy.setBounds(i, j, 35, 35);
 					xy.setPreferredSize(new Dimension(35, 35));
+					xy.setBounds(i, j, 35, 35);
 					gridPanel.add(xy);
 				}
 				else if(i==1)
@@ -49,8 +49,8 @@ public class PrintDrawing
 					JLabel tmp = new JLabel();
 					tmp.setText(String.valueOf(counterI+1));
 					tabI[counterI] = tmp;
-					tabI[counterI].setBounds(i, j, 35, 35);
 					tabI[counterI].setPreferredSize(new Dimension(35, 35));
+					tabI[counterI].setBounds(i, j, 35, 35);
 					gridPanel.add(tabI[counterI]);
 					
 					counterI++;
@@ -60,8 +60,8 @@ public class PrintDrawing
 					JLabel tmp = new JLabel();
 					tmp.setText(String.valueOf(counterJ+1));
 					tabJ[counterJ] = tmp;
-					tabJ[counterJ].setBounds(i, j, 35, 35);
 					tabJ[counterJ].setPreferredSize(new Dimension(35, 35));
+					tabJ[counterJ].setBounds(i, j, 35, 35);
 					gridPanel.add(tabJ[counterJ]);
 					
 					counterJ++;
@@ -73,6 +73,7 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					JLabel tmp = new JLabel(imageToSet);
 					tabGrid[counterGridI][counterGridJ] = tmp;
+					tabGrid[counterGridI][counterGridJ].setPreferredSize(new Dimension(35, 35));
 					tabGrid[counterGridI][counterGridJ].setBounds(i, j, 35, 35);
 					gridPanel.add(tabGrid[counterGridI][counterGridJ]);
 					
@@ -111,8 +112,8 @@ public class PrintDrawing
 					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
-					tabGrid[i][j].setIcon(imageToSet);
-					tabGrid[i][j].setToolTipText(null);
+					tabGrid[j][i].setIcon(imageToSet);
+					tabGrid[j][i].setToolTipText(null);
 				}
 			/*If there is a $ (Wall) at the current position*/
 				else if(character.equals("$"))
@@ -120,8 +121,8 @@ public class PrintDrawing
 					ImageIcon imageIcon = new ImageIcon("./drawings/wall.png");
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
-					tabGrid[i][j].setIcon(imageToSet);
-					tabGrid[i][j].setToolTipText(null);
+					tabGrid[j][i].setIcon(imageToSet);
+					tabGrid[j][i].setToolTipText(null);
 				}
 			/*If there is a letter (Floor) at the current position*/
 				else if(character.matches("[a-z]"))
@@ -136,11 +137,11 @@ public class PrintDrawing
 					ImageIcon imageIcon = new ImageIcon("./drawings/floor.png");
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
-					tabGrid[i][j].setIcon(imageToSet);
+					tabGrid[j][i].setIcon(imageToSet);
 					
 					Room currentRoom = apartment.getRoom(roomIndex);
 					String currentRoomName = currentRoom.getName();
-					tabGrid[i][j].setToolTipText(roomIndex + " - " + currentRoomName);
+					tabGrid[j][i].setToolTipText(roomIndex + " - " + currentRoomName);
 				}
 			/*If there is a * (Void) at the current position*/
 				else if(character.equals("*"))
@@ -148,7 +149,7 @@ public class PrintDrawing
 					ImageIcon imageIcon = new ImageIcon("./drawings/void.png");
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
-					tabGrid[i][j].setIcon(imageToSet);
+					tabGrid[j][i].setIcon(imageToSet);
 				}
 			}
 		}
@@ -188,23 +189,23 @@ public class PrintDrawing
 			ImageIcon imageIcon = new ImageIcon(path);
 			Image image = imageIcon.getImage().getScaledInstance(35*furnitureWidth, 35*furnitureLength, Image.SCALE_DEFAULT);	
 			ImageIcon imageToSet = new ImageIcon(image);
-			tabGrid[furniturePositionY][furniturePositionX].setIcon(imageToSet);
+			tabGrid[furniturePositionX][furniturePositionY].setSize(35*furnitureWidth, 35*furnitureLength);
+			tabGrid[furniturePositionX][furniturePositionY].setIcon(imageToSet);
 			
-			String currentToolTipText = tabGrid[furniturePositionY][furniturePositionX].getToolTipText();
+//TODO chercher index de la furniture dans la pièce pour mettre dans le toolTip = RemoveFurnitureGUI need aprtment
+			String currentToolTipText = tabGrid[furniturePositionX][furniturePositionY].getToolTipText();
 			String name = furniture.getName();
 			String newToolTipText = currentToolTipText +" / " + name;
-//TODO chercher index de la furniture dans la pièce pour mettre dans le toolTip
-			tabGrid[furniturePositionY][furniturePositionX].setToolTipText(newToolTipText);
-			
+			tabGrid[furniturePositionX][furniturePositionY].setToolTipText(newToolTipText);
+
 			for(int i=furniturePositionY ; i<furniturePositionY+furnitureLength ; i++)
 			{
 				for(int j=furniturePositionX ; j<furniturePositionX+furnitureWidth ; j++)
 				{
 					if(!(j==furniturePositionX && i==furniturePositionY))
 					{
-						tabGrid[i][j].setIcon(null);
-						tabGrid[i][j].setBounds(i, j, 0, 35);
-						tabGrid[i][j].setToolTipText(newToolTipText);
+						tabGrid[j][i].setIcon(null);
+						tabGrid[j][i].setToolTipText(newToolTipText);
 					}
 				}
 			}
