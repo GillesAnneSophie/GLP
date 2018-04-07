@@ -385,9 +385,10 @@ public class Grid
 		return null;
 	}
 	
-//TODO Grid : DEBUG ONLY (a suppr)
+
 	/** 
 	 * Show the current grid (Console)
+	 * Use to debug
 	 * */
 	public void showGrid() 
 	{

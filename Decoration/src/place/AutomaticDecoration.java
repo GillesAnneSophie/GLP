@@ -63,164 +63,170 @@ public class AutomaticDecoration
 		HashMap<Integer, Room> roomsList = apartment.getRoomsList();
 		style = style.toLowerCase();
 		
-		for(int index=0 ; index<roomsList.size() ; index++)
+		int size = roomsList.size();
+		int counter=0;
+		int index=0;
+		while(counter<size)
 		{
-			Room currentRoom = roomsList.get(index);
-			int roomsWidth = currentRoom.getDimension().getWidth();
-			int roomsLength = currentRoom.getDimension().getLength();
-			int positionX = currentRoom.getPosition().getX();
-			int positionY = currentRoom.getPosition().getY();
-			String roomsCategory = currentRoom.getCategory();
-			int furnitureCounter = 0;
-
-			for(int i=positionY ; i<positionY+roomsLength ; i++)
+			if(roomsList.get(index) != null)
 			{
-				for(int j=positionX ; j<positionX+roomsWidth ; j++)
-				{
-					String currentPosition = grid.getGrid(i, j);
-					String furnitureOrientation = null;
+				Room currentRoom = roomsList.get(index);
+				int roomsWidth = currentRoom.getDimension().getWidth();
+				int roomsLength = currentRoom.getDimension().getLength();
+				int positionX = currentRoom.getPosition().getX();
+				int positionY = currentRoom.getPosition().getY();
+				String roomsCategory = currentRoom.getCategory();
+				int furnitureCounter = 0;
 
-					if(j==1)
+				for(int i=positionY ; i<positionY+roomsLength ; i++)
+				{
+					for(int j=positionX ; j<positionX+roomsWidth ; j++)
 					{
-						furnitureOrientation = "west";
-					}
-					else if(j==roomsWidth)
-					{
-						furnitureOrientation = "east";
-					}
-					else if(i==1)
-					{
-						furnitureOrientation = "north";
-					}
-					else if(i==roomsLength)
-					{
-						furnitureOrientation = "south";
-					}
-					
-					if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
-					{
-						if(roomsCategory.equals("Bathroom"))
+						String currentPosition = grid.getGrid(i, j);
+						String furnitureOrientation = null;
+
+						if(j==positionX)
 						{
-							for(int m=furnitureCounter ; m<minimumBathroomFurniture.length ; m++)
-							{
-								String currentFurniture = minimumBathroomFurniture[m];
-								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-								furnitureToAdd.setStyle(style);
-								
-								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
-								{
-									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-									DesignGUI.setStatistics();
-									
-									furnitureCounter++;
-									j++;
-									break;
-								}
-							}
+							furnitureOrientation = "west";
 						}
-						else if(roomsCategory.equals("BedroomOffice"))
+						else if(j==positionX+roomsWidth-1)
 						{
-							for(int m=furnitureCounter ; m<minimumBedroomOfficeFurniture.length ; m++)
-							{
-								String currentFurniture = minimumBedroomOfficeFurniture[m];
-								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-								furnitureToAdd.setStyle(style);
-								
-								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
-								{
-									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-									DesignGUI.setStatistics();
-									
-									furnitureCounter++;
-									j++;
-									break;
-								}
-							}
+							furnitureOrientation = "east";
 						}
-						else if(roomsCategory.equals("DiningRoom"))
+						else if(i==positionY)
 						{
-							for(int m=furnitureCounter ; m<minimumDiningRoomFurniture.length ; m++)
+							furnitureOrientation = "north";
+						}
+						else if(i==positionY+roomsLength-1)
+						{
+							furnitureOrientation = "south";
+						}
+						
+						if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
+						{
+							if(roomsCategory.equals("Bathroom"))
 							{
-								String currentFurniture = minimumDiningRoomFurniture[m];
-								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-								furnitureToAdd.setStyle(style);
-								
-								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								for(int m=furnitureCounter ; m<minimumBathroomFurniture.length ; m++)
 								{
-									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-									DesignGUI.setStatistics();
-									if(currentFurniture.contains("table"))
+									String currentFurniture = minimumBathroomFurniture[m];
+									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
+									
+									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
-										int furnitureLength = furnitureToAdd.getDimension().getLength();
-										int furnitureWidth = furnitureToAdd.getDimension().getWidth();
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
 										
-										for(int p=j-1 ; p<=j+furnitureLength ; p++)
+										furnitureCounter++;
+										j++;
+										break;
+									}
+								}
+							}
+							else if(roomsCategory.equals("BedroomOffice"))
+							{
+								for(int m=furnitureCounter ; m<minimumBedroomOfficeFurniture.length ; m++)
+								{
+									String currentFurniture = minimumBedroomOfficeFurniture[m];
+									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
+									
+									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
+										furnitureCounter++;
+										j++;
+										break;
+									}
+								}
+							}
+							else if(roomsCategory.equals("DiningRoom"))
+							{
+								for(int m=furnitureCounter ; m<minimumDiningRoomFurniture.length ; m++)
+								{
+									String currentFurniture = minimumDiningRoomFurniture[m];
+									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
+									
+									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										if(currentFurniture.contains("table"))
 										{
-											for(int q=i-1 ; q<=i+furnitureWidth ; q++)
+											int furnitureLength = furnitureToAdd.getDimension().getLength();
+											int furnitureWidth = furnitureToAdd.getDimension().getWidth();
+											
+											for(int p=j-1 ; p<=j+furnitureLength ; p++)
 											{
-												if( !((p==j-1 && q==i-1) || (p==j-1 && q==i+furnitureWidth) || (p==j+furnitureLength && q==i-1) || (p==j+furnitureLength && q==i+furnitureWidth)) )
-												{//TODO orientation chaises ?
-													Furniture chair = catalog.getFurniture("chair");
-													currentRoom.addFurniture(chair, q, p, grid);
+												for(int q=i-1 ; q<=i+furnitureWidth ; q++)
+												{
+													if( !((p==j-1 && q==i-1) || (p==j-1 && q==i+furnitureWidth) || (p==j+furnitureLength && q==i-1) || (p==j+furnitureLength && q==i+furnitureWidth)) )
+													{//TODO orientation chaises ?
+														Furniture chair = catalog.getFurniture("chair");
+														currentRoom.addFurniture(chair, q, p, grid);
+													}
 												}
 											}
 										}
+										
+										furnitureCounter++;
+										j++;
+										break;
 									}
-									
-									furnitureCounter++;
-									j++;
-									break;
 								}
 							}
-						}
-						else if(roomsCategory.equals("Kitchen"))
-						{
-							for(int m=furnitureCounter ; m<minimumKitchenFurniture.length ; m++)
+							else if(roomsCategory.equals("Kitchen"))
 							{
-								String currentFurniture = minimumKitchenFurniture[m];
-								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-								furnitureToAdd.setStyle(style);
-								
-								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								for(int m=furnitureCounter ; m<minimumKitchenFurniture.length ; m++)
 								{
-									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-									DesignGUI.setStatistics();
+									String currentFurniture = minimumKitchenFurniture[m];
+									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
-									furnitureCounter++;
-									j++;
-									break;
+									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
+										furnitureCounter++;
+										j++;
+										break;
+									}
 								}
 							}
-						}
-						else if(roomsCategory.equals("LivingRoom"))
-						{
-							for(int m=furnitureCounter ; m<minimumLivingRoomFurniture.length ; m++)
+							else if(roomsCategory.equals("LivingRoom"))
 							{
-								String currentFurniture = minimumLivingRoomFurniture[m];
-								Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-								furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-								furnitureToAdd.setStyle(style);
-								
-								if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+								for(int m=furnitureCounter ; m<minimumLivingRoomFurniture.length ; m++)
 								{
-									PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-									DesignGUI.setStatistics();
+									String currentFurniture = minimumLivingRoomFurniture[m];
+									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+									furnitureToAdd.setStyle(style);
 									
-									furnitureCounter++;
-									j++;
-									break;
+									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									{
+										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										DesignGUI.setStatistics();
+										
+										furnitureCounter++;
+										j++;
+										break;
+									}
 								}
 							}
 						}
 					}
-					
 				}
+				counter++;
 			}
-			
+			index++;
 		}
 
 	}
@@ -237,196 +243,204 @@ public class AutomaticDecoration
 	 */
 	public void moreDecoration(String quantity, String style, Catalog catalog, Apartment apartment, Grid grid, JPanel gridPanel, JLabel tabGrid[][])
 	{
-		if(quantity != null)
+		if(quantity != null && quantity != "Minimalist")
 		{
 			quantity = quantity.toLowerCase();
 			HashMap<Integer, Room> roomsList = apartment.getRoomsList();
 			
-			for(int index=0 ; index<roomsList.size() ; index++)
+			int size = roomsList.size();
+			int counter=0;
+			int index=0;
+			while(counter<size)
 			{
-				Room currentRoom = roomsList.get(index);
-				int roomsWidth = currentRoom.getDimension().getWidth();
-				int roomsLength = currentRoom.getDimension().getLength();
-				int positionX = currentRoom.getPosition().getX();
-				int positionY = currentRoom.getPosition().getY();
-				String roomsCategory = currentRoom.getCategory();
-				int furnitureCounter = 0;
-				int maxCounter = 0;
-
-				for(int i=positionY+roomsLength ; i>positionY ; i--)
+				if(roomsList.get(index) != null)
 				{
-					for(int j=positionX+roomsWidth ; j>positionX ; j--)
-					{
-						String currentPosition = grid.getGrid(i, j);
-						String furnitureOrientation = null;
+					Room currentRoom = roomsList.get(index);
+					int roomsWidth = currentRoom.getDimension().getWidth();
+					int roomsLength = currentRoom.getDimension().getLength();
+					int positionX = currentRoom.getPosition().getX();
+					int positionY = currentRoom.getPosition().getY();
+					String roomsCategory = currentRoom.getCategory();
+					int furnitureCounter = 0;
+					int maxCounter = 0;
 
-						if(j==1)
+					for(int i=positionY+roomsLength ; i>positionY ; i--)
+					{
+						for(int j=positionX+roomsWidth ; j>positionX ; j--)
 						{
-							furnitureOrientation = "west";
-						}
-						else if(j==roomsWidth)
-						{
-							furnitureOrientation = "east";
-						}
-						else if(i==1)
-						{
-							furnitureOrientation = "north";
-						}
-						else if(i==roomsLength)
-						{
-							furnitureOrientation = "south";
-						}
-						
-						if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
-						{
-							if(roomsCategory.equals("Bathroom"))
+							String currentPosition = grid.getGrid(i, j);
+							String furnitureOrientation = null;
+
+							if(j==positionX)
 							{
-								for(int m=furnitureCounter ; m<moreBathroomFurniture.length ; m++)
+								furnitureOrientation = "west";
+							}
+							else if(j==positionX+roomsWidth-1)
+							{
+								furnitureOrientation = "east";
+							}
+							else if(i==positionY)
+							{
+								furnitureOrientation = "north";
+							}
+							else if(i==positionY+roomsLength-1)
+							{
+								furnitureOrientation = "south";
+							}
+							
+							if(currentPosition.matches("[a-z]") && (j==positionX || i==positionY || j==positionX+roomsWidth-1 || i==positionY+roomsLength-1))
+							{
+								if(roomsCategory.equals("Bathroom"))
 								{
-									String currentFurniture = moreBathroomFurniture[m];
-									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-									furnitureToAdd.setStyle(style);
-									
-									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									for(int m=furnitureCounter ; m<moreBathroomFurniture.length ; m++)
 									{
-										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-										DesignGUI.setStatistics();
+										String currentFurniture = moreBathroomFurniture[m];
+										Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+										furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+										furnitureToAdd.setStyle(style);
 										
-										if(quantity.equals("maximalist") && currentFurniture.contains("worktop"))
+										if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 										{
-											for(int f=0 ; f<1 ; f++)
+											PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+											DesignGUI.setStatistics();
+											
+											if(quantity.equals("maximalist") && currentFurniture.contains("worktop"))
 											{
-												j--;
-												currentRoom.addFurniture(furnitureToAdd, j, i, grid);
-												
-												PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-												DesignGUI.setStatistics();
+												for(int f=0 ; f<1 ; f++)
+												{
+													j--;
+													currentRoom.addFurniture(furnitureToAdd, j, i, grid);
+													
+													PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+													DesignGUI.setStatistics();
+												}
 											}
+											furnitureCounter++;
+											j--;
+											break;
 										}
-										furnitureCounter++;
-										j--;
-										break;
 									}
 								}
-							}
-							else if(roomsCategory.equals("BedroomOffice"))
-							{
-								for(int m=furnitureCounter ; m<moreBedroomOfficeFurniture.length ; m++)
+								else if(roomsCategory.equals("BedroomOffice"))
 								{
-									String currentFurniture = moreBedroomOfficeFurniture[m];
-									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-									furnitureToAdd.setStyle(style);
-									
-									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									for(int m=furnitureCounter ; m<moreBedroomOfficeFurniture.length ; m++)
 									{
-										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-										DesignGUI.setStatistics();
+										String currentFurniture = moreBedroomOfficeFurniture[m];
+										Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+										furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+										furnitureToAdd.setStyle(style);
 										
-										furnitureCounter++;
-										j--;
-										break;
-									}
-								}
-							}
-							else if(roomsCategory.equals("DiningRoom"))
-							{
-								for(int m=furnitureCounter ; m<moreDiningRoomFurniture.length ; m++)
-								{
-									String currentFurniture = moreDiningRoomFurniture[m];
-									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-									furnitureToAdd.setStyle(style);
-									
-									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
-									{
-										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-										DesignGUI.setStatistics();
-										
-										furnitureCounter++;
-										j--;
-										break;
-									}
-								}
-							}
-							else if(roomsCategory.equals("Kitchen"))
-							{
-								for(int m=furnitureCounter ; m<moreKitchenFurniture.length ; m++)
-								{
-									String currentFurniture = moreKitchenFurniture[m];
-									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-									furnitureToAdd.setStyle(style);
-									
-									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
-									{
-										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-										DesignGUI.setStatistics();
-										
-										if(quantity.equals("maximalist") && currentFurniture.contains("worktop"))
+										if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 										{
-											for(int f=0 ; f<2 ; f++)
-											{
-												j--;
-												currentRoom.addFurniture(furnitureToAdd, j, i, grid);
-												
-												PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-												DesignGUI.setStatistics();
-											}
+											PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+											DesignGUI.setStatistics();
+											
+											furnitureCounter++;
+											j--;
+											break;
 										}
-										furnitureCounter++;
-										j--;
-										break;
 									}
 								}
-							}
-							else if(roomsCategory.equals("LivingRoom"))
-							{
-								for(int m=furnitureCounter ; m<moreLivingRoomFurniture.length ; m++)
+								else if(roomsCategory.equals("DiningRoom"))
 								{
-									String currentFurniture = moreLivingRoomFurniture[m];
-									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
-									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
-									furnitureToAdd.setStyle(style);
-									
-									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+									for(int m=furnitureCounter ; m<moreDiningRoomFurniture.length ; m++)
 									{
-										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+										String currentFurniture = moreDiningRoomFurniture[m];
+										Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+										furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+										furnitureToAdd.setStyle(style);
+										
+										if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+										{
+											PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+											DesignGUI.setStatistics();
+											
+											furnitureCounter++;
+											j--;
+											break;
+										}
+									}
+								}
+								else if(roomsCategory.equals("Kitchen"))
+								{
+									for(int m=furnitureCounter ; m<moreKitchenFurniture.length ; m++)
+									{
+										String currentFurniture = moreKitchenFurniture[m];
+										Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+										furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+										furnitureToAdd.setStyle(style);
+										
+										if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+										{
+											PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+											DesignGUI.setStatistics();
+											
+											if(quantity.equals("maximalist") && currentFurniture.contains("worktop"))
+											{
+												for(int f=0 ; f<2 ; f++)
+												{
+													j--;
+													currentRoom.addFurniture(furnitureToAdd, j, i, grid);
+													
+													PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+													DesignGUI.setStatistics();
+												}
+											}
+											furnitureCounter++;
+											j--;
+											break;
+										}
+									}
+								}
+								else if(roomsCategory.equals("LivingRoom"))
+								{
+									for(int m=furnitureCounter ; m<moreLivingRoomFurniture.length ; m++)
+									{
+										String currentFurniture = moreLivingRoomFurniture[m];
+										Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
+										furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
+										furnitureToAdd.setStyle(style);
+										
+										if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
+										{
+											PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+											DesignGUI.setStatistics();
+											
+											if(quantity.equals("maximalist"))
+											{
+												Furniture armchair = catalog.getFurniture("armchair");
+												for(int f=0 ; f<2 ; f++)
+												{
+													j--;
+													currentRoom.addFurniture(armchair, j, i, grid);
+													
+													PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
+													DesignGUI.setStatistics();
+												}
+											}
+											furnitureCounter++;
+											j--;
+											break;
+										}
+									}
+									if(quantity.equals("maximalist") && maxCounter<=2)
+									{
+										Furniture armchair = catalog.getFurniture("armchair");
+										armchair.setStyle(style);
+										currentRoom.addFurniture(armchair, j, i, grid);
+										
+										PrintDrawing.printFurniture(armchair, furnitureOrientation, gridPanel, tabGrid);
 										DesignGUI.setStatistics();
 										
-										if(quantity.equals("maximalist"))
-										{
-											Furniture armchair = catalog.getFurniture("armchair");
-											for(int f=0 ; f<2 ; f++)
-											{
-												j--;
-												currentRoom.addFurniture(armchair, j, i, grid);
-												
-												PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
-												DesignGUI.setStatistics();
-											}
-										}
-										furnitureCounter++;
-										j--;
-										break;
+										maxCounter++;
 									}
-								}
-								if(quantity.equals("maximalist") && maxCounter<=2)
-								{
-									Furniture armchair = catalog.getFurniture("armchair");
-									armchair.setStyle(style);
-									currentRoom.addFurniture(armchair, j, i, grid);
-									
-									PrintDrawing.printFurniture(armchair, furnitureOrientation, gridPanel, tabGrid);
-									DesignGUI.setStatistics();
-									
-									maxCounter++;
 								}
 							}
 						}
 					}
+					counter++;
 				}
+				index++;
 			}
 		}
 	}

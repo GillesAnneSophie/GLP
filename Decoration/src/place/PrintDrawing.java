@@ -112,6 +112,7 @@ public class PrintDrawing
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
+					tabGrid[i][j].setToolTipText(null);
 				}
 			/*If there is a $ (Wall) at the current position*/
 				else if(character.equals("$"))
@@ -120,6 +121,7 @@ public class PrintDrawing
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[i][j].setIcon(imageToSet);
+					tabGrid[i][j].setToolTipText(null);
 				}
 			/*If there is a letter (Floor) at the current position*/
 				else if(character.matches("[a-z]"))
@@ -162,11 +164,17 @@ public class PrintDrawing
 	public static void printFurniture(Furniture furniture, String furnitureOrientation, JPanel gridPanel, JLabel tabGrid[][])
 	{
 		String furnitureName = furniture.getName().toLowerCase().replaceAll(" ", "");
+		if(furnitureName.contains("worktop"))
+		{
+			furnitureName = "worktop";
+		}
+		
 		String furnitureStyle = furniture.getStyle();
 		if(furnitureStyle != null)
 		{
 			furnitureStyle = furniture.getStyle().toLowerCase().replaceAll(" ", "");
 		}
+		
 		int furniturePositionX = furniture.getPosition().getX();
 		int furniturePositionY = furniture.getPosition().getY();
 		int furnitureWidth = furniture.getDimension().getWidth();
@@ -182,6 +190,12 @@ public class PrintDrawing
 			ImageIcon imageToSet = new ImageIcon(image);
 			tabGrid[furniturePositionY][furniturePositionX].setIcon(imageToSet);
 			
+			String currentToolTipText = tabGrid[furniturePositionY][furniturePositionX].getToolTipText();
+			String name = furniture.getName();
+			String newToolTipText = currentToolTipText +" / " + name;
+//TODO chercher index de la furniture dans la pièce pour mettre dans le toolTip
+			tabGrid[furniturePositionY][furniturePositionX].setToolTipText(newToolTipText);
+			
 			for(int i=furniturePositionY ; i<furniturePositionY+furnitureLength ; i++)
 			{
 				for(int j=furniturePositionX ; j<furniturePositionX+furnitureWidth ; j++)
@@ -189,6 +203,8 @@ public class PrintDrawing
 					if(!(j==furniturePositionX && i==furniturePositionY))
 					{
 						tabGrid[i][j].setIcon(null);
+						tabGrid[i][j].setBounds(i, j, 0, 35);
+						tabGrid[i][j].setToolTipText(newToolTipText);
 					}
 				}
 			}

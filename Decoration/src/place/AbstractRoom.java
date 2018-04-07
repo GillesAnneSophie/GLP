@@ -213,12 +213,10 @@ public abstract class AbstractRoom
 					}
 				}
 			}
-			grid.showGrid();
 			return true;
 		}
 		else
 		{
-			grid.showGrid();
 			return false;
 		}
 	}

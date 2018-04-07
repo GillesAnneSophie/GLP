@@ -137,8 +137,6 @@ public class Room extends AbstractRoom
 	{
 		grid.removeFurniture(getAllTheFurnitureOfTheRoom().get(index), getAllTheFurnitureOfTheRoom(), apartment.getRoomsList());
 		allTheFurnitureOfTheRoom.remove(index);
-		
-		grid.showGrid();
 	}
 	
 	

@@ -114,9 +114,10 @@ public class AutomaticDecorationGUI extends JFrame
 				{
 					JOptionPane.showMessageDialog(null,"ERROR: there is no room!", "ERROR",JOptionPane.INFORMATION_MESSAGE);
 				}
-				else if(style != null && quantity != null)
+				else if(style != "- Select style -" && quantity != "- Select quantity -")
 				{
 					new AutomaticDecoration(quantity, style, catalog, apartment, grid, gridPanel, tabGrid);
+					dispose();
 				}
 			}
 		});

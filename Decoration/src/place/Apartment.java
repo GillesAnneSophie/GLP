@@ -83,8 +83,6 @@ public class Apartment
 	{
 		grid.removeRoom(roomsList.get(index));
 		roomsList.remove(index);
-		
-		grid.showGrid();
 	}
 	
 	
