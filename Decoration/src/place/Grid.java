@@ -335,24 +335,32 @@ public class Grid
 	 */
 	public int whichFurnitureIsHere(HashMap<Integer, AbstractRoom> allTheFurnitureOfTheRoom, String name, int positionX, int positionY)
 	{
-		for(int numberOfTheFurniture=0 ; numberOfTheFurniture<allTheFurnitureOfTheRoom.size() ; numberOfTheFurniture++)
+		int size = allTheFurnitureOfTheRoom.size();
+		int counter=0;
+		int index=0;
+		while(counter<size)
 		{
-			int furniturePositionX = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getPosition().getX();
-			int furniturePositionY = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getPosition().getY();
-			int furnitureWidth = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getWidth();
-			int furnitureLength = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getDimension().getLength();
-			String furnitureName = allTheFurnitureOfTheRoom.get(numberOfTheFurniture).getName();
-			
-			for(int k=furniturePositionY ; k<furniturePositionY+furnitureLength ; k++)
+			if(allTheFurnitureOfTheRoom.get(index) != null)
 			{
-				for(int l=furniturePositionX ; l<furniturePositionX+furnitureWidth ; l++)
+				int furniturePositionX = allTheFurnitureOfTheRoom.get(index).getPosition().getX();
+				int furniturePositionY = allTheFurnitureOfTheRoom.get(index).getPosition().getY();
+				int furnitureWidth = allTheFurnitureOfTheRoom.get(index).getDimension().getWidth();
+				int furnitureLength = allTheFurnitureOfTheRoom.get(index).getDimension().getLength();
+				String furnitureName = allTheFurnitureOfTheRoom.get(index).getName();
+				
+				for(int k=furniturePositionY ; k<furniturePositionY+furnitureLength ; k++)
 				{
-					if(k==positionX && l==positionY && furnitureName!=name)
+					for(int l=furniturePositionX ; l<furniturePositionX+furnitureWidth ; l++)
 					{
-						return numberOfTheFurniture;
+						if(k==positionX && l==positionY && furnitureName!=name)
+						{
+							return index;
+						}
 					}
 				}
+				counter++;
 			}
+			index++;
 		}
 		return -1;
 	}

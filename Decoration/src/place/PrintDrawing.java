@@ -114,6 +114,7 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
 					tabGrid[j][i].setToolTipText(null);
+					tabGrid[j][i].setSize(35, 35);
 				}
 			/*If there is a $ (Wall) at the current position*/
 				else if(character.equals("$"))
@@ -123,6 +124,7 @@ public class PrintDrawing
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
 					tabGrid[j][i].setToolTipText(null);
+					tabGrid[j][i].setSize(35, 35);
 				}
 			/*If there is a letter (Floor) at the current position*/
 				else if(character.matches("[a-z]"))
@@ -142,6 +144,7 @@ public class PrintDrawing
 					Room currentRoom = apartment.getRoom(roomIndex);
 					String currentRoomName = currentRoom.getName();
 					tabGrid[j][i].setToolTipText(roomIndex + " - " + currentRoomName);
+					tabGrid[j][i].setSize(35, 35);
 				}
 			/*If there is a * (Void) at the current position*/
 				else if(character.equals("*"))
@@ -150,6 +153,7 @@ public class PrintDrawing
 					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
+					tabGrid[j][i].setSize(35, 35);
 				}
 			}
 		}
@@ -173,7 +177,7 @@ public class PrintDrawing
 		String furnitureStyle = furniture.getStyle();
 		if(furnitureStyle != null)
 		{
-			furnitureStyle = furniture.getStyle().toLowerCase().replaceAll(" ", "");
+			furnitureStyle = furnitureStyle.toLowerCase().replaceAll(" ", "");
 		}
 		
 		int furniturePositionX = furniture.getPosition().getX();

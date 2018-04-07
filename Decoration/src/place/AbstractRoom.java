@@ -165,47 +165,50 @@ public abstract class AbstractRoom
 					{
 						for(int n=positionX-1 ; n<positionX+thisWidth+1 ; n++)
 						{
-							if(thisWidth>1)
+							if(m>=0 && n>=0)
 							{
-								if(n==positionX)
+								if(thisWidth>1)
 								{
-									if(grid.getGrid(m, n).matches("[a-z]"))
+									if(n==positionX)
 									{
-										grid.setGrid(m, n, "*");
+										if(grid.getGrid(m, n).matches("[a-z]"))
+										{
+											grid.setGrid(m, n, "*");
+										}
+									}
+									else if(n==(positionX-1)+thisWidth)
+									{
+										if(grid.getGrid(m, n).matches("[a-z]"))
+										{
+											grid.setGrid(m, n, "*");
+										}
 									}
 								}
-								else if(n==(positionX-1)+thisWidth)
+								else if(thisLength>1)
 								{
-									if(grid.getGrid(m, n).matches("[a-z]"))
+									if(m==positionY)
 									{
-										grid.setGrid(m, n, "*");
+										if(grid.getGrid(m, n).matches("[a-z]"))
+										{
+											grid.setGrid(m, n, "*");
+										}
+									}
+									else if(m==(positionY-1)+thisLength)
+									{
+										if(grid.getGrid(m, n).matches("[a-z]"))
+										{
+											grid.setGrid(m, n, "*");
+										}
 									}
 								}
-							}
-							else if(thisLength>1)
-							{
-								if(m==positionY)
+								else
 								{
-									if(grid.getGrid(m, n).matches("[a-z]"))
+									if(m==positionY || n==positionX)
 									{
-										grid.setGrid(m, n, "*");
-									}
-								}
-								else if(m==(positionY-1)+thisLength)
-								{
-									if(grid.getGrid(m, n).matches("[a-z]"))
-									{
-										grid.setGrid(m, n, "*");
-									}
-								}
-							}
-							else
-							{
-								if(m==positionY || n==positionX)
-								{
-									if(grid.getGrid(m, n).matches("[a-z]"))
-									{
-										grid.setGrid(m, n, "*");
+										if(grid.getGrid(m, n).matches("[a-z]"))
+										{
+											grid.setGrid(m, n, "*");
+										}
 									}
 								}
 							}

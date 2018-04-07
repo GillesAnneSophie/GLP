@@ -169,7 +169,12 @@ public class AutomaticDecoration
 													if( !((p==j-1 && q==i-1) || (p==j-1 && q==i+furnitureWidth) || (p==j+furnitureLength && q==i-1) || (p==j+furnitureLength && q==i+furnitureWidth)) )
 													{//TODO orientation chaises ?
 														Furniture chair = catalog.getFurniture("chair");
-														currentRoom.addFurniture(chair, q, p, grid);
+														chair.setStyle(style);
+														if(currentRoom.addFurniture(chair, q, p, grid))
+														{
+															PrintDrawing.printFurniture(chair, furnitureOrientation, gridPanel, tabGrid);
+															DesignGUI.setStatistics();
+														}
 													}
 												}
 											}
@@ -209,7 +214,7 @@ public class AutomaticDecoration
 									Furniture furnitureToAdd = catalog.getFurniture(currentFurniture);
 									furnitureToAdd.changeFurnitureOrientation(furnitureOrientation);
 									furnitureToAdd.setStyle(style);
-								System.err.println();
+
 									if(furnitureToAdd != null && currentRoom.addFurniture(furnitureToAdd, j, i, grid))
 									{
 										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);

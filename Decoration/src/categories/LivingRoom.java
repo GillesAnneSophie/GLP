@@ -17,6 +17,6 @@ public class LivingRoom extends Category
 	@Override
 	public String toString ()
 	{	
-		return "LivingRoomn";
+		return "LivingRoom";
 	}
 }

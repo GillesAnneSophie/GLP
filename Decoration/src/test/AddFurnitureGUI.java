@@ -203,6 +203,12 @@ public class AddFurnitureGUI extends JFrame {
 					{
 						PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
 						DesignGUI.setStatistics();
+						
+						if(furnitureToAdd.getName().contains("door"))
+						{
+							PrintDrawing.updateRooms(apartment, grid, gridPanel, tabGrid);
+						}
+						
 						dispose();
 					}
 				}

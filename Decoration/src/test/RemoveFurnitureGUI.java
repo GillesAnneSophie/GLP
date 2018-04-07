@@ -98,7 +98,7 @@ public class RemoveFurnitureGUI extends JFrame {
 		lblChooseTheFurniture.setBounds(23, 89, 182, 15);
 		contentPane.add(lblChooseTheFurniture);
 	
-		comboBoxFurniture.setBounds(256, 85, 191, 22);
+		comboBoxFurniture.setBounds(256, 85, 179, 22);
 		comboBoxFurniture.addItem("-- Select a room first --");
 		contentPane.add(comboBoxFurniture);
 	
@@ -106,7 +106,6 @@ public class RemoveFurnitureGUI extends JFrame {
 		comboBoxRoom.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				comboBoxFurniture.removeAll();
 				comboBoxFurniture.removeAllItems();
 				comboBoxFurniture.addItem("-- Select a room first --");
 				
