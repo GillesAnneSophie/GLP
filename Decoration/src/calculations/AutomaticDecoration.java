@@ -1,15 +1,19 @@
 /**
  * 
  */
-package place;
+package calculations;
 
 import java.util.HashMap;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import GUI.DesignGUI;
+import GUI.PrintDrawing;
 import catalog.*;
-import test.DesignGUI;
+import place.Apartment;
+import place.Grid;
+import place.Room;
 
 
 /**

@@ -1,16 +1,17 @@
-package test;
+package GUI;
 
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import calculations.Statistics;
+
 import java.awt.*;
 import java.awt.event.*;
 
 import catalog.Catalog;
-import place.Statistics;
 import place.Apartment;
 import place.Grid;
-import place.PrintDrawing;
 
 
 /**

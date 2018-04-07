@@ -1,9 +1,11 @@
 /**
  * 
  */
-package place;
+package calculations;
 
 import java.util.HashMap;
+
+import place.Room;
 
 
 /**

@@ -1,4 +1,4 @@
-package test;
+package GUI;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;

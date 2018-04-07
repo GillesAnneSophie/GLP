@@ -1,7 +1,7 @@
 /**
  * 
  */
-package place;
+package GUI;
 
 import java.awt.Dimension;
 import java.awt.Image;
@@ -10,6 +10,9 @@ import java.io.File;
 import javax.swing.*;
 
 import catalog.Furniture;
+import place.Apartment;
+import place.Grid;
+import place.Room;
 
 
 /**

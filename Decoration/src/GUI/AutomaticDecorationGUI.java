@@ -1,10 +1,14 @@
 /**
  * 
  */
-package test;
+package GUI;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import calculations.AutomaticDecoration;
+import calculations.Statistics;
+
 import java.awt.EventQueue;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -12,9 +16,7 @@ import java.awt.event.ActionListener;
 
 import catalog.Catalog;
 import place.Apartment;
-import place.AutomaticDecoration;
 import place.Grid;
-import place.Statistics;
 
 
 /**
