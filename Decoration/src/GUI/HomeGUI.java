@@ -8,9 +8,9 @@ import java.awt.event.*;
 
 
 /**
- * @author ZOUHOUDI Chabani
- * @author GILLES Anne-Sophie
  * @author CORALIE Laury Ann
+ * @author GILLES Anne-Sophie
+ * @author ZOUHOUDI Chabani
  */
 
 

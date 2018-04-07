@@ -201,7 +201,6 @@ public class PrintDrawing
 			tabGrid[furniturePositionX][furniturePositionY].setSize(caseSize*furnitureWidth, caseSize*furnitureLength);
 			tabGrid[furniturePositionX][furniturePositionY].setIcon(imageToSet);
 			
-//TODO chercher index de la furniture dans la pièce pour mettre dans le toolTip = RemoveFurnitureGUI need aprtment
 			String currentToolTipText = tabGrid[furniturePositionX][furniturePositionY].getToolTipText();
 			String name = furniture.getName();
 			String newToolTipText = currentToolTipText +" / " + name;
