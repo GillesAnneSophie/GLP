@@ -68,20 +68,21 @@ public class DesignGUI extends JFrame {
 	 */
 	public DesignGUI() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setPreferredSize(new Dimension(814, 700));
-		setBounds(500, 40, 814, 700);
+		setPreferredSize(new Dimension(1130, 700));
+		setBounds(500, 40, 1130, 700);
 		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+	/*GridPanel*/
 		gridPanel.setBackground(new Color(100, 149, 237));
-		gridPanel.setPreferredSize(new Dimension(860, 780));
+		gridPanel.setPreferredSize(new Dimension(1085, 1085));
 	
 	/*ScrollPane*/
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setPreferredSize(new Dimension(790, 590));
-		scrollPane.setBounds(5, 5, 790, 590);
+		scrollPane.setPreferredSize(new Dimension(1104, 590));
+		scrollPane.setBounds(5, 5, 1104, 590);
 		contentPane.add(scrollPane);
 
 	/*Grid configuration*/
@@ -112,7 +113,7 @@ public class DesignGUI extends JFrame {
 		horizontalStrut.setPreferredSize(new Dimension(60, 15));
 		
 		statisticsPanel.setPreferredSize(new Dimension(600, 27));
-		statisticsPanel.setBounds(98, 599, 600, 27);
+		statisticsPanel.setBounds(241, 600, 600, 27);
 		statisticsPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 		statisticsPanel.add(lblNumberOfRoom);
 		statisticsPanel.add(roomCounter);

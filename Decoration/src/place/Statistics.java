@@ -31,14 +31,19 @@ public class Statistics
 	 * */
 	public static int numberOfFurniture(HashMap<Integer, Room> roomsList)
 	{
-		int counter = 0;
-		for(int i=0 ; i<roomsList.size() ; i++)
+		int furnitureCounter = 0;
+		int size = roomsList.size();
+		int counter=0;
+		int index=0;
+		while(counter<size)
 		{
-			if(roomsList.get(i) != null)
+			if(roomsList.get(index) != null)
 			{
-				counter+=roomsList.get(i).getAllTheFurnitureOfTheRoom().size();
+				furnitureCounter+=roomsList.get(index).getAllTheFurnitureOfTheRoom().size();
+				counter++;
 			}
+			index++;
 		}
-		return counter;
+		return furnitureCounter;
 	}
 }

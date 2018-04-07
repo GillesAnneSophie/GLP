@@ -157,19 +157,41 @@ public class AutomaticDecoration
 									{
 										PrintDrawing.printFurniture(furnitureToAdd, furnitureOrientation, gridPanel, tabGrid);
 										DesignGUI.setStatistics();
-										if(currentFurniture.contains("table"))
+										
+										if(furnitureToAdd.getName().contains("table"))
 										{
+											int furniturePositionX = furnitureToAdd.getPosition().getX();
+											int furniturePositionY = furnitureToAdd.getPosition().getY();
 											int furnitureLength = furnitureToAdd.getDimension().getLength();
 											int furnitureWidth = furnitureToAdd.getDimension().getWidth();
 											
-											for(int p=j-1 ; p<=j+furnitureLength ; p++)
+											for(int p=furniturePositionY-1 ; p<=furniturePositionY+furnitureLength ; p++)
 											{
-												for(int q=i-1 ; q<=i+furnitureWidth ; q++)
+												for(int q=furniturePositionX-1 ; q<=furniturePositionX+furnitureWidth ; q++)
 												{
-													if( !((p==j-1 && q==i-1) || (p==j-1 && q==i+furnitureWidth) || (p==j+furnitureLength && q==i-1) || (p==j+furnitureLength && q==i+furnitureWidth)) )
-													{//TODO orientation chaises ?
+													if( !((p==furniturePositionY-1 && q==furniturePositionX-1) || (p==furniturePositionY-1 && q==furniturePositionX+furnitureWidth) || (p==furniturePositionY+furnitureLength && q==furniturePositionX-1) || (p==furniturePositionY+furnitureLength && q==furniturePositionX+furnitureWidth)) )
+													{
 														Furniture chair = catalog.getFurniture("chair");
 														chair.setStyle(style);
+														
+														if(q==furniturePositionX-1)
+														{
+															furnitureOrientation = "west";
+														}
+														else if(q==furniturePositionX+furnitureWidth)
+														{
+															furnitureOrientation = "east";
+														}
+														else if(p==furniturePositionY-1)
+														{
+															furnitureOrientation = "north";
+														}
+														else if(p==furniturePositionY+furnitureLength)
+														{
+															furnitureOrientation = "south";
+														}
+														chair.changeFurnitureOrientation(furnitureOrientation);
+														
 														if(currentRoom.addFurniture(chair, q, p, grid))
 														{
 															PrintDrawing.printFurniture(chair, furnitureOrientation, gridPanel, tabGrid);

@@ -19,6 +19,8 @@ import catalog.Furniture;
 
 public class PrintDrawing 
 {
+	private static int caseSize = 50;
+	
 	/**
 	 * Print the default grid (empty)
 	 * @param gridPanel
@@ -33,15 +35,15 @@ public class PrintDrawing
 		int counterGridI = 0;
 		int counterGridJ = 0;
 
-		for(int i=1 ; i<=735 ; i+=36)
+		for(int i=1 ; i<=(caseSize*21) ; i+=caseSize+1)
 		{
-			for(int j=1 ; j<=735 ; j+=36)
+			for(int j=1 ; j<=(caseSize*21) ; j+=caseSize+1)
 			{
 				if(i==1 && j==1)
 				{
 					JLabel xy = new JLabel("Y\\/ X>");
-					xy.setPreferredSize(new Dimension(35, 35));
-					xy.setBounds(i, j, 35, 35);
+					xy.setPreferredSize(new Dimension(caseSize, caseSize));
+					xy.setBounds(i, j, caseSize, caseSize);
 					gridPanel.add(xy);
 				}
 				else if(i==1)
@@ -49,8 +51,8 @@ public class PrintDrawing
 					JLabel tmp = new JLabel();
 					tmp.setText(String.valueOf(counterI+1));
 					tabI[counterI] = tmp;
-					tabI[counterI].setPreferredSize(new Dimension(35, 35));
-					tabI[counterI].setBounds(i, j, 35, 35);
+					tabI[counterI].setPreferredSize(new Dimension(caseSize, caseSize));
+					tabI[counterI].setBounds(i, j, caseSize, caseSize);
 					gridPanel.add(tabI[counterI]);
 					
 					counterI++;
@@ -60,8 +62,8 @@ public class PrintDrawing
 					JLabel tmp = new JLabel();
 					tmp.setText(String.valueOf(counterJ+1));
 					tabJ[counterJ] = tmp;
-					tabJ[counterJ].setPreferredSize(new Dimension(35, 35));
-					tabJ[counterJ].setBounds(i, j, 35, 35);
+					tabJ[counterJ].setPreferredSize(new Dimension(caseSize, caseSize));
+					tabJ[counterJ].setBounds(i, j, caseSize, caseSize);
 					gridPanel.add(tabJ[counterJ]);
 					
 					counterJ++;
@@ -69,12 +71,12 @@ public class PrintDrawing
 				else
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
-					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					Image image = imageIcon.getImage().getScaledInstance(caseSize, caseSize, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					JLabel tmp = new JLabel(imageToSet);
 					tabGrid[counterGridI][counterGridJ] = tmp;
-					tabGrid[counterGridI][counterGridJ].setPreferredSize(new Dimension(35, 35));
-					tabGrid[counterGridI][counterGridJ].setBounds(i, j, 35, 35);
+					tabGrid[counterGridI][counterGridJ].setPreferredSize(new Dimension(caseSize, caseSize));
+					tabGrid[counterGridI][counterGridJ].setBounds(i, j, caseSize, caseSize);
 					gridPanel.add(tabGrid[counterGridI][counterGridJ]);
 					
 					counterGridJ++;
@@ -110,21 +112,21 @@ public class PrintDrawing
 				if(character.equals("#"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/empty.png");
-					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					Image image = imageIcon.getImage().getScaledInstance(caseSize, caseSize, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
 					tabGrid[j][i].setToolTipText(null);
-					tabGrid[j][i].setSize(35, 35);
+					tabGrid[j][i].setSize(caseSize, caseSize);
 				}
 			/*If there is a $ (Wall) at the current position*/
 				else if(character.equals("$"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/wall.png");
-					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					Image image = imageIcon.getImage().getScaledInstance(caseSize, caseSize, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
 					tabGrid[j][i].setToolTipText(null);
-					tabGrid[j][i].setSize(35, 35);
+					tabGrid[j][i].setSize(caseSize, caseSize);
 				}
 			/*If there is a letter (Floor) at the current position*/
 				else if(character.matches("[a-z]"))
@@ -137,23 +139,23 @@ public class PrintDrawing
 						roomIndex = roomIndex+thisIndex;
 					}
 					ImageIcon imageIcon = new ImageIcon("./drawings/floor.png");
-					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					Image image = imageIcon.getImage().getScaledInstance(caseSize, caseSize, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
 					
 					Room currentRoom = apartment.getRoom(roomIndex);
 					String currentRoomName = currentRoom.getName();
 					tabGrid[j][i].setToolTipText(roomIndex + " - " + currentRoomName);
-					tabGrid[j][i].setSize(35, 35);
+					tabGrid[j][i].setSize(caseSize, caseSize);
 				}
 			/*If there is a * (Void) at the current position*/
 				else if(character.equals("*"))
 				{
 					ImageIcon imageIcon = new ImageIcon("./drawings/void.png");
-					Image image = imageIcon.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT);
+					Image image = imageIcon.getImage().getScaledInstance(caseSize, caseSize, Image.SCALE_DEFAULT);
 					ImageIcon imageToSet = new ImageIcon(image);
 					tabGrid[j][i].setIcon(imageToSet);
-					tabGrid[j][i].setSize(35, 35);
+					tabGrid[j][i].setSize(caseSize, caseSize);
 				}
 			}
 		}
@@ -191,9 +193,9 @@ public class PrintDrawing
 		if(path != null)
 		{
 			ImageIcon imageIcon = new ImageIcon(path);
-			Image image = imageIcon.getImage().getScaledInstance(35*furnitureWidth, 35*furnitureLength, Image.SCALE_DEFAULT);	
+			Image image = imageIcon.getImage().getScaledInstance(caseSize*furnitureWidth, caseSize*furnitureLength, Image.SCALE_DEFAULT);	
 			ImageIcon imageToSet = new ImageIcon(image);
-			tabGrid[furniturePositionX][furniturePositionY].setSize(35*furnitureWidth, 35*furnitureLength);
+			tabGrid[furniturePositionX][furniturePositionY].setSize(caseSize*furnitureWidth, caseSize*furnitureLength);
 			tabGrid[furniturePositionX][furniturePositionY].setIcon(imageToSet);
 			
 //TODO chercher index de la furniture dans la pièce pour mettre dans le toolTip = RemoveFurnitureGUI need aprtment
